@@ -2,33 +2,11 @@ import React from "react";
 import "./styles.scss";
 import "./contact.scss";
 import {useForm, ValidationError} from "@formspree/react";
-import SubmitModal from "../components/SubmitModal";
 import Footer from "../components/Footer";
 import TextField from "@mui/material/TextField";
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("xkneyzbr");
-
-  if (state.succeeded) {
-    return (
-      <main className="page-content">
-        <div className="contact-title-holder">
-          <p className="contact-title">Get In Touch</p>
-        </div>
-
-        <SubmitModal />
-
-        <div className="submit-contact-body">
-          <p>
-            To get in contact, email Dani at genericpronoun@gmail.com, or fill
-            out this contact form.
-          </p>
-        </div>
-
-        <Footer />
-      </main>
-    );
-  }
 
   return (
     <main className="page-content">

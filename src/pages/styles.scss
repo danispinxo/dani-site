@@ -1,6 +1,29 @@
 @import "variables.scss";
 
 .index-bio {
-  margin: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 10%;
+  margin-right: 10%;
   font-family: $round-font;
+
+  .author-photo {
+    margin: 3rem;
+    width: 30%;
+  }
+
+  .bio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .bio-heading {
+      font-family: $typewriter-font;
+    }
+  }
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
 }

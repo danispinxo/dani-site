@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Dani Site`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.genericpronoun.com`,
   },
-  plugins: ["gatsby-plugin-sass"]
+  plugins: ["gatsby-plugin-sass"],
 };
