@@ -1,0 +1,35 @@
+@import "../pages/variables.scss";
+
+.publication-component {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: dashed;
+
+  .icon {
+    font-size: xx-large;
+    margin: 1rem;
+  }
+
+  .publication-info {
+    font-family: $round-font;
+
+    .publication-title {
+      font-size: medium;
+    }
+
+    .publication-press {
+      font-size: small;
+    }
+
+    .publication-notes {
+      font-size: smaller;
+    }
+    .publication-date {
+      font-size: x-small;
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+.page-content {
+  margin: 5%;
+
+  .title {
+    font-family: $typewriter-font;
+  }
+
+  .subtitle {
+    font-family: $typewriter-font;
+    font-size: larger;
+  }
+
+  .heading {
+    font-family: $round-font;
+    font-weight: 900;
+    font-size: large;
+  }
+
+  p {
+    font-family: $round-font;
+  }
+}
+
+.bullet-list {
+  list-style: "⌲ ";
+  font-weight: 400;
+}

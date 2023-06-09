@@ -1,0 +1,37 @@
+@import "../pages/variables.scss";
+
+.book-component {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 1rem;
+  padding: 1rem;
+  border: dashed;
+  border-width: 1px;
+
+  .book-cover {
+    height: 10rem;
+    margin: 1rem;
+  }
+
+  .book-info {
+    font-family: $round-font;
+
+    .book-title {
+      font-style: italic;
+    }
+
+    .icon {
+      margin-right: 3px;
+    }
+
+    .book-notes {
+      font-size: small;
+    }
+
+    .book-date {
+      font-size: x-small;
+      text-align: right;
+    }
+  }
+}
