@@ -3,6 +3,8 @@
 .book-component {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  text-align: end;
   width: 80%;
   margin: 1rem;
   padding: 1rem;

@@ -13,7 +13,7 @@ export default function CreativeWriting() {
       <p className="subtitle">Current Book Project</p>
       <Book
         cover="/images/ariadne.jpeg"
-        title="Whispery Galleries"
+        title="Whispering Galleries"
         date="In progress"
         notes="Canada Council for the Arts Research and Creation Grant"
       />
@@ -35,9 +35,8 @@ export default function CreativeWriting() {
         for the people who are going to be totally blown away by Spinosa and
         Siklosi's conversation, having never read anything quite like that
         before. This book is a real gift to vispo, its fans and present and
-        future practitioners.”
+        future practitioners.”{" "}
         <strong>
-          {" "}
           Helen Hajnoczky, <em>A Teacozy Is a Sometimes</em>
         </strong>
         <br />
@@ -68,8 +67,8 @@ export default function CreativeWriting() {
         names that should be included; and hopefully, in part through Spinosa's
         work, a list of names that will no longer be overlooked.”{" "}
         <strong>rob mclennan</strong>
-        <br />
-        <br />
+      </p>
+      <p>
         “Because the glosa, which builds a highly structured rhyming poem around
         a seed quatrain from a source text, is firmly rooted in the lyric,
         Spinosa has to find other ways to both quote and write through or around
@@ -135,9 +134,9 @@ export default function CreativeWriting() {
           .” <em>Canadian Literature,</em> 1 September 2021.
         </li>
         <li>
-          Heisler, Eva. “Dani Spinosa, Typewriters, Desire, Comm
+          Heisler, Eva. “
           <a href="https://www.asymptotejournal.com/visual/typewriters-desire-community-dani-spinosa/">
-            unity
+            Dani Spinosa, Typewriters, Desire, Community
           </a>
           .” <em>Asympote. </em>Article and interview.
         </li>
@@ -246,6 +245,7 @@ export default function CreativeWriting() {
         link="http://abovegroundpress.blogspot.com/2020/06/new-from-aboveground-press-civilization.html"
       />
       <Book
+        cover="/images/Antigone.jpg"
         title="Centre Folds"
         press="Happy Monks Press (pamphlet)"
         date="2020"
@@ -280,7 +280,7 @@ export default function CreativeWriting() {
         press="no press"
         date="2017"
         linkType="visit"
-        link="https://derekbeaulieu.wordpress.com/2017/06/07/new-from-no-press-glosas-for-tired-eyes-by-dani-spinosa/"
+        link="/images/spinosa-glosas-for-tired-eyes-2017.pdf"
       />
 
       <p className="subtitle">Poetry in Anthologies or Journals</p>
@@ -414,9 +414,9 @@ export default function CreativeWriting() {
         <li>
           <a>
             “Mirella Bentivoglio,” “Ruth Wolf-Rehfeldt,” “Eric Schmaltz,” “Franz
-            Mon,” “Nico Vassilakis.” <em>Touch the Donkey, </em>iss. 18, July
+            Mon,” “Nico Vassilakis.”
           </a>{" "}
-          2018
+          <em>Touch the Donkey, </em>iss. 18, July 2018
         </li>
         <li>
           “
@@ -483,8 +483,8 @@ export default function CreativeWriting() {
         </li>
 
         <li>
-          “<a href="http://screencanadianelit.ca/betical/">Betical</a>” (digital
-          poem installation), co-authored with Jon Orsi, <em>=SUM(things)</em>,
+          “<a href="https://betical.digital/">Betical</a>” (digital poem
+          installation), co-authored with Jon Orsi, <em>=SUM(things)</em>,
           University of Waterloo Critical Media Lab annual symposium, 7 April
           2017
         </li>

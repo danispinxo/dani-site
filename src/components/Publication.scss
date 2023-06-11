@@ -3,6 +3,8 @@
 .publication-component {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  text-align: end;
   width: 80%;
   margin: 0.5rem;
   padding: 0.5rem;

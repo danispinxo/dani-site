@@ -3,12 +3,9 @@ import "./styles.scss";
 
 export default function DigitalProjects() {
   return (
-    <article
-      id="post-319"
-      class="post-319 page type-page status-publish hentry entry"
-    >
-      <h1>Digital Projects</h1>
-    </article>
+    <main className="page-content">
+      <h1 className="title">Digital Writing</h1>
+    </main>
   );
 }
 
