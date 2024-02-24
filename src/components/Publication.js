@@ -8,16 +8,27 @@ import {
   faComment,
   faCommentSlash,
   faLinkSlash,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import "./Publication.scss";
 
 const determineIcon = (type) => {
-  if (type === "shop") return faCartShopping;
-  if (type === "link") return faLink;
-  if (type === "read") return faBook;
-  if (type === "talk") return faComment;
-  if (type === "no-talk") return faCommentSlash;
-  if (type === "no-link") return faLinkSlash;
+  switch (type) {
+    case "shop":
+      return faCartShopping
+    case "link":
+      return faLink
+    case "read":
+      return faBook
+    case "talk":
+      return faComment
+    case "no-talk":
+      return faCommentSlash
+    case "no-link":
+      return faLinkSlash
+    default:
+      return faStar
+  }
 };
 
 export default function Publication({
@@ -39,10 +50,10 @@ export default function Publication({
           target="_blank"
           rel="noreferrer noopener"
         >
-          <FontAwesomeIcon icon={determineIcon(linkType)} />
+          <FontAwesomeIcon icon={determineIcon(linkType)} title={title}/>
         </a>
       ) : (
-        <FontAwesomeIcon className="icon" icon={determineIcon(linkType)} />
+        <FontAwesomeIcon className="icon" icon={determineIcon(linkType)} title={title}/>
       )}
 
       <div className="publication-info">

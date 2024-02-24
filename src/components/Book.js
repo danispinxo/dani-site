@@ -9,9 +9,14 @@ import {
 import "./Book.scss";
 
 const determineIcon = (type) => {
-  if (type === "sale") return faCartShopping;
-  if (type === "visit") return faBookOpenReader;
-  if (type === "listen") return faHeadphones;
+  switch (type) {
+    case "sale":
+      return faCartShopping
+    case "visit":
+      return faBookOpenReader
+    case "listen":
+      return faHeadphones
+  }
 };
 
 export default function Book({
@@ -25,7 +30,7 @@ export default function Book({
 }) {
   return (
     <div className="book-component">
-      <Image className="book-cover" src={cover} />
+      <Image className="book-cover" src={cover} alt={title} title={title}/>
       <div className="book-info">
         <h5 className="book-title">{title}</h5>
         {link && (
