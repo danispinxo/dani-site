@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import Button from '@mui/material/Button';
 import { fonts, lines } from "./form/constants";
 
 export default function Form() {
@@ -27,15 +27,17 @@ export default function Form() {
       </p>
     );
 
-    setPoemLines((prevLines) => [...prevLines, lineElement]);
+    setPoemLines((prevLines) => [lineElement, ...prevLines]);
   };
 
   return (
     <main className="page-content">
       <h1 className="title">Form</h1>
       <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
-      <Button onClick={buttonClickHandler}>{buttonText}</Button>
+      <Button variant="outlined" onClick={buttonClickHandler}>{buttonText}</Button>
       <div id="poem-placeholder">{poemLines}</div>
     </main>
   );
 }
+
+export {Head} from "./index";

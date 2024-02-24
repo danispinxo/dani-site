@@ -1,6 +1,9 @@
 {
   "name": "dani-site",
   "version": "1.0.0",
+    "engines": {
+    "node": "21.6.2"
+  },
   "private": true,
   "description": "dani-site",
   "author": "Dani Spinosa",
@@ -15,25 +18,25 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
-    "@formspree/react": "^2.4.1",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@formspree/react": "^2.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "^5.13.1",
-    "bootstrap": "^5.2.3",
-    "eslint": "^8.42.0",
-    "eslint-plugin-react": "^7.32.2",
-    "gatsby": "^5.10.0",
-    "gatsby-plugin-sass": "^6.10.0",
-    "node": "^20.2.0",
+    "@mui/material": "^5.15.11",
+    "bootstrap": "^5.3.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.33.2",
+    "gatsby": "^5.13.3",
+    "gatsby-plugin-sass": "^6.13.1",
+    "node": "^21.6.2",
     "normalize.css": "^8.0.1",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.4",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.2",
-    "rsuite": "^5.33.1",
-    "sass": "^1.62.1"
+    "react-router-dom": "^6.22.1",
+    "rsuite": "^5.54.0",
+    "sass": "^1.71.1"
   }
 }
