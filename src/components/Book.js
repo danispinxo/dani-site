@@ -13,7 +13,7 @@ const determineIcon = (type) => {
   }
 };
 
-export default function Book({ cover, title, press, date, notes, linkType, link }) {
+const Book = ({ cover, title, press, date, notes, linkType, link }) => {
   return (
     <div className="book-component">
       <Image className="book-cover" src={cover} alt={title} title={title} />
@@ -30,4 +30,6 @@ export default function Book({ cover, title, press, date, notes, linkType, link 
       </div>
     </div>
   );
-}
+};
+
+export default Book;

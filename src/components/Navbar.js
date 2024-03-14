@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap';
 
 const TopNavbar = () => {

@@ -1,58 +1,36 @@
-import * as React from "react";
-import Image from "react-bootstrap/Image";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {
-  faCartShopping,
-  faLink,
-  faBook,
-  faComment,
-  faCommentSlash,
-  faLinkSlash,
-  faStar
-} from "@fortawesome/free-solid-svg-icons";
+import Image from 'react-bootstrap/Image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping, faLink, faBook, faComment, faCommentSlash, faLinkSlash, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const determineIcon = (type) => {
   switch (type) {
-    case "shop":
-      return faCartShopping
-    case "link":
-      return faLink
-    case "read":
-      return faBook
-    case "talk":
-      return faComment
-    case "no-talk":
-      return faCommentSlash
-    case "no-link":
-      return faLinkSlash
+    case 'shop':
+      return faCartShopping;
+    case 'link':
+      return faLink;
+    case 'read':
+      return faBook;
+    case 'talk':
+      return faComment;
+    case 'no-talk':
+      return faCommentSlash;
+    case 'no-link':
+      return faLinkSlash;
     default:
-      return faStar
+      return faStar;
   }
 };
 
-export default function Publication({
-  title,
-  publication,
-  press,
-  date,
-  notes,
-  linkType,
-  link,
-}) {
-  const pressLine = press ? `, ${press}` : "";
+const Publication = ({ title, publication, press, date, notes, linkType, link }) => {
+  const pressLine = press ? `, ${press}` : '';
   return (
     <div className="publication-component">
       {link ? (
-        <a
-          className="icon"
-          href={link}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <FontAwesomeIcon icon={determineIcon(linkType)} title={title}/>
+        <a className="icon" href={link} target="_blank" rel="noreferrer noopener">
+          <FontAwesomeIcon icon={determineIcon(linkType)} title={title} />
         </a>
       ) : (
-        <FontAwesomeIcon className="icon" icon={determineIcon(linkType)} title={title}/>
+        <FontAwesomeIcon className="icon" icon={determineIcon(linkType)} title={title} />
       )}
 
       <div className="publication-info">
@@ -66,4 +44,6 @@ export default function Publication({
       </div>
     </div>
   );
-}
+};
+
+export default Publication;
