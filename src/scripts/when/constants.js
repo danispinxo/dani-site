@@ -19,7 +19,9 @@ export const lights = [
   'lovers',
   'spirales',
   'crash',
+  'island',
 ];
+
 export const went = [
   'went',
   'blinked',
@@ -39,7 +41,9 @@ export const went = [
   'switched',
   'wept',
   'se sont',
+  'ascended',
 ];
+
 export const wordOut = [
   'out',
   'dark',
@@ -57,7 +61,9 @@ export const wordOut = [
   'on',
   'onward',
   'accélérées',
+  'the sky',
 ];
+
 export const before = [
   'before',
   'while',
@@ -73,7 +79,9 @@ export const before = [
   'under',
   'benumbed',
   'au même moment que',
+  'expanded',
 ];
+
 export const darkness = [
   'darkness',
   'weight',
@@ -95,7 +103,9 @@ export const darkness = [
   'radiance',
   'time',
   'accident',
+  'its inner light',
 ];
+
 export const turnedOn = [
   'turned on',
   'changed',
@@ -115,7 +125,9 @@ export const turnedOn = [
   'left',
   'slowed',
   'excited',
+  'stood on',
 ];
+
 export const uncheckedLove = [
   'unchecked love',
   'collections',
@@ -137,7 +149,9 @@ export const uncheckedLove = [
   'endless listlessness',
   'passion assumée',
   'wildchilding voyage',
+  'dialectical way',
 ];
+
 export const dandelions = [
   'dandelions',
   'pillows',
@@ -158,7 +172,9 @@ export const dandelions = [
   'every hour',
   'caresses',
   'discovery',
+  'being',
 ];
+
 export const uncheckedLoveTwo = [
   'unchecked love',
   'union dues',
@@ -179,7 +195,9 @@ export const uncheckedLoveTwo = [
   'endless lingering',
   'unsatisfied greed',
   'sequined escapade',
+  'fear',
 ];
+
 export const darknessTwo = [
   'darkness',
   'fire',
@@ -200,7 +218,9 @@ export const darknessTwo = [
   'wistful',
   'other',
   'night',
+  'spores',
 ];
+
 export const eternalImmanence = [
   'eternal immanence',
   'Catholic guilt',
@@ -221,7 +241,9 @@ export const eternalImmanence = [
   'immediate initiate',
   'suspended self',
   'faster-faster',
+  'nexus of Saturnalia',
 ];
+
 export const considered = [
   'considered',
   'absorbed',
@@ -243,7 +265,9 @@ export const considered = [
   'farted',
   'doubted',
   'accelerated',
+  'traced their progress',
 ];
+
 export const alive = [
   'alive',
   'green',
@@ -264,7 +288,9 @@ export const alive = [
   'alight',
   'growing',
   'fluttering',
+  'chipping',
 ];
+
 export const lurking = [
   'lurking',
   'breathing',
@@ -286,7 +312,9 @@ export const lurking = [
   'looking',
   'smiling',
   'explusive',
+  'breaking the rot',
 ];
+
 export const light = [
   'light',
   'pond',
@@ -308,7 +336,9 @@ export const light = [
   'lantern',
   'vast void',
   'dawn',
+  'pith',
 ];
+
 export const darkHairedStranger = [
   'dark-haired stranger',
   'potted plants',
@@ -330,7 +360,9 @@ export const darkHairedStranger = [
   'light-hearted friend',
   'yellow bird',
   'schoolhall assembly',
+  'spirits',
 ];
+
 export const greeted = [
   'greeted',
   'watered',
@@ -351,7 +383,9 @@ export const greeted = [
   'granted',
   'helped',
   'erupted',
+  'waltzed',
 ];
+
 export const mutteredFrenchAndGerman = [
   'muttered French and German',
   'tired',
@@ -372,7 +406,9 @@ export const mutteredFrenchAndGerman = [
   'buttered French toast and liquid',
   'eccentric',
   'solidarity',
+  'murmured dialects and secrets and',
 ];
+
 export const knittedUsBlankets = [
   'knitted us blankets',
   'gave us boxes',
@@ -393,7 +429,9 @@ export const knittedUsBlankets = [
   'nipped their blank pages',
   'ont lancé des pierres',
   'raised their fists',
+  'spun us a myth',
 ];
+
 export const kidHair = [
   'kid hair',
   'ghost peppers',
@@ -415,7 +453,9 @@ export const kidHair = [
   'woolly sentences',
   'dead insects',
   'I-withstood-it-so-should-you',
+  'ignorance',
 ];
+
 export const blanketed = [
   'blanketed',
   'washed',
@@ -436,7 +476,9 @@ export const blanketed = [
   'blanked',
   'scratched',
   'shuttered',
+  'coated',
 ];
+
 export const blankness = [
   'blankness',
   'dreams',
@@ -458,6 +500,7 @@ export const blankness = [
   'blanketness',
   'skins',
   'choices',
+  'floor',
 ];
 
 export const contributors = [
@@ -481,4 +524,5 @@ export const contributors = [
   'Eric Schmaltz',
   'Andrée-Anne Roussel',
   'Elee Kraljii Gardiner',
+  'Ellen Chang-Richardson',
 ];
