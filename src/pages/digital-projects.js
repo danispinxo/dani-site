@@ -15,5 +15,3 @@ export default function DigitalProjects() {
     </main>
   );
 }
-
-export { Head } from './index';

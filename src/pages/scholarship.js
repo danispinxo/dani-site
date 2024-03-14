@@ -287,5 +287,3 @@ export default function Scholarship() {
     </main>
   );
 }
-
-export { Head } from './index';

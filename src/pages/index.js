@@ -29,18 +29,3 @@ export default function Homepage() {
     </Layout>
   );
 }
-
-export const Head = () => {
-  return (
-    <>
-      <meta name="description" content="Personal website for digital humanities scholar, web developer, and poet" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Special+Elite&family=Varela+Round&display=swap"
-        rel="stylesheet"
-      />
-      <title>Dani Spinosa</title>
-    </>
-  );
-};

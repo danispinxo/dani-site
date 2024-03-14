@@ -32,5 +32,3 @@ export default function Contact() {
     </main>
   );
 }
-
-export { Head } from './index';

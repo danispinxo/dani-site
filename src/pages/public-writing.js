@@ -136,5 +136,3 @@ export default function PublicWriting() {
     </main>
   );
 }
-
-export { Head } from './index';

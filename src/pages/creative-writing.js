@@ -392,5 +392,3 @@ export default function CreativeWriting() {
     </main>
   );
 }
-
-export { Head } from './index';

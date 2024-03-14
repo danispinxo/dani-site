@@ -41,5 +41,3 @@ export default const Form = () => {
     </main>
   );
 }
-
-export { Head } from './index';

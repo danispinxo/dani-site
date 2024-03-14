@@ -65,5 +65,3 @@ export default function When() {
     </main>
   );
 }
-
-export { Head } from './index';

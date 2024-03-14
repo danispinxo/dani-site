@@ -76,5 +76,3 @@ export default function Teaching() {
     </main>
   );
 }
-
-export { Head } from './index';
