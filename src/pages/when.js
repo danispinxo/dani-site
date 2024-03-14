@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   lineOne,
   lineTwo,
@@ -27,15 +27,13 @@ import {
   lineTwentyFive,
   lineTwentySix,
   lineTwentySeven,
-} from "./when/lines.js";
+} from './when/lines.js';
 
 export default function When() {
   return (
     <main className="page-content">
       <h1 className="title">When</h1>
-      <p className="subtitle">
-        Poem by Andy Weaver, Programming by Dani Spinosa
-      </p>
+      <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
 
       <p>{lineOne()}</p>
       <p>{lineTwo()}</p>
@@ -68,4 +66,4 @@ export default function When() {
   );
 }
 
-export {Head} from "./index";
+export { Head } from './index';

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export default function DigitalProjects() {
   return (
@@ -16,4 +16,4 @@ export default function DigitalProjects() {
   );
 }
 
-export {Head} from "./index";
+export { Head } from './index';

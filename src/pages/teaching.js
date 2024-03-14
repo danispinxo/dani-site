@@ -11,22 +11,15 @@ export default function Teaching() {
       <ul className="bullet-list">
         <li>
           ENGL4307H: Digital Adventures in English (2 sections) (Nominee,{' '}
-          <a href="https://showcase.trentonlineblog.ca/uncategorized/dani-spinosa-english/">
-            Award for Excellence in Online Teaching
-          </a>
-          , Trent University)
+          <a href="https://showcase.trentonlineblog.ca/uncategorized/dani-spinosa-english/">Award for Excellence in Online Teaching</a>,
+          Trent University)
         </li>
       </ul>
 
       <p className="heading">York University</p>
       <ul className="bullet-list">
-        <li>
-          EN2240 6.0: Introduction to Postcolonial Literature (4 sections)
-        </li>
-        <li>
-          EN4181 6.0: Studies in Contemporary Literature: Writers and Drugs (4
-          sections)
-        </li>
+        <li>EN2240 6.0: Introduction to Postcolonial Literature (4 sections)</li>
+        <li>EN4181 6.0: Studies in Contemporary Literature: Writers and Drugs (4 sections)</li>
         <li>EN4000 3.0: Studies in Literary Theory: Cultural Studies</li>
         <li>EN2260 6.0: Introduction to World Literature (3 sections)</li>
         <li>EN3350 3.0: Harlem Renaissance</li>
@@ -74,18 +67,11 @@ export default function Teaching() {
 
       <p className="subtitle">Other Instructor Experience</p>
       <ul className="bullet-list">
-        <li>
-          Private Tutor: ESL Language Skills (Undergraduate &amp; Graduate
-          Students)
-        </li>
+        <li>Private Tutor: ESL Language Skills (Undergraduate &amp; Graduate Students)</li>
 
-        <li>
-          TACT (Teaching Assistant Certificate in Teaching); SEDA Accreditation
-        </li>
+        <li>TACT (Teaching Assistant Certificate in Teaching); SEDA Accreditation</li>
 
-        <li>
-          Private Tutor: Reading, Writing, &amp;c (Grades 6-Undergraduate)
-        </li>
+        <li>Private Tutor: Reading, Writing, &amp;c (Grades 6-Undergraduate)</li>
       </ul>
     </main>
   );
