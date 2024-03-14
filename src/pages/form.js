@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { fonts, lines } from './form/constants';
+import TopNavbar from '../components/Navbar';
 
-export default const Form = () => {
+export default function Form() {
   const [buttonText, setButtonText] = useState('Add another line!');
   const [poemLines, setPoemLines] = useState([]);
 
@@ -31,13 +32,16 @@ export default const Form = () => {
   };
 
   return (
-    <main className="page-content">
-      <h1 className="title">Form</h1>
-      <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
-      <Button variant="outlined" onClick={buttonClickHandler}>
-        {buttonText}
-      </Button>
-      <div id="poem-placeholder">{poemLines}</div>
-    </main>
+    <>
+      <TopNavbar />
+      <main className="page-content">
+        <h1 className="title">Form</h1>
+        <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
+        <Button variant="outlined" onClick={buttonClickHandler}>
+          {buttonText}
+        </Button>
+        <div id="poem-placeholder">{poemLines}</div>
+      </main>
+    </>
   );
 }

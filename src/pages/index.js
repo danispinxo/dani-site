@@ -1,12 +1,13 @@
 import React from 'react';
 import ImageGallery from '../components/ImageGallery';
-import Layout from './Layout';
+import TopNavbar from '../components/Navbar';
 import Image from 'react-bootstrap/Image';
 import 'normalize.css';
 
 export default function Homepage() {
   return (
-    <Layout>
+    <>
+      <TopNavbar />
       <main>
         <div className="index-bio">
           <Image className="author-photo" src={'/images/author-photo.jpg'} rounded />
@@ -26,6 +27,6 @@ export default function Homepage() {
           <ImageGallery />
         </div>
       </main>
-    </Layout>
+    </>
   );
 }
