@@ -1,8 +1,5 @@
-import * as React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import * as React from 'react';
+import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap';
 
 function TopNavbar() {
   return (
@@ -23,24 +20,14 @@ function TopNavbar() {
             <Nav.Link className="navbar-link" href="/teaching">
               Teaching
             </Nav.Link>
-            <NavDropdown
-              className="navbar-link"
-              title="Writing"
-              id="collasible-nav-dropdown"
-            >
+            <NavDropdown className="navbar-link" title="Writing" id="collasible-nav-dropdown">
               <NavDropdown.Item className="navbar-link" href="/public-writing">
                 Public Writing
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-link"
-                href="/creative-writing"
-              >
+              <NavDropdown.Item className="navbar-link" href="/creative-writing">
                 Creative Writing
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-link"
-                href="/digital-projects"
-              >
+              <NavDropdown.Item className="navbar-link" href="/digital-projects">
                 Digital Projects
               </NavDropdown.Item>
             </NavDropdown>
