@@ -1,7 +1,6 @@
 import ImageGallery from '../components/ImageGallery';
 import TopNavbar from '../components/Navbar';
 import Image from 'react-bootstrap/Image';
-import 'normalize.css';
 
 export default function Homepage() {
   return (
