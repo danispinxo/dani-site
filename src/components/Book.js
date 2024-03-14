@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faBookOpenReader, faHeadphones } from '@fortawesome/free-solid-svg-icons';

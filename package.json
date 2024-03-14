@@ -32,5 +32,8 @@
     "react-router-dom": "^6.22.1",
     "rsuite": "^5.54.0",
     "sass": "^1.71.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
   }
 }
