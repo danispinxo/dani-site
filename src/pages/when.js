@@ -27,7 +27,7 @@ import {
   lineTwentyFive,
   lineTwentySix,
   lineTwentySeven,
-} from './when/lines.js';
+} from '../scripts/when/lines.js';
 
 export default function When() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-import { fonts, lines } from './form/constants';
+import { fonts, lines } from '../scripts/form/constants';
 import TopNavbar from '../components/Navbar';
 
 export default function Form() {
