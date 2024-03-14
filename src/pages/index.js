@@ -1,4 +1,3 @@
-import React from 'react';
 import ImageGallery from '../components/ImageGallery';
 import TopNavbar from '../components/Navbar';
 import Image from 'react-bootstrap/Image';
