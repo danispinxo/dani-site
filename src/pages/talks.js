@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./list-pages.scss";
 import Publication from "../components/Publication";
 import Footer from "../components/Footer";
 

@@ -1,12 +1,10 @@
-import React from "react";
-import "./styles.scss";
-import "./contact.scss";
-import {useForm, ValidationError} from "@formspree/react";
-import Footer from "../components/Footer";
-import TextField from "@mui/material/TextField";
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import Footer from '../components/Footer';
+import TextField from '@mui/material/TextField';
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm("xkneyzbr");
+  const [state, handleSubmit] = useForm('xkneyzbr');
 
   return (
     <main className="page-content">
@@ -16,7 +14,7 @@ export default function Contact() {
 
       <div className="contact-body">
         <div className="contact-form">
-          <form onSubmit={handleSubmit} style={{display: "block"}}>
+          <form onSubmit={handleSubmit} style={{ display: 'block' }}>
             <TextField
               className="input"
               id="standard-basic"
@@ -68,4 +66,4 @@ export default function Contact() {
   );
 }
 
-export {Head} from "./index";
+export { Head } from './index';

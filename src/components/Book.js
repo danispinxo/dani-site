@@ -6,7 +6,6 @@ import {
   faBookOpenReader,
   faHeadphones,
 } from "@fortawesome/free-solid-svg-icons";
-import "./Book.scss";
 
 const determineIcon = (type) => {
   switch (type) {

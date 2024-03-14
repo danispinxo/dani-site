@@ -1,6 +1,4 @@
-import * as React from "react";
-import "./styles.scss";
-import "./list-pages.scss";
+import * as React from 'react';
 
 export default function Teaching() {
   return (
@@ -12,7 +10,7 @@ export default function Teaching() {
       <p className="heading">Trent University</p>
       <ul className="bullet-list">
         <li>
-          ENGL4307H: Digital Adventures in English (2 sections) (Nominee,{" "}
+          ENGL4307H: Digital Adventures in English (2 sections) (Nominee,{' '}
           <a href="https://showcase.trentonlineblog.ca/uncategorized/dani-spinosa-english/">
             Award for Excellence in Online Teaching
           </a>
@@ -93,4 +91,4 @@ export default function Teaching() {
   );
 }
 
-export {Head} from "./index";
+export { Head } from './index';

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import './styles.scss'
-import { Link } from 'gatsby'
+import Link from 'next/link'
 
 const NotFoundPage = () => {
   return (
@@ -12,7 +11,7 @@ const NotFoundPage = () => {
             Sorry! It looks like the page you are trying to visit doesn&apos;t exist.
           </h2>
           <h4 className='about-me-text'>
-            <Link to="/">Go home</Link>.
+            <Link href="/">Go home</Link>.
           </h4>
         </div>
       </div>

@@ -1,6 +1,4 @@
 import * as React from "react";
-import "./styles.scss";
-import "./list-pages.scss";
 import Book from "../components/Book";
 import Publication from "../components/Publication";
 import Footer from "../components/Footer";

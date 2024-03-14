@@ -10,7 +10,6 @@ import {
   faLinkSlash,
   faStar
 } from "@fortawesome/free-solid-svg-icons";
-import "./Publication.scss";
 
 const determineIcon = (type) => {
   switch (type) {

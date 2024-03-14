@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../pages/styles.scss'
 import PropTypes from 'prop-types'
 import ModalUnstyled from '@mui/material/Modal'
 
