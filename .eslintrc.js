@@ -4,5 +4,5 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['eslint:recommended', 'plugin:next/recommended'],
-  plugins: ['next'],
+  plugins: ['@next/next'],
 };
