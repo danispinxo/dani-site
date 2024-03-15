@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { fonts, lines } from '../scripts/form/constants';
 import TopNavbar from '../components/Navbar';
 
-export default function Form() {
+const Form = () => {
   const [buttonText, setButtonText] = useState('Add another line!');
   const [poemLines, setPoemLines] = useState([]);
 
@@ -44,4 +44,6 @@ export default function Form() {
       </main>
     </>
   );
-}
+};
+
+export default Form;

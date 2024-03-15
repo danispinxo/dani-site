@@ -3,7 +3,7 @@ import TopNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TextField from '@mui/material/TextField';
 
-export default function Contact() {
+const Contact = () => {
   const [state, handleSubmit] = useForm('xkneyzbr');
 
   return (
@@ -34,4 +34,6 @@ export default function Contact() {
       </main>
     </>
   );
-}
+};
+
+export default Contact;

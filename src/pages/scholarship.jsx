@@ -3,7 +3,7 @@ import Book from '../components/Book';
 import Publication from '../components/Publication';
 import Footer from '../components/Footer';
 
-export default function Scholarship() {
+const Scholarship = () => {
   return (
     <>
       <TopNavbar />
@@ -289,4 +289,6 @@ export default function Scholarship() {
       </main>
     </>
   );
-}
+};
+
+export default Scholarship;

@@ -4,7 +4,7 @@ import Publication from '../components/Publication';
 import TopNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-export default function CreativeWriting() {
+const CreativeWriting = () => {
   return (
     <>
       <TopNavbar />
@@ -395,4 +395,6 @@ export default function CreativeWriting() {
       </main>
     </>
   );
-}
+};
+
+export default CreativeWriting;

@@ -1,6 +1,6 @@
 import TopNavbar from '../components/Navbar';
 
-export default function Teaching() {
+const Teaching = () => {
   return (
     <>
       <TopNavbar />
@@ -78,4 +78,6 @@ export default function Teaching() {
       </main>
     </>
   );
-}
+};
+
+export default Teaching;

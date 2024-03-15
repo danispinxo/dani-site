@@ -30,7 +30,7 @@ import {
   lineTwentySeven,
 } from '../scripts/when/lines.js';
 
-export default function When() {
+const When = () => {
   const [lines, setLines] = useState([]);
 
   useEffect(() => {
@@ -78,4 +78,6 @@ export default function When() {
       </main>
     </>
   );
-}
+};
+
+export default When;

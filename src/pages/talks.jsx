@@ -2,7 +2,7 @@ import TopNavbar from '../components/Navbar';
 import Publication from '../components/Publication';
 import Footer from '../components/Footer';
 
-export default function Talks() {
+const Talks = () => {
   return (
     <>
       <TopNavbar />
@@ -264,4 +264,6 @@ export default function Talks() {
       </main>
     </>
   );
-}
+};
+
+export default Talks;

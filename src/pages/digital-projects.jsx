@@ -1,6 +1,6 @@
 import TopNavbar from '../components/Navbar';
 
-export default function DigitalProjects() {
+const DigitalProjects = () => {
   return (
     <>
       <TopNavbar />
@@ -17,4 +17,6 @@ export default function DigitalProjects() {
       </main>
     </>
   );
-}
+};
+
+export default DigitalProjects;
