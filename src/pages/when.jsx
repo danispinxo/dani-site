@@ -73,7 +73,9 @@ const When = () => {
         <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
 
         {lines.map((line, index) => (
-          <p key={index}>{line}</p>
+          <p key={index} className="when-line">
+            {line}
+          </p>
         ))}
       </main>
     </>

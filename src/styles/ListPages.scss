@@ -21,6 +21,11 @@
   p {
     font-family: $round-font;
   }
+
+  .when-line {
+    padding-left: 40px;
+    text-indent: -40px;
+  }
 }
 
 .bullet-list {
