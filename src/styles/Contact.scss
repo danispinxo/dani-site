@@ -1,1 +1,40 @@
 @import 'variables.scss';
+
+.page-content {
+  margin: 5%;
+
+  .contact-title {
+    font-size: x-large;
+    font-family: $typewriter-font;
+  }
+
+  .contact-body {
+    margin-left: 2.5rem;
+    width: 50%;
+
+    .contact-message {
+      font-family: $round-font;
+      font-weight: 900;
+      font-size: large;
+    }
+
+    .input {
+      margin: 1rem;
+    }
+
+    .form-submit-btn {
+      font-family: $typewriter-font;
+      background-color: #4c4c4c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: #4c4c4c 0.3s;
+
+      &:hover {
+        background-color: #666;
+      }
+    }
+  }
+}
