@@ -7,6 +7,19 @@
     font-family: $typewriter-font;
   }
 
+  .list-item {
+    a {
+      font-family: $round-font;
+      color: darkred;
+      text-decoration: none;
+
+      &:hover {
+        color: darkred;
+        text-decoration: none;
+      }
+    }
+  }
+
   .subtitle {
     font-family: $typewriter-font;
     font-size: larger;

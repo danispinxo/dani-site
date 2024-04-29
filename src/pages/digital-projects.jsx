@@ -6,12 +6,12 @@ const DigitalProjects = () => {
       <TopNavbar />
       <main className="page-content">
         <h1 className="title">Digital Writing</h1>
-        <ul>
-          <li>
-            <a href="/when">"When"</a>
+        <ul className="bullet-list">
+          <li className="list-item">
+            <a href="/when">When</a>
           </li>
-          <li>
-            <a href="/form">"Form"</a>
+          <li className="list-item">
+            <a href="/form">Form</a>
           </li>
         </ul>
       </main>
