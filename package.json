@@ -31,6 +31,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
     "react-router-dom": "^6.22.1",
     "rsuite": "^5.54.0",
     "sass": "^1.71.1"
