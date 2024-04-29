@@ -17,7 +17,7 @@ export default function Homepage() {
               author of two books:
               <i> OO: Typewriter Poems</i> (Invisible Publishing, 2020) and
               <i>Anarchists in the Academy</i> (U of Alberta Press, 2018). She has published several chapbooks of poetry and several more
-              peer-reviewed journal articles on poetry. She lives in Tkaronto/Toronto.
+              peer-reviewed journal articles on poetry. She lives in beautiful Wasaga Beach, Ontario.
             </p>
           </div>
         </div>
