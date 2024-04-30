@@ -172,6 +172,14 @@ const CreativeWriting = () => {
 
         <p className="subtitle">Chapbooks</p>
         <Book
+          cover="/images/make-it-a-habit.jpeg"
+          title="Make it a Habit Each Night (with Gary Barwin)"
+          press="The Blasted Tree"
+          date="2023"
+          linkType="sale"
+          link="https://www.theblastedtree.com/store/make-it-a-habit-each-night"
+        />
+        <Book
           cover="/images/delta-cover.png"
           title="Delta Sequence"
           press="Model Press"
