@@ -13,6 +13,9 @@ const DigitalProjects = () => {
           <li className="list-item">
             <a href="/form">Form</a>
           </li>
+          <li className="list-item">
+            <a href="/all-you-hold">All You Hold</a>
+          </li>
         </ul>
       </main>
     </>
