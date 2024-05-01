@@ -1,19 +1,9 @@
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-
-const srcset = (image, size, rows = 1, cols = 1) => {
-  return {
-    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop`,
-    srcSet: `${image}?w=${size * cols}&h=${size * rows}&fit=crop`,
-  };
-};
+import Carousel from 'react-material-ui-carousel';
 
 const itemData = [
   {
     img: '/images/gap-riot-table.jpg',
     title: 'Gap Riot Table',
-    rows: 2,
-    cols: 2,
   },
   {
     img: '/images/gap-riot-books.png',
@@ -26,8 +16,6 @@ const itemData = [
   {
     img: '/images/guest-cover.jpg',
     title: 'Guest Cover',
-    rows: 2,
-    cols: 2,
   },
   {
     img: '/images/glosas-1.jpg',
@@ -58,8 +46,6 @@ const itemData = [
   {
     img: '/images/talk-flyer.jpg',
     title: 'Design Talk Flyer',
-    rows: 2,
-    cols: 2,
   },
   {
     img: '/images/oo-cover.jpg',
@@ -76,7 +62,6 @@ const itemData = [
   {
     img: '/images/kate-launch.jpg',
     title: "Launch of Kate Siklosi's Selvage",
-    rows: 2,
   },
   {
     img: '/images/keynote-2.jpg',
@@ -102,13 +87,11 @@ const itemData = [
 
 const ImageGallery = () => {
   return (
-    <ImageList sx={{ width: 600, height: 400 }} variant="quilted" cols={6} rowHeight={100}>
+    <Carousel>
       {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img {...srcset(item.img, 100, item.rows, item.cols)} alt={item.title} loading="lazy" />
-        </ImageListItem>
+        <img src={item.img} alt={item.title} width={300} />
       ))}
-    </ImageList>
+    </Carousel>
   );
 };
 
