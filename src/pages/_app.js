@@ -1,4 +1,5 @@
-import App from 'next/app';
+import App from 'react';
+import Head from 'next/head';
 import 'normalize.css';
 import '../styles/styles.scss';
 import '../styles/Navbar.scss';
@@ -8,6 +9,23 @@ import '../styles/ListPages.scss';
 import '../styles/Publication.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Special+Elite&family=Varela+Round&display=swap"
+          rel="stylesheet"
+        />
+        <title>Dani Spinosa: Poet Dev && Dev Poet</title>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
+}
 
 export default MyApp;
