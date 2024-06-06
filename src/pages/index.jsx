@@ -1,4 +1,4 @@
-import ImageGallery from '../components/ImageGallery';
+import Gallery from '../components/ImageGallery';
 import TopNavbar from '../components/Navbar';
 import Image from 'react-bootstrap/Image';
 
@@ -22,7 +22,7 @@ export default function Homepage() {
           </div>
         </div>
         <div className="image-gallery">
-          <ImageGallery />
+          <Gallery />
         </div>
       </main>
     </>
