@@ -16,7 +16,7 @@ const PoemGenerator = () => {
 
   useEffect(() => {
     updatePoem();
-    const intervalId = setInterval(updatePoem, 1500);
+    const intervalId = setInterval(updatePoem, 4000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -26,8 +26,8 @@ const PoemGenerator = () => {
       <TopNavbar />
       <main className="page-content">
         <h1 className="title">All You Hold</h1>
-        <p className="when-line">
-          When all you hold is a {firstBlank}, everything looks like a {secondBlank}
+        <p className="hold-line">
+          When all you hold is a {firstBlank}, everything looks like a {secondBlank}.
         </p>
       </main>
     </>

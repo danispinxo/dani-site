@@ -73,16 +73,18 @@ const When = () => {
     <>
       <TopNavbar />
       <main className="page-content">
-        <h1 className="title">When</h1>
-        <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa, with lexicon contributions from</p>
-        <Marquee pauseOnHover={true} direction={'left'} speed={30} gradient={true}>
-          <p className="subtitle">{marqueeContent} </p>
-        </Marquee>
-        {lines.map((line, index) => (
-          <p key={index} className="when-line">
-            {line}
-          </p>
-        ))}
+        <div className="text">
+          <h1 className="title">When</h1>
+          <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa, with lexicon contributions from</p>
+          <Marquee pauseOnHover={true} direction={'left'} speed={30} gradient={true}>
+            <p className="subtitle">{marqueeContent} </p>
+          </Marquee>
+          {lines.map((line, index) => (
+            <p key={index} className="when-line">
+              {line}
+            </p>
+          ))}
+        </div>
       </main>
     </>
   );

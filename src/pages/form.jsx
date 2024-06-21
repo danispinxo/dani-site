@@ -35,12 +35,14 @@ const Form = () => {
     <>
       <TopNavbar />
       <main className="page-content">
-        <h1 className="title">Form</h1>
-        <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
-        <Button variant="outlined" onClick={buttonClickHandler}>
-          {buttonText}
-        </Button>
-        <div id="poem-placeholder">{poemLines}</div>
+        <div className="text">
+          <h1 className="title">Form</h1>
+          <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
+          <Button variant="outlined" onClick={buttonClickHandler}>
+            {buttonText}
+          </Button>
+          <div id="poem-placeholder">{poemLines}</div>
+        </div>
       </main>
     </>
   );

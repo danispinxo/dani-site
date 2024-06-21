@@ -1,10 +1,15 @@
 @import 'variables.scss';
 
 .page-content {
-  margin: 5%;
+  margin: 2rem;
 
   .title {
     font-family: $typewriter-font;
+  }
+
+  .text {
+    margin: 1rem;
+    width: 80%;
   }
 
   .list-item {
@@ -38,6 +43,12 @@
   .when-line {
     padding-left: 40px;
     text-indent: -40px;
+  }
+
+  .hold-line {
+    padding-left: 1.5rem;
+    font-size: x-large;
+    font-family: $serif-font;
   }
 }
 
