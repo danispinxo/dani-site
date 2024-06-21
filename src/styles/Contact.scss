@@ -1,7 +1,8 @@
 @import 'variables.scss';
 
 .page-content {
-  margin: 5%;
+  margin-left: 5%;
+  width: 100%;
 
   .contact-title {
     font-size: x-large;
@@ -22,6 +23,21 @@
       margin: 1rem;
     }
 
+    .contact-form {
+      @include xs {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      @include sm {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
     .form-submit-btn {
       font-family: $typewriter-font;
       background-color: #4c4c4c;
