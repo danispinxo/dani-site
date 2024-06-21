@@ -1,92 +1,92 @@
-import ImageGallery from 'react-image-gallery';
+import { Gallery } from 'react-grid-gallery';
 
-const itemData = [
+const images = [
   {
-    original: '/images/gap-riot-table.jpg',
-    title: 'Gap Riot Table',
+    src: '/images/gap-riot-table.jpg',
+    alt: 'Gap Riot Table',
   },
   {
-    original: '/images/gap-riot-books.png',
-    title: 'Gap Riot Books',
+    src: '/images/gap-riot-books.png',
+    alt: 'Gap Riot Books',
   },
   {
-    original: '/images/fertile-fest-claren.jpg',
-    title: 'Fertile Fest with Claren',
+    src: '/images/fertile-fest-claren.jpg',
+    alt: 'Fertile Fest with Claren',
   },
   {
-    original: '/images/guest-cover.jpg',
-    title: 'Guest Cover',
+    src: '/images/guest-cover.jpg',
+    alt: 'Guest Cover',
   },
   {
-    original: '/images/glosas-1.jpg',
-    title: 'Glosas v.1 Cover',
+    src: '/images/glosas-1.jpg',
+    alt: 'Glosas v.1 Cover',
   },
   {
-    original: '/images/reading-b-and-w.jpg',
-    title: 'Reading Black and White',
+    src: '/images/reading-b-and-w.jpg',
+    alt: 'Reading Black and White',
     author: 'Jesse Pajuäär',
   },
   {
-    original: '/images/gap-riot-logo.jpg',
-    title: 'Gap Riot Logo',
+    src: '/images/gap-riot-logo.jpg',
+    alt: 'Gap Riot Logo',
     author: 'Stace Schmidt McLean',
   },
   {
-    original: '/images/fertile-fest-isla.jpg',
-    title: 'Fertile Fest with Isla',
+    src: '/images/fertile-fest-isla.jpg',
+    alt: 'Fertile Fest with Isla',
   },
   {
-    original: '/images/vispo-cover.jpg',
-    title: 'Cover of Visual Poetry for Women',
+    src: '/images/vispo-cover.jpg',
+    alt: 'Cover of Visual Poetry for Women',
   },
   {
-    original: '/images/h-of-a-night.jpg',
-    title: 'H of a Night Reading',
+    src: '/images/h-of-a-night.jpg',
+    alt: 'H of a Night Reading',
   },
   {
-    original: '/images/talk-flyer.jpg',
-    title: 'Design Talk Flyer',
+    src: '/images/talk-flyer.jpg',
+    alt: 'Design Talk Flyer',
   },
   {
-    original: '/images/oo-cover.jpg',
-    title: 'OO Cover',
+    src: '/images/oo-cover.jpg',
+    alt: 'OO Cover',
   },
   {
-    original: '/images/gap-riot-mic.jpg',
-    title: 'Gap Riot Introduction',
+    src: '/images/gap-riot-mic.jpg',
+    alt: 'Gap Riot Introduction',
   },
   {
-    original: '/images/lost-launches.jpg',
-    title: 'Reading at Lost Launches Art Bar',
+    src: '/images/lost-launches.jpg',
+    alt: 'Reading at Lost Launches Art Bar',
   },
   {
-    original: '/images/kate-launch.jpg',
-    title: "Launch of Kate Siklosi's Selvage",
+    src: '/images/kate-launch.jpg',
+    alt: "Launch of Kate Siklosi's Selvage",
   },
   {
-    original: '/images/keynote-2.jpg',
-    title: 'Keynote at Where From Here',
+    src: '/images/keynote-2.jpg',
+    alt: 'Keynote at Where From Here',
   },
   {
-    original: '/images/gary-reading.png',
-    title: 'milkmag Flyer',
+    src: '/images/gary-reading.png',
+    alt: 'milkmag Flyer',
   },
   {
-    original: '/images/gap-riot-more-books.jpg',
-    title: 'Gap Riot Publications',
+    src: '/images/gap-riot-more-books.jpg',
+    alt: 'Gap Riot Publications',
   },
   {
-    original: '/images/amanda-package.jpg',
-    title: 'Poems for Friends',
+    src: '/images/amanda-package.jpg',
+    alt: 'Poems for Friends',
   },
   {
-    original: '/images/derek-article.jpg',
-    title: 'Article in Quill and Quire',
+    src: '/images/derek-article.jpg',
+    alt: 'Article in Quill and Quire',
   },
 ];
 
-const Gallery = () => {
-  return <ImageGallery items={itemData} infinite autoplay={true} sizes={100} />;
+const ImageGallery = () => {
+  return <Gallery images={images} enableImageSelection={false} />;
 };
 
-export default Gallery;
+export default ImageGallery;

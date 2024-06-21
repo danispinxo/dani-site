@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+main {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  @include xs {
+    flex-direction: column;
+    width: 400px;
+  }
+
+  @include sm {
+    flex-direction: column;
+    width: 600px;
+  }
+
+  .title {
+    font-family: $typewriter-font;
+  }
+}

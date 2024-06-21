@@ -1,4 +1,3 @@
-import Gallery from '../components/ImageGallery';
 import TopNavbar from '../components/Navbar';
 import Image from 'react-bootstrap/Image';
 
@@ -20,9 +19,6 @@ export default function Homepage() {
               peer-reviewed journal articles on poetry. She lives in beautiful Wasaga Beach, Ontario.
             </p>
           </div>
-        </div>
-        <div className="image-gallery">
-          <Gallery />
         </div>
       </main>
     </>

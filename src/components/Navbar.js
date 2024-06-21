@@ -32,6 +32,9 @@ const TopNavbar = () => {
             </NavDropdown>
           </Nav>
           <Nav>
+            <Nav.Link className="navbar-link" href="/gallery">
+              Gallery
+            </Nav.Link>
             <Nav.Link className="navbar-link" href="/contact">
               Contact
             </Nav.Link>
