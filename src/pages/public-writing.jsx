@@ -9,6 +9,13 @@ export default function PublicWriting() {
       <main className="page-content">
         <h1 className="title">Public Writing and Interviews</h1>
         <Publication
+          title="Dani Spinosa: Creating Strange Hierarchies"
+          publication="Vseizm"
+          date="23 June 2024"
+          linkType="link"
+          link="https://vsealism.ru/dani-spinoza-sozdavat-strannye-ierarhii/"
+        />
+        <Publication
           title="Anita Lahey on the fiery inspiration and the collaboration behind her new works of poetry"
           publication="Quill & Quire"
           date="April 2023"
