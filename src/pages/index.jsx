@@ -7,7 +7,13 @@ export default function Homepage() {
       <TopNavbar />
       <main>
         <div className="index-bio">
-          <Image className="author-photo" alt="Dani Spinosa Portrait" src={'/images/author-photo.jpg'} rounded />
+          <Image
+            className="author-photo"
+            alt="Dani Spinosa Portrait"
+            src={'/images/author-photo.jpg'}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            rounded
+          />
           <div className="bio-container">
             <h2 className="bio-heading">About</h2>
             <p>
