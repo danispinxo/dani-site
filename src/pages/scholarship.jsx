@@ -190,15 +190,26 @@ const Scholarship = () => {
             link="https://jacket2.org/interviews/digital-ether"
           />
           <p className="subtitle">Book Reviews</p>
-          <Publication title="Rev. of Danielle LaFrance, Annie Ross, and Edward Byrne" publication="Canadian Literature" date="2023" />
+          <Publication
+            title="Rev. of Danielle LaFrance, Annie Ross, and Edward Byrne"
+            publication="Canadian Literature"
+            date="2023"
+            link="https://canlit.ca/article/a-sense-of-place/"
+          />
           <Publication title="A Sense of Place: Rev. of Zane Koss and Natasha Ramoutar" publication="Canadian Literature" date="2022" />
-          <Publication title="A Dual Longing: Rev. of alfabet by Sadiqa de Meijer" publication="Canadian Literature" date="2022" />
+          <Publication
+            title="A Dual Longing: Rev. of alfabet by Sadiqa de Meijer"
+            publication="Canadian Literature"
+            date="2022"
+            link="https://canlit.ca/article/a-dual-longing/"
+          />
           <Publication title="Rev. of Anne-Marie Turza's Fugue with Bedbugs" publication="Quill & Quire" date="2022" />
           <Publication
             title="Checking Out: Rev. of Sarah Tolmie and Evan J"
             publication="Canadian Literature"
             press="number 243"
             date="2022"
+            link="https://canlit.ca/article/checking-out/"
           />
           <Publication
             title="Rev. of Comrade by Jodi Dean"
@@ -213,9 +224,10 @@ const Scholarship = () => {
             date="2021"
           />
           <Publication
-            title="Here for the Drama: Rev. of Molly Cross-Blanchard and Sarah Burgoyne"
+            title="Here for the Surprises: Rev. of Molly Cross-Blanchard and Sarah Burgoyne"
             publication="Canadian Literature"
             date="2021"
+            link="https://canlit.ca/article/here-for-the-surprises/"
           />
           <Publication
             title="These Words Singing: Rev. of Bertrand Bickersteth and Meredith Quartermain"
@@ -235,6 +247,7 @@ const Scholarship = () => {
             publication="Canadian Literature"
             press="number 238, pages 123-4"
             date="2019"
+            link="https://canlit.ca/article/all-in-all/"
           />
           <Publication
             title="Algorithms of Oppression and Hopeful Intervention: Rev. of Algorithms of Oppression by Safiya Umoja Noble"
@@ -246,6 +259,7 @@ const Scholarship = () => {
             publication="Canadian Literature"
             press="number 235, pages 168-9"
             date="2017"
+            link="https://canlit.ca/article/silver-fish/"
           />
           <Publication
             title="Review: Screening Images of American Masculinity in the Age of Postfeminism"
@@ -258,12 +272,14 @@ const Scholarship = () => {
             publication="Canadian Literature"
             press="number 233, pages 152-4"
             date="2017"
+            link="https://canlit.ca/article/loop-limbo/"
           />
           <Publication
             title="Tired Time Travelling: Rev. of <em>Traversing Leonard</em> by Craig Savel"
             publication="Canadian Literature"
             press="number 2227, pages 177-8"
             date="2016"
+            link="https://canlit.ca/article/tired-time-travelling/"
           />
           <Publication title="Group Review: It's Complicated by dana boyd" publication="HASTAC" date="2015" />
           <Publication title="Review: The Democracy Project by David Graeber" publication="Political Media Review" date="2013" />
