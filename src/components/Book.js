@@ -16,7 +16,9 @@ const determineIcon = (type) => {
 const Book = ({ cover, title, press, date, notes, linkType, link }) => {
   return (
     <div className="book-component">
-      <Image className="book-cover" src={cover} alt={title} title={title} />
+      <a href={cover} target="_blank" rel="noreferrer noopener">
+        <Image className="book-cover" src={cover} alt={title} title={title} />
+      </a>
       <div className="book-info">
         <h5 className="book-title">{title}</h5>
         {link && (
