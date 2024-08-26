@@ -24,7 +24,7 @@ const CreativeWriting = () => {
           cover="/images/oo-cover.jpg"
           title="OO: Typewriter Poems"
           date="1 April 2020"
-          linkType="shop"
+          linkType="sale"
           link="https://invisiblepublishing.com/product/oo-typewriter-poems/"
         />
         <div className="text">
