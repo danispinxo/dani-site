@@ -1,6 +1,15 @@
 import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faLink, faBook, faComment, faCommentSlash, faLinkSlash, faStar } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCartShopping,
+  faLink,
+  faBook,
+  faComment,
+  faCommentSlash,
+  faLinkSlash,
+  faStar,
+  faHashtag,
+} from '@fortawesome/free-solid-svg-icons';
 
 const determineIcon = (type) => {
   switch (type) {
@@ -16,6 +25,8 @@ const determineIcon = (type) => {
       return faCommentSlash;
     case 'no-link':
       return faLinkSlash;
+    case 'social':
+      return faHashtag;
     default:
       return faStar;
   }
