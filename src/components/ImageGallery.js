@@ -1,4 +1,4 @@
-import { Gallery } from 'react-grid-gallery';
+import Image from 'react-bootstrap/Image';
 
 const images = [
   {
@@ -83,10 +83,54 @@ const images = [
     src: '/images/derek-article.jpg',
     alt: 'Article in Quill and Quire',
   },
+  {
+    src: '/images/vispo-middle.jpg',
+    alt: 'Visual Poetry for Women',
+  },
+  {
+    src: '/images/woman-e-lit.jpg',
+    alt: 'Women in E-literature',
+  },
+  {
+    src: '/images/to-whom-cover.jpeg',
+    alt: 'Cover of To Whom Shall I Write (Noir:Z)',
+  },
+  {
+    src: '/images/schmaltz-interview.png',
+    alt: 'Interview in The Angle Screenshot',
+  },
+  {
+    src: '/images/reading-flyer-1.jpg',
+    alt: 'Reading Flyer from The Printed Word (Dundas, ON)',
+  },
+  {
+    src: '/images/q-and-q-artcle.jpg',
+    alt: 'Quill & Quire Article on OO: Typewriter Poems',
+  },
+  {
+    src: '/images/poem.png',
+    alt: 'Typewriter Poem from OO: Typewriter Poems',
+  },
+  {
+    src: '/images/lost-launches-flyer.jpg',
+    alt: 'Flyer from Art Bar Lost Launches Event',
+  },
+  {
+    src: '/images/dene-package.jpg',
+    alt: 'Poetry sent to Dene Grigar',
+  },
 ];
 
 const ImageGallery = () => {
-  return <Gallery images={images} enableImageSelection={false} />;
+  return (
+    <div className="gallery">
+      {images.map((item) => (
+        <a href={item.src} target="_blank" rel="noreferrer noopener">
+          <img className="gallery-image" alt={item.alt} src={item.src} />
+        </a>
+      ))}
+    </div>
+  );
 };
 
 export default ImageGallery;

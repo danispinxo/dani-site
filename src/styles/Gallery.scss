@@ -4,7 +4,6 @@ main {
   margin: 1rem;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 
   @include xs {
@@ -19,5 +18,21 @@ main {
 
   .title {
     font-family: $typewriter-font;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .gallery-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    object-fit: cover;
   }
 }
