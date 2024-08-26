@@ -24,12 +24,12 @@ const images = [
   {
     src: '/images/reading-b-and-w.jpg',
     alt: 'Reading Black and White',
-    author: 'Jesse Pajuäär',
+    author: 'Photo credit Jesse Pajuäär',
   },
   {
     src: '/images/gap-riot-logo.jpg',
     alt: 'Gap Riot Logo',
-    author: 'Stace Schmidt McLean',
+    author: 'Design credit Stace Schmidt McLean',
   },
   {
     src: '/images/fertile-fest-isla.jpg',
@@ -54,6 +54,10 @@ const images = [
   {
     src: '/images/gap-riot-mic.jpg',
     alt: 'Gap Riot Introduction',
+  },
+  {
+    src: '/images/keynote-flyer.jpg',
+    alt: 'Keynote flyer for Where From Here Conference (Guelph, ON)',
   },
   {
     src: '/images/lost-launches.jpg',
@@ -81,7 +85,7 @@ const images = [
   },
   {
     src: '/images/derek-article.jpg',
-    alt: 'Article in Quill and Quire',
+    alt: 'Article on Aperture in Quill and Quire',
   },
   {
     src: '/images/vispo-middle.jpg',
@@ -108,6 +112,10 @@ const images = [
     alt: 'Quill & Quire Article on OO: Typewriter Poems',
   },
   {
+    src: '/images/keynote-1.jpg',
+    alt: 'Keynote address at Where From Here Conference (Guelph, ON)',
+  },
+  {
     src: '/images/poem.png',
     alt: 'Typewriter Poem from OO: Typewriter Poems',
   },
@@ -118,6 +126,26 @@ const images = [
   {
     src: '/images/dene-package.jpg',
     alt: 'Poetry sent to Dene Grigar',
+  },
+  {
+    src: '/images/minor-seeds.jpg',
+    alt: "Seed paper card from Abby Minor's chapbook",
+  },
+  {
+    src: '/images/glosa.jpg',
+    alt: 'Image from Glosas for Tired Eyes Vol. 1 Cover',
+  },
+  {
+    src: '/images/karaoke.jpg',
+    alt: 'Just sneaking a quick karaoke shot in there',
+  },
+  {
+    src: '/images/keynote-2.jpg',
+    alt: 'Keynote address at Where From Here Conference (Guelph, ON)',
+  },
+  {
+    src: '/images/english-dept-art.jpg',
+    alt: 'Collaborative Art Being Installed in the English Department at York University',
   },
 ];
 

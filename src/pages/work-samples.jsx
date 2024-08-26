@@ -3,6 +3,25 @@ import Book from '../components/Book';
 import Publication from '../components/Publication';
 
 export default function WorkSamples() {
+  const images = [
+    { src: '/images/turnbull-cover.jpg', alt: 'xo by Chris Turnbull (Gap Riot Press)' },
+    { src: '/images/punctum-cover.jpg', alt: 'Punctum by Gary Barwin and Dona Mayoora (Gap Riot Press)' },
+    { src: '/images/mclennan-cover.jpg', alt: ':condition report by rob mclennan (Gap Riot Press)' },
+    { src: '/images/macaskill-cover.jpg', alt: 'five from hem by Annick MacAskill (Gap Riot Press)' },
+    { src: '/images/erin-cover.jpg', alt: 'Two Birds, All Moon by Alexus Erin (Gap Riot Press)' },
+    { src: '/images/flemmer-cover.jpg', alt: 'Building Report by Kyle Flemmer (Gap Riot Press)' },
+    { src: '/images/clayton-cover.jpg', alt: 'Kneeling in Our Name by Conyer Clayton (Gap Riot Press)' },
+    { src: '/images/heigh-cover.jpg', alt: 'To the People Who Used to Live Here by Katherin Heigh (Gap Riot Press)' },
+
+    { src: '/images/sounds-like-flyer.jpg', alt: 'Sounds Like an H of a Night Flyer (Meet the Presses)' },
+    { src: '/images/market-flyer-white.jpg', alt: 'Market Flyer (Meet the Presses)' },
+    { src: '/images/market-flyer-blue.jpg', alt: 'Market Flyer (Meet the Presses)' },
+    { src: '/images/call.jpg', alt: 'Market Flyer (Meet the Presses)' },
+    { src: '/images/flyer-1.jpg', alt: 'Gap Riot Launch Flyer (Gap Riot Press)' },
+    { src: '/images/flyer-2.jpg', alt: 'Gap Riot Launch Flyer (Gap Riot Press)' },
+    { src: '/images/event-graphic.jpg', alt: 'Gap Riot Event Flyer (Gap Riot Press)' },
+  ];
+
   return (
     <>
       <TopNavbar />
@@ -10,9 +29,16 @@ export default function WorkSamples() {
         <div className="page-content">
           <h1 className="title">Work Samples</h1>
 
-          <p className="subtitle">Graphic Design</p>
+          <p className="subtitle">Selected Graphic Design</p>
+          <div className="gallery">
+            {images.map((item) => (
+              <a href={item.src} target="_blank" rel="noreferrer noopener">
+                <img className="cover-gallery-image" alt={item.alt} src={item.src} />
+              </a>
+            ))}
+          </div>
 
-          <p className="subtitle">Website Design</p>
+          <p className="subtitle">Selected Website Design</p>
           <Book
             cover="/images/gap-riot-site.png"
             title="Gap Riot Press"
@@ -127,10 +153,6 @@ export default function WorkSamples() {
             linkType="link"
             link="https://blog.utorontopress.com/2016/03/23/reading-john-cage-with-my-mother/"
           />
-
-          <p className="subtitle">Creative Writing</p>
-
-          <p className="subtitle">Press Releases</p>
         </div>
       </main>
     </>

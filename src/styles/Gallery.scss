@@ -24,10 +24,22 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    margin-bottom: 2rem;
   }
   .gallery-image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .cover-gallery-image {
+    height: 250px;
+    border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
     align-items: center;
