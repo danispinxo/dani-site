@@ -61,6 +61,13 @@ export default function WorkSamples() {
             link="https://jptherapystudios.com/"
           />
           <Book
+            cover="/images/richard-site.png"
+            title="Richard Teleky Author Website"
+            notes="Personal website for Toronto-based poet, novelist, and professsor. Built using Wordpress."
+            linkType="visit"
+            link="https://richardteleky.com/"
+          />
+          <Book
             cover="/images/chris-site.png"
             title="Chris Doda Poet Website"
             notes="Personal website for Toronto-based poet. Built using Wordpress. Largely defunct."
