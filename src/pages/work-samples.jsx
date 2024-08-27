@@ -40,18 +40,32 @@ export default function WorkSamples() {
 
           <p className="subtitle">Selected Website Design</p>
           <Book
+            cover="/images/dani-site.png"
+            title="Dani Spinosa Personal Website"
+            notes="Personal website with detailed publication, speaking, and teaching history, as well as image callery and contact form. Built from scratch (React, Next.js)"
+            linkType="visit"
+            link="/"
+          />
+          <Book
             cover="/images/gap-riot-site.png"
             title="Gap Riot Press"
-            notes="Website with archive, launch pages, events, submission guidelines, and shop"
+            notes="Website with archive, launch pages, events, submission guidelines, and shop. Built using Squarespace."
             linkType="visit"
             link="https://www.gapriotpress.com/"
           />
           <Book
             cover="/images/jesse-site.png"
             title="JP Therapy Studios"
-            notes="Website with services outline, help and resources links, contact, and client portal for Ontario art therapist"
+            notes="Website with services outline, help and resources links, contact, and client portal for Ontario art therapist. Built from scratch (React, Next.js)"
             linkType="visit"
             link="https://jptherapystudios.com/"
+          />
+          <Book
+            cover="/images/chris-site.png"
+            title="Chris Doda Poet Website"
+            notes="Personal website for Toronto-based poet. Built using Wordpress. Largely defunct."
+            linkType="visit"
+            link="https://chrisdoda.wordpress.com/"
           />
 
           <p className="subtitle">Social Media Management</p>
@@ -63,6 +77,7 @@ export default function WorkSamples() {
             link="https://x.com/gapriotpress"
           />
           <Publication title="Gap Riot Press" publication="Facebook" linkType="social" link="https://www.facebook.com/gapriotpress" />
+          <Publication title="Gap Riot Press" publication="YouTube" linkType="social" link="https://www.youtube.com/@danispinosa7844" />
           <Publication
             title="Meet the Presses"
             publication="X (Twitter)"
