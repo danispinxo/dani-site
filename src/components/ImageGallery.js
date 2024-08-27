@@ -147,6 +147,10 @@ const images = [
     src: '/images/english-dept-art.jpg',
     alt: 'Collaborative Art Being Installed in the English Department at York University',
   },
+  {
+    src: '/images/gap-riot.webp',
+    alt: 'At Fertile Fest 2022 (Photo Credit Kirby)',
+  },
 ];
 
 const ImageGallery = () => {
