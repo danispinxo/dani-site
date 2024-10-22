@@ -151,6 +151,10 @@ const images = [
     src: '/images/gap-riot.webp',
     alt: 'At Fertile Fest 2022 (Photo Credit Kirby)',
   },
+  {
+    src: '/images/kate-launch-reading.jpg',
+    alt: "Launch of Kate Siklosi's Selvage (Photo Credit Kirby)",
+  },
 ];
 
 const ImageGallery = () => {
