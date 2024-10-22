@@ -10,6 +10,11 @@ const Teaching = () => {
 
           <p className="subtitle">As Course Director</p>
 
+          <p className="heading">Dalhousie University</p>
+          <ul className="bullet-list">
+            <li>CRWR3010/ENGL3098: Creative Writing: Poetry 1</li>
+          </ul>
+
           <p className="heading">Trent University</p>
           <ul className="bullet-list">
             <li>
