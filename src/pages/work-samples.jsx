@@ -36,7 +36,7 @@ export default function WorkSamples() {
           <p className="subtitle">Selected Course Design Samples</p>
           <div className="gallery">
             {screenshots.map((item) => (
-              <a href={item.src} target="_blank" rel="noreferrer noopener">
+              <a key={item.src} href={item.src} target="_blank" rel="noreferrer noopener">
                 <img className="cover-gallery-image" alt={item.alt} src={item.src} />
               </a>
             ))}

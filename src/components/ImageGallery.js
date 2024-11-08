@@ -161,7 +161,7 @@ const ImageGallery = () => {
   return (
     <div className="gallery">
       {images.map((item) => (
-        <a href={item.src} target="_blank" rel="noreferrer noopener">
+        <a key={item.alt} href={item.src} target="_blank" rel="noreferrer noopener">
           <img className="gallery-image" alt={item.alt} src={item.src} />
         </a>
       ))}
