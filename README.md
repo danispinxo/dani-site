@@ -6,6 +6,7 @@
 - Next.js
 - ESlint
 - Prettier
+- Supabase database
 
 ## Libraries
 
