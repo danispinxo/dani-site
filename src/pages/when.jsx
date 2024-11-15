@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 import TopNavbar from '../components/Navbar';
-import { contributors } from '../scripts/when/constants.js';
+import { createClient } from '@supabase/supabase-js';
+import dotenv from 'dotenv';
+dotenv.config();
+
 import {
   lineOne,
   lineTwo,
@@ -32,8 +35,24 @@ import {
   lineTwentySeven,
 } from '../scripts/when/lines.js';
 
+const supabaseUrl = process.env.NEXT_PUBLIC_DATABASE_URL;
+const key = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, key);
+
 const When = () => {
   const [lines, setLines] = useState([]);
+  const [contributors, setContributors] = useState([]);
+
+  useEffect(() => {
+    const fetchContributors = async () => {
+      const { data: contributorData, error: contributorError } = await supabase.from('when_contributors').select('name');
+
+      if (contributorError) console.error('Error fetching contributors:', contributorError);
+      else setContributors(contributorData.map((contributor) => contributor.name));
+    };
+
+    fetchContributors();
+  }, []);
 
   useEffect(() => {
     setLines([

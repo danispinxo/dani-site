@@ -502,27 +502,3 @@ export const blankness = [
   'choices',
   'floor',
 ];
-
-export const contributors = [
-  'Andy Weaver',
-  'Dani Spinosa',
-  'Jesse Pajuaar',
-  'Alex Spinosa',
-  'Lisa Spinosa',
-  'Sagan Yee',
-  'Amanda Earl',
-  'Jay Miller',
-  'Moira Walsh',
-  'Claire Lacey',
-  'nina jane drystek',
-  'Conyer Clayton',
-  'Simon Brown',
-  'Jacqueline Valencia',
-  'Kyle Flemmer',
-  'Kavi Duvori',
-  'Geoffrey Nilson',
-  'Eric Schmaltz',
-  'Andrée-Anne Roussel',
-  'Elee Kraljii Gardiner',
-  'Ellen Chang-Richardson',
-];
