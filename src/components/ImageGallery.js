@@ -155,6 +155,10 @@ const images = [
     src: '/images/kate-launch-reading.jpg',
     alt: "Launch of Kate Siklosi's Selvage (Photo Credit Kirby)",
   },
+  {
+    src: '/images/mtp.jpeg',
+    alt: '2024 Meet the Presses Indie Literary Market with Karen Schindler of Baseline Press (Photo Credit Kirby)',
+  },
 ];
 
 const ImageGallery = () => {
