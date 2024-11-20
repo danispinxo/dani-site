@@ -36,3 +36,5 @@
 - Co-written with Andy Weaver and a crowd-sourced lexicon
 - On each render, poem replaces words in Weaver's original with poems in arrays divided by position
 - Each render is different with Chat GPT telling me there are 14,016,852,913,029,120,000,000 (14 septillion) possible variations of the poem
+- Poem now stores the value of the blanks in a Supabase database
+- Eventual goal is the addition of a form that a user can fill out to add more words to the lexicon, having the poem and its possible variations growing indefinitely
