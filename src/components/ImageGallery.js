@@ -159,6 +159,10 @@ const images = [
     src: '/images/mtp.jpeg',
     alt: '2024 Meet the Presses Indie Literary Market with Karen Schindler of Baseline Press (Photo Credit Kirby)',
   },
+  {
+    src: '/images/andy-flyer.png',
+    alt: "Flyer for Launch of Andy Weaver's The Loom",
+  },
 ];
 
 const ImageGallery = () => {
