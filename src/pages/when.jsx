@@ -68,7 +68,8 @@ const When = () => {
   }, []);
 
   const selectRandomString = (array) => {
-    return array.length > 0 ? array[Math.floor(Math.random() * array.length)] : '';
+    const shuffledArray = [...array].sort(() => Math.random() - 0.5);
+    return shuffledArray[0];
   };
 
   return (
@@ -107,38 +108,38 @@ const When = () => {
             {' ' + selectRandomString(dandelions)} did nothing
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(dandelions)} did nothing to save them
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(dandelions)} did nothing to save them from our unchecked love
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(dandelions)} did nothing to save them from our {selectRandomString(uncheckedLoveTwo)} of the darkness
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(darknessTwo)} inside the eternal immanence
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we considered
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
             and refused
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
             the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
             {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
             and refused to believe was alive
