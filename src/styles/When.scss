@@ -1,0 +1,47 @@
+@import 'variables.scss';
+
+.page-content {
+  margin: 2rem;
+  width: 85%;
+
+  .title {
+    font-family: $typewriter-font;
+  }
+
+  .when-form {
+    text-align: justify;
+
+    input[type='text'] {
+      margin: 0.5rem;
+      padding: 0.1rem;
+      padding-left: 0.3rem;
+      width: auto;
+      border-style: dotted;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    input::placeholder {
+      opacity: 0.7;
+    }
+  }
+
+  .button-holder {
+    display: flex;
+    justify-content: end;
+    align-content: end;
+
+    button {
+      padding: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      width: auto;
+      font-family: $typewriter-font;
+      background-color: darkred;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+    }
+  }
+}
