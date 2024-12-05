@@ -1,9 +1,33 @@
 import { useEffect } from 'react';
 import TopNavbar from '../components/Navbar';
-import setInputWidth from '../scripts/when/form.js';
 
 const WhenForm = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const inputs = document.querySelectorAll('input[type="text"]');
+    inputs.forEach((input) => {
+      const computedStyles = window.getComputedStyle(input);
+      const span = document.createElement('span');
+      span.style.visibility = 'hidden';
+      span.style.position = 'absolute';
+      span.style.whiteSpace = 'nowrap';
+      span.style.fontSize = computedStyles.fontSize;
+      span.style.fontFamily = computedStyles.fontFamily;
+      span.style.fontWeight = computedStyles.fontWeight;
+      span.style.letterSpacing = computedStyles.letterSpacing;
+      span.textContent = input.placeholder;
+      document.body.appendChild(span);
+
+      const placeholderWidth = span.offsetWidth;
+      const paddingLeft = parseFloat(computedStyles.paddingLeft) || 0;
+      const paddingRight = parseFloat(computedStyles.paddingRight) || 0;
+      const borderLeft = parseFloat(computedStyles.borderLeftWidth) || 0;
+      const borderRight = parseFloat(computedStyles.borderRightWidth) || 0;
+
+      input.style.width = `${placeholderWidth + paddingLeft + paddingRight + borderLeft + borderRight}px`;
+
+      document.body.removeChild(span);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +55,9 @@ const WhenForm = () => {
         </p>
         <form onSubmit={handleSubmit}>
           <div className="when-form">
+            <div className="contributor-holder">
+              <input type="text" name="contributor" placeholder="Your name as you would like it to appear on the contributor marquee" />
+            </div>
             When the <input type="text" name="lights" placeholder="lights" required />
             <input type="text" name="went" placeholder="went" required /> <input type="text" name="wordOut" placeholder="out" required />{' '}
             and
