@@ -4,6 +4,16 @@
   margin: 2rem;
   width: 85%;
 
+  .note {
+    margin-left: 1rem;
+    font-size: small;
+    font-style: italic;
+
+    a {
+      color: darkred;
+    }
+  }
+
   .title {
     font-family: $typewriter-font;
   }
