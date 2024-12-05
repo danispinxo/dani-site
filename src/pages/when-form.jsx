@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import TopNavbar from '../components/Navbar';
+import supabase from '../lib/supabaseClient';
 
 const WhenForm = () => {
   useEffect(() => {
@@ -29,14 +30,34 @@ const WhenForm = () => {
     });
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const values = {};
-
     formData.forEach((value, name) => (values[name] = value));
 
-    console.log(values);
+    const contributor = values.contributor;
+    delete values.contributor;
+
+    try {
+      const { data: contributorData, error: contributorError } = await supabase
+        .from('when_contributors')
+        .insert({ name: contributor })
+        .select()
+        .single();
+
+      if (contributorError) return console.error('Error adding contributor:', contributorError);
+      const lexiconEntries = Object.entries(values).map(([key, value]) => ({
+        blank: key,
+        content: value,
+      }));
+      const { data: lexiconData, error: lexiconError } = await supabase.from('when_lexicon').insert(lexiconEntries);
+      if (lexiconError) return console.error('Error adding lexicon entries:', lexiconError);
+      alert('Submission successful! Thank you! ');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
