@@ -1,45 +1,13 @@
 import { useEffect } from 'react';
 import TopNavbar from '../components/Navbar';
+import setInputWidth from '../scripts/when/form.js';
 
 const WhenForm = () => {
-  useEffect(() => {
-    const inputs = document.querySelectorAll('input[type="text"]');
-    inputs.forEach((input) => {
-      const computedStyles = window.getComputedStyle(input);
+  useEffect(() => {}, []);
 
-      const span = document.createElement('span');
-      span.style.visibility = 'hidden';
-      span.style.position = 'absolute';
-      span.style.whiteSpace = 'nowrap';
-      span.style.fontSize = computedStyles.fontSize;
-      span.style.fontFamily = computedStyles.fontFamily;
-      span.style.fontWeight = computedStyles.fontWeight;
-      span.style.letterSpacing = computedStyles.letterSpacing;
-      span.textContent = input.placeholder;
-      document.body.appendChild(span);
-
-      const placeholderWidth = span.offsetWidth;
-      const paddingLeft = parseFloat(computedStyles.paddingLeft) || 0;
-      const paddingRight = parseFloat(computedStyles.paddingRight) || 0;
-      const borderLeft = parseFloat(computedStyles.borderLeftWidth) || 0;
-      const borderRight = parseFloat(computedStyles.borderRightWidth) || 0;
-
-      input.style.width = `${placeholderWidth + paddingLeft + paddingRight + borderLeft + borderRight}px`;
-
-      document.body.removeChild(span);
-    });
-  }, []);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement)) {
-      console.error('Form submission handler triggered outside of a form context.');
-      return;
-    }
-
-    const formData = new FormData(form);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
     const values = {};
 
     formData.forEach((value, name) => (values[name] = value));
