@@ -165,6 +165,13 @@ const Talks = () => {
 
         <p className="subtitle">Lectures and Panelist Talks</p>
         <Publication
+          title="Invited Speaker, “CRWR-4002 Hybrid & Experimental Writing”"
+          publication="OCADU"
+          date="12 February 2024"
+          notes="Undergraduate Course taught by Gary Barwin"
+          linkType="no-talk"
+        />
+        <Publication
           title="Invited Speaker, “ENCW3P73 Creative Writing for Digital Media”"
           publication="Brock University"
           date="27 October 2022"
@@ -225,6 +232,9 @@ const Talks = () => {
         />
         <p className="subtitle">Poetry Readings</p>
         <ul className="bullet-list">
+          <li>
+            Launch of Andy Weaver's <i>The Loom</i>, Type Books, Toronto. 28 November 2024
+          </li>
           <li>milk mag reading series, with Gary Barwin, Type Books, Toronto, ON. 27 April 2023</li>
           <li>Launch of Kate Siklosi's Selvage, Type Books, Toronto, ON. 20 April 2023</li>
           <li>HAL, Art Gallery of Hamilton, Hamilton, ON, 10 November 2022</li>

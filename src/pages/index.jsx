@@ -18,8 +18,8 @@ export default function Homepage() {
             <h2 className="bio-heading">About</h2>
             <p>
               Dani Spinosa is a poet, scholar, educator, writer, and a trained full-stack developer. She an adjunct professor, a software
-              developer, a digital and creative project manager, a co-founding editor of Gap Riot Press, the Managing Editor of the
-              Electronic Literature Directory, and the author of two books:
+              developer at Hatch Coding, a digital and creative project manager, a co-founding editor of Gap Riot Press, the Managing Editor
+              of the Electronic Literature Directory, and the author of two books:
               <i> OO: Typewriter Poems</i> (Invisible Publishing, 2020) and
               <i>Anarchists in the Academy</i> (U of Alberta Press, 2018). She has published several chapbooks of poetry and several more
               peer-reviewed journal articles on poetry. She lives in beautiful Wasaga Beach, Ontario.

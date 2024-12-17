@@ -54,6 +54,13 @@ const Scholarship = () => {
 
           <p className="subtitle">Peer-Reviewed Publications</p>
           <Publication
+            title="Digital Poetics and Cyberfeminism"
+            publication="The Poetics, Gender, and Sexuality Handbook"
+            press="Bloomsbury"
+            date="2024"
+            notes="Co-authored with Kyle Flemmer, edited by Heather Milne and Elena Basile"
+          />
+          <Publication
             title="Nations of Touch: The Politics of Electronic Literature as Digital
           Humanities"
             publication="Future Horizons"
@@ -190,6 +197,12 @@ const Scholarship = () => {
             link="https://jacket2.org/interviews/digital-ether"
           />
           <p className="subtitle">Book Reviews</p>
+          <Publication
+            title="Now I am a number: Rev. of repeater by Drew McEwan"
+            publication="The Minute Review"
+            date="2024"
+            link="https://derekbeaulieu.ca/2024/11/20/the-minute-review-14/"
+          />
           <Publication
             title="Rev. of Danielle LaFrance, Annie Ross, and Edward Byrne"
             publication="Canadian Literature"

@@ -14,7 +14,7 @@ const CreativeWriting = () => {
         <p className="subtitle">Current Book Project</p>
         <Book
           cover="/images/ariadne.jpeg"
-          title="Whispering Galleries"
+          title="Whispering Gallery"
           date="In progress"
           notes="Canada Council for the Arts Research and Creation Grant"
         />
@@ -175,6 +175,14 @@ const CreativeWriting = () => {
         </div>
         <p className="subtitle">Chapbooks</p>
         <Book
+          cover="/images/mean-mean.jpg"
+          title="A Mean, Mean Thirst (poems for my friends and their books)"
+          press="above/ground press"
+          date="2024"
+          linkType="visit"
+          link="https://abovegroundpress.blogspot.com/2024/12/new-from-aboveground-press-mean-mean.html"
+        />
+        <Book
           cover="/images/make-it-a-habit.jpeg"
           title="Make it a Habit Each Night (with Gary Barwin)"
           press="The Blasted Tree"
@@ -252,6 +260,19 @@ const CreativeWriting = () => {
           <p className="subtitle">Poetry in Anthologies or Journals</p>
 
           <ul className="bullet-list">
+            <li>
+              “The Swift Sonnets.” <i>Taper</i>, vol. 13, special issue on Superstitions.
+            </li>
+            <li>
+              “Visual Poetry for Women,” <i>The Anstruther Reader: Ten Years of Poetry, Broadsides, and Manifesto</i>, Palimpsest Press.
+            </li>
+            <li>
+              “Park and Fly.” <i>Extrins: 13 responses by poets of note to Kevin Stebner's book</i> Inherent.
+            </li>
+            <li>
+              “Shadows Cast by Moonlight,” in “Incantations” by Brandon Hocura and Naomi Okabe, <i>PUBLIC Art|Culture|Ideas</i>, issue 69,
+              edited by Tamara de Szecheo Lang, Emily Pelstring, and Dan Vena.
+            </li>
             <li>
               “Two poems,”{' '}
               <a href="https://derekbeaulieu.ca/2023/01/26/paper-thread-25-years-of-housepress-and-no-press/?fbclid=IwAR09I-0EnSbhoyNetu9YLcnT1Mzj1VKPFfB60yOG3IQGmyUa8MKB2_2ilSg">
