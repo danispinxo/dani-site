@@ -27,7 +27,7 @@
 ### Form
 
 - Writing by Andy Weaver
-- Programming by Dani Spinosa
+- Programming by Dani Spinosa!
 - Pressing a button randomly adds a line from a prewritten array, formatted according to selected font typefaces and sizes
 - Poem expands indefinitely based on button presses
 
