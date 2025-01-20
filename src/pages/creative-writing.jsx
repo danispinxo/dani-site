@@ -261,7 +261,8 @@ const CreativeWriting = () => {
 
           <ul className="bullet-list">
             <li>
-              “The Swift Sonnets.” <i>Taper</i>, vol. 13, special issue on Superstitions.
+              “<a href="https://taper.badquar.to/13/swift_sonnets.html">The Swift Sonnets</a>.” <i>Taper</i>, vol. 13, special issue on
+              Superstitions.
             </li>
             <li>
               “Visual Poetry for Women,” <i>The Anstruther Reader: Ten Years of Poetry, Broadsides, and Manifesto</i>, Palimpsest Press.
