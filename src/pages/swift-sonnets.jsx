@@ -35,6 +35,13 @@ const SwiftSonnets = () => {
             again
           </button>
         </div>
+        <p className="taper-note">
+          A smaller version of this poem was published in <i>Taper</i> volume 13 on Superstitions. You can read that version{' '}
+          <a href="https://taper.badquar.to/13/swift_sonnets.html" target="_blank" rel="noreferrer noopener">
+            here
+          </a>
+          .
+        </p>
       </main>
     </>
   );
