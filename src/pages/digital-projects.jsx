@@ -16,6 +16,9 @@ const DigitalProjects = () => {
           <li className="list-item">
             <a href="/all-you-hold">All You Hold</a>
           </li>
+          <li className="list-item">
+            <a href="/swift-sonnets">The Swift Sonnets</a>
+          </li>
         </ul>
       </main>
     </>

@@ -1,0 +1,19 @@
+@import 'variables.scss';
+
+.c {
+  margin-top: 0.75rem;
+  font-family: $typewriter-font;
+  padding-left: 1rem;
+}
+
+.swift-button-holder {
+  margin: 1rem;
+}
+
+.swift-button {
+  margin-left: 1rem;
+  padding: 0.3rem;
+  font-family: $typewriter-font;
+  background-color: darkred;
+  color: white;
+}

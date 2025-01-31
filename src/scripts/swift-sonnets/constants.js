@@ -1,0 +1,33 @@
+export const lines = {
+  a: [
+    'I can see us lost in the memory',
+    'I can see us twisted in bedsheets',
+    "You're the king, baby, I'm your queen",
+    "Darling, I'm a nightmare dressed like a daydream",
+    'But they forgot to come and get me',
+    'All my mornings are Mondays stuck in an endless February',
+    "Romeo, save me, they're tryna tell me how to feel",
+    'You found me, you found me, you found me',
+    "He's long gone when he's next to me",
+    'Now I heard you moved on from whispers on the street',
+    "A new notch in your belt is all I'll ever be",
+  ],
+  b: [
+    'But do you remember?',
+    "Remember when I pulled up and said, 'Get in the car'",
+    "We'll take this way too far",
+    'Run into you sometimes, ask about the weather',
+    'I close my eyes and the flashback starts',
+    "I'm drunk in the back of the car",
+    'I cried like a baby coming home from the bar',
+    'I take this magnetic force of a man to be my lover',
+    'I have this thing where I get older but just never wiser',
+    "I'll stare directly at the sun but never in the mirror",
+  ],
+  c: [
+    "It's a cruel summer with you",
+    "And I'm highly suspicious that everyone who sees you wants you",
+    "My heart's been borrowed and yours has been blue",
+    "All of the people I've ghosted stand there in the room",
+  ],
+};

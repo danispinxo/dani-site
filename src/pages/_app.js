@@ -9,6 +9,7 @@ import '../styles/Gallery.scss';
 import '../styles/ListPages.scss';
 import '../styles/Publication.scss';
 import '../styles/When.scss';
+import '../styles/Swift.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
