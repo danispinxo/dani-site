@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .page-content {
   margin: 2rem;
@@ -15,7 +15,7 @@
   }
 
   .title {
-    font-family: $typewriter-font;
+    font-family: variables.$typewriter-font;
   }
 
   .when-form {
@@ -51,7 +51,7 @@
       padding-left: 1rem;
       padding-right: 1rem;
       width: auto;
-      font-family: $typewriter-font;
+      font-family: variables.$typewriter-font;
       background-color: darkred;
       color: white;
       border: none;

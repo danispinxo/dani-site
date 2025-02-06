@@ -1,10 +1,10 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .page-content {
   margin: 2rem;
 
   .title {
-    font-family: $typewriter-font;
+    font-family: variables.$typewriter-font;
   }
 
   .text {
@@ -14,7 +14,7 @@
 
   .list-item {
     a {
-      font-family: $round-font;
+      font-family: variables.$round-font;
       color: darkred;
       text-decoration: none;
 
@@ -26,18 +26,18 @@
   }
 
   .subtitle {
-    font-family: $typewriter-font;
+    font-family: variables.$typewriter-font;
     font-size: larger;
   }
 
   .heading {
-    font-family: $round-font;
+    font-family: variables.$round-font;
     font-weight: 900;
     font-size: large;
   }
 
   p {
-    font-family: $round-font;
+    font-family: variables.$round-font;
   }
 
   .when-line {
@@ -48,7 +48,7 @@
   .hold-line {
     padding-left: 1.5rem;
     font-size: x-large;
-    font-family: $serif-font;
+    font-family: variables.$serif-font;
   }
 }
 

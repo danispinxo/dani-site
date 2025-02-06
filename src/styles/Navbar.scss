@@ -1,9 +1,9 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .navbar-brand {
-  font-family: $typewriter-font;
+  font-family: variables.$typewriter-font;
 }
 
 .navbar-link {
-  font-family: $typewriter-font;
+  font-family: variables.$typewriter-font;
 }

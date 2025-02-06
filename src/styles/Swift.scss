@@ -1,8 +1,8 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .c {
   margin-top: 0.75rem;
-  font-family: $typewriter-font;
+  font-family: variables.$typewriter-font;
   padding-left: 1rem;
 }
 
@@ -13,14 +13,14 @@
 .swift-button {
   margin-left: 1rem;
   padding: 0.3rem;
-  font-family: $typewriter-font;
+  font-family: variables.$typewriter-font;
   background-color: darkred;
   color: white;
 }
 
 .taper-note {
   margin-top: 3rem;
-  font-family: $serif-font;
+  font-family: variables.$serif-font;
 
   a {
     color: darkred;

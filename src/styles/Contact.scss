@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .page-content {
   margin-left: 5%;
@@ -6,7 +6,7 @@
 
   .contact-title {
     font-size: x-large;
-    font-family: $typewriter-font;
+    font-family: variables.$typewriter-font;
   }
 
   .contact-body {
@@ -14,7 +14,7 @@
     width: 50%;
 
     .contact-message {
-      font-family: $round-font;
+      font-family: variables.$round-font;
       font-weight: 900;
       font-size: large;
     }
@@ -24,14 +24,14 @@
     }
 
     .contact-form {
-      @include xs {
+      @include variables.xs {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
       }
 
-      @include sm {
+      @include variables.sm {
         flex-direction: column;
         align-items: flex-start;
         flex-direction: column;
@@ -39,7 +39,7 @@
       }
     }
     .form-submit-btn {
-      font-family: $typewriter-font;
+      font-family: variables.$typewriter-font;
       background-color: #4c4c4c;
       color: #fff;
       border: none;

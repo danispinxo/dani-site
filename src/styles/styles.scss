@@ -1,19 +1,19 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .index-bio {
   display: flex;
   flex-direction: row-reverse;
   margin-left: 10%;
   margin-right: 10%;
-  font-family: $round-font;
+  font-family: variables.$round-font;
 
-  @include xs {
+  @include variables.xs {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
 
-  @include sm {
+  @include variables.sm {
     flex-direction: column;
     align-items: center;
   }
@@ -22,11 +22,11 @@
     margin: 3rem;
     width: 30%;
 
-    @include xs {
+    @include variables.xs {
       width: 60%;
     }
 
-    @include sm {
+    @include variables.sm {
       width: 60%;
     }
   }
@@ -37,7 +37,7 @@
     justify-content: center;
 
     .bio-heading {
-      font-family: $typewriter-font;
+      font-family: variables.$typewriter-font;
     }
 
     a {
