@@ -91,70 +91,70 @@ const When = () => {
             When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the darkness turned on
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the
-            {' ' + selectRandomString(darkness)} turned on us
+            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the{' '}
+            {selectRandomString(darkness)} turned on us
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the
-            {' ' + selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our unchecked love
+            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the{' '}
+            {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our unchecked love
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the
-            {' ' + selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of dandelions
+            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the{' '}
+            {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of dandelions
           </p>
           <p className="when-line">
-            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the
-            {' ' + selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(dandelions)} did nothing
-          </p>
-          <p className="when-line">
-            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(dandelions)} did nothing to save them
+            When the {selectRandomString(lights)} went {selectRandomString(wordOut)} and {selectRandomString(before)} the{' '}
+            {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(dandelions)} did nothing
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(dandelions)} did nothing to save them from our unchecked love
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(dandelions)} did nothing to save them
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(dandelions)} did nothing to save them from our {selectRandomString(uncheckedLoveTwo)} of the darkness
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(dandelions)} did nothing to save them from our unchecked love
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the eternal immanence
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(dandelions)} did nothing to save them from our {selectRandomString(uncheckedLoveTwo)} of the darkness
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we considered
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the eternal immanence
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we considered
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was alive
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and lurking
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was alive
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the light
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and lurking
+          </p>
+          <p className="when-line">
+            When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the light
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
@@ -165,81 +165,81 @@ const When = () => {
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the dark-haired stranger
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the dark-haired stranger
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we greeted
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we greeted
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with muttered French and German
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with muttered French and German
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows knitted us blankets
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows {selectRandomString(knittedUsBlankets)}
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows {selectRandomString(knittedUsBlankets)} of kid hair
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows {selectRandomString(knittedUsBlankets)} of {selectRandomString(kidHair)}{' '}
             that blanketed the blankness
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows {selectRandomString(knittedUsBlankets)} of {selectRandomString(kidHair)}{' '}
             that {selectRandomString(blanketed)} the {selectRandomString(blankness)}
           </p>
           <p className="when-line">
             When the {selectRandomString(lights)} {selectRandomString(went)} {selectRandomString(wordOut)} and {selectRandomString(before)}{' '}
-            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of
-            {' ' + selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)}{' '}
-            and refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as
-            much as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
+            the {selectRandomString(darkness)} {selectRandomString(turnedOn)} us and our {selectRandomString(uncheckedLove)} of{' '}
+            {selectRandomString(darknessTwo)} inside the {selectRandomString(eternalImmanence)} we {selectRandomString(considered)} and
+            refused to believe was {selectRandomString(alive)} and {selectRandomString(lurking)} in the {selectRandomString(light)} as much
+            as the {selectRandomString(darkHairedStranger)} we {selectRandomString(greeted)} with{' '}
             {selectRandomString(mutteredFrenchAndGerman)} widows {selectRandomString(knittedUsBlankets)} of {selectRandomString(kidHair)}{' '}
             that {selectRandomString(blanketed)} the {selectRandomString(blankness)} when the lights went out
           </p>
