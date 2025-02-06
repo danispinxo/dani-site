@@ -43,8 +43,8 @@
   }
   .button-holder {
     display: flex;
-    justify-content: end;
-    align-content: end;
+    justify-content: flex-end;
+    align-content: flex-end;
 
     button {
       padding: 0.5rem;
