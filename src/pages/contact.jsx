@@ -5,8 +5,6 @@ import TextField from '@mui/material/TextField';
 
 const Contact = () => {
   const [state, handleSubmit] = useForm('xleqzjrj');
-  if (state.succeeded) {
-  }
 
   return (
     <>
