@@ -28,20 +28,29 @@ const SwiftSonnets = () => {
       <main>
         <div className="c">
           <h4 className="swift-poem-title">12:01am, Friday, December 13th</h4>
-          {sonnet.length > 0 && sonnet.map((line, index) => (line === '' ? <br key={index} /> : <div key={index}>{line}</div>))}
+          {sonnet.length > 0 &&
+            sonnet.map((line, index) =>
+              line === '' ? (
+                <br key={index} />
+              ) : (
+                <div key={index} className="swift-line">
+                  {line}
+                </div>
+              ),
+            )}
         </div>
         <div className="swift-button-holder">
           <button className="swift-button" onClick={regenerateSonnet}>
             again
           </button>
         </div>
-        <p className="taper-note">
+        <div className="taper-note">
           A smaller version of this poem was published in <i>Taper</i> volume 13 on Superstitions. You can read that version{' '}
           <a href="https://taper.badquar.to/13/swift_sonnets.html" target="_blank" rel="noreferrer noopener">
             here
           </a>
           .
-        </p>
+        </div>
       </main>
     </>
   );

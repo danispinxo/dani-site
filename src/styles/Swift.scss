@@ -4,6 +4,13 @@
   margin-top: 0.75rem;
   font-family: variables.$typewriter-font;
   padding-left: 1rem;
+  width: 80%;
+
+  .swift-line {
+    @include variables.xs {
+      font-size: 0.75rem;
+    }
+  }
 }
 
 .swift-button-holder {
@@ -19,6 +26,7 @@
 }
 
 .taper-note {
+  width: 80%;
   margin-top: 3rem;
   font-family: variables.$serif-font;
 

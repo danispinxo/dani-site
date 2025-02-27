@@ -22,6 +22,12 @@ export const lines = {
     'But every night with us is like a dream',
     "You almost ran the red 'cause you were lookin' over at me",
     "And your mother's telling stories 'bout you on the tee-ball team",
+    "My boredom's bone deep",
+    "They don't know how you've haunted me",
+    'I wanna stay right here in this passenger seat',
+    'Get me with those green eyes, baby',
+    'And I could wait patiently',
+    'In the good in the world, you once believed in me',
   ],
   b: [
     'But do you remember?',
@@ -48,6 +54,10 @@ export const lines = {
     "And I know it's long gone and that magic's not here no more",
     'Down the stairs, I was there',
     "I'm a crumpled up piece of paper lying here",
+    "And, somehow, I know that you and I would've found each other",
+    'And you know I wanna ask you to dance right there',
+    'I run my fingers through your hair',
+    'Is that your key in the door?',
   ],
   c: [
     "It's a cruel summer with you",
@@ -63,5 +73,7 @@ export const lines = {
     'I walked through the door with you',
     "And I know it's long gone and there was nothing else I could do",
     'And I forget about you long enough to forget why I needed to',
+    'Catastrophic blues',
+    "Movin' on was always easy for me to do",
   ],
 };
