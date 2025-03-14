@@ -95,7 +95,7 @@ const CreativeWriting = () => {
           <ul className="bullet-list">
             <li>
               Cox, Ryan J. “
-              <a rel="noreferrer noopener" href="https://www.prairiefire.ca/oo-typewriter-poems-by-dani-spinosa/" target="_blank">
+              <a href="https://www.prairiefire.ca/oo-typewriter-poems-by-dani-spinosa/" target="_blank" rel="noreferrer noopener">
                 OO: Typewriter Poems by Dani Spinosa
               </a>
               .” <em>Prairie Fire</em>, 19 October 2021.
@@ -109,31 +109,40 @@ const CreativeWriting = () => {
             </li>
             <li>
               Heisler, Eva. “
-              <a href="https://www.asymptotejournal.com/visual/typewriters-desire-community-dani-spinosa/">
+              <a href="https://www.asymptotejournal.com/visual/typewriters-desire-community-dani-spinosa/" rel="noreferrer noopener">
                 Dani Spinosa, Typewriters, Desire, Community
               </a>
               .” <em>Asympote. </em>Article and interview.
             </li>
             <li>
               Desforges, Jaclyn. “
-              <a href="http://hamiltonreviewofbooks.com/blog/2021/04/26/20-poetry-collections-you-may-have-missed-in-2020">
+              <a
+                href="http://hamiltonreviewofbooks.com/blog/2021/04/26/20-poetry-collections-you-may-have-missed-in-2020"
+                rel="noreferrer noopener"
+              >
                 20 Poetry Collections You May Have Missed in 2020
               </a>
               .” <em>Hamilton Review of Books</em>, 2021
             </li>
             <li>
               mclennan, rob. “
-              <a href="http://dusie.blogspot.com/2021/01/a-best-of-list-of-2020-canadian-poetry.html">
+              <a href="http://dusie.blogspot.com/2021/01/a-best-of-list-of-2020-canadian-poetry.html" rel="noreferrer noopener">
                 A 'best of' list of 2020 Canadian poetry books
               </a>
               .” <em>DUSIE</em>, 1 January 2020.
             </li>
             <li>
-              Mandrake, Jill. “<a href="https://www.geist.com/fact/reviews/unity-order-equilibr/ium/">Unity, Order, and Equilibr/ium</a>
+              Mandrake, Jill. “
+              <a href="https://www.geist.com/fact/reviews/unity-order-equilibr/ium/" rel="noreferrer noopener">
+                Unity, Order, and Equilibr/ium
+              </a>
               .” <em>GEIST</em>, vol. 116, 2020.
             </li>
             <li>
-              Laliberte, Mark. “<a href="http://blog.carouselmagazine.ca/usereview003/">USERVIEW 003: Creation, Derivation, Exchange.”</a>
+              Laliberte, Mark. “
+              <a href="http://blog.carouselmagazine.ca/usereview003/" rel="noreferrer noopener">
+                USERVIEW 003: Creation, Derivation, Exchange.”
+              </a>
               <em>Carousel, </em>5 September.
             </li>
             <li>
@@ -142,14 +151,16 @@ const CreativeWriting = () => {
             </li>
             <li>
               mclennan, rob. “
-              <a href="http://robmclennan.blogspot.com/2020/06/dani-spinosa-oo-typewriter-poems.html">
+              <a href="http://robmclennan.blogspot.com/2020/06/dani-spinosa-oo-typewriter-poems.html" rel="noreferrer noopener">
                 Rev. of Dani Spinosa, <em>OO: Typewriter Poems</em>
               </a>
               .” 12 June.
             </li>
             <li>
               Hajnoczky, Helen. “
-              <a href="https://www.ateacozyisasometimes.com/blog/2020/4/30/229mn1s4ah8xrzknyqlmupb2ila3kn">OOH My Heart</a>
+              <a href="https://www.ateacozyisasometimes.com/blog/2020/4/30/229mn1s4ah8xrzknyqlmupb2ila3kn" rel="noreferrer noopener">
+                OOH My Heart
+              </a>
               .” <em>A Tea Cozy is a Sometimes</em>, 1 May.
             </li>
             <li>
@@ -161,14 +172,19 @@ const CreativeWriting = () => {
             </li>
             <li>
               Ball, Jonathan. “
-              <a href="https://www.winnipegfreepress.com/arts-and-life/entertainment/books/benaways-poetic-probing-resonates-569946152.html">
+              <a
+                href="https://www.winnipegfreepress.com/arts-and-life/entertainment/books/benaways-poetic-probing-resonates-569946152.html"
+                rel="noreferrer noopener"
+              >
                 Rev. of <em>OO: Typewriter Poems</em>
               </a>
               <em>.” Winnipeg Free Press</em>, 25 April.
             </li>
             <li>
               CBC Books. “
-              <a href="https://www.cbc.ca/books/oo-typewriter-poems-1.5482144">29 works of Canadian poetry to watch for in spring 2020</a>
+              <a href="https://www.cbc.ca/books/oo-typewriter-poems-1.5482144" rel="noreferrer noopener">
+                29 works of Canadian poetry to watch for in spring 2020
+              </a>
               .” <em>CBC Books</em>, 2 March.
             </li>
           </ul>

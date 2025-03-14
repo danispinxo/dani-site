@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": "21.6.2"
+    "node": "22.14.0"
   },
   "private": true,
   "description": "dani-site",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.14.0",
-    "@formspree/react": "^2.5.4",
+    "@formspree/react": "^3.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/material": "^6.4.7",
@@ -42,7 +42,7 @@
     "sass": "^1.85.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.1.7",
+    "@next/eslint-plugin-next": "^15.2.1",
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4"
   }

@@ -163,6 +163,10 @@ const images = [
     src: '/images/andy-flyer.png',
     alt: "Flyer for Launch of Andy Weaver's The Loom",
   },
+  {
+    src: '/images/dal-flyer.jpg',
+    alt: 'Flyer for Talk with Kate Siklosi at Dalhousie University',
+  },
 ];
 
 const ImageGallery = () => {

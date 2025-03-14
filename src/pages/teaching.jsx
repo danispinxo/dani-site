@@ -21,8 +21,10 @@ const Teaching = () => {
           <ul className="bullet-list">
             <li>
               ENGL4307H: Digital Adventures in English (2 sections) (Nominee,{' '}
-              <a href="https://showcase.trentonlineblog.ca/uncategorized/dani-spinosa-english/">Award for Excellence in Online Teaching</a>,
-              Trent University)
+              <a href="https://showcase.trentonlineblog.ca/uncategorized/dani-spinosa-english/" rel="noreferrer noopener">
+                Award for Excellence in Online Teaching
+              </a>
+              , Trent University)
             </li>
           </ul>
 
