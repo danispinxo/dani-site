@@ -14,7 +14,6 @@ const Talks = () => {
           publication="Where from Here? University of Guelph"
           date="16 September 2022"
           linkType="talk"
-          link="https://where-from-here.ca/?e-landing-page=conference-schedule"
         />
         <p className="subtitle">Academic Conference Papers</p>
         <Publication
@@ -23,7 +22,6 @@ const Talks = () => {
           date="15 September 2022"
           notes="Co-authored with Kiera Obbard"
           linkType="talk"
-          link="https://where-from-here.ca/?e-landing-page=conference-schedule"
         />
         <Publication
           title="Where in the Web is SwiftCurrent?"
@@ -165,6 +163,13 @@ const Talks = () => {
 
         <p className="subtitle">Lectures and Panelist Talks</p>
         <Publication
+          title="Invited Speaker, Dalhousie English Department Speaker Series"
+          publication="Dalhousie University"
+          date="20 March 2025"
+          notes="with Kate Siklosi"
+          linkType="no-talk"
+        />
+        <Publication
           title="Invited Speaker, “CRWR-4002 Hybrid & Experimental Writing”"
           publication="OCADU"
           date="12 February 2024"
@@ -232,6 +237,12 @@ const Talks = () => {
         />
         <p className="subtitle">Poetry Readings</p>
         <ul className="bullet-list">
+          <li>
+            <a href="https://ojs.library.dal.ca/dalhousiereview/announcement/view/169" target="_blank" rel="noreferrer noopener">
+              Launch
+            </a>{' '}
+            of <i>The Dalhousie Review</i>, Cafe Lara, Halifax, NS. 21 March 2025
+          </li>
           <li>
             Launch of Andy Weaver's <i>The Loom</i>, Type Books, Toronto. 28 November 2024
           </li>

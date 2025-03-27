@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'variables.scss';
 
 .page-content {
@@ -12,16 +13,14 @@
     width: 80%;
   }
 
-  .list-item {
-    a {
-      font-family: variables.$round-font;
-      color: darkred;
-      text-decoration: none;
+  a {
+    font-family: variables.$round-font;
+    color: darkred;
+    text-decoration: none;
 
-      &:hover {
-        color: darkred;
-        text-decoration: none;
-      }
+    &:hover {
+      color: color.adjust(darkred, $lightness: 6%);
+      text-decoration: none;
     }
   }
 
