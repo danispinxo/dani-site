@@ -12,6 +12,11 @@ import '../styles/When.scss';
 import '../styles/Swift.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Cormorant, Special_Elite, Varela_Round } from 'next/font/google';
+
+const cormorant = Cormorant({ subsets: ['latin'], weight: ['500', '600', '700'] });
+const specialElite = Special_Elite({ subsets: ['latin'], weight: ['400'] });
+const varelaRound = Varela_Round({ subsets: ['latin'], weight: ['400'] });
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -27,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         />
         <title>Dani Spinosa: Poet Dev && Dev Poet</title>
       </Head>
-      <Component {...pageProps} />
+      <Component {...pageProps} fonts={{ cormorant, specialElite, varelaRound }} />
     </>
   );
 }

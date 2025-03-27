@@ -1,5 +1,5 @@
 import TopNavbar from '../components/Navbar';
-import Image from 'react-bootstrap/Image';
+import Image from 'next/image';
 
 export default function Homepage() {
   return (
@@ -7,13 +7,7 @@ export default function Homepage() {
       <TopNavbar />
       <main>
         <div className="index-bio">
-          <Image
-            className="author-photo"
-            alt="Dani Spinosa Portrait"
-            src={'/images/author-photo.jpg'}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            rounded
-          />
+          <Image className="author-photo" alt="Dani Spinosa Portrait" src={'/images/author-photo.jpg'} width={400} height={400} />
           <div className="bio-container">
             <h2 className="bio-heading">About</h2>
             <p>
