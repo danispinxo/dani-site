@@ -9,6 +9,13 @@ export default function PublicWriting() {
       <main className="page-content">
         <h1 className="title">Public Writing and Interviews</h1>
         <Publication
+          title="CRWR3011 Creative Writing Poetry II: Where Does a Poem Begin?"
+          publication="Periodicities"
+          date="2 April 2025"
+          linkType="link"
+          link="https://periodicityjournal.blogspot.com/2025/04/dani-spinosa-crwr3011-creative-writing.html"
+        />
+        <Publication
           title="Dani Spinosa: Creating Strange Hierarchies"
           publication="Vseizm"
           date="23 June 2024"

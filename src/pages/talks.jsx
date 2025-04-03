@@ -17,6 +17,21 @@ const Talks = () => {
         />
         <p className="subtitle">Academic Conference Papers</p>
         <Publication
+          title="Electronic Literature Collection, Volume 5"
+          publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
+          date="10-13 July 2025"
+          notes="Co-authored with Zach Whalen and Daniel Cox"
+          linkType="talk"
+          link="https://eliterature.org/2024/11/cfp-elo25-25-toronto-july-11-13-due-jan-5-2025/"
+        />
+        <Publication
+          title="Cyberfeminism Revisited: Glitch Feminism and the Digital Poetics of Lillian-Yvonne Bertram"
+          publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
+          date="10-13 July 2025"
+          linkType="talk"
+          link="https://eliterature.org/2024/11/cfp-elo25-25-toronto-july-11-13-due-jan-5-2025/"
+        />
+        <Publication
           title="#WriteWithRupi During a Pandemic: Reflections on the Future Horizons Mentorship Program"
           publication="Where from Here? University of Guelph"
           date="15 September 2022"
