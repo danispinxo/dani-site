@@ -11,7 +11,6 @@ import {
   faSquareCheck,
   faChampagneGlasses,
 } from '@fortawesome/free-solid-svg-icons';
-
 import TopNavbar from '../components/Navbar';
 
 const ToDoList = () => {
@@ -82,6 +81,11 @@ const ToDoList = () => {
     setCompletedTasks([...completedTasks, task]);
     setRandomTask(null);
     handlePickRandomTask();
+  };
+
+  const handleDoneFromList = (task) => {
+    setTasks(tasks.filter((t) => t !== task));
+    setCompletedTasks([...completedTasks, task]);
   };
 
   const handleEditTask = (task) => {
@@ -186,7 +190,7 @@ const ToDoList = () => {
                   <button className="delete-task-button" onClick={() => handleDeleteTask(t)}>
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
-                  <button className="finish-task-button" onClick={() => handleMarkAsDone(t)}>
+                  <button className="finish-task-button" onClick={() => handleDoneFromList(t)}>
                     <FontAwesomeIcon icon={faCheck} />
                   </button>
                 </>
