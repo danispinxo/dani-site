@@ -10,6 +10,7 @@ import '../styles/ListPages.scss';
 import '../styles/Publication.scss';
 import '../styles/When.scss';
 import '../styles/Swift.scss';
+import '../styles/ToDo.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Cormorant, Special_Elite, Varela_Round } from 'next/font/google';
