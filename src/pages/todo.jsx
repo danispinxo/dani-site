@@ -10,6 +10,7 @@ import {
   faHourglass,
   faSquareCheck,
   faChampagneGlasses,
+  faTableList,
 } from '@fortawesome/free-solid-svg-icons';
 import TopNavbar from '../components/Navbar';
 
@@ -100,6 +101,11 @@ const ToDoList = () => {
   };
 
   const handleDeleteTask = (task) => setTasks(tasks.filter((t) => t !== task));
+
+  const handleBackToList = (task) => {
+    setCompletedTasks(completedTasks.filter((t) => t !== task));
+    setTasks([...tasks, task]);
+  };
 
   const handleResetList = () => {
     const confirmReset = window.confirm('Are you sure you want to reset the list? This action cannot be undone.');
@@ -214,8 +220,16 @@ const ToDoList = () => {
             <h2>Completed Tasks</h2>
             <ul className="completed-tasks-list">
               {completedTasks.map((t, index) => (
-                <li className="completed-task" key={index}>
-                  {t}
+                <li
+                  className="completed-task"
+                  key={index}
+                  onMouseEnter={(e) => e.target.classList.add('show-button')}
+                  onMouseLeave={(e) => e.target.classList.remove('show-button')}
+                >
+                  <span>{t}</span>
+                  <button className="back-to-list-button" onClick={() => handleBackToList(t)}>
+                    <FontAwesomeIcon icon={faTableList} />
+                  </button>
                 </li>
               ))}
             </ul>

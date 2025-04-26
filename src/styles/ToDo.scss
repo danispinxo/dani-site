@@ -158,6 +158,24 @@
 
     .completed-task {
       text-decoration: line-through;
+
+      &.show-button {
+        .back-to-list-button {
+          display: inline-block;
+        }
+      }
+
+      .back-to-list-button {
+        display: none;
+        margin-left: 0.5rem;
+        padding: 0 0.6rem;
+        font-family: variables.$round-font;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: goldenrod;
+        color: white;
+        border: none;
+      }
     }
   }
 
