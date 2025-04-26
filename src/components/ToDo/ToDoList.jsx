@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFloppyDisk, faRotateLeft, faTrash, faCheck, faHourglass, faSquareCheck, faTableList } from '@fortawesome/free-solid-svg-icons';
 import SuccessMessage from './SuccessMessage';
 
-const ToDoList = () => {
+const ToDoList = (user) => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState('');
   const [randomTask, setRandomTask] = useState(() => (typeof window !== 'undefined' ? sessionStorage.getItem('randomTask') || null : null));
@@ -100,11 +100,14 @@ const ToDoList = () => {
       sessionStorage.clear();
     }
   };
+  const userMetadata = user.user.user_metadata;
+  const fullName = userMetadata.full_name;
+  const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
 
   return (
     <div className="todo-container">
       <h1 className="todo-title">
-        To-Do List: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+        {title}: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
       </h1>
 
       {tasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}

@@ -35,13 +35,13 @@ const ToDoPage = () => {
                 alt={session.user.user_metadata.full_name || session.user.email}
                 className="user-avatar"
               />
-              <small>{session.user.user_metadata.full_name || session.user.email}</small>
+              <small>{session.user.user_metadata.user_name || session.user.email}</small>
             </div>
             <button onClick={async () => await supabase.auth.signOut()} className="logout-button">
               Log Out
             </button>
           </div>
-          <ToDoList userName={session.user.user_metadata.full_name} />
+          <ToDoList user={session.user} />
         </>
       ) : (
         <div className="supabase-auth">
