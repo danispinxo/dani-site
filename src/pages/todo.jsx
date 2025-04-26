@@ -164,6 +164,12 @@ const ToDoList = () => {
           <button type="submit">Add Task</button>
         </form>
 
+        {tasks.length > 0 && (
+          <button className="random-task-button" onClick={handlePickRandomTask}>
+            Pick a Random Task
+          </button>
+        )}
+
         <ol className="todo-list">
           {tasks.map((t, index) => (
             <li key={index} className="todo-list-item">
