@@ -2,17 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFloppyDisk,
-  faRotateLeft,
-  faTrash,
-  faCheck,
-  faHourglass,
-  faSquareCheck,
-  faChampagneGlasses,
-  faTableList,
-} from '@fortawesome/free-solid-svg-icons';
+import { faFloppyDisk, faRotateLeft, faTrash, faCheck, faHourglass, faSquareCheck, faTableList } from '@fortawesome/free-solid-svg-icons';
 import TopNavbar from '../components/Navbar';
+import SuccessMessage from '../components/ToDo/SuccessMessage';
 
 const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
@@ -23,7 +15,6 @@ const ToDoList = () => {
   );
   const [editingTask, setEditingTask] = useState(null);
   const [editedTask, setEditedTask] = useState('');
-  const [cat, setCat] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -31,13 +22,6 @@ const ToDoList = () => {
       setTasks(storedTasks);
     }
   }, []);
-
-  useEffect(() => {
-    if (tasks.length === 0 && completedTasks.length > 0) {
-      setRandomTask('');
-      getCongratsCat();
-    }
-  }, [tasks, completedTasks]);
 
   useEffect(() => {
     sessionStorage.setItem('tasks', JSON.stringify(tasks));
@@ -118,21 +102,6 @@ const ToDoList = () => {
     }
   };
 
-  const getCongratsCat = async () => {
-    try {
-      const response = await fetch('https://api.thecatapi.com/v1/images/search');
-      const data = await response.json();
-
-      if (data && data[0] && data[0].url) {
-        setCat(data[0].url);
-      } else {
-        setCat(null);
-      }
-    } catch (error) {
-      setCat(null);
-    }
-  };
-
   return (
     <>
       <TopNavbar />
@@ -141,17 +110,7 @@ const ToDoList = () => {
           To-Do List: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </h1>
 
-        {tasks.length === 0 && completedTasks.length > 0 && (
-          <div className="completed-list-success-message">
-            <h2>
-              <FontAwesomeIcon icon={faChampagneGlasses} className="fa" />
-              Congratulations
-              <FontAwesomeIcon icon={faChampagneGlasses} className="fa" />
-            </h2>
-            <p>You have completed all your tasks for the day. Here's a kitty.</p>
-            {cat && <img src={cat} alt="Congratulations Cat" className="congrats-cat" />}
-          </div>
-        )}
+        {tasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
         {randomTask && (
           <div className="random-task">
             <h2>Currently Working On...</h2>
