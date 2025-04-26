@@ -22,6 +22,14 @@ const ToDoPage = () => {
   }, []);
 
   const redirectUrl = `${process.env.NEXT_PUBLIC_BASE_URL}todo`;
+  const avatarUrl = session?.user?.user_metadata?.avatar_url || '';
+  // const avatarUrl = false;
+  const email = session?.user?.email || session?.user?.user_metadata?.full_name;
+  const emailHash = encodeURIComponent(email);
+  const options = `seed=${emailHash}`;
+  const defaultImage = encodeURIComponent(`https://api.dicebear.com/9.x/lorelei/png/${encodeURIComponent(options)}`);
+
+  const gravatarImage = `https://www.gravatar.com/avatar/${emailHash}?d=${defaultImage}`;
 
   return (
     <>
@@ -30,11 +38,12 @@ const ToDoPage = () => {
         <>
           <div className="authenticated-user">
             <div className="user-avatar-container">
-              <Image
-                src={session.user.user_metadata.avatar_url}
-                alt={session.user.user_metadata.full_name || session.user.email}
-                className="user-avatar"
-              />
+              {avatarUrl ? (
+                <Image src={avatarUrl} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+              ) : (
+                <Image src={gravatarImage} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+              )}
+
               <small>{session.user.user_metadata.user_name || session.user.email}</small>
             </div>
             <button onClick={async () => await supabase.auth.signOut()} className="logout-button">

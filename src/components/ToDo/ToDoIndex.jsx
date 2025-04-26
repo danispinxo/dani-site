@@ -15,7 +15,7 @@ const ToDoIndex = (user) => {
   const userMetadata = user.user.user_metadata;
   const fullName = userMetadata.full_name;
   const userId = user.user.id;
-  const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
+  let title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
 
   useEffect(() => {
     fetchAllToDoLists();
@@ -82,13 +82,11 @@ const ToDoIndex = (user) => {
       setToDoList(null);
     }
   };
-
+  
   return (
     <div className="todo-container">
-      <h1 className="todo-title">
-        {title}: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-      </h1>
-
+      <h1 className="todo-title">{title}</h1>
+      {toDoList && <p>List created on {new Date(toDoList.created_at).toLocaleDateString()}</p>}
       {toDoList && <ToDoList toDoList={toDoList} user={user} />}
 
       {toDoList && (
