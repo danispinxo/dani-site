@@ -1,5 +1,5 @@
 import TopNavbar from '../components/Navbar';
-import ToDoList from '../components/ToDo/ToDoList';
+import ToDoIndex from '../components/ToDo/ToDoIndex';
 import { useState, useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
@@ -41,7 +41,7 @@ const ToDoPage = () => {
               Log Out
             </button>
           </div>
-          <ToDoList user={session.user} />
+          <ToDoIndex user={session.user} />
         </>
       ) : (
         <div className="supabase-auth">

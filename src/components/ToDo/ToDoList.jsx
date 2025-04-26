@@ -2,71 +2,44 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglass, faSquareCheck, faTableList, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHourglass, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
 import SuccessMessage from './SuccessMessage';
 
-const ToDoList = (user) => {
-  const [toDoList, setToDoList] = useState(null);
+const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
   const [incompleteTasks, setIncompleteTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [task, setTask] = useState('');
   const [randomTask, setRandomTask] = useState(null);
 
-  const userMetadata = user.user.user_metadata;
-  const fullName = userMetadata.full_name;
-  const userId = user.user.id;
-  const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
-
   useEffect(() => {
     setIncompleteTasks(tasks.filter((t) => !t.completed));
     setCompletedTasks(tasks.filter((t) => t.completed));
   }, [tasks]);
 
-  const fetchMostRecentList = async () => {
+  const fetchTasks = async () => {
     try {
-      const { data: list, error } = await supabase
-        .from('todo_list')
+      const { data: items, error } = await supabase
+        .from('todo_list_item')
         .select()
-        .eq('user', userId)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .single();
-      if (error) {
-        console.error('Error fetching to-do list:', error);
+        .eq('todo_list', toDoList.id)
+        .order('created_at', { ascending: false });
+      if (!error) {
+        setTasks(items);
       } else {
-        setToDoList(list);
-        const { data: items, error: fetchError } = await supabase
-          .from('todo_list_item')
-          .select()
-          .eq('todo_list', list.id)
-          .order('created_at', { ascending: false });
-        if (fetchError) {
-          console.error('Error fetching tasks:', fetchError);
-        } else {
-          setTasks(items);
-          setIncompleteTasks(items.filter((item) => !item.completed));
-          setCompletedTasks(items.filter((item) => item.completed));
-        }
+        console.error('Error fetching tasks:', error);
       }
     } catch (error) {
-      console.error('Error fetching to-do list:', error);
+      console.error('Error fetching tasks:', error);
     }
   };
-
-  const handleCreateToDoList = async () => {
-    try {
-      const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
-      setToDoList(list);
-      return list;
-    } catch (error) {
-      console.error('Error creating to-do list:', error);
-      return error;
-    }
-  };
+  
+  useEffect(() => {
+    if (toDoList) fetchTasks();
+  }, [toDoList]);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -172,21 +145,8 @@ const ToDoList = (user) => {
     }
   };
 
-  const handleCloseList = () => {
-    const confirmReset = window.confirm('Are you sure you want to reset the list? This action cannot be undone.');
-
-    if (confirmReset) {
-      setToDoList(null);
-      setTasks([]);
-      setRandomTask(null);
-    }
-  };
-
   return (
-    <div className="todo-container">
-      <h1 className="todo-title">
-        {title}: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-      </h1>
+    <div>
       {incompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
 
       {toDoList && (
@@ -226,20 +186,6 @@ const ToDoList = (user) => {
           {completedTasks.length > 0 && <CompleteList tasks={completedTasks} handleBackToList={handleBackToList} />}
         </>
       )}
-
-      {toDoList ? (
-        <button className="bottom-button close-button" onClick={handleCloseList}>
-          Close List
-        </button>
-      ) : (
-        <button className="bottom-button most-recent-list-button" onClick={fetchMostRecentList}>
-          Get Last List
-        </button>
-      )}
-
-      <button className="bottom-button new-list-button" onClick={handleCreateToDoList}>
-        <FontAwesomeIcon icon={faPlus} /> New List
-      </button>
     </div>
   );
 };
