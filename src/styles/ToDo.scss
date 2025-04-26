@@ -18,9 +18,27 @@
     border: 1px solid #ccc;
     border-radius: 8px;
 
+    @include variables.sm {
+      width: 80%;
+    }
+
+    @include variables.xs {
+      width: 100%;
+    }
+
     input {
       margin: 0.5rem;
       width: 65%;
+
+      @include variables.sm {
+        margin: 0.2rem;
+        width: 50%;
+      }
+
+      @include variables.xs {
+        margin: 0.1rem;
+        width: 60%;
+      }
     }
 
     button {
@@ -77,6 +95,7 @@
 
   .random-task-button {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 0.3rem 0.8rem;
     font-family: variables.$round-font;
     background-color: darkred;
