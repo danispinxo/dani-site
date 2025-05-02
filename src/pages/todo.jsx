@@ -23,7 +23,7 @@ const ToDoPage = () => {
 
   const redirectUrl = `${process.env.NEXT_PUBLIC_BASE_URL}todo`;
   const avatarUrl = session?.user?.user_metadata?.avatar_url || '';
-  
+
   const email = session?.user?.email || session?.user?.user_metadata?.full_name;
   const emailHash = encodeURIComponent(email);
   const options = `seed=${emailHash}`;
@@ -54,7 +54,7 @@ const ToDoPage = () => {
         </>
       ) : (
         <div className="supabase-auth">
-          <h2>Authenticate with Supabase</h2>
+          <h2>Sign In</h2>
           <Auth
             supabaseClient={supabase}
             appearance={{

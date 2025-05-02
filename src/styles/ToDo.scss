@@ -262,11 +262,14 @@
   font-family: variables.$round-font;
 
   @include variables.sm {
-    small {
-      display: none;
-    }
+    margin-left: 48%;
+    width: 50%;
   }
 
+  @include variables.xs {
+    margin-left: 48%;
+    width: 50%;
+  }
   .user-avatar {
     width: 50px;
     height: 50px;
