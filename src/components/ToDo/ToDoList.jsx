@@ -36,7 +36,7 @@ const ToDoList = ({ toDoList, user }) => {
       console.error('Error fetching tasks:', error);
     }
   };
-  
+
   useEffect(() => {
     if (toDoList) fetchTasks();
   }, [toDoList]);
@@ -68,9 +68,9 @@ const ToDoList = ({ toDoList, user }) => {
   };
 
   const handlePickRandomTask = () => {
-    if (tasks.length > 0) {
-      const randomIndex = Math.floor(Math.random() * tasks.length);
-      setRandomTask(tasks[randomIndex]);
+    if (incompleteTasks.length > 0) {
+      const randomIndex = Math.floor(Math.random() * incompleteTasks.length);
+      setRandomTask(incompleteTasks[randomIndex]);
     } else {
       setRandomTask(null);
     }
