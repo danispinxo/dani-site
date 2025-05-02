@@ -263,6 +263,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: variables.$round-font;
 
+  a {
+    color: darkred;
+    font-family: variables.$round-font;
+  }
   @include variables.sm {
     margin-left: 48%;
     width: 50%;

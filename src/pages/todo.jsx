@@ -38,15 +38,13 @@ const ToDoPage = () => {
         <>
           <div className="authenticated-user">
             <div className="user-avatar-container">
-              <a href="/full-list-history">
-                {avatarUrl ? (
-                  <Image src={avatarUrl} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
-                ) : (
-                  <Image src={gravatarImage} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
-                )}
-              </a>
+              {avatarUrl ? (
+                <Image src={avatarUrl} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+              ) : (
+                <Image src={gravatarImage} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+              )}
 
-              <small>{session.user.user_metadata.user_name || session.user.email}</small>
+              <a href="/full-list-history">{session.user.user_metadata.user_name || session.user.email}</a>
             </div>
             <button onClick={async () => await supabase.auth.signOut()} className="logout-button">
               Log Out

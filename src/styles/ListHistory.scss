@@ -22,39 +22,38 @@
     margin: 2rem 0;
     width: 100%;
     border-collapse: collapse;
-    text-align: center;
+    text-align: left;
     border-radius: 5px;
     font-family: variables.$round-font;
+    table-layout: fixed;
 
     button {
-      background-color: darkred;
-      color: white;
-      border: 1px solic transparent;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      font-size: 1.5rem;
+      background-color: transparent;
+      color: darkred;
+      border: none;
       cursor: pointer;
 
       &:hover {
-        background-color: goldenrod;
-        color: darkred;
-        border: 1px solid darkred;
+        color: white;
       }
     }
 
     th,
     td {
       padding: 1rem;
-      text-align: left;
       border-bottom: 1px solid #ccc;
     }
 
     th {
       background-color: darkred;
       color: white;
+      font-size: 1.2rem;
     }
 
     tr:hover {
       background-color: goldenrod;
+      color: white;
     }
   }
 }

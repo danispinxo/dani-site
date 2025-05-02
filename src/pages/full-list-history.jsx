@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import Collapse from 'react-bootstrap/Collapse';
 import TopNavbar from '../components/Navbar';
 import supabase from '../lib/supabaseClient';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,7 @@ import { faTrashAlt, faEye, faBack } from '@fortawesome/free-solid-svg-icons';
 const ListHistory = () => {
   const [session, setSession] = useState(null);
   const [allToDoLists, setAllToDoLists] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -65,33 +66,35 @@ const ListHistory = () => {
         {allToDoLists.length > 0 ? (
           <table className="list-history-table">
             <thead>
-              <tr>
+              <tr onClick={() => setOpen(!open)} style={{ cursor: 'pointer' }}>
                 <th>Name</th>
                 <th>Date Created</th>
                 <th>View</th>
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>
-              {allToDoLists.map((list) => (
-                <tr key={list.id}>
-                  <td>{list.name}</td>
-                  <td>{new Date(list.created_at).toLocaleString()}</td>
-                  <td>
-                    <a href={`/todo?id=${list.id}`}>
-                      <button>
-                        <FontAwesomeIcon icon={faEye} />
+            <Collapse in={open}>
+              <tbody>
+                {allToDoLists.map((list) => (
+                  <tr key={list.id}>
+                    <td>{list.name}</td>
+                    <td>{new Date(list.created_at).toLocaleString()}</td>
+                    <td>
+                      <a href={`/todo?id=${list.id}`}>
+                        <button>
+                          <FontAwesomeIcon icon={faEye} />
+                        </button>
+                      </a>
+                    </td>
+                    <td>
+                      <button onClick={() => handleDelete(list.id)} className="delete-button">
+                        <FontAwesomeIcon icon={faTrashAlt} />
                       </button>
-                    </a>
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(list.id)} className="delete-button">
-                      <FontAwesomeIcon icon={faTrashAlt} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Collapse>
           </table>
         ) : (
           <p>No to-do lists found.</p>
