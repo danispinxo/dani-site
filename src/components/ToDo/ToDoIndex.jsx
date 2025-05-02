@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHourglass, faSquareCheck, faTableList, faPlus } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
+import Modal from 'react-bootstrap/Modal';
 import ToDoList from './ToDoList';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
@@ -12,6 +13,7 @@ import SuccessMessage from './SuccessMessage';
 const ToDoIndex = (user) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
   const [toDoList, setToDoList] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const userMetadata = user.user.user_metadata;
   const fullName = userMetadata.full_name;
   const userId = user.user.id;
@@ -20,6 +22,8 @@ const ToDoIndex = (user) => {
   useEffect(() => {
     fetchAllToDoLists();
   }, []);
+
+  const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
 
   const fetchAllToDoLists = async () => {
     try {
@@ -75,23 +79,44 @@ const ToDoIndex = (user) => {
     }
   };
 
-  const handleCloseList = () => {
-    const confirmReset = window.confirm('Are you sure you want to reset the list? This action cannot be undone.');
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
-    if (confirmReset) {
-      setToDoList(null);
+  const handleEditList = async (e) => {
+    e.preventDefault();
+    const newName = e.target.elements.listName.value;
+    try {
+      const { error } = await supabase.from('todo_list').update({ name: newName }).eq('id', toDoList.id);
+      if (error) {
+        console.error('Error updating list name:', error);
+      } else {
+        setToDoList({ ...toDoList, name: newName });
+        setAllToDoLists(allToDoLists.map((list) => (list.id === toDoList.id ? { ...list, name: newName } : list)));
+        handleCloseModal();
+      }
+    } catch (error) {
+      console.error('Error updating list name:', error);
     }
   };
-  
+
   return (
     <div className="todo-container">
       <h1 className="todo-title">{title}</h1>
-      {toDoList && <p>List created on {new Date(toDoList.created_at).toLocaleDateString()}</p>}
+      {toDoList && (
+        <div className="edit-list-container">
+          <h4>
+            {listName}
+            <button className="edit-list-button" onClick={handleShowModal}>
+              <FontAwesomeIcon icon={faTableList} />{' '}
+            </button>
+          </h4>
+        </div>
+      )}
       {toDoList && <ToDoList toDoList={toDoList} user={user} />}
 
       {toDoList && (
-        <button className="bottom-button close-button" onClick={handleCloseList}>
-          Close List
+        <button className="bottom-button close-button" onClick={() => setToDoList(null)}>
+          Clear List
         </button>
       )}
 
@@ -109,6 +134,24 @@ const ToDoIndex = (user) => {
       <button className="bottom-button new-list-button" onClick={handleCreateToDoList}>
         <FontAwesomeIcon icon={faPlus} /> New List
       </button>
+
+      {/* Modal for editing the list */}
+      <Modal show={showModal} onHide={handleCloseModal} className="edit-list-modal">
+        <Modal.Header closeButton className="edit-list-modal-header">
+          <Modal.Title>Change the name of your list</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={(e) => handleEditList(e)} className="edit-list-form">
+            <div className="form-group">
+              <label htmlFor="listName">List Name</label>
+              <input type="text" id="listName" name="listName" className="form-control" defaultValue={toDoList?.name || ''} required />
+            </div>
+            <button type="submit" className="edit-list-modal-button">
+              Save Changes
+            </button>
+          </form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

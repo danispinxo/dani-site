@@ -12,6 +12,19 @@
     font-family: variables.$typewriter-font;
   }
 
+  .edit-list-container {
+    display: flex;
+    align-items: center;
+    font-family: variables.$round-font;
+    padding: 0.2rem;
+
+    .edit-list-button {
+      background-color: transparent;
+      color: darkred;
+      border: none;
+    }
+  }
+
   .todo-form {
     margin-bottom: 1rem;
     padding: 1rem;
@@ -293,6 +306,37 @@
       font-size: 0.8rem;
       width: 30%;
       height: 40%;
+    }
+  }
+}
+
+.edit-list-modal {
+  font-family: variables.$round-font;
+
+  .edit-list-modal-header {
+    font-family: variables.$typewriter-font;
+  }
+
+  .edit-list-form {
+    padding: 1rem;
+
+    input {
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+
+    .edit-list-modal-button {
+      margin-left: 1rem;
+      padding: 0.3rem 0.8rem;
+      font-family: variables.$round-font;
+      background-color: darkred;
+      color: white;
+      border-radius: 4px;
+      border: none;
+
+      &:hover {
+        background-color: black;
+      }
     }
   }
 }
