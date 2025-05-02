@@ -14,6 +14,10 @@
     margin-bottom: 1rem;
   }
 
+  a {
+    color: darkred;
+  }
+
   .list-history-table {
     margin: 2rem 0;
     width: 100%;
@@ -25,7 +29,7 @@
     button {
       background-color: darkred;
       color: white;
-      border: none;
+      border: 1px solic transparent;
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
@@ -33,6 +37,7 @@
       &:hover {
         background-color: goldenrod;
         color: darkred;
+        border: 1px solid darkred;
       }
     }
 
