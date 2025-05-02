@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglass, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
+import { faHourglass, faSquareCheck, faTrash, faPenNib } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-bootstrap/Modal';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
@@ -13,6 +14,8 @@ const ToDoList = ({ toDoList, user }) => {
   const [incompleteTasks, setIncompleteTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [task, setTask] = useState('');
+  const [editingTask, setEditingTask] = useState(null);
+  const [showEditTaskModal, setShowEditTaskModal] = useState(false);
   const [randomTask, setRandomTask] = useState(null);
 
   useEffect(() => {
@@ -106,9 +109,14 @@ const ToDoList = ({ toDoList, user }) => {
     handlePickRandomTask();
   };
 
-  const handleDeleteTask = async (task) => {
+  const handleDeleteTask = async () => {
+    const confirmed = window.confirm('Are you sure you want to delete this task?');
+    if (!confirmed || !editingTask) {
+      return;
+    }
+
     try {
-      const { error } = await supabase.from('todo_list_item').delete().eq('id', task.id);
+      const { error } = await supabase.from('todo_list_item').delete().eq('id', editingTask.id);
 
       if (!error) {
         const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList?.id);
@@ -145,6 +153,34 @@ const ToDoList = ({ toDoList, user }) => {
     }
   };
 
+  const handleEditTask = async (e) => {
+    e.preventDefault();
+
+    const text = e.target.elements.taskText.value;
+    try {
+      const { data: item, error } = await supabase.from('todo_list_item').update({ text }).eq('id', toDoList.id).select().single();
+
+      if (!error) {
+        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
+
+        if (!fetchError) {
+          setTask('');
+          setTasks(items);
+        } else {
+          console.error('Error fetching tasks:', fetchError);
+        }
+      }
+    } catch (error) {
+      console.error('Error editing task:', error);
+    }
+    setShowEditTaskModal(false);
+  };
+
+  const handleCloseEditTaskModal = () => {
+    setShowEditTaskModal(false);
+    setEditingTask(null);
+  };
+
   return (
     <div>
       {incompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
@@ -176,7 +212,15 @@ const ToDoList = ({ toDoList, user }) => {
           )}
 
           {incompleteTasks.length > 0 && (
-            <IncompleteList tasks={incompleteTasks} handleDeleteTask={handleDeleteTask} handleMarkAsDone={handleMarkAsDone} />
+            <IncompleteList
+              tasks={incompleteTasks}
+              handleDeleteTask={handleDeleteTask}
+              handleMarkAsDone={handleMarkAsDone}
+              handleEditTask={(task) => {
+                setEditingTask(task);
+                setShowEditTaskModal(true);
+              }}
+            />
           )}
 
           <button className="random-task-button" onClick={handlePickRandomTask}>
@@ -186,6 +230,27 @@ const ToDoList = ({ toDoList, user }) => {
           {completedTasks.length > 0 && <CompleteList tasks={completedTasks} handleBackToList={handleBackToList} />}
         </>
       )}
+
+      {/* Modal for editing the list */}
+      <Modal show={showEditTaskModal} onHide={handleCloseEditTaskModal} className="edit-task-modal">
+        <Modal.Header closeButton className="edit-task-modal-header">
+          <Modal.Title>Edit Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={(e) => handleEditTask(e)} className="edit-task-form">
+            <div className="form-group">
+              <label htmlFor="taskText">Task Name</label>
+              <input type="text" id="taskText" name="taskText" className="form-control" defaultValue={editingTask?.text} />
+            </div>
+            <button type="submit" className="edit-task-modal-button">
+              <FontAwesomeIcon icon={faPenNib} /> Edit Task
+            </button>
+            <button className="delete-task-button" onClick={() => handleDeleteTask()}>
+              <FontAwesomeIcon icon={faTrash} /> Delete Task
+            </button>
+          </form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
