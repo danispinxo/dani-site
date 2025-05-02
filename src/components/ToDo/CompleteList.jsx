@@ -4,7 +4,7 @@ import { faTableList } from '@fortawesome/free-solid-svg-icons';
 const CompleteList = ({ tasks, handleBackToList }) => {
   return (
     <div className="completed-tasks">
-      <h2>Completed Tasks</h2>
+      <h2>Completed Tasks ({tasks.length})</h2>
       <ul className="completed-tasks-list">
         {tasks.map((t, index) => (
           <li
