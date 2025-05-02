@@ -7,6 +7,7 @@ import '../styles/Book.scss';
 import '../styles/Contact.scss';
 import '../styles/Gallery.scss';
 import '../styles/ListPages.scss';
+import '../styles/ListHistory.scss';
 import '../styles/Publication.scss';
 import '../styles/When.scss';
 import '../styles/Swift.scss';

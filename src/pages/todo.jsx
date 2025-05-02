@@ -38,11 +38,13 @@ const ToDoPage = () => {
         <>
           <div className="authenticated-user">
             <div className="user-avatar-container">
-              {avatarUrl ? (
-                <Image src={avatarUrl} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
-              ) : (
-                <Image src={gravatarImage} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
-              )}
+              <a href="/full-list-history">
+                {avatarUrl ? (
+                  <Image src={avatarUrl} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+                ) : (
+                  <Image src={gravatarImage} alt={session.user.user_metadata?.full_name || session.user?.email} className="user-avatar" />
+                )}
+              </a>
 
               <small>{session.user.user_metadata.user_name || session.user.email}</small>
             </div>

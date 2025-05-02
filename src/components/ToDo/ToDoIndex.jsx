@@ -14,16 +14,36 @@ const ToDoIndex = (user) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
   const [toDoList, setToDoList] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  let params = new URLSearchParams(document.location.search);
+  let id = params.get('id');
+
   const userMetadata = user.user.user_metadata;
   const fullName = userMetadata.full_name;
   const userId = user.user.id;
-  let title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
+  const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
+  const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
+
+  useEffect(() => {
+    if (id) {
+      const fetchListById = async () => {
+        try {
+          const { data: list, error } = await supabase.from('todo_list').select().eq('id', id).single();
+          if (error) {
+            console.error('Error fetching to-do list by ID:', error);
+          } else {
+            setToDoList(list);
+          }
+        } catch (error) {
+          console.error('Error fetching to-do list by ID:', error);
+        }
+      };
+      fetchListById();
+    }
+  }, [id]);
 
   useEffect(() => {
     fetchAllToDoLists();
   }, []);
-
-  const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
 
   const fetchAllToDoLists = async () => {
     try {
@@ -99,6 +119,13 @@ const ToDoIndex = (user) => {
     }
   };
 
+  const handleClearList = () => {
+    setToDoList(null);
+    const params = new URLSearchParams(window.location.search);
+    params.delete('id');
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+  };
+
   return (
     <div className="todo-container">
       <h1 className="todo-title">{title}</h1>
@@ -115,7 +142,7 @@ const ToDoIndex = (user) => {
       {toDoList && <ToDoList toDoList={toDoList} user={user} />}
 
       {toDoList && (
-        <button className="bottom-button close-button" onClick={() => setToDoList(null)}>
+        <button className="bottom-button close-button" onClick={handleClearList}>
           Clear List
         </button>
       )}

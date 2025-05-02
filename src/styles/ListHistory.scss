@@ -1,0 +1,55 @@
+@use 'variables.scss';
+
+.list-history-container {
+  margin-left: 7%;
+  margin-top: 2%;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 2rem;
+
+  h1 {
+    font-family: variables.$typewriter-font;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .list-history-table {
+    margin: 2rem 0;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 5px;
+    font-family: variables.$round-font;
+
+    button {
+      background-color: darkred;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: goldenrod;
+        color: darkred;
+      }
+    }
+
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: darkred;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: goldenrod;
+    }
+  }
+}
