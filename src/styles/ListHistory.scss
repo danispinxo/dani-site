@@ -14,12 +14,18 @@
     margin-bottom: 1rem;
   }
 
+  h3 {
+    font-family: variables.$typewriter-font;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
   a {
     color: darkred;
   }
 
-  .list-history-table {
-    margin: 2rem 0;
+  .list-history-table,
+  .categories-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
@@ -54,6 +60,42 @@
     tr:hover {
       background-color: goldenrod;
       color: white;
+    }
+  }
+
+  .add-category-form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 0 1rem 1rem;
+    border: 1px solid darkred;
+    border-radius: 8px;
+    width: 50%;
+
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      width: 25%;
+      font-size: 1rem;
+      background-color: darkred;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+
+      &.cancel-button {
+        background-color: goldenrod;
+      }
+
+      &:hover {
+        background-color: black;
+      }
     }
   }
 }
