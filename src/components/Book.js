@@ -1,6 +1,6 @@
 import { Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faBookOpenReader, faHeadphone, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faBookOpenReader, faHeadphones, faLink } from '@fortawesome/free-solid-svg-icons';
 
 const determineIcon = (type) => {
   switch (type) {
