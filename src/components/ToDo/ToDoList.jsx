@@ -14,6 +14,7 @@ const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [incompleteTasks, setIncompleteTasks] = useState([]);
+  const [sortedTasks, setSortedTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [task, setTask] = useState('');
   const [editingTask, setEditingTask] = useState(null);
@@ -25,6 +26,10 @@ const ToDoList = ({ toDoList, user }) => {
     setCompletedTasks(tasks.filter((t) => t.completed));
   }, [tasks]);
 
+  useEffect(() => {
+    setSortedTasks(sortTasksByCategory(incompleteTasks));
+  }, [incompleteTasks]);
+
   const fetchTasks = async () => {
     try {
       const { data: items, error } = await supabase
@@ -33,6 +38,7 @@ const ToDoList = ({ toDoList, user }) => {
         .eq('todo_list', toDoList.id)
         .order('created_at', { ascending: false });
       if (!error) {
+        console.log({ items });
         setTasks(items);
       } else {
         console.error('Error fetching tasks:', error);
@@ -61,8 +67,8 @@ const ToDoList = ({ toDoList, user }) => {
 
   useEffect(() => {
     if (toDoList) {
-      fetchTasks();
       fetchCategories();
+      fetchTasks();
     }
   }, [toDoList]);
 
@@ -181,22 +187,18 @@ const ToDoList = ({ toDoList, user }) => {
     const text = e.target.elements.taskText.value;
     const category = parseInt(e.target.elements.category.value);
 
+    const params = { text };
+
+    if (!isNaN(category)) {
+      params.category = category;
+    }
+
     try {
-      const { data: item, error } = await supabase
-        .from('todo_list_item')
-        .update({ text, category })
-        .eq('id', toDoList.id)
-        .select()
-        .single();
+      const { data: item, error } = await supabase.from('todo_list_item').update(params).eq('id', editingTask.id).select().single();
 
+      console.log({ item });
       if (!error) {
-        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
-
-        if (!fetchError) {
-          setTasks(items);
-        } else {
-          console.error('Error fetching tasks:', fetchError);
-        }
+        fetchTasks();
       }
     } catch (error) {
       console.error('Error editing task:', error);
@@ -207,6 +209,25 @@ const ToDoList = ({ toDoList, user }) => {
   const handleCloseEditTaskModal = () => {
     setShowEditTaskModal(false);
     setEditingTask(null);
+  };
+
+  const sortTasksByCategory = () => {
+    const categorizedTasks = {};
+    const uncategorizedTasks = [];
+
+    incompleteTasks.forEach((task) => {
+      const category = categories.find((c) => c.id === task.category);
+      if (category) {
+        if (!categorizedTasks[category.name]) {
+          categorizedTasks[category.name] = [];
+        }
+        categorizedTasks[category.name].push(task);
+      } else {
+        uncategorizedTasks.push(task);
+      }
+    });
+
+    return { categorizedTasks, uncategorizedTasks };
   };
 
   return (
@@ -241,7 +262,7 @@ const ToDoList = ({ toDoList, user }) => {
 
           {incompleteTasks.length > 0 && (
             <IncompleteList
-              tasks={incompleteTasks}
+              sortedTasks={sortedTasks}
               handleDeleteTask={handleDeleteTask}
               handleMarkAsDone={handleMarkAsDone}
               handleEditTask={(task) => {
@@ -272,8 +293,8 @@ const ToDoList = ({ toDoList, user }) => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="category">Category:</Form.Label>
-              <Form.Select name="category">
-                <option>--- Select a Category ---</option>
+              <Form.Select name="category" defaultValue={editingTask?.category || ''}>
+                <option value="">--- Select a Category ---</option>
                 {categories.map((category) => (
                   <option key={`category-${category.id}`} value={category.id}>
                     {category.name}
