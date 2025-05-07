@@ -161,6 +161,7 @@
 
     .completed-task {
       text-decoration: line-through;
+      cursor: pointer;
 
       &.show-button {
         .back-to-list-button {
@@ -171,12 +172,9 @@
       .back-to-list-button {
         display: none;
         margin-left: 0.5rem;
-        padding: 0 0.6rem;
-        font-family: variables.$round-font;
-        border-radius: 4px;
         cursor: pointer;
-        background-color: goldenrod;
-        color: white;
+        color: goldenrod;
+        background-color: transparent;
         border: none;
       }
     }
