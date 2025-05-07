@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHourglass, faSquareCheck, faTrash, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
@@ -11,6 +12,7 @@ import SuccessMessage from './SuccessMessage';
 
 const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [incompleteTasks, setIncompleteTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [task, setTask] = useState('');
@@ -40,8 +42,28 @@ const ToDoList = ({ toDoList, user }) => {
     }
   };
 
+  const fetchCategories = async () => {
+    try {
+      const { data: categories, error } = await supabase
+        .from('todo_category')
+        .select()
+        .eq('user', user.user.id)
+        .order('created_at', { ascending: false });
+      if (error) {
+        console.error('Error fetching categories:', error);
+      } else {
+        setCategories(categories);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
+
   useEffect(() => {
-    if (toDoList) fetchTasks();
+    if (toDoList) {
+      fetchTasks();
+      fetchCategories();
+    }
   }, [toDoList]);
 
   const handleAddTask = async (e) => {
@@ -157,14 +179,20 @@ const ToDoList = ({ toDoList, user }) => {
     e.preventDefault();
 
     const text = e.target.elements.taskText.value;
+    const category = parseInt(e.target.elements.category.value);
+
     try {
-      const { data: item, error } = await supabase.from('todo_list_item').update({ text }).eq('id', toDoList.id).select().single();
+      const { data: item, error } = await supabase
+        .from('todo_list_item')
+        .update({ text, category })
+        .eq('id', toDoList.id)
+        .select()
+        .single();
 
       if (!error) {
         const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
 
         if (!fetchError) {
-          setTask('');
           setTasks(items);
         } else {
           console.error('Error fetching tasks:', fetchError);
@@ -237,18 +265,29 @@ const ToDoList = ({ toDoList, user }) => {
           <Modal.Title>Edit Task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={(e) => handleEditTask(e)} className="edit-task-form">
-            <div className="form-group">
-              <label htmlFor="taskText">Task Name</label>
-              <input type="text" id="taskText" name="taskText" className="form-control" defaultValue={editingTask?.text} />
-            </div>
+          <Form onSubmit={(e) => handleEditTask(e)} className="edit-task-form">
+            <Form.Group>
+              <Form.Label htmlFor="taskText">Name:</Form.Label>
+              <Form.Control type="text" id="taskText" name="taskText" defaultValue={editingTask?.text} />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="category">Category:</Form.Label>
+              <Form.Select name="category">
+                <option>--- Select a Category ---</option>
+                {categories.map((category) => (
+                  <option key={`category-${category.id}`} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
             <button type="submit" className="edit-task-modal-button">
               <FontAwesomeIcon icon={faPenNib} /> Edit Task
             </button>
             <button className="delete-task-button" onClick={() => handleDeleteTask()}>
               <FontAwesomeIcon icon={faTrash} /> Delete Task
             </button>
-          </form>
+          </Form>
         </Modal.Body>
       </Modal>
     </div>
