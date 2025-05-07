@@ -9,19 +9,26 @@
 
   @include variables.xs {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left: 0;
     width: 100%;
+    text-align: center;
   }
 
   @include variables.sm {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-left: 5%;
     width: 100%;
+    text-align: center;
   }
 
   @include variables.md {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
