@@ -1,6 +1,6 @@
 import { Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faBookOpenReader, faHeadphones } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faBookOpenReader, faHeadphone, faLink } from '@fortawesome/free-solid-svg-icons';
 
 const determineIcon = (type) => {
   switch (type) {
@@ -10,6 +10,8 @@ const determineIcon = (type) => {
       return faBookOpenReader;
     case 'listen':
       return faHeadphones;
+    case 'devLink':
+      return faLink;
   }
 };
 

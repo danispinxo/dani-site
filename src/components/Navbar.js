@@ -30,6 +30,20 @@ const TopNavbar = () => {
                 Digital Projects
               </NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown className="navbar-link" title="Dev" id="collasible-nav-dropdown">
+              <NavDropdown.Item className="navbar-link" href="/dev-portfolio">
+                Portfolio
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-link" href="/todo">
+                To Do List App
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-link" href="https://github.com/danispinxo" target="_blank" rel="noopener noreferrer">
+                Personal Github
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-link" href="https://github.com/dani-hatch" target="_blank" rel="noopener noreferrer">
+                Hatch Coding Github
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Nav>
             <Nav.Link className="navbar-link" href="/gallery">
