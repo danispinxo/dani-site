@@ -2,7 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglass, faSquareCheck, faTrash, faPenNib } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDice,
+  faDiceOne,
+  faDiceTwo,
+  faDiceThree,
+  faDiceFour,
+  faDiceFive,
+  faDiceSix,
+  faSquareCheck,
+  faTrash,
+  faPenNib,
+} from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import supabase from '../../lib/supabaseClient';
@@ -19,6 +30,7 @@ const ToDoList = ({ toDoList, user }) => {
   const [editingTask, setEditingTask] = useState(null);
   const [showEditTaskModal, setShowEditTaskModal] = useState(false);
   const [randomTask, setRandomTask] = useState(null);
+  const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
 
   useEffect(() => {
     setIncompleteTasks(tasks.filter((t) => !t.completed));
@@ -112,7 +124,8 @@ const ToDoList = ({ toDoList, user }) => {
     }
   };
 
-  const handleSaveForLater = (task) => {
+  const handleReroll = (task) => {
+    setRerolls(rerolls - 1);
     setRandomTask(null);
     handlePickRandomTask();
   };
@@ -231,6 +244,24 @@ const ToDoList = ({ toDoList, user }) => {
     return { categorizedTasks, uncategorizedTasks };
   };
 
+  const getDiceIcon = (rerolls) => {
+    if (rerolls > 6) {
+      return faDice;
+    } else if (rerolls === 6) {
+      return faDiceSix;
+    } else if (rerolls === 5) {
+      return faDiceFive;
+    } else if (rerolls === 4) {
+      return faDiceFour;
+    } else if (rerolls === 3) {
+      return faDiceThree;
+    } else if (rerolls === 2) {
+      return faDiceTwo;
+    } else if (rerolls === 1) {
+      return faDiceOne;
+    }
+  };
+
   return (
     <div>
       {incompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
@@ -240,13 +271,21 @@ const ToDoList = ({ toDoList, user }) => {
           {randomTask && (
             <div className="random-task">
               <h2>Currently Working On...</h2>
-              <p className="current-task">{randomTask.text}</p>
-              <button className="save-button" onClick={() => handleSaveForLater(randomTask)}>
-                <FontAwesomeIcon icon={faHourglass} />
-              </button>
-              <button className="done-button" onClick={() => handleDoneFromRandom(randomTask)}>
-                <FontAwesomeIcon icon={faSquareCheck} />
-              </button>
+              <p className="current-task">
+                {rerolls > 0 ? (
+                  <button className="save-button" onClick={() => handleReroll(randomTask)}>
+                    <FontAwesomeIcon icon={getDiceIcon(rerolls)} />
+                  </button>
+                ) : (
+                  <button className="save-button" disabled>
+                    <FontAwesomeIcon icon={faDiceOne} />
+                  </button>
+                )}
+                <button className="done-button" onClick={() => handleDoneFromRandom(randomTask)}>
+                  <FontAwesomeIcon icon={faSquareCheck} />
+                </button>
+                {randomTask.text}
+              </p>
             </div>
           )}
 

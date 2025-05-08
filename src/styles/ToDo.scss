@@ -95,7 +95,7 @@
 
       .finish-task-button {
         background-color: transparent;
-        color: darkgreen;
+        color: darkcyan;
       }
     }
   }
@@ -128,32 +128,29 @@
     }
 
     button {
-      margin-left: 1rem;
-      padding: 0.3rem 0.8rem;
-      font-family: variables.$round-font;
-      border-radius: 4px;
+      background-color: transparent;
       border: none;
     }
 
     .save-button {
-      background-color: rgb(250, 239, 239);
       color: darkred;
-      border: 1px solid darkred;
 
       &:hover {
-        color: rgb(250, 239, 239);
-        border: 1px solid rgb(250, 239, 239);
-        background-color: darkred;
+        color: goldenrod;
+      }
+
+      &:disabled {
+        color: darkgray;
+        cursor: not-allowed;
       }
     }
+
     .done-button {
-      background-color: darkred;
-      color: rgb(250, 239, 239);
+      color: darkcyan;
+      margin-right: 0.5rem;
 
       &:hover {
-        background-color: rgb(250, 239, 239);
-        border: 1px solid darkred;
-        color: darkred;
+        color: goldenrod;
       }
     }
   }
@@ -200,7 +197,7 @@
     }
 
     &.new-list-button {
-      background-color: darkgreen;
+      background-color: darkcyan;
     }
   }
 
