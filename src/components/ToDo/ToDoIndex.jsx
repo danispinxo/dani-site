@@ -105,12 +105,18 @@ const ToDoIndex = (user) => {
   const handleEditList = async (e) => {
     e.preventDefault();
     const newName = e.target.elements.listName.value;
+    const maxRerolls = e.target.elements.maxRerolls.value;
+
+    const params = { name: newName };
+
+    if (maxRerolls) params.max_rerolls = maxRerolls;
+
     try {
-      const { error } = await supabase.from('todo_list').update({ name: newName }).eq('id', toDoList.id);
+      const { error } = await supabase.from('todo_list').update(params).eq('id', toDoList.id);
       if (error) {
         console.error('Error updating list name:', error);
       } else {
-        setToDoList({ ...toDoList, name: newName });
+        setToDoList({ ...toDoList, name: newName, max_rerolls: maxRerolls });
         setAllToDoLists(allToDoLists.map((list) => (list.id === toDoList.id ? { ...list, name: newName } : list)));
         handleCloseModal();
       }
@@ -172,6 +178,8 @@ const ToDoIndex = (user) => {
             <div className="form-group">
               <label htmlFor="listName">List Name</label>
               <input type="text" id="listName" name="listName" className="form-control" defaultValue={toDoList?.name || ''} required />
+              <label htmlFor="rerolls">Max Rerolls</label>
+              <input type="number" id="rerolls" name="maxRerolls" className="form-control" defaultValue={toDoList?.max_rerolls || ''} />
             </div>
             <button type="submit" className="edit-list-modal-button">
               Save Changes
