@@ -16,7 +16,6 @@ const ToDoList = ({ toDoList, user }) => {
   const [incompleteTasks, setIncompleteTasks] = useState([]);
   const [sortedTasks, setSortedTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
-  const [task, setTask] = useState('');
   const [editingTask, setEditingTask] = useState(null);
   const [showEditTaskModal, setShowEditTaskModal] = useState(false);
   const [randomTask, setRandomTask] = useState(null);
@@ -38,7 +37,6 @@ const ToDoList = ({ toDoList, user }) => {
         .eq('todo_list', toDoList.id)
         .order('created_at', { ascending: false });
       if (!error) {
-        console.log({ items });
         setTasks(items);
       } else {
         console.error('Error fetching tasks:', error);
@@ -74,27 +72,34 @@ const ToDoList = ({ toDoList, user }) => {
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-    if (task.trim() && toDoList) {
-      try {
-        const { data: item, error } = await supabase
-          .from('todo_list_item')
-          .insert({ text: task.trim(), todo_list: toDoList.id, completed: false })
-          .select()
-          .single();
 
-        if (!error) {
-          const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
+    if (!toDoList) return;
 
-          if (!fetchError) {
-            setTask('');
-            setTasks(items);
-          } else {
-            console.error('Error fetching tasks:', fetchError);
-          }
+    const text = e.target.elements.text.value;
+    const category = parseInt(e.target.elements.category.value);
+
+    const params = {
+      text,
+      todo_list: toDoList.id,
+      completed: false,
+    };
+
+    if (!isNaN(category)) params.category = category;
+
+    try {
+      const { data: item, error } = await supabase.from('todo_list_item').insert(params).select().single();
+
+      if (!error) {
+        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
+
+        if (!fetchError) {
+          setTasks(items);
+        } else {
+          console.error('Error fetching tasks:', fetchError);
         }
-      } catch (error) {
-        console.error('Error adding task:', error);
       }
+    } catch (error) {
+      console.error('Error adding task:', error);
     }
   };
 
@@ -170,7 +175,6 @@ const ToDoList = ({ toDoList, user }) => {
         const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
 
         if (!fetchError) {
-          setTask('');
           setTasks(items);
         } else {
           console.error('Error fetching tasks:', fetchError);
@@ -196,7 +200,6 @@ const ToDoList = ({ toDoList, user }) => {
     try {
       const { data: item, error } = await supabase.from('todo_list_item').update(params).eq('id', editingTask.id).select().single();
 
-      console.log({ item });
       if (!error) {
         fetchTasks();
       }
@@ -250,7 +253,20 @@ const ToDoList = ({ toDoList, user }) => {
           )}
 
           <form className="todo-form" onSubmit={handleAddTask}>
-            <input type="text" value={task} onChange={(e) => setTask(e.target.value)} placeholder="Enter a task" />
+            <div className="d-flex justify-content-between align-items-center">
+              <input type="text" name="text" placeholder="Enter a task" />
+              <div className="category-dropdown">
+                <label htmlFor="category-select">Category:</label>
+                <select id="category-select" name="category" defaultValue="">
+                  <option value="">Uncategorized</option>
+                  {categories.map((category) => (
+                    <option key={`dropdown-${category.id}`} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <button type="submit">Add Task</button>
           </form>
 
