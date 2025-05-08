@@ -193,9 +193,7 @@ const ToDoList = ({ toDoList, user }) => {
 
     const params = { text };
 
-    if (!isNaN(category)) {
-      params.category = category;
-    }
+    if (!isNaN(category)) params.category = category;
 
     try {
       const { data: item, error } = await supabase.from('todo_list_item').update(params).eq('id', editingTask.id).select().single();

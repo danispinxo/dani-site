@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import TopNavbar from '../components/Navbar';
 import supabase from '../lib/supabaseClient';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faEye, faBack, faAngleDown, faAngleUp, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEye, faBack, faAngleDown, faAngleUp, faPlus, faPenNib } from '@fortawesome/free-solid-svg-icons';
 
 const ListHistory = () => {
   const [session, setSession] = useState(null);
@@ -12,6 +14,13 @@ const ListHistory = () => {
   const [listsOpen, setListsOpen] = useState(true);
   const [categoriesOpen, setCategoriesOpen] = useState(true);
   const [showCategoryForm, setShowCategoryForm] = useState(false);
+  const [editingCategory, setEditingCategory] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(null);
+
+  const user = session?.user;
+  const userId = user?.id;
+  const listsOpenIcon = listsOpen ? faAngleUp : faAngleDown;
+  const categoriesOpenIcon = categoriesOpen ? faAngleUp : faAngleDown;
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -30,11 +39,6 @@ const ListHistory = () => {
       fetchAllCategories();
     }
   }, [session]);
-
-  const user = session?.user;
-  const userId = user?.id;
-  const listsOpenIcon = listsOpen ? faAngleUp : faAngleDown;
-  const categoriesOpenIcon = categoriesOpen ? faAngleUp : faAngleDown;
 
   const fetchAllToDoLists = async () => {
     try {
@@ -116,6 +120,28 @@ const ListHistory = () => {
     }
   };
 
+  const handleEditCategory = async (e) => {
+    e.preventDefault();
+
+    const name = e.target.elements.name.value;
+
+    try {
+      const { data: item, error } = await supabase.from('todo_category').update({ name }).eq('id', editingCategory.id).select().single();
+
+      if (!error) {
+        fetchAllCategories();
+      }
+    } catch (error) {
+      console.error('Error editing category:', error);
+    }
+    setShowEditModal(false);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+    setEditingCategory(null);
+  };
+
   return (
     <>
       <TopNavbar />
@@ -162,6 +188,7 @@ const ListHistory = () => {
                   </th>
                   <th>Name</th>
                   <th>Date Created</th>
+                  <th>Edit</th>
                   <th>Delete</th>
                 </tr>
               </thead>
@@ -172,6 +199,17 @@ const ListHistory = () => {
                       <td>{index + 1}</td>
                       <td>{category.name}</td>
                       <td>{new Date(category.created_at).toLocaleString()}</td>
+                      <td>
+                        <button
+                          onClick={() => {
+                            setEditingCategory(category);
+                            setShowEditModal(true);
+                          }}
+                          className="edit-button"
+                        >
+                          <FontAwesomeIcon icon={faPenNib} />
+                        </button>
+                      </td>
                       <td>
                         <button onClick={() => handleDeleteCategory(category.id)} className="delete-button">
                           <FontAwesomeIcon icon={faTrashAlt} />
@@ -231,6 +269,22 @@ const ListHistory = () => {
           <p>No to-do lists found.</p>
         )}
       </div>
+      <Modal show={showEditModal} onHide={handleCloseEditModal} className="edit-category-modal">
+        <Modal.Header closeButton className="edit-category-modal-header">
+          <Modal.Title>Edit Category</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={(e) => handleEditCategory(e)} className="edit-category-form">
+            <Form.Group>
+              <Form.Label htmlFor="name">Name:</Form.Label>
+              <Form.Control type="text" id="name" name="name" defaultValue={editingCategory?.name} />
+            </Form.Group>
+            <button type="submit" className="edit-category-modal-button">
+              <FontAwesomeIcon icon={faPenNib} /> Edit Category
+            </button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
