@@ -153,7 +153,20 @@ const ToDoIndex = (user) => {
         </button>
       )}
 
-      <select id="list-select" className="list-select" onChange={handleSelectList} value={toDoList?.id?.toString() || ''}>
+      <select
+        id="list-select"
+        className="list-select"
+        onChange={(event) => {
+          handleSelectList(event);
+          const listId = event.target.value;
+          if (listId) {
+            const params = new URLSearchParams(window.location.search);
+            params.set('id', listId);
+            window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+          }
+        }}
+        value={toDoList?.id?.toString() || ''}
+      >
         <option value="" disabled>
           Select an existing list
         </option>
