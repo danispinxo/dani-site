@@ -22,24 +22,14 @@ const ToDoIndex = (user) => {
   const userId = user.user.id;
   const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
   const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
+  const listItemCount = toDoList?.todo_list_item[0]?.count;
 
   useEffect(() => {
-    if (id) {
-      const fetchListById = async () => {
-        try {
-          const { data: list, error } = await supabase.from('todo_list').select().eq('id', id).single();
-          if (error) {
-            console.error('Error fetching to-do list by ID:', error);
-          } else {
-            setToDoList(list);
-          }
-        } catch (error) {
-          console.error('Error fetching to-do list by ID:', error);
-        }
-      };
-      fetchListById();
+    if (id && allToDoLists.length > 0) {
+      const selected = allToDoLists.find((list) => list.id === Number(id));
+      setToDoList(selected);
     }
-  }, [id]);
+  }, [id, allToDoLists]);
 
   useEffect(() => {
     fetchAllToDoLists();
@@ -49,7 +39,7 @@ const ToDoIndex = (user) => {
     try {
       const { data: lists, error } = await supabase
         .from('todo_list')
-        .select()
+        .select('*, todo_list_item(count)')
         .eq('user', userId)
         .order('created_at', { ascending: false })
         .limit(10);
@@ -138,7 +128,7 @@ const ToDoIndex = (user) => {
       {toDoList && (
         <div className="edit-list-container">
           <h4>
-            {listName}
+            {listName} {listItemCount && '(' + listItemCount + ')'}
             <button className="edit-list-button" onClick={handleShowModal}>
               <FontAwesomeIcon icon={faTableList} />{' '}
             </button>
