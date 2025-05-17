@@ -25,21 +25,18 @@ const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [incompleteTasks, setIncompleteTasks] = useState([]);
-  const [sortedTasks, setSortedTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
   const [showEditTaskModal, setShowEditTaskModal] = useState(false);
   const [randomTask, setRandomTask] = useState(null);
   const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
 
-  useEffect(() => {
-    setIncompleteTasks(tasks.filter((t) => !t.completed));
-    setCompletedTasks(tasks.filter((t) => t.completed));
-  }, [tasks]);
+  const incompleteList = tasks.filter((t) => !t.completed);
 
   useEffect(() => {
-    setSortedTasks(sortTasksByCategory(incompleteTasks));
-  }, [incompleteTasks]);
+    setIncompleteTasks(sortTasksByCategory(incompleteList));
+    setCompletedTasks(tasks.filter((t) => t.completed));
+  }, [tasks, categories]);
 
   const fetchTasks = async () => {
     try {
@@ -225,11 +222,11 @@ const ToDoList = ({ toDoList, user }) => {
     setEditingTask(null);
   };
 
-  const sortTasksByCategory = () => {
+  const sortTasksByCategory = (tasks) => {
     const categorizedTasks = {};
     const uncategorizedTasks = [];
 
-    incompleteTasks.forEach((task) => {
+    tasks.forEach((task) => {
       const category = categories.find((c) => c.id === task.category);
       if (category) {
         if (!categorizedTasks[category.name]) {
@@ -261,10 +258,9 @@ const ToDoList = ({ toDoList, user }) => {
       return faDiceOne;
     }
   };
-
   return (
     <div>
-      {incompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
+      {incompleteList.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
 
       {toDoList && (
         <>
@@ -307,15 +303,15 @@ const ToDoList = ({ toDoList, user }) => {
             <button type="submit">Add Task</button>
           </form>
 
-          {incompleteTasks.length > 10 && (
+          {incompleteList.length > 10 && (
             <button className="random-task-button" onClick={handlePickRandomTask}>
               Pick a Random Task
             </button>
           )}
 
-          {incompleteTasks.length > 0 && (
+          {incompleteList.length > 0 && (
             <IncompleteList
-              sortedTasks={sortedTasks}
+              incompleteTasks={incompleteTasks}
               handleDeleteTask={handleDeleteTask}
               handleMarkAsDone={handleMarkAsDone}
               handleEditTask={(task) => {
