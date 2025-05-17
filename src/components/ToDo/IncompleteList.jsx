@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
-const IncompleteList = ({ sortedTasks, handleDeleteTask, handleMarkAsDone, handleEditTask }) => {
-  const { categorizedTasks, uncategorizedTasks } = sortedTasks;
+const IncompleteList = ({ incompleteTasks, handleDeleteTask, handleMarkAsDone, handleEditTask }) => {
+  const { categorizedTasks, uncategorizedTasks } = incompleteTasks;
   const list = Object.keys(categorizedTasks);
 
   return (
