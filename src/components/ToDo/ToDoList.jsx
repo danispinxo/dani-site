@@ -110,6 +110,7 @@ const ToDoList = ({ toDoList, user }) => {
     } catch (error) {
       console.error('Error adding task:', error);
     }
+    e.target.elements.text.value = '';
   };
 
   const handlePickRandomTask = () => {
@@ -258,6 +259,7 @@ const ToDoList = ({ toDoList, user }) => {
       return faDiceOne;
     }
   };
+
   return (
     <div>
       {allIncompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
