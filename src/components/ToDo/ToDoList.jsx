@@ -11,15 +11,12 @@ import {
   faDiceFive,
   faDiceSix,
   faSquareCheck,
-  faTrash,
-  faPenNib,
 } from '@fortawesome/free-solid-svg-icons';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
 import SuccessMessage from './SuccessMessage';
+import EditTaskModal from './EditTaskModal';
 
 const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
@@ -31,10 +28,10 @@ const ToDoList = ({ toDoList, user }) => {
   const [randomTask, setRandomTask] = useState(null);
   const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
 
-  const incompleteList = tasks.filter((t) => !t.completed);
+  const allIncompleteTasks = tasks.filter((t) => !t.completed);
 
   useEffect(() => {
-    setIncompleteTasks(sortTasksByCategory(incompleteList));
+    setIncompleteTasks(sortTasksByCategory(allIncompleteTasks));
     setCompletedTasks(tasks.filter((t) => t.completed));
   }, [tasks, categories]);
 
@@ -113,9 +110,10 @@ const ToDoList = ({ toDoList, user }) => {
   };
 
   const handlePickRandomTask = () => {
-    if (incompleteTasks.length > 0) {
-      const randomIndex = Math.floor(Math.random() * incompleteTasks.length);
-      setRandomTask(incompleteTasks[randomIndex]);
+    if (allIncompleteTasks.length > 0) {
+      console.log('Incomplete tasks:', allIncompleteTasks);
+      const randomIndex = Math.floor(Math.random() * allIncompleteTasks.length);
+      setRandomTask(allIncompleteTasks[randomIndex]);
     } else {
       setRandomTask(null);
     }
@@ -135,7 +133,6 @@ const ToDoList = ({ toDoList, user }) => {
         const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
 
         if (!fetchError) {
-          setTask('');
           setTasks(items);
         } else {
           console.error('Error fetching tasks:', fetchError);
@@ -260,7 +257,7 @@ const ToDoList = ({ toDoList, user }) => {
   };
   return (
     <div>
-      {incompleteList.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
+      {allIncompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
 
       {toDoList && (
         <>
@@ -303,13 +300,13 @@ const ToDoList = ({ toDoList, user }) => {
             <button type="submit">Add Task</button>
           </form>
 
-          {incompleteList.length > 10 && (
+          {allIncompleteTasks.length > 10 && (
             <button className="random-task-button" onClick={handlePickRandomTask}>
               Pick a Random Task
             </button>
           )}
 
-          {incompleteList.length > 0 && (
+          {allIncompleteTasks.length > 0 && (
             <IncompleteList
               incompleteTasks={incompleteTasks}
               handleDeleteTask={handleDeleteTask}
@@ -326,40 +323,14 @@ const ToDoList = ({ toDoList, user }) => {
           </button>
 
           {completedTasks.length > 0 && <CompleteList tasks={completedTasks} handleBackToList={handleBackToList} />}
+          <EditTaskModal
+            showEditTaskModal={showEditTaskModal}
+            handleCloseEditTaskModal={handleCloseEditTaskModal}
+            categories={categories}
+            editingTask={editingTask}
+          />
         </>
       )}
-
-      {/* Modal for editing the list */}
-      <Modal show={showEditTaskModal} onHide={handleCloseEditTaskModal} className="edit-task-modal">
-        <Modal.Header closeButton className="edit-task-modal-header">
-          <Modal.Title>Edit Task</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={(e) => handleEditTask(e)} className="edit-task-form">
-            <Form.Group>
-              <Form.Label htmlFor="taskText">Name:</Form.Label>
-              <Form.Control type="text" id="taskText" name="taskText" defaultValue={editingTask?.text} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="category">Category:</Form.Label>
-              <Form.Select name="category" defaultValue={editingTask?.category || ''}>
-                <option value="">--- Select a Category ---</option>
-                {categories.map((category) => (
-                  <option key={`category-${category.id}`} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
-            <button type="submit" className="edit-task-modal-button">
-              <FontAwesomeIcon icon={faPenNib} /> Edit Task
-            </button>
-            <button className="delete-task-button" onClick={() => handleDeleteTask()}>
-              <FontAwesomeIcon icon={faTrash} /> Delete Task
-            </button>
-          </Form>
-        </Modal.Body>
-      </Modal>
     </div>
   );
 };
