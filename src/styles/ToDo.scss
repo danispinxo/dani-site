@@ -41,6 +41,33 @@
       width: 100%;
     }
 
+    &.minimized {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      font-family: variables.$round-font;
+      background-color: darkred;
+      color: white;
+      border-radius: 4px;
+      border: none;
+      text-align: center;
+      cursor: pointer;
+      width: 175px;
+
+      &:hover {
+        background-color: black;
+      }
+
+      .task-form-open-close-btn {
+        color: white;
+
+        &:hover {
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+
     input {
       margin: 0.5rem;
       width: 50%;
@@ -71,6 +98,13 @@
       &:hover {
         background-color: black;
       }
+    }
+  }
+
+  .task-form-open-close-btn {
+    &:hover {
+      color: darkred;
+      cursor: pointer;
     }
   }
 

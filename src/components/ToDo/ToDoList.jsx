@@ -11,6 +11,8 @@ import {
   faDiceFive,
   faDiceSix,
   faSquareCheck,
+  faDownLeftAndUpRightToCenter,
+  faUpRightAndDownLeftFromCenter,
 } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
@@ -25,6 +27,7 @@ const ToDoList = ({ toDoList, user }) => {
   const [completedTasks, setCompletedTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
   const [showEditTaskModal, setShowEditTaskModal] = useState(false);
+  const [showNewTaskForm, setShowNewTaskForm] = useState(true);
   const [randomTask, setRandomTask] = useState(null);
   const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
 
@@ -281,24 +284,41 @@ const ToDoList = ({ toDoList, user }) => {
               </p>
             </div>
           )}
-
-          <form className="todo-form" onSubmit={handleAddTask}>
-            <div className="d-flex justify-content-between align-items-center">
-              <input type="text" name="text" placeholder="Enter a task" />
-              <div className="category-dropdown">
-                <label htmlFor="category-select">Category:</label>
-                <select id="category-select" name="category" defaultValue="">
-                  <option value="">Uncategorized</option>
-                  {categories.map((category) => (
-                    <option key={`dropdown-${category.id}`} value={category.id}>
-                      {category.name}
-                    </option>
-                  ))}
-                </select>
+          {showNewTaskForm ? (
+            <form className="todo-form" onSubmit={handleAddTask}>
+              <div className="d-flex justify-content-end task-form-open-close-btn">
+                <FontAwesomeIcon
+                  className="task-form-open-close-btn"
+                  icon={faDownLeftAndUpRightToCenter}
+                  onClick={() => setShowNewTaskForm(false)}
+                />
               </div>
+              <div className="d-flex justify-content-between align-items-center">
+                <input type="text" name="text" placeholder="Enter a task" />
+                <div className="category-dropdown">
+                  <label htmlFor="category-select">Category:</label>
+                  <select id="category-select" name="category" defaultValue="">
+                    <option value="">Uncategorized</option>
+                    {categories.map((category) => (
+                      <option key={`dropdown-${category.id}`} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <button type="submit">Add Task</button>
+            </form>
+          ) : (
+            <div className="todo-form minimized d-flex justify-content-around align-items-center">
+              Add a Task
+              <FontAwesomeIcon
+                className="task-form-open-close-btn"
+                icon={faUpRightAndDownLeftFromCenter}
+                onClick={() => setShowNewTaskForm(true)}
+              />
             </div>
-            <button type="submit">Add Task</button>
-          </form>
+          )}
 
           {allIncompleteTasks.length > 10 && (
             <button className="random-task-button" onClick={handlePickRandomTask}>
