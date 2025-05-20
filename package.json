@@ -42,7 +42,7 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-router-dom": "^7.6.0",
     "rsuite": "^5.80.3",
-    "sass": "^1.88.0"
+    "sass": "^1.89.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.2",
