@@ -22,7 +22,7 @@ const ToDoIndex = (user) => {
   const userId = user.user.id;
   const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
   const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
-  const listItemCount = toDoList?.todo_list_item[0]?.count;
+  const listItemCount = toDoList?.todo_list_item.length > 0 ? toDoList.todo_list_item[0].count : 0;
 
   useEffect(() => {
     if (id && allToDoLists.length > 0) {
