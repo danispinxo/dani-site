@@ -350,6 +350,8 @@ const ToDoList = ({ toDoList, user }) => {
             handleCloseEditTaskModal={handleCloseEditTaskModal}
             categories={categories}
             editingTask={editingTask}
+            handleEditTask={handleEditTask}
+            handleDeleteTask={handleDeleteTask}
           />
         </>
       )}

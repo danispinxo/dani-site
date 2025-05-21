@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenNib } from '@fortawesome/free-solid-svg-icons';
 
-const EditTaskModal = ({ showEditTaskModal, handleCloseEditTaskModal, categories, editingTask }) => {
+const EditTaskModal = ({ showEditTaskModal, handleCloseEditTaskModal, categories, editingTask, handleEditTask, handleDeleteTask }) => {
   return (
     <Modal show={showEditTaskModal} onHide={handleCloseEditTaskModal} className="edit-task-modal">
       <Modal.Header closeButton className="edit-task-modal-header">
