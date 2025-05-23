@@ -277,36 +277,47 @@ const CreativeWriting = () => {
 
           <ul className="bullet-list">
             <li>
+              “No.”{' '}
+              <a href="https://fernwoodpublishing.ca/book/ill-get-right-on-it">
+                <i>I'll Get Right On It: Poems on Working Life in the Climate Crisis</i>
+              </a>
+              , Fernwood Publishing, edited by The Land and Labour Poetry Collective.
+            </li>
+            <li>
+              Swatch.” <i>ADDA</i>, vol.1, edited by Renaat Ramon and Andreas van Roompaey, pp. 14-18, 2025.
+            </li>
+            <li>
               “<a href="https://taper.badquar.to/13/swift_sonnets.html">The Swift Sonnets</a>.” <i>Taper</i>, vol. 13, special issue on
-              Superstitions.
+              Superstitions, 2024.
             </li>
             <li>
-              “Visual Poetry for Women,” <i>The Anstruther Reader: Ten Years of Poetry, Broadsides, and Manifesto</i>, Palimpsest Press.
+              “Visual Poetry for Women,” <i>The Anstruther Reader: Ten Years of Poetry, Broadsides, and Manifesto</i>, Palimpsest Press,
+              2024.
             </li>
             <li>
-              “Park and Fly.” <i>Extrins: 13 responses by poets of note to Kevin Stebner's book</i> Inherent.
+              “Park and Fly.” <i>Extrins: 13 responses by poets of note to Kevin Stebner's book</i> Inherent, 2024.
             </li>
             <li>
               “Shadows Cast by Moonlight,” in “Incantations” by Brandon Hocura and Naomi Okabe, <i>PUBLIC Art|Culture|Ideas</i>, issue 69,
-              edited by Tamara de Szecheo Lang, Emily Pelstring, and Dan Vena.
+              edited by Tamara de Szecheo Lang, Emily Pelstring, and Dan Vena, 2024.
             </li>
             <li>
               “Two poems,”{' '}
               <a href="https://derekbeaulieu.ca/2023/01/26/paper-thread-25-years-of-housepress-and-no-press/?fbclid=IwAR09I-0EnSbhoyNetu9YLcnT1Mzj1VKPFfB60yOG3IQGmyUa8MKB2_2ilSg">
                 Paper & Thread: 25 Years of housepress and No Press
               </a>
-              , edited by Derek Beaulieu{' '}
+              , edited by Derek Beaulieu, 2023.
             </li>
             <li>
               “Sphinx” and “Semele.” Hamilton Arts & Letters{' '}
               <a href="https://samizdatpress.typepad.com/hal_issue_fifteen-2/hal-magazine-issue-fifteen2-cover.html">
                 Special Issue on Process
               </a>
-              , issue 15.2, guest edited by Karl Jirgens
+              , issue 15.2, guest edited by Karl Jirgens, 2023.
             </li>
             <li>
               “Table of Contents (for Gary Barwin).” Spectral Lines, An anthology of visual poems, edited by Kyle Flemmer. League of
-              Canadian Poets.
+              Canadian Poets, 2022.
             </li>
             <li>
               “Flowers for Helen.” <em>Report from the Hajnosczky Society</em>, edited by rob mclennan, 2022.
