@@ -4,15 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 
-const EditTaskModal = ({
-  showEditTaskModal,
-  setShowEditTaskModal,
-  handleCloseEditTaskModal,
-  categories,
-  editingTask,
-  handleDeleteTask,
-  fetchTasks,
-}) => {
+const EditTaskModal = ({ showEditTaskModal, setShowEditTaskModal, handleCloseEditTaskModal, categories, editingTask, fetchTasks }) => {
   const handleEditTask = async (e) => {
     e.preventDefault();
 
@@ -32,6 +24,24 @@ const EditTaskModal = ({
     }
     setShowEditTaskModal(false);
   };
+
+  const handleDeleteTask = async () => {
+    const confirmed = window.confirm('Are you sure you want to delete this task?');
+    if (!confirmed || !editingTask) return;
+
+    try {
+      const { error } = await supabase.from('todo_list_item').delete().eq('id', editingTask.id);
+
+      if (!error) {
+        fetchTasks();
+      } else {
+        console.error('Error deleting task:', error);
+      }
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
+  };
+
   return (
     <Modal show={showEditTaskModal} onHide={handleCloseEditTaskModal} className="edit-task-modal">
       <Modal.Header closeButton className="edit-task-modal-header">

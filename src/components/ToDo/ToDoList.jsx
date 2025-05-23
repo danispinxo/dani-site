@@ -10,7 +10,7 @@ import SuccessMessage from './SuccessMessage';
 import EditTaskModal from './EditTaskModal';
 import RandomTask from './RandomTask';
 
-const ToDoList = ({ toDoList, user }) => {
+const ToDoList = ({ toDoList, user, createNewList }) => {
   const [tasks, setTasks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [incompleteTasks, setIncompleteTasks] = useState([]);
@@ -248,13 +248,14 @@ const ToDoList = ({ toDoList, user }) => {
 
           {allIncompleteTasks.length > 0 && (
             <IncompleteList
+              fetchTasks={fetchTasks}
               incompleteTasks={incompleteTasks}
-              handleDeleteTask={handleDeleteTask}
               handleMarkAsDone={handleMarkAsDone}
               handleEditTask={(task) => {
                 setEditingTask(task);
                 setShowEditTaskModal(true);
               }}
+              createNewList={createNewList}
             />
           )}
 
@@ -269,7 +270,6 @@ const ToDoList = ({ toDoList, user }) => {
             handleCloseEditTaskModal={handleCloseEditTaskModal}
             categories={categories}
             editingTask={editingTask}
-            handleDeleteTask={handleDeleteTask}
             fetchTasks={fetchTasks}
           />
         </>

@@ -78,7 +78,24 @@ const ToDoIndex = (user) => {
     }
   };
 
-  const handleCreateToDoList = async () => {
+  const handleCreateToDoList = async (itemIds = null) => {
+    if (itemIds) {
+      try {
+        const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
+        if (!error) {
+          const { data: items, error: itemError } = await supabase
+            .from('todo_list_item')
+            .update({ todo_list: list.id })
+            .in('id', itemIds)
+            .select();
+          if (!itemError) setToDoList(list);
+        }
+        return list;
+      } catch (error) {
+        return error;
+      }
+    }
+
     try {
       const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
       setToDoList(list);
@@ -135,7 +152,7 @@ const ToDoIndex = (user) => {
           </h4>
         </div>
       )}
-      {toDoList && <ToDoList toDoList={toDoList} user={user} />}
+      {toDoList && <ToDoList toDoList={toDoList} user={user} createNewList={handleCreateToDoList} />}
 
       {toDoList && (
         <button className="bottom-button close-button" onClick={handleClearList}>
