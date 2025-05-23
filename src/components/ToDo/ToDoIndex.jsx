@@ -22,7 +22,6 @@ const ToDoIndex = (user) => {
   const userId = user.user.id;
   const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
   const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
-  const listItemCount = toDoList?.todo_list_item?.length > 0 ? toDoList.todo_list_item[0].count : 0;
 
   useEffect(() => {
     if (id && allToDoLists.length > 0) {
@@ -139,7 +138,7 @@ const ToDoIndex = (user) => {
       {toDoList && (
         <div className="edit-list-container">
           <h4>
-            {listName} {listItemCount && '(' + listItemCount + ')'}
+            {listName}
             <button className="edit-list-button" onClick={handleShowModal}>
               <FontAwesomeIcon icon={faTableList} />{' '}
             </button>
