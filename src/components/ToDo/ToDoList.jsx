@@ -78,6 +78,7 @@ const ToDoList = ({ toDoList, user }) => {
     if (toDoList) {
       fetchCategories();
       fetchTasks();
+      setRandomTask(null);
     }
   }, [toDoList]);
 
