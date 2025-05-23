@@ -16,6 +16,8 @@ const ListHistory = () => {
   const [showCategoryForm, setShowCategoryForm] = useState(false);
   const [editingCategory, setEditingCategory] = useState(null);
   const [showEditModal, setShowEditModal] = useState(null);
+  const [selectedLists, setSelectedLists] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const user = session?.user;
   const userId = user?.id;
@@ -142,6 +144,68 @@ const ListHistory = () => {
     setEditingCategory(null);
   };
 
+  const handleSelectList = (id) => {
+    setSelectedLists((prev) => (prev.includes(id) ? prev.filter((listId) => listId !== id) : [...prev, id]));
+  };
+
+  const handleSelectAllLists = () => {
+    if (selectedLists.length === allToDoLists.length) {
+      setSelectedLists([]);
+    } else {
+      setSelectedLists(allToDoLists.map((list) => list.id));
+    }
+  };
+
+  const handleDeleteSelectedLists = async () => {
+    if (selectedLists.length === 0) return;
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${selectedLists.length} selected list(s)?`);
+    if (confirmDelete) {
+      try {
+        const { error } = await supabase.from('todo_list').delete().in('id', selectedLists);
+        if (error) {
+          console.error('Error deleting selected lists:', error);
+        } else {
+          setAllToDoLists(allToDoLists.filter((list) => !selectedLists.includes(list.id)));
+          setSelectedLists([]);
+        }
+      } catch (error) {
+        console.error('Error deleting selected lists:', error);
+      }
+    }
+  };
+
+  const handleSelectCategory = (id) => {
+    setSelectedCategories((prev) => (prev.includes(id) ? prev.filter((catId) => catId !== id) : [...prev, id]));
+  };
+
+  const handleSelectAllCategories = () => {
+    if (selectedCategories.length === allCategories.length) {
+      setSelectedCategories([]);
+    } else {
+      setSelectedCategories(allCategories.map((cat) => cat.id));
+    }
+  };
+
+  const handleDeleteSelectedCategories = async () => {
+    if (selectedCategories.length === 0) return;
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete ${selectedCategories.length} selected categor${selectedCategories.length === 1 ? 'y' : 'ies'}?`,
+    );
+    if (confirmDelete) {
+      try {
+        const { error } = await supabase.from('todo_category').delete().in('id', selectedCategories);
+        if (error) {
+          console.error('Error deleting selected categories:', error);
+        } else {
+          setAllCategories(allCategories.filter((cat) => !selectedCategories.includes(cat.id)));
+          setSelectedCategories([]);
+        }
+      } catch (error) {
+        console.error('Error deleting selected categories:', error);
+      }
+    }
+  };
+
   return (
     <>
       <TopNavbar />
@@ -180,11 +244,35 @@ const ListHistory = () => {
             <h3>
               Your Categories <FontAwesomeIcon icon={faPlus} onClick={() => setShowCategoryForm(!showCategoryForm)} />
             </h3>
+            <div>
+              {selectedCategories.length > 0 && (
+                <button
+                  onClick={handleDeleteSelectedCategories}
+                  disabled={selectedCategories.length === 0}
+                  className="delete-selected-button"
+                >
+                  <FontAwesomeIcon icon={faTrashAlt} /> Delete Selected
+                </button>
+              )}
+            </div>
             <table className="categories-table">
               <thead>
                 <tr onClick={() => setCategoriesOpen(!categoriesOpen)} style={{ cursor: 'pointer' }}>
                   <th>
                     <FontAwesomeIcon icon={categoriesOpenIcon} />
+                  </th>
+                  <th>
+                    {categoriesOpen && (
+                      <>
+                        <input
+                          type="checkbox"
+                          checked={selectedCategories.length === allCategories.length && allCategories.length > 0}
+                          onChange={handleSelectAllCategories}
+                          onClick={(e) => e.stopPropagation()}
+                        />{' '}
+                        Select All
+                      </>
+                    )}
                   </th>
                   <th>Name</th>
                   <th>Date Created</th>
@@ -197,6 +285,14 @@ const ListHistory = () => {
                   {allCategories.map((category, index) => (
                     <tr key={category.id}>
                       <td>{index + 1}</td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={selectedCategories.includes(category.id)}
+                          onChange={() => handleSelectCategory(category.id)}
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                      </td>
                       <td>{category.name}</td>
                       <td>{new Date(category.created_at).toLocaleString()}</td>
                       <td>
@@ -228,11 +324,31 @@ const ListHistory = () => {
         {allToDoLists.length > 0 ? (
           <>
             <h3>Your Lists</h3>
+            <div>
+              {selectedLists.length > 0 && (
+                <button onClick={handleDeleteSelectedLists} disabled={selectedLists.length === 0} className="delete-selected-button">
+                  <FontAwesomeIcon icon={faTrashAlt} /> Delete Selected
+                </button>
+              )}
+            </div>
             <table className="list-history-table">
               <thead>
                 <tr onClick={() => setListsOpen(!listsOpen)} style={{ cursor: 'pointer' }}>
                   <th>
                     <FontAwesomeIcon icon={listsOpenIcon} />
+                  </th>
+                  <th>
+                    {listsOpen && (
+                      <>
+                        <input
+                          type="checkbox"
+                          checked={selectedLists.length === allToDoLists.length && allToDoLists.length > 0}
+                          onChange={handleSelectAllLists}
+                          onClick={(e) => e.stopPropagation()}
+                        />{' '}
+                        Select All
+                      </>
+                    )}
                   </th>
                   <th>Name</th>
                   <th>Date Created</th>
@@ -245,6 +361,14 @@ const ListHistory = () => {
                   {allToDoLists.map((list, index) => (
                     <tr key={list.id}>
                       <td>{index + 1}</td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={selectedLists.includes(list.id)}
+                          onChange={() => handleSelectList(list.id)}
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                      </td>
                       <td>{list.name}</td>
                       <td>{new Date(list.created_at).toLocaleString()}</td>
                       <td>

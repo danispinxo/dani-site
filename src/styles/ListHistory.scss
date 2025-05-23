@@ -24,6 +24,21 @@
     color: darkred;
   }
 
+  .delete-selected-button {
+    margin: 0.5rem;
+    background-color: darkred;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+
   .list-history-table,
   .categories-table {
     width: 100%;
