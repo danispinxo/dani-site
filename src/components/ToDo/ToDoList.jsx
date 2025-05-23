@@ -120,7 +120,6 @@ const ToDoList = ({ toDoList, user }) => {
 
   const handlePickRandomTask = () => {
     if (allIncompleteTasks.length > 0) {
-      console.log('Incomplete tasks:', allIncompleteTasks);
       const randomIndex = Math.floor(Math.random() * allIncompleteTasks.length);
       setRandomTask(allIncompleteTasks[randomIndex]);
     } else {
