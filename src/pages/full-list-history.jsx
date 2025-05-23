@@ -257,7 +257,7 @@ const ListHistory = () => {
             </div>
             <table className="categories-table">
               <thead>
-                <tr onClick={() => setCategoriesOpen(!categoriesOpen)} style={{ cursor: 'pointer' }}>
+                <tr onClick={() => setCategoriesOpen(!categoriesOpen)}>
                   <th>
                     <FontAwesomeIcon icon={categoriesOpenIcon} />
                   </th>
@@ -269,6 +269,7 @@ const ListHistory = () => {
                           checked={selectedCategories.length === allCategories.length && allCategories.length > 0}
                           onChange={handleSelectAllCategories}
                           onClick={(e) => e.stopPropagation()}
+                          className="custom-checkbox"
                         />{' '}
                         Select All
                       </>
@@ -283,7 +284,7 @@ const ListHistory = () => {
               <Collapse in={categoriesOpen}>
                 <tbody>
                   {allCategories.map((category, index) => (
-                    <tr key={category.id}>
+                    <tr key={category.id} className={`${selectedCategories.includes(category.id) ? 'selected' : ''}`}>
                       <td>{index + 1}</td>
                       <td>
                         <input
@@ -291,6 +292,7 @@ const ListHistory = () => {
                           checked={selectedCategories.includes(category.id)}
                           onChange={() => handleSelectCategory(category.id)}
                           onClick={(e) => e.stopPropagation()}
+                          className="custom-checkbox"
                         />
                       </td>
                       <td>{category.name}</td>
@@ -345,6 +347,7 @@ const ListHistory = () => {
                           checked={selectedLists.length === allToDoLists.length && allToDoLists.length > 0}
                           onChange={handleSelectAllLists}
                           onClick={(e) => e.stopPropagation()}
+                          className="custom-checkbox"
                         />{' '}
                         Select All
                       </>
@@ -359,7 +362,7 @@ const ListHistory = () => {
               <Collapse in={listsOpen}>
                 <tbody>
                   {allToDoLists.map((list, index) => (
-                    <tr key={list.id}>
+                    <tr key={list.id} className={`${selectedLists.includes(list.id) ? 'selected' : ''}`}>
                       <td>{index + 1}</td>
                       <td>
                         <input
@@ -367,6 +370,7 @@ const ListHistory = () => {
                           checked={selectedLists.includes(list.id)}
                           onChange={() => handleSelectList(list.id)}
                           onClick={(e) => e.stopPropagation()}
+                          className="custom-checkbox"
                         />
                       </td>
                       <td>{list.name}</td>
