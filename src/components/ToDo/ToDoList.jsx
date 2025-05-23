@@ -317,14 +317,13 @@ const ToDoList = ({ toDoList, user }) => {
             </form>
           ) : (
             <div className="minimized-task-form d-flex justify-content-between align-items-center">
-              <div className="todo-form minimized d-flex justify-content-around align-items-center">
+              <button
+                className="todo-form minimized d-flex justify-content-around align-items-center"
+                onClick={() => setShowNewTaskForm(true)}
+              >
                 Add a Task
-                <FontAwesomeIcon
-                  className="task-form-open-close-btn"
-                  icon={faUpRightAndDownLeftFromCenter}
-                  onClick={() => setShowNewTaskForm(true)}
-                />
-              </div>
+                <FontAwesomeIcon className="task-form-open-close-btn" icon={faUpRightAndDownLeftFromCenter} />
+              </button>
               {allIncompleteTasks.length > 10 && (
                 <button className="random-task-button" onClick={handlePickRandomTask}>
                   Pick a Random Task
