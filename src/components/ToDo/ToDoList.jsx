@@ -2,24 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faDice,
-  faDiceOne,
-  faDiceTwo,
-  faDiceThree,
-  faDiceFour,
-  faDiceFive,
-  faDiceSix,
-  faSquareCheck,
-  faDownLeftAndUpRightToCenter,
-  faUpRightAndDownLeftFromCenter,
-  faSpinner,
-} from '@fortawesome/free-solid-svg-icons';
+import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
 import SuccessMessage from './SuccessMessage';
 import EditTaskModal from './EditTaskModal';
+import RandomTask from './RandomTask';
 
 const ToDoList = ({ toDoList, user }) => {
   const [tasks, setTasks] = useState([]);
@@ -180,46 +169,6 @@ const ToDoList = ({ toDoList, user }) => {
     }
   };
 
-  const handleBackToList = async (task) => {
-    try {
-      const { data: item, error } = await supabase.from('todo_list_item').update({ completed: false }).eq('id', task.id).select().single();
-
-      if (!error) {
-        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
-
-        if (!fetchError) {
-          setTasks(items);
-        } else {
-          console.error('Error fetching tasks:', fetchError);
-        }
-      }
-    } catch (error) {
-      console.error('Error completing task:', error);
-    }
-  };
-
-  const handleEditTask = async (e) => {
-    e.preventDefault();
-
-    const text = e.target.elements.taskText.value;
-    const category = parseInt(e.target.elements.category.value);
-
-    const params = { text };
-
-    if (!isNaN(category)) params.category = category;
-
-    try {
-      const { data: item, error } = await supabase.from('todo_list_item').update(params).eq('id', editingTask.id).select().single();
-
-      if (!error) {
-        fetchTasks();
-      }
-    } catch (error) {
-      console.error('Error editing task:', error);
-    }
-    setShowEditTaskModal(false);
-  };
-
   const handleCloseEditTaskModal = () => {
     setShowEditTaskModal(false);
     setEditingTask(null);
@@ -243,24 +192,6 @@ const ToDoList = ({ toDoList, user }) => {
     return { categorizedTasks, uncategorizedTasks };
   };
 
-  const getDiceIcon = (rerolls) => {
-    if (rerolls > 6) {
-      return faDice;
-    } else if (rerolls === 6) {
-      return faDiceSix;
-    } else if (rerolls === 5) {
-      return faDiceFive;
-    } else if (rerolls === 4) {
-      return faDiceFour;
-    } else if (rerolls === 3) {
-      return faDiceThree;
-    } else if (rerolls === 2) {
-      return faDiceTwo;
-    } else if (rerolls === 1) {
-      return faDiceOne;
-    }
-  };
-
   return (
     <div>
       {allIncompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
@@ -268,25 +199,9 @@ const ToDoList = ({ toDoList, user }) => {
       {toDoList && (
         <>
           {randomTask && (
-            <div className="random-task">
-              <h2>Currently Working On...</h2>
-              <p className="current-task">
-                {rerolls > 0 ? (
-                  <button className="save-button" onClick={() => handleReroll(randomTask)}>
-                    <FontAwesomeIcon icon={getDiceIcon(rerolls)} />
-                  </button>
-                ) : (
-                  <button className="save-button" disabled>
-                    <FontAwesomeIcon icon={faDiceOne} />
-                  </button>
-                )}
-                <button className="done-button" onClick={() => handleDoneFromRandom(randomTask)}>
-                  <FontAwesomeIcon icon={faSquareCheck} />
-                </button>
-                {randomTask.text}
-              </p>
-            </div>
+            <RandomTask rerolls={rerolls} handleReroll={handleReroll} handleDoneFromRandom={handleDoneFromRandom} randomTask={randomTask} />
           )}
+
           {showNewTaskForm ? (
             <form className="todo-form" onSubmit={handleAddTask}>
               <div className="d-flex justify-content-end task-form-open-close-btn">
@@ -347,14 +262,15 @@ const ToDoList = ({ toDoList, user }) => {
             Pick a Random Task
           </button>
 
-          {completedTasks.length > 0 && <CompleteList tasks={completedTasks} handleBackToList={handleBackToList} />}
+          {completedTasks.length > 0 && <CompleteList tasks={completedTasks} toDoListId={toDoList?.id} setTasks={setTasks} />}
           <EditTaskModal
             showEditTaskModal={showEditTaskModal}
+            setShowEditTaskModal={setShowEditTaskModal}
             handleCloseEditTaskModal={handleCloseEditTaskModal}
             categories={categories}
             editingTask={editingTask}
-            handleEditTask={handleEditTask}
             handleDeleteTask={handleDeleteTask}
+            fetchTasks={fetchTasks}
           />
         </>
       )}
