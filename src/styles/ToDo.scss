@@ -98,6 +98,12 @@
       &:hover {
         background-color: black;
       }
+
+      &:disabled {
+        background-color: darkgray;
+        color: black;
+        cursor: not-allowed;
+      }
     }
   }
 

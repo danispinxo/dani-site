@@ -13,6 +13,7 @@ import {
   faSquareCheck,
   faDownLeftAndUpRightToCenter,
   faUpRightAndDownLeftFromCenter,
+  faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
@@ -30,6 +31,7 @@ const ToDoList = ({ toDoList, user }) => {
   const [showNewTaskForm, setShowNewTaskForm] = useState(true);
   const [randomTask, setRandomTask] = useState(null);
   const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
+  const [addingTask, setAddingTask] = useState(false);
 
   const allIncompleteTasks = tasks.filter((t) => !t.completed);
 
@@ -83,6 +85,7 @@ const ToDoList = ({ toDoList, user }) => {
     e.preventDefault();
 
     if (!toDoList) return;
+    setAddingTask(true);
 
     const text = e.target.elements.text.value;
     const category = parseInt(e.target.elements.category.value);
@@ -110,6 +113,7 @@ const ToDoList = ({ toDoList, user }) => {
     } catch (error) {
       console.error('Error adding task:', error);
     }
+    setAddingTask(false);
     e.target.elements.text.value = '';
   };
 
@@ -155,9 +159,7 @@ const ToDoList = ({ toDoList, user }) => {
 
   const handleDeleteTask = async () => {
     const confirmed = window.confirm('Are you sure you want to delete this task?');
-    if (!confirmed || !editingTask) {
-      return;
-    }
+    if (!confirmed || !editingTask) return;
 
     try {
       const { error } = await supabase.from('todo_list_item').delete().eq('id', editingTask.id);
@@ -309,7 +311,9 @@ const ToDoList = ({ toDoList, user }) => {
                   </select>
                 </div>
               </div>
-              <button type="submit">Add Task</button>
+              <button type="submit" disabled={addingTask}>
+                {addingTask ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Add Task'}
+              </button>
             </form>
           ) : (
             <div className="minimized-task-form d-flex justify-content-between align-items-center">
