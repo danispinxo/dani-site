@@ -312,20 +312,21 @@ const ToDoList = ({ toDoList, user }) => {
               <button type="submit">Add Task</button>
             </form>
           ) : (
-            <div className="todo-form minimized d-flex justify-content-around align-items-center">
-              Add a Task
-              <FontAwesomeIcon
-                className="task-form-open-close-btn"
-                icon={faUpRightAndDownLeftFromCenter}
-                onClick={() => setShowNewTaskForm(true)}
-              />
+            <div className="minimized-task-form d-flex justify-content-between align-items-center">
+              <div className="todo-form minimized d-flex justify-content-around align-items-center">
+                Add a Task
+                <FontAwesomeIcon
+                  className="task-form-open-close-btn"
+                  icon={faUpRightAndDownLeftFromCenter}
+                  onClick={() => setShowNewTaskForm(true)}
+                />
+              </div>
+              {allIncompleteTasks.length > 10 && (
+                <button className="random-task-button" onClick={handlePickRandomTask}>
+                  Pick a Random Task
+                </button>
+              )}
             </div>
-          )}
-
-          {allIncompleteTasks.length > 10 && (
-            <button className="random-task-button" onClick={handlePickRandomTask}>
-              Pick a Random Task
-            </button>
           )}
 
           {allIncompleteTasks.length > 0 && (
