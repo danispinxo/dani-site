@@ -67,7 +67,7 @@ const ToDoList = ({ toDoList, user }) => {
       if (error) {
         console.error('Error fetching categories:', error);
       } else {
-        setCategories(categories);
+        setCategories(categories.sort((a, b) => a.name.localeCompare(b.name)));
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -241,7 +241,6 @@ const ToDoList = ({ toDoList, user }) => {
         uncategorizedTasks.push(task);
       }
     });
-
     return { categorizedTasks, uncategorizedTasks };
   };
 

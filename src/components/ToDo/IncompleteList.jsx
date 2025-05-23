@@ -14,10 +14,12 @@ const IncompleteList = ({ incompleteTasks, handleDeleteTask, handleMarkAsDone, h
     return text;
   };
 
+  const sortedList = list.sort((a, b) => a.localeCompare(b));
+
   return (
     <Row>
-      {list &&
-        list.map((category, index) => (
+      {sortedList &&
+        sortedList.map((category, index) => (
           <Col key={`category-${index}`}>
             <h5>{category}</h5>
             <ol className="todo-list">
