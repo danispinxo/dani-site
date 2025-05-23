@@ -32,9 +32,9 @@ const IncompleteList = ({ incompleteTasks, handleMarkAsDone, handleEditTask, fet
   };
 
   const handleTransferToNewList = async (ids) => {
-    const idsToTransfer = ids;
     setSelectedIds([]);
-    createNewList(idsToTransfer);
+    await createNewList(null, ids);
+    fetchTasks();
   };
 
   return (

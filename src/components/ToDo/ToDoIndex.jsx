@@ -78,26 +78,20 @@ const ToDoIndex = (user) => {
     }
   };
 
-  const handleCreateToDoList = async (itemIds = null) => {
-    if (itemIds) {
-      try {
-        const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
-        if (!error) {
-          const { data: items, error: itemError } = await supabase
-            .from('todo_list_item')
-            .update({ todo_list: list.id })
-            .in('id', itemIds)
-            .select();
-          if (!itemError) setToDoList(list);
-        }
-        return list;
-      } catch (error) {
-        return error;
-      }
-    }
+  const handleCreateToDoList = async (event, itemIds = null) => {
+    if (event && event.preventDefault) event.preventDefault();
 
     try {
       const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
+
+      if (itemIds) {
+        const { data: items, error: itemError } = await supabase
+          .from('todo_list_item')
+          .update({ todo_list: list.id })
+          .in('id', itemIds)
+          .select();
+      }
+
       setToDoList(list);
       return list;
     } catch (error) {
@@ -183,8 +177,7 @@ const ToDoIndex = (user) => {
           </option>
         ))}
       </select>
-
-      <button className="bottom-button new-list-button" onClick={handleCreateToDoList}>
+      <button className="bottom-button new-list-button" onClick={(e) => handleCreateToDoList(e)}>
         <FontAwesomeIcon icon={faPlus} /> New List
       </button>
 
