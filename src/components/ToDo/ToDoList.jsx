@@ -21,6 +21,8 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   const [randomTask, setRandomTask] = useState(null);
   const [rerolls, setRerolls] = useState(toDoList.max_rerolls || 20);
   const [addingTask, setAddingTask] = useState(false);
+  const [timer, setTimer] = useState(0);
+  const [timerInterval, setTimerInterval] = useState(null);
 
   const allIncompleteTasks = tasks.filter((t) => !t.completed);
 
@@ -68,6 +70,8 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       fetchCategories();
       fetchTasks();
       setRandomTask(null);
+      setTimer(0);
+      if (timerInterval) clearInterval(timerInterval);
     }
   }, [toDoList]);
 
@@ -111,20 +115,33 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     if (allIncompleteTasks.length > 0) {
       const randomIndex = Math.floor(Math.random() * allIncompleteTasks.length);
       setRandomTask(allIncompleteTasks[randomIndex]);
+      setTimer(0);
+      if (timerInterval) clearInterval(timerInterval);
+      const interval = setInterval(() => {
+        setTimer((prev) => prev + 1);
+      }, 1000);
+      setTimerInterval(interval);
     } else {
       setRandomTask(null);
+      setTimer(0);
+      if (timerInterval) clearInterval(timerInterval);
     }
   };
 
   const handleReroll = (task) => {
     setRerolls(rerolls - 1);
     setRandomTask(null);
+    setTimer(0);
+    if (timerInterval) clearInterval(timerInterval);
     handlePickRandomTask();
   };
 
-  const handleMarkAsDone = async (task) => {
+  const handleMarkAsDone = async (task, timeToComplete = null) => {
     try {
-      const { data: item, error } = await supabase.from('todo_list_item').update({ completed: true }).eq('id', task.id).select().single();
+      const updateData = { completed: true };
+      if (timeToComplete !== null) updateData.time_to_complete = timeToComplete;
+
+      const { data: item, error } = await supabase.from('todo_list_item').update(updateData).eq('id', task.id).select().single();
 
       if (!error) {
         const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
@@ -141,8 +158,10 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   };
 
   const handleDoneFromRandom = async (task) => {
-    await handleMarkAsDone(task);
+    if (timerInterval) clearInterval(timerInterval);
+    await handleMarkAsDone(task, timer);
     setRandomTask(null);
+    setTimer(0);
     handlePickRandomTask();
   };
 
