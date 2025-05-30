@@ -88,6 +88,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       text,
       todo_list: toDoList.id,
       completed: false,
+      priority: 'medium',
     };
 
     if (!isNaN(category)) params.category = category;
@@ -113,8 +114,13 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
 
   const handlePickRandomTask = () => {
     if (allIncompleteTasks.length > 0) {
-      const randomIndex = Math.floor(Math.random() * allIncompleteTasks.length);
-      setRandomTask(allIncompleteTasks[randomIndex]);
+      const highPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'high');
+      const mediumPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'medium');
+      const lowPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'low');
+      let pickFrom =
+        highPriorityTasks.length > 0 ? highPriorityTasks : mediumPriorityTasks.length > 0 ? mediumPriorityTasks : lowPriorityTasks;
+      const randomIndex = Math.floor(Math.random() * pickFrom.length);
+      setRandomTask(pickFrom[randomIndex]);
       setTimer(0);
       if (timerInterval) clearInterval(timerInterval);
       const interval = setInterval(() => {

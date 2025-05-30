@@ -10,8 +10,9 @@ const EditTaskModal = ({ showEditTaskModal, setShowEditTaskModal, handleCloseEdi
 
     const text = e.target.elements.taskText.value;
     const category = parseInt(e.target.elements.category.value);
+    const priority = e.target.elements.priority.value;
 
-    const params = { text };
+    const params = { text, priority };
 
     if (!isNaN(category)) params.category = category;
 
@@ -62,6 +63,14 @@ const EditTaskModal = ({ showEditTaskModal, setShowEditTaskModal, handleCloseEdi
                   {category.name}
                 </option>
               ))}
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="priority">Priority:</Form.Label>
+            <Form.Select name="priority" id="priority" defaultValue={editingTask?.priority || 'medium'}>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
             </Form.Select>
           </Form.Group>
           <button type="submit" className="edit-task-modal-button">
