@@ -27,6 +27,7 @@ const CompleteList = ({ tasks, toDoListId, setTasks }) => {
         {alphabetizedTasks.map((t, index) => (
           <li className="completed-task" key={index} onClick={toggleButtonVisibility}>
             <span>{t.text}</span>
+            {t.time_to_complete && <span className="time-to-complete"> ({t.time_to_complete / 60} min)</span>}
             <button className="back-to-list-button" onClick={() => handleBackToList(t)}>
               <FontAwesomeIcon icon={faRotateLeft} />
             </button>
