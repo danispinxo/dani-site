@@ -32,7 +32,7 @@ const ToDoIndex = (user) => {
 
   useEffect(() => {
     fetchAllToDoLists();
-  }, []);
+  }, [id]);
 
   const fetchAllToDoLists = async () => {
     try {

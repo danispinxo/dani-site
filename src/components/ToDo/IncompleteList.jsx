@@ -33,7 +33,13 @@ const IncompleteList = ({ incompleteTasks, handleMarkAsDone, handleEditTask, fet
 
   const handleTransferToNewList = async (ids) => {
     setSelectedIds([]);
-    await createNewList(null, ids);
+    const newlist = await createNewList(null, ids);
+
+    if (newlist.id) {
+      const url = new URL(window.location);
+      url.searchParams.set('id', newlist.id);
+      window.history.replaceState({}, '', url);
+    }
     fetchTasks();
   };
 
