@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faSpinner, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
 import CompleteList from './CompleteList';
 import IncompleteList from './IncompleteList';
@@ -255,17 +255,15 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
               </button>
             </form>
           ) : (
-            <div className="minimized-task-form d-flex justify-content-between align-items-center">
-              <button
-                className="todo-form minimized d-flex justify-content-around align-items-center"
-                onClick={() => setShowNewTaskForm(true)}
-              >
-                Add a Task
+            <div className="minimized-task-form d-flex justify-content-around align-items-center">
+              <button className="minimized" onClick={() => setShowNewTaskForm(true)}>
+                <span>Add a Task </span>
                 <FontAwesomeIcon className="task-form-open-close-btn" icon={faUpRightAndDownLeftFromCenter} />
               </button>
               {allIncompleteTasks.length > 10 && (
-                <button className="random-task-button" onClick={handlePickRandomTask}>
-                  Pick a Random Task
+                <button className="minimized" onClick={handlePickRandomTask}>
+                  <span>Pick a Task </span>
+                  <FontAwesomeIcon className="task-form-open-close-btn" icon={faHandPointer} />
                 </button>
               )}
             </div>
