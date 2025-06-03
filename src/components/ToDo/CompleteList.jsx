@@ -24,15 +24,28 @@ const CompleteList = ({ tasks, toDoListId, setTasks }) => {
     <div className="completed-tasks">
       <h2>Completed Tasks ({tasks.length})</h2>
       <ul className="completed-tasks-list">
-        {alphabetizedTasks.map((t, index) => (
-          <li className="completed-task" key={index} onClick={toggleButtonVisibility}>
-            <span>{t.text}</span>
-            {t.time_to_complete && <span className="time-to-complete"> ({t.time_to_complete / 60} min)</span>}
-            <button className="back-to-list-button" onClick={() => handleBackToList(t)}>
-              <FontAwesomeIcon icon={faRotateLeft} />
-            </button>
-          </li>
-        ))}
+        {alphabetizedTasks.map((t, index) => {
+          let timeDisplay = null;
+          if (t.time_to_complete) {
+            const totalMinutes = Math.ceil(t.time_to_complete / 60);
+            if (totalMinutes >= 60) {
+              const hours = Math.floor(totalMinutes / 60);
+              const minutes = totalMinutes % 60;
+              timeDisplay = ` (${hours}h${minutes > 0 ? ` ${minutes}m` : ''})`;
+            } else {
+              timeDisplay = ` (${totalMinutes} min)`;
+            }
+          }
+          return (
+            <li className="completed-task" key={index} onClick={toggleButtonVisibility}>
+              <span>{t.text}</span>
+              {timeDisplay && <span className="time-to-complete">{timeDisplay}</span>}
+              <button className="back-to-list-button" onClick={() => handleBackToList(t)}>
+                <FontAwesomeIcon icon={faRotateLeft} />
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
