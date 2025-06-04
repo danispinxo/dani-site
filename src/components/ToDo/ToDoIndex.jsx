@@ -126,6 +126,9 @@ const ToDoIndex = (user) => {
   };
 
   const handleClearList = () => {
+    if (!window.confirm('Are you sure you want to clear this list? You can find this list in the list drop down after clearing.')) {
+      return;
+    }
     setToDoList(null);
     const params = new URLSearchParams(window.location.search);
     params.delete('id');
