@@ -237,7 +237,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                 />
               </div>
               <div className="d-flex justify-content-between align-items-center">
-                <input type="text" name="text" placeholder="Enter a task" />
+                <textarea className="form-text-area" name="text" placeholder="Enter a task" rows={3} />
                 <div className="category-dropdown">
                   <label htmlFor="category-select">Category:</label>
                   <select id="category-select" name="category" defaultValue="">
@@ -248,6 +248,11 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                       </option>
                     ))}
                   </select>
+                  <p>
+                    <small>
+                      Add/edit categories <a href="/full-list-history">here</a>.
+                    </small>
+                  </p>
                 </div>
               </div>
               <button type="submit" disabled={addingTask}>

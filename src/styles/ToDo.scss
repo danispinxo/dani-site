@@ -68,9 +68,10 @@
       }
     }
 
-    input {
+    textarea {
+      resize: both;
       margin: 0.5rem;
-      width: 50%;
+      width: 100%;
 
       @include variables.sm {
         margin: 0.2rem;
@@ -85,6 +86,20 @@
 
     select {
       margin-left: 0.5rem;
+    }
+
+    small {
+      margin: 0.5rem;
+      font-family: variables.$round-font;
+
+      a {
+        color: darkred;
+        text-decoration: none;
+
+        &:hover {
+          color: goldenrod;
+        }
+      }
     }
 
     button {
