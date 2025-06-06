@@ -11,7 +11,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "next"],
+  "plugins": ["react", "@next/next"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
