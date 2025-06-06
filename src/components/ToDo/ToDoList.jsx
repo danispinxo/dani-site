@@ -23,6 +23,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   const [addingTask, setAddingTask] = useState(false);
   const [timer, setTimer] = useState(0);
   const [timerInterval, setTimerInterval] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const allIncompleteTasks = tasks.filter((t) => !t.completed);
 
@@ -41,10 +42,10 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       if (!error) {
         setTasks(items);
       } else {
-        console.error('Error fetching tasks:', error);
+        setErrorMessage('Error fetching tasks: ' + error.message);
       }
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      setErrorMessage('Error fetching tasks: ' + error.message);
     }
   };
 
@@ -56,12 +57,12 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         .eq('user', user.user.id)
         .order('created_at', { ascending: false });
       if (error) {
-        console.error('Error fetching categories:', error);
+        setErrorMessage('Error fetching categories: ' + error.message);
       } else {
         setCategories(categories.sort((a, b) => a.name.localeCompare(b.name)));
       }
     } catch (error) {
-      console.error('Error fetching categories:', error);
+      setErrorMessage('Error fetching categories: ' + error.message);
     }
   };
 
@@ -219,6 +220,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
 
   return (
     <div>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       {allIncompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
 
       {toDoList && (
