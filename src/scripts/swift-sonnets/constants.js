@@ -2,7 +2,7 @@ export const lines = {
   a: [
     "I can see us lost in the memory",
     "I can see us twisted in bedsheets",
-    "'Cause, darling, I'm a nightmare dressed like a daydream",
+    "Cause, darling, I'm a nightmare dressed like a daydream",
     "But they forgot to come and get me",
     "All my mornings are Mondays stuck in an endless February",
     "Romeo, save me, they're tryna tell me how to feel",
@@ -64,7 +64,7 @@ export const lines = {
     "And I'm highly suspicious that everyone who sees you wants you",
     "My heart's been borrowed and yours has been blue",
     "All of the people I've ghosted stand there in the room",
-    "'Cuz we were both young when I first saw you",
+    "Cuz we were both young when I first saw you",
     "Remember how I said I'd die for you?",
     "Daring you to leave me just so I can try and scare you",
     "You don't have to answer, just 'cause they asked you",
