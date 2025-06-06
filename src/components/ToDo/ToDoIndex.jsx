@@ -2,18 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHourglass,
-  faSquareCheck,
-  faTableList,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTableList, faPlus } from "@fortawesome/free-solid-svg-icons";
 import supabase from "../../lib/supabaseClient";
 import Modal from "react-bootstrap/Modal";
 import ToDoList from "./ToDoList";
-import CompleteList from "./CompleteList";
-import IncompleteList from "./IncompleteList";
-import SuccessMessage from "./SuccessMessage";
 
 const ToDoIndex = (user) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
@@ -65,37 +57,18 @@ const ToDoIndex = (user) => {
     setToDoList(selected);
   };
 
-  const fetchMostRecentList = async () => {
-    try {
-      const { data: list, error } = await supabase
-        .from("todo_list")
-        .select()
-        .eq("user", userId)
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .single();
-      if (error) {
-        console.error("Error fetching to-do list:", error);
-      } else {
-        setToDoList(list);
-      }
-    } catch (error) {
-      console.error("Error fetching to-do list:", error);
-    }
-  };
-
   const handleCreateToDoList = async (event, itemIds = null) => {
     if (event && event.preventDefault) event.preventDefault();
 
     try {
-      const { data: list, error } = await supabase
+      const { data: list } = await supabase
         .from("todo_list")
         .insert({ user: userId })
         .select()
         .single();
 
       if (itemIds) {
-        const { data: items, error: itemError } = await supabase
+        await supabase
           .from("todo_list_item")
           .update({ todo_list: list.id })
           .in("id", itemIds)
