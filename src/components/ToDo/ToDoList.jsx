@@ -110,11 +110,11 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         if (!fetchError) {
           setTasks(items);
         } else {
-          console.error('Error fetching tasks:', fetchError);
+          setErrorMessage('Error fetching tasks: ' + fetchError.message);
         }
       }
     } catch (error) {
-      console.error('Error adding task:', error);
+      setErrorMessage('Error adding task: ' + error.message);
     }
     setAddingTask(false);
     e.target.elements.text.value = '';
@@ -163,11 +163,11 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         if (!fetchError) {
           setTasks(items);
         } else {
-          console.error('Error fetching tasks:', fetchError);
+          setErrorMessage('Error fetching tasks: ' + fetchError.message);
         }
       }
     } catch (error) {
-      console.error('Error completing task:', error);
+      setErrorMessage('Error completing task: ' + error.message);
     }
   };
 
@@ -192,13 +192,13 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         if (!fetchError) {
           setTasks(items);
         } else {
-          console.error('Error fetching tasks:', fetchError);
+          setErrorMessage('Error fetching tasks: ' + fetchError.message);
         }
       } else {
-        console.error('Error deleting task:', error);
+        setErrorMessage('Error deleting task: ' + error.message);
       }
     } catch (error) {
-      console.error('Error deleting task:', error);
+      setErrorMessage('Error deleting task: ' + error.message);
     }
   };
 
