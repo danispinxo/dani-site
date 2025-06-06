@@ -52,11 +52,11 @@ const EditTaskModal = ({ showEditTaskModal, setShowEditTaskModal, handleCloseEdi
         <Form onSubmit={(e) => handleEditTask(e)} className="edit-task-form">
           <Form.Group>
             <Form.Label htmlFor="taskText">Name:</Form.Label>
-            <Form.Control type="text" id="taskText" name="taskText" defaultValue={editingTask?.text} />
+            <Form.Control as="textarea" id="taskText" name="taskText" defaultValue={editingTask?.text} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="category">Category:</Form.Label>
-            <Form.Select name="category" defaultValue={editingTask?.category || ''}>
+            <Form.Select name="category" defaultValue={editingTask?.category || ''} className="category-dropdown">
               <option value="">--- Select a Category ---</option>
               {categories.map((category) => (
                 <option key={`category-${category.id}`} value={category.id}>
@@ -64,6 +64,9 @@ const EditTaskModal = ({ showEditTaskModal, setShowEditTaskModal, handleCloseEdi
                 </option>
               ))}
             </Form.Select>
+            <a href="#" className="edit-categories-link">
+              Add/Edit Categories
+            </a>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="priority">Priority:</Form.Label>

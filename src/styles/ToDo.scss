@@ -492,3 +492,16 @@
     }
   }
 }
+
+.edit-categories-link {
+  font-size: 0.8rem;
+  color: darkred;
+  text-decoration: none;
+  margin-top: 0.2rem;
+  display: block;
+  text-align: right;
+
+  &:hover {
+    color: goldenrod;
+  }
+}
