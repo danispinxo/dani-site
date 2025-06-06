@@ -14,7 +14,7 @@ const CompleteList = ({ tasks, toDoListId, setTasks }) => {
         .select()
         .single();
 
-      if (!error) {
+      if (item && !error) {
         const { data: items, error: fetchError } = await supabase
           .from("todo_list_item")
           .select()

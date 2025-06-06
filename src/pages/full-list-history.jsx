@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
   faEye,
-  faBack,
   faAngleDown,
   faAngleUp,
   faPlus,
@@ -37,7 +36,7 @@ const ListHistory = () => {
       setSession(session);
     });
     const {
-      data: { subscription },
+      data: {},
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
@@ -161,7 +160,7 @@ const ListHistory = () => {
         .select()
         .single();
 
-      if (!error) {
+      if (item && !error) {
         fetchAllCategories();
       }
     } catch (error) {

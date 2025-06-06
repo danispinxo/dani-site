@@ -17,7 +17,7 @@ const SuccessMessage = () => {
       } else {
         setCat(null);
       }
-    } catch (error) {
+    } catch {
       setCat(null);
     }
   };

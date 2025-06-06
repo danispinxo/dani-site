@@ -1,4 +1,3 @@
-import App from "react";
 import Head from "next/head";
 import "normalize.css";
 import "../styles/styles.scss";

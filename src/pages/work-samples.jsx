@@ -1,6 +1,5 @@
 import TopNavbar from "../components/Navbar";
 import Book from "../components/Book";
-import Publication from "../components/Publication";
 
 export default function WorkSamples() {
   const images = [
@@ -100,10 +99,7 @@ export default function WorkSamples() {
           </div>
 
           <video controls autoPlay loop muted width="50%">
-            <source
-              src={"/images/sher-course-tour.mov"}
-              type="video/mp4"
-            ></source>
+            <source src={"/images/sher-course-tour.mov"} type="video/mp4" />
           </video>
           <p className="subtitle">Selected Teaching Material Samples</p>
 
@@ -115,7 +111,7 @@ export default function WorkSamples() {
             allowfullscreen="true"
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
-          ></iframe>
+          />
 
           <iframe
             src="https://docs.google.com/presentation/d/1TWV2AoIA4YFg8Pmzsjn7Z4JeWVyqYWftp0tr76ZeQPk/embed?start=false&loop=false&delayms=3000"
@@ -125,7 +121,7 @@ export default function WorkSamples() {
             allowfullscreen="true"
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
-          ></iframe>
+          />
           <p className="subtitle">Selected Website Design</p>
           <Book
             cover="/images/dani-site.png"
@@ -152,7 +148,12 @@ export default function WorkSamples() {
           <p className="subtitle">Selected Graphic Design</p>
           <div className="gallery">
             {images.map((item) => (
-              <a href={item.src} target="_blank" rel="noreferrer noopener">
+              <a
+                href={item.src}
+                target="_blank"
+                rel="noreferrer noopener"
+                key={item.alt}
+              >
                 <img
                   className="cover-gallery-image"
                   alt={item.alt}

@@ -31,7 +31,7 @@ const EditTaskModal = ({
         .select()
         .single();
 
-      if (!error) fetchTasks();
+      if (item && !error) fetchTasks();
     } catch (error) {
       console.error("Error editing task:", error);
     }

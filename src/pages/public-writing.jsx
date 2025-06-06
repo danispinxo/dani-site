@@ -1,4 +1,3 @@
-import Book from "../components/Book";
 import Publication from "../components/Publication";
 import TopNavbar from "../components/Navbar";
 

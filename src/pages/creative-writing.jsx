@@ -1,8 +1,6 @@
 import * as React from "react";
 import Book from "../components/Book";
-import Publication from "../components/Publication";
 import TopNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const CreativeWriting = () => {
   return (

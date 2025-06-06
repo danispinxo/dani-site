@@ -15,7 +15,7 @@ const ToDoPage = () => {
       setSession(session);
     });
     const {
-      data: { subscription },
+      data: {},
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });

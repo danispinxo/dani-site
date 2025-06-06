@@ -1,6 +1,5 @@
 import TopNavbar from "../components/Navbar";
 import Book from "../components/Book";
-import Publication from "../components/Publication";
 
 export default function Portfolio() {
   const images = [

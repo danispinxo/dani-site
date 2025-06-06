@@ -1,5 +1,3 @@
-import Image from "react-bootstrap/Image";
-
 const images = [
   {
     src: "/images/gap-riot-table.jpg",

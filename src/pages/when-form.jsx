@@ -4,6 +4,7 @@ import supabase from "../lib/supabaseClient";
 
 const WhenForm = () => {
   useEffect(() => {
+    // eslint-disable-next-line quotes
     const inputs = document.querySelectorAll('input[type="text"]');
     inputs.forEach((input) => {
       const computedStyles = window.getComputedStyle(input);
@@ -40,7 +41,7 @@ const WhenForm = () => {
     delete values.contributor;
 
     try {
-      const { data: contributorData, error: contributorError } = await supabase
+      const { error: contributorError } = await supabase
         .from("when_contributors")
         .insert({ name: contributor })
         .select()
@@ -48,16 +49,20 @@ const WhenForm = () => {
 
       if (contributorError)
         return console.error("Error adding contributor:", contributorError);
+
       const lexiconEntries = Object.entries(values).map(([key, value]) => ({
         blank: key,
         content: value,
       }));
+
       const { data: lexiconData, error: lexiconError } = await supabase
         .from("when_lexicon")
         .insert(lexiconEntries);
+
       if (lexiconError)
         return console.error("Error adding lexicon entries:", lexiconError);
-      alert("Submission successful! Thank you! ");
+
+      if (lexiconData) alert("Submission successful! Thank you! ");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("An error occurred. Please try again.");

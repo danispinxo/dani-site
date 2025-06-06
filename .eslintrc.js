@@ -18,9 +18,26 @@ export default [
       "@next/next": nextPlugin
     },
     rules: {
-      indent: ["error", 2],
+      indent: [
+        "error",
+        2,
+        {
+          SwitchCase: 1,
+          FunctionDeclaration: {
+            parameters: "first"
+          },
+          FunctionExpression: {
+            parameters: "first"
+          },
+          CallExpression: {
+            arguments: "first"
+          },
+          ArrayExpression: "first",
+          ObjectExpression: "first"
+        }
+      ],
       "linebreak-style": ["error", "unix"],
-      quotes: ["error", "double"],
+      quotes: ["warn", "double", { avoidEscape: true }],
       semi: ["error", "always"],
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",

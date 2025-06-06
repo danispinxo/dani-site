@@ -115,7 +115,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         .select()
         .single();
 
-      if (!error) {
+      if (item && !error) {
         const { data: items, error: fetchError } = await supabase
           .from("todo_list_item")
           .select()
@@ -166,7 +166,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     }
   };
 
-  const handleReroll = (task) => {
+  const handleReroll = () => {
     setRerolls(rerolls - 1);
     setRandomTask(null);
     setTimer(0);
@@ -186,7 +186,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         .select()
         .single();
 
-      if (!error) {
+      if (item && !error) {
         const { data: items, error: fetchError } = await supabase
           .from("todo_list_item")
           .select()
@@ -209,37 +209,6 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     setRandomTask(null);
     setTimer(0);
     handlePickRandomTask();
-  };
-
-  const handleDeleteTask = async () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this task?"
-    );
-    if (!confirmed || !editingTask) return;
-
-    try {
-      const { error } = await supabase
-        .from("todo_list_item")
-        .delete()
-        .eq("id", editingTask.id);
-
-      if (!error) {
-        const { data: items, error: fetchError } = await supabase
-          .from("todo_list_item")
-          .select()
-          .eq("todo_list", toDoList?.id);
-
-        if (!fetchError) {
-          setTasks(items);
-        } else {
-          setErrorMessage("Error fetching tasks: " + fetchError.message);
-        }
-      } else {
-        setErrorMessage("Error deleting task: " + error.message);
-      }
-    } catch (error) {
-      setErrorMessage("Error deleting task: " + error.message);
-    }
   };
 
   const handleCloseEditTaskModal = () => {
