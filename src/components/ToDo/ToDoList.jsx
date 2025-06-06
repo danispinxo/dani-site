@@ -1,6 +1,6 @@
 'useclient';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faSpinner, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../lib/supabaseClient';
@@ -9,6 +9,7 @@ import IncompleteList from './IncompleteList';
 import SuccessMessage from './SuccessMessage';
 import EditTaskModal from './EditTaskModal';
 import RandomTask from './RandomTask';
+import debounce from 'lodash/debounce';
 
 const ToDoList = ({ toDoList, user, createNewList }) => {
   const [tasks, setTasks] = useState([]);
@@ -32,49 +33,55 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     setCompletedTasks(tasks.filter((t) => t.completed));
   }, [tasks, categories]);
 
-  const fetchTasks = async () => {
-    try {
-      const { data: items, error } = await supabase
-        .from('todo_list_item')
-        .select()
-        .eq('todo_list', toDoList.id)
-        .order('created_at', { ascending: false });
-      if (!error) {
-        setTasks(items);
-      } else {
+  const debouncedFetchTasks = useCallback(
+    debounce(async () => {
+      try {
+        const { data: items, error } = await supabase
+          .from('todo_list_item')
+          .select()
+          .eq('todo_list', toDoList.id)
+          .order('created_at', { ascending: false });
+        if (!error) {
+          setTasks(items);
+        } else {
+          setErrorMessage('Error fetching tasks: ' + error.message);
+        }
+      } catch (error) {
         setErrorMessage('Error fetching tasks: ' + error.message);
       }
-    } catch (error) {
-      setErrorMessage('Error fetching tasks: ' + error.message);
-    }
-  };
+    }, 300),
+    [toDoList],
+  );
 
-  const fetchCategories = async () => {
-    try {
-      const { data: categories, error } = await supabase
-        .from('todo_category')
-        .select()
-        .eq('user', user.user.id)
-        .order('created_at', { ascending: false });
-      if (error) {
+  const debouncedFetchCategories = useCallback(
+    debounce(async () => {
+      try {
+        const { data: categories, error } = await supabase
+          .from('todo_category')
+          .select()
+          .eq('user', user.user.id)
+          .order('created_at', { ascending: false });
+        if (error) {
+          setErrorMessage('Error fetching categories: ' + error.message);
+        } else {
+          setCategories(categories.sort((a, b) => a.name.localeCompare(b.name)));
+        }
+      } catch (error) {
         setErrorMessage('Error fetching categories: ' + error.message);
-      } else {
-        setCategories(categories.sort((a, b) => a.name.localeCompare(b.name)));
       }
-    } catch (error) {
-      setErrorMessage('Error fetching categories: ' + error.message);
-    }
-  };
+    }, 300),
+    [user],
+  );
 
   useEffect(() => {
     if (toDoList) {
-      fetchCategories();
-      fetchTasks();
+      debouncedFetchCategories();
+      debouncedFetchTasks();
       setRandomTask(null);
       setTimer(0);
       if (timerInterval) clearInterval(timerInterval);
     }
-  }, [toDoList]);
+  }, [toDoList, debouncedFetchCategories, debouncedFetchTasks]);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -278,7 +285,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
 
           {allIncompleteTasks.length > 0 && (
             <IncompleteList
-              fetchTasks={fetchTasks}
+              fetchTasks={debouncedFetchTasks}
               incompleteTasks={incompleteTasks}
               handleMarkAsDone={handleMarkAsDone}
               handleEditTask={(task) => {
@@ -300,7 +307,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
             handleCloseEditTaskModal={handleCloseEditTaskModal}
             categories={categories}
             editingTask={editingTask}
-            fetchTasks={fetchTasks}
+            fetchTasks={debouncedFetchTasks}
           />
         </>
       )}
