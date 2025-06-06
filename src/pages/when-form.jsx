@@ -4,7 +4,6 @@ import supabase from "../lib/supabaseClient";
 
 const WhenForm = () => {
   useEffect(() => {
-    // eslint-disable-next-line quotes
     const inputs = document.querySelectorAll('input[type="text"]');
     inputs.forEach((input) => {
       const computedStyles = window.getComputedStyle(input);
