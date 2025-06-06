@@ -1,6 +1,7 @@
 {
   "trailingComma": "es5",
   "quotes": "double",
+  "tabWidth": 2,
   "overrides": [
     {
       "files": ["*.json", ".eslintrc*", ".prettierrc*"],
