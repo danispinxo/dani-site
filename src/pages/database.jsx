@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
+import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import dotenv from "dotenv";
 dotenv.config();
 
 const supabaseUrl = process.env.NEXT_PUBLIC_DATABASE_URL;
@@ -13,15 +13,21 @@ export default function DataPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data: lexiconData, error: lexiconError } = await supabase.from('when_lexicon').select('content, blank');
+      const { data: lexiconData, error: lexiconError } = await supabase
+        .from("when_lexicon")
+        .select("content, blank");
 
-      if (lexiconError) console.error('Error fetching lexicon:', lexiconError);
+      if (lexiconError) console.error("Error fetching lexicon:", lexiconError);
       else setLexicon(lexiconData);
 
-      const { data: contributorData, error: contributorError } = await supabase.from('when_contributors').select('name');
+      const { data: contributorData, error: contributorError } = await supabase
+        .from("when_contributors")
+        .select("name");
 
-      if (contributorError) console.error('Error fetching contributors:', contributorError);
-      else setContributors(contributorData.map((contributor) => contributor.name));
+      if (contributorError)
+        console.error("Error fetching contributors:", contributorError);
+      else
+        setContributors(contributorData.map((contributor) => contributor.name));
     };
 
     fetchData();

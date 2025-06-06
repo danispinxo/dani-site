@@ -1,10 +1,10 @@
-import { useForm, ValidationError } from '@formspree/react';
-import TopNavbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import TextField from '@mui/material/TextField';
+import { useForm, ValidationError } from "@formspree/react";
+import TopNavbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import TextField from "@mui/material/TextField";
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm('xleqzjrj');
+  const [state, handleSubmit] = useForm("xleqzjrj");
 
   return (
     <>
@@ -19,13 +19,46 @@ const Contact = () => {
             <p className="contact-message">Thanks for getting in touch!</p>
           ) : (
             <div className="contact-form">
-              <form onSubmit={handleSubmit} style={{ display: 'block' }}>
-                <TextField className="input" id="standard-basic" name="name" label="Name" variant="standard" required fullWidth />
-                <TextField className="input" id="standard-basic" name="email" label="Email" variant="standard" required fullWidth />
-                <ValidationError className="error" prefix="Email" field="email" errors={state.errors} />
-                <TextField className="input" id="outlined-multiline-static" name="message" label="Message" multiline rows={4} fullWidth />
+              <form onSubmit={handleSubmit} style={{ display: "block" }}>
+                <TextField
+                  className="input"
+                  id="standard-basic"
+                  name="name"
+                  label="Name"
+                  variant="standard"
+                  required
+                  fullWidth
+                />
+                <TextField
+                  className="input"
+                  id="standard-basic"
+                  name="email"
+                  label="Email"
+                  variant="standard"
+                  required
+                  fullWidth
+                />
+                <ValidationError
+                  className="error"
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
+                />
+                <TextField
+                  className="input"
+                  id="outlined-multiline-static"
+                  name="message"
+                  label="Message"
+                  multiline
+                  rows={4}
+                  fullWidth
+                />
                 <br />
-                <button className="form-submit-btn" type="submit" disabled={state.submitting}>
+                <button
+                  className="form-submit-btn"
+                  type="submit"
+                  disabled={state.submitting}
+                >
                   Send
                 </button>
                 <ValidationError className="error" errors={state.errors} />

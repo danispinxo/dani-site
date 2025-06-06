@@ -1,15 +1,20 @@
-'useclient';
+"useclient";
 
-import { useState, useEffect, useCallback } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faSpinner, faHandPointer } from '@fortawesome/free-solid-svg-icons';
-import supabase from '../../lib/supabaseClient';
-import CompleteList from './CompleteList';
-import IncompleteList from './IncompleteList';
-import SuccessMessage from './SuccessMessage';
-import EditTaskModal from './EditTaskModal';
-import RandomTask from './RandomTask';
-import debounce from 'lodash/debounce';
+import { useState, useEffect, useCallback } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDownLeftAndUpRightToCenter,
+  faUpRightAndDownLeftFromCenter,
+  faSpinner,
+  faHandPointer,
+} from "@fortawesome/free-solid-svg-icons";
+import supabase from "../../lib/supabaseClient";
+import CompleteList from "./CompleteList";
+import IncompleteList from "./IncompleteList";
+import SuccessMessage from "./SuccessMessage";
+import EditTaskModal from "./EditTaskModal";
+import RandomTask from "./RandomTask";
+import debounce from "lodash/debounce";
 
 const ToDoList = ({ toDoList, user, createNewList }) => {
   const [tasks, setTasks] = useState([]);
@@ -24,7 +29,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   const [addingTask, setAddingTask] = useState(false);
   const [timer, setTimer] = useState(0);
   const [timerInterval, setTimerInterval] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const allIncompleteTasks = tasks.filter((t) => !t.completed);
 
@@ -37,40 +42,42 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     debounce(async () => {
       try {
         const { data: items, error } = await supabase
-          .from('todo_list_item')
+          .from("todo_list_item")
           .select()
-          .eq('todo_list', toDoList.id)
-          .order('created_at', { ascending: false });
+          .eq("todo_list", toDoList.id)
+          .order("created_at", { ascending: false });
         if (!error) {
           setTasks(items);
         } else {
-          setErrorMessage('Error fetching tasks: ' + error.message);
+          setErrorMessage("Error fetching tasks: " + error.message);
         }
       } catch (error) {
-        setErrorMessage('Error fetching tasks: ' + error.message);
+        setErrorMessage("Error fetching tasks: " + error.message);
       }
     }, 300),
-    [toDoList],
+    [toDoList]
   );
 
   const debouncedFetchCategories = useCallback(
     debounce(async () => {
       try {
         const { data: categories, error } = await supabase
-          .from('todo_category')
+          .from("todo_category")
           .select()
-          .eq('user', user.user.id)
-          .order('created_at', { ascending: false });
+          .eq("user", user.user.id)
+          .order("created_at", { ascending: false });
         if (error) {
-          setErrorMessage('Error fetching categories: ' + error.message);
+          setErrorMessage("Error fetching categories: " + error.message);
         } else {
-          setCategories(categories.sort((a, b) => a.name.localeCompare(b.name)));
+          setCategories(
+            categories.sort((a, b) => a.name.localeCompare(b.name))
+          );
         }
       } catch (error) {
-        setErrorMessage('Error fetching categories: ' + error.message);
+        setErrorMessage("Error fetching categories: " + error.message);
       }
     }, 300),
-    [user],
+    [user]
   );
 
   useEffect(() => {
@@ -96,37 +103,54 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       text,
       todo_list: toDoList.id,
       completed: false,
-      priority: 'medium',
+      priority: "medium",
     };
 
     if (!isNaN(category)) params.category = category;
 
     try {
-      const { data: item, error } = await supabase.from('todo_list_item').insert(params).select().single();
+      const { data: item, error } = await supabase
+        .from("todo_list_item")
+        .insert(params)
+        .select()
+        .single();
 
       if (!error) {
-        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
+        const { data: items, error: fetchError } = await supabase
+          .from("todo_list_item")
+          .select()
+          .eq("todo_list", toDoList.id);
 
         if (!fetchError) {
           setTasks(items);
         } else {
-          setErrorMessage('Error fetching tasks: ' + fetchError.message);
+          setErrorMessage("Error fetching tasks: " + fetchError.message);
         }
       }
     } catch (error) {
-      setErrorMessage('Error adding task: ' + error.message);
+      setErrorMessage("Error adding task: " + error.message);
     }
     setAddingTask(false);
-    e.target.elements.text.value = '';
+    e.target.elements.text.value = "";
   };
 
   const handlePickRandomTask = () => {
     if (allIncompleteTasks.length > 0) {
-      const highPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'high');
-      const mediumPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'medium');
-      const lowPriorityTasks = allIncompleteTasks.filter((t) => t.priority === 'low');
+      const highPriorityTasks = allIncompleteTasks.filter(
+        (t) => t.priority === "high"
+      );
+      const mediumPriorityTasks = allIncompleteTasks.filter(
+        (t) => t.priority === "medium"
+      );
+      const lowPriorityTasks = allIncompleteTasks.filter(
+        (t) => t.priority === "low"
+      );
       let pickFrom =
-        highPriorityTasks.length > 0 ? highPriorityTasks : mediumPriorityTasks.length > 0 ? mediumPriorityTasks : lowPriorityTasks;
+        highPriorityTasks.length > 0
+          ? highPriorityTasks
+          : mediumPriorityTasks.length > 0
+            ? mediumPriorityTasks
+            : lowPriorityTasks;
       const randomIndex = Math.floor(Math.random() * pickFrom.length);
       setRandomTask(pickFrom[randomIndex]);
       setTimer(0);
@@ -155,19 +179,27 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       const updateData = { completed: true };
       if (timeToComplete !== null) updateData.time_to_complete = timeToComplete;
 
-      const { data: item, error } = await supabase.from('todo_list_item').update(updateData).eq('id', task.id).select().single();
+      const { data: item, error } = await supabase
+        .from("todo_list_item")
+        .update(updateData)
+        .eq("id", task.id)
+        .select()
+        .single();
 
       if (!error) {
-        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList.id);
+        const { data: items, error: fetchError } = await supabase
+          .from("todo_list_item")
+          .select()
+          .eq("todo_list", toDoList.id);
 
         if (!fetchError) {
           setTasks(items);
         } else {
-          setErrorMessage('Error fetching tasks: ' + fetchError.message);
+          setErrorMessage("Error fetching tasks: " + fetchError.message);
         }
       }
     } catch (error) {
-      setErrorMessage('Error completing task: ' + error.message);
+      setErrorMessage("Error completing task: " + error.message);
     }
   };
 
@@ -180,25 +212,33 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   };
 
   const handleDeleteTask = async () => {
-    const confirmed = window.confirm('Are you sure you want to delete this task?');
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
     if (!confirmed || !editingTask) return;
 
     try {
-      const { error } = await supabase.from('todo_list_item').delete().eq('id', editingTask.id);
+      const { error } = await supabase
+        .from("todo_list_item")
+        .delete()
+        .eq("id", editingTask.id);
 
       if (!error) {
-        const { data: items, error: fetchError } = await supabase.from('todo_list_item').select().eq('todo_list', toDoList?.id);
+        const { data: items, error: fetchError } = await supabase
+          .from("todo_list_item")
+          .select()
+          .eq("todo_list", toDoList?.id);
 
         if (!fetchError) {
           setTasks(items);
         } else {
-          setErrorMessage('Error fetching tasks: ' + fetchError.message);
+          setErrorMessage("Error fetching tasks: " + fetchError.message);
         }
       } else {
-        setErrorMessage('Error deleting task: ' + error.message);
+        setErrorMessage("Error deleting task: " + error.message);
       }
     } catch (error) {
-      setErrorMessage('Error deleting task: ' + error.message);
+      setErrorMessage("Error deleting task: " + error.message);
     }
   };
 
@@ -228,12 +268,19 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
   return (
     <div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      {allIncompleteTasks.length === 0 && completedTasks.length > 0 && <SuccessMessage />}
+      {allIncompleteTasks.length === 0 && completedTasks.length > 0 && (
+        <SuccessMessage />
+      )}
 
       {toDoList && (
         <>
           {randomTask && (
-            <RandomTask rerolls={rerolls} handleReroll={handleReroll} handleDoneFromRandom={handleDoneFromRandom} randomTask={randomTask} />
+            <RandomTask
+              rerolls={rerolls}
+              handleReroll={handleReroll}
+              handleDoneFromRandom={handleDoneFromRandom}
+              randomTask={randomTask}
+            />
           )}
 
           {showNewTaskForm ? (
@@ -246,13 +293,21 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                 />
               </div>
               <div className="d-flex justify-content-between align-items-center">
-                <textarea className="form-text-area" name="text" placeholder="Enter a task" rows={3} />
+                <textarea
+                  className="form-text-area"
+                  name="text"
+                  placeholder="Enter a task"
+                  rows={3}
+                />
                 <div className="category-dropdown">
                   <label htmlFor="category-select">Category:</label>
                   <select id="category-select" name="category" defaultValue="">
                     <option value="">Uncategorized</option>
                     {categories.map((category) => (
-                      <option key={`dropdown-${category.id}`} value={category.id}>
+                      <option
+                        key={`dropdown-${category.id}`}
+                        value={category.id}
+                      >
                         {category.name}
                       </option>
                     ))}
@@ -265,19 +320,32 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                 </div>
               </div>
               <button type="submit" disabled={addingTask}>
-                {addingTask ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Add Task'}
+                {addingTask ? (
+                  <FontAwesomeIcon icon={faSpinner} spin />
+                ) : (
+                  "Add Task"
+                )}
               </button>
             </form>
           ) : (
             <div className="minimized-task-form d-flex justify-content-around align-items-center">
-              <button className="minimized" onClick={() => setShowNewTaskForm(true)}>
+              <button
+                className="minimized"
+                onClick={() => setShowNewTaskForm(true)}
+              >
                 <span>Add a Task </span>
-                <FontAwesomeIcon className="task-form-open-close-btn" icon={faUpRightAndDownLeftFromCenter} />
+                <FontAwesomeIcon
+                  className="task-form-open-close-btn"
+                  icon={faUpRightAndDownLeftFromCenter}
+                />
               </button>
               {allIncompleteTasks.length > 10 && (
                 <button className="minimized" onClick={handlePickRandomTask}>
                   <span>Pick a Task </span>
-                  <FontAwesomeIcon className="task-form-open-close-btn" icon={faHandPointer} />
+                  <FontAwesomeIcon
+                    className="task-form-open-close-btn"
+                    icon={faHandPointer}
+                  />
                 </button>
               )}
             </div>
@@ -300,7 +368,13 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
             Pick a Random Task
           </button>
 
-          {completedTasks.length > 0 && <CompleteList tasks={completedTasks} toDoListId={toDoList?.id} setTasks={setTasks} />}
+          {completedTasks.length > 0 && (
+            <CompleteList
+              tasks={completedTasks}
+              toDoListId={toDoList?.id}
+              setTasks={setTasks}
+            />
+          )}
           <EditTaskModal
             showEditTaskModal={showEditTaskModal}
             setShowEditTaskModal={setShowEditTaskModal}

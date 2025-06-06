@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
-import TopNavbar from '../components/Navbar';
-import { firstBlankEmojis, secondBlankEmojis } from '../scripts/all-you-hold/constants.js';
+import { useState, useEffect } from "react";
+import TopNavbar from "../components/Navbar";
+import {
+  firstBlankEmojis,
+  secondBlankEmojis,
+} from "../scripts/all-you-hold/constants.js";
 
 const PoemGenerator = () => {
-  const [firstBlank, setFirstBlank] = useState('');
-  const [secondBlank, setSecondBlank] = useState('');
+  const [firstBlank, setFirstBlank] = useState("");
+  const [secondBlank, setSecondBlank] = useState("");
 
   const updatePoem = () => {
     const firstIndex = Math.floor(Math.random() * firstBlankEmojis.length);
@@ -27,7 +30,8 @@ const PoemGenerator = () => {
       <main className="page-content">
         <h1 className="title">All You Hold</h1>
         <p className="hold-line">
-          When all you hold is a {firstBlank}, everything looks like a {secondBlank}.
+          When all you hold is a {firstBlank}, everything looks like a{" "}
+          {secondBlank}.
         </p>
       </main>
     </>

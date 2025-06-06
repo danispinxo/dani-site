@@ -1,11 +1,19 @@
-import { useState, useEffect } from 'react';
-import Collapse from 'react-bootstrap/Collapse';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import TopNavbar from '../components/Navbar';
-import supabase from '../lib/supabaseClient';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faEye, faBack, faAngleDown, faAngleUp, faPlus, faPenNib } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from "react";
+import Collapse from "react-bootstrap/Collapse";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import TopNavbar from "../components/Navbar";
+import supabase from "../lib/supabaseClient";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrashAlt,
+  faEye,
+  faBack,
+  faAngleDown,
+  faAngleUp,
+  faPlus,
+  faPenNib,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ListHistory = () => {
   const [session, setSession] = useState(null);
@@ -44,29 +52,38 @@ const ListHistory = () => {
 
   const fetchAllToDoLists = async () => {
     try {
-      const { data: lists, error } = await supabase.from('todo_list').select().eq('user', userId).order('created_at', { ascending: false });
+      const { data: lists, error } = await supabase
+        .from("todo_list")
+        .select()
+        .eq("user", userId)
+        .order("created_at", { ascending: false });
       if (error) {
-        console.error('Error fetching all to-do lists:', error);
+        console.error("Error fetching all to-do lists:", error);
       } else {
         setAllToDoLists(lists);
       }
     } catch (error) {
-      console.error('Error fetching all to-do lists:', error);
+      console.error("Error fetching all to-do lists:", error);
     }
   };
 
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this list?');
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this list?"
+    );
     if (confirmDelete) {
       try {
-        const { error } = await supabase.from('todo_list').delete().eq('id', id);
+        const { error } = await supabase
+          .from("todo_list")
+          .delete()
+          .eq("id", id);
         if (error) {
-          console.error('Error deleting list:', error);
+          console.error("Error deleting list:", error);
         } else {
           setAllToDoLists(allToDoLists.filter((list) => list.id !== id));
         }
       } catch (error) {
-        console.error('Error deleting list:', error);
+        console.error("Error deleting list:", error);
       }
     }
   };
@@ -74,50 +91,59 @@ const ListHistory = () => {
   const handleAddCategory = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get('name');
+    const name = formData.get("name");
 
     try {
-      const { error } = await supabase.from('todo_category').insert([{ name, user: userId }]);
+      const { error } = await supabase
+        .from("todo_category")
+        .insert([{ name, user: userId }]);
       if (error) {
-        console.error('Error creating new category:', error);
+        console.error("Error creating new category:", error);
       } else {
         fetchAllCategories();
         e.target.reset();
       }
     } catch (error) {
-      console.error('Error creating new category:', error);
+      console.error("Error creating new category:", error);
     }
   };
 
   const fetchAllCategories = async () => {
     try {
       const { data: categories, error } = await supabase
-        .from('todo_category')
+        .from("todo_category")
         .select()
-        .eq('user', userId)
-        .order('created_at', { ascending: false });
+        .eq("user", userId)
+        .order("created_at", { ascending: false });
       if (error) {
-        console.error('Error fetching all categories:', error);
+        console.error("Error fetching all categories:", error);
       } else {
         setAllCategories(categories);
       }
     } catch (error) {
-      console.error('Error fetching all categories:', error);
+      console.error("Error fetching all categories:", error);
     }
   };
 
   const handleDeleteCategory = async (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this category?');
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this category?"
+    );
     if (confirmDelete) {
       try {
-        const { error } = await supabase.from('todo_category').delete().eq('id', id);
+        const { error } = await supabase
+          .from("todo_category")
+          .delete()
+          .eq("id", id);
         if (error) {
-          console.error('Error deleting category:', error);
+          console.error("Error deleting category:", error);
         } else {
-          setAllCategories(allCategories.filter((category) => category.id !== id));
+          setAllCategories(
+            allCategories.filter((category) => category.id !== id)
+          );
         }
       } catch (error) {
-        console.error('Error deleting category:', error);
+        console.error("Error deleting category:", error);
       }
     }
   };
@@ -128,13 +154,18 @@ const ListHistory = () => {
     const name = e.target.elements.name.value;
 
     try {
-      const { data: item, error } = await supabase.from('todo_category').update({ name }).eq('id', editingCategory.id).select().single();
+      const { data: item, error } = await supabase
+        .from("todo_category")
+        .update({ name })
+        .eq("id", editingCategory.id)
+        .select()
+        .single();
 
       if (!error) {
         fetchAllCategories();
       }
     } catch (error) {
-      console.error('Error editing category:', error);
+      console.error("Error editing category:", error);
     }
     setShowEditModal(false);
   };
@@ -145,7 +176,9 @@ const ListHistory = () => {
   };
 
   const handleSelectList = (id) => {
-    setSelectedLists((prev) => (prev.includes(id) ? prev.filter((listId) => listId !== id) : [...prev, id]));
+    setSelectedLists((prev) =>
+      prev.includes(id) ? prev.filter((listId) => listId !== id) : [...prev, id]
+    );
   };
 
   const handleSelectAllLists = () => {
@@ -158,24 +191,33 @@ const ListHistory = () => {
 
   const handleDeleteSelectedLists = async () => {
     if (selectedLists.length === 0) return;
-    const confirmDelete = window.confirm(`Are you sure you want to delete ${selectedLists.length} selected list(s)?`);
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete ${selectedLists.length} selected list(s)?`
+    );
     if (confirmDelete) {
       try {
-        const { error } = await supabase.from('todo_list').delete().in('id', selectedLists);
+        const { error } = await supabase
+          .from("todo_list")
+          .delete()
+          .in("id", selectedLists);
         if (error) {
-          console.error('Error deleting selected lists:', error);
+          console.error("Error deleting selected lists:", error);
         } else {
-          setAllToDoLists(allToDoLists.filter((list) => !selectedLists.includes(list.id)));
+          setAllToDoLists(
+            allToDoLists.filter((list) => !selectedLists.includes(list.id))
+          );
           setSelectedLists([]);
         }
       } catch (error) {
-        console.error('Error deleting selected lists:', error);
+        console.error("Error deleting selected lists:", error);
       }
     }
   };
 
   const handleSelectCategory = (id) => {
-    setSelectedCategories((prev) => (prev.includes(id) ? prev.filter((catId) => catId !== id) : [...prev, id]));
+    setSelectedCategories((prev) =>
+      prev.includes(id) ? prev.filter((catId) => catId !== id) : [...prev, id]
+    );
   };
 
   const handleSelectAllCategories = () => {
@@ -189,19 +231,24 @@ const ListHistory = () => {
   const handleDeleteSelectedCategories = async () => {
     if (selectedCategories.length === 0) return;
     const confirmDelete = window.confirm(
-      `Are you sure you want to delete ${selectedCategories.length} selected categor${selectedCategories.length === 1 ? 'y' : 'ies'}?`,
+      `Are you sure you want to delete ${selectedCategories.length} selected categor${selectedCategories.length === 1 ? "y" : "ies"}?`
     );
     if (confirmDelete) {
       try {
-        const { error } = await supabase.from('todo_category').delete().in('id', selectedCategories);
+        const { error } = await supabase
+          .from("todo_category")
+          .delete()
+          .in("id", selectedCategories);
         if (error) {
-          console.error('Error deleting selected categories:', error);
+          console.error("Error deleting selected categories:", error);
         } else {
-          setAllCategories(allCategories.filter((cat) => !selectedCategories.includes(cat.id)));
+          setAllCategories(
+            allCategories.filter((cat) => !selectedCategories.includes(cat.id))
+          );
           setSelectedCategories([]);
         }
       } catch (error) {
-        console.error('Error deleting selected categories:', error);
+        console.error("Error deleting selected categories:", error);
       }
     }
   };
@@ -229,7 +276,10 @@ const ListHistory = () => {
               />
             </div>
             <div className="d-flex justify-content-between">
-              <button onClick={() => setShowCategoryForm(false)} className="add-category-modal-button cancel-button">
+              <button
+                onClick={() => setShowCategoryForm(false)}
+                className="add-category-modal-button cancel-button"
+              >
                 Cancel
               </button>
               <button type="submit" className="add-category-modal-button">
@@ -242,7 +292,11 @@ const ListHistory = () => {
         {allCategories.length > 0 ? (
           <>
             <h3>
-              Your Categories <FontAwesomeIcon icon={faPlus} onClick={() => setShowCategoryForm(!showCategoryForm)} />
+              Your Categories{" "}
+              <FontAwesomeIcon
+                icon={faPlus}
+                onClick={() => setShowCategoryForm(!showCategoryForm)}
+              />
             </h3>
             <div>
               {selectedCategories.length > 0 && (
@@ -266,11 +320,14 @@ const ListHistory = () => {
                       <>
                         <input
                           type="checkbox"
-                          checked={selectedCategories.length === allCategories.length && allCategories.length > 0}
+                          checked={
+                            selectedCategories.length ===
+                              allCategories.length && allCategories.length > 0
+                          }
                           onChange={handleSelectAllCategories}
                           onClick={(e) => e.stopPropagation()}
                           className="custom-checkbox"
-                        />{' '}
+                        />{" "}
                         Select All
                       </>
                     )}
@@ -284,7 +341,10 @@ const ListHistory = () => {
               <Collapse in={categoriesOpen}>
                 <tbody>
                   {allCategories.map((category, index) => (
-                    <tr key={category.id} className={`${selectedCategories.includes(category.id) ? 'selected' : ''}`}>
+                    <tr
+                      key={category.id}
+                      className={`${selectedCategories.includes(category.id) ? "selected" : ""}`}
+                    >
                       <td>{index + 1}</td>
                       <td>
                         <input
@@ -309,7 +369,10 @@ const ListHistory = () => {
                         </button>
                       </td>
                       <td>
-                        <button onClick={() => handleDeleteCategory(category.id)} className="delete-button">
+                        <button
+                          onClick={() => handleDeleteCategory(category.id)}
+                          className="delete-button"
+                        >
                           <FontAwesomeIcon icon={faTrashAlt} />
                         </button>
                       </td>
@@ -328,14 +391,21 @@ const ListHistory = () => {
             <h3>Your Lists</h3>
             <div>
               {selectedLists.length > 0 && (
-                <button onClick={handleDeleteSelectedLists} disabled={selectedLists.length === 0} className="delete-selected-button">
+                <button
+                  onClick={handleDeleteSelectedLists}
+                  disabled={selectedLists.length === 0}
+                  className="delete-selected-button"
+                >
                   <FontAwesomeIcon icon={faTrashAlt} /> Delete Selected
                 </button>
               )}
             </div>
             <table className="list-history-table">
               <thead>
-                <tr onClick={() => setListsOpen(!listsOpen)} style={{ cursor: 'pointer' }}>
+                <tr
+                  onClick={() => setListsOpen(!listsOpen)}
+                  style={{ cursor: "pointer" }}
+                >
                   <th>
                     <FontAwesomeIcon icon={listsOpenIcon} />
                   </th>
@@ -344,11 +414,14 @@ const ListHistory = () => {
                       <>
                         <input
                           type="checkbox"
-                          checked={selectedLists.length === allToDoLists.length && allToDoLists.length > 0}
+                          checked={
+                            selectedLists.length === allToDoLists.length &&
+                            allToDoLists.length > 0
+                          }
                           onChange={handleSelectAllLists}
                           onClick={(e) => e.stopPropagation()}
                           className="custom-checkbox"
-                        />{' '}
+                        />{" "}
                         Select All
                       </>
                     )}
@@ -362,7 +435,10 @@ const ListHistory = () => {
               <Collapse in={listsOpen}>
                 <tbody>
                   {allToDoLists.map((list, index) => (
-                    <tr key={list.id} className={`${selectedLists.includes(list.id) ? 'selected' : ''}`}>
+                    <tr
+                      key={list.id}
+                      className={`${selectedLists.includes(list.id) ? "selected" : ""}`}
+                    >
                       <td>{index + 1}</td>
                       <td>
                         <input
@@ -383,7 +459,10 @@ const ListHistory = () => {
                         </a>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(list.id)} className="delete-button">
+                        <button
+                          onClick={() => handleDelete(list.id)}
+                          className="delete-button"
+                        >
                           <FontAwesomeIcon icon={faTrashAlt} />
                         </button>
                       </td>
@@ -397,15 +476,27 @@ const ListHistory = () => {
           <p>No to-do lists found.</p>
         )}
       </div>
-      <Modal show={showEditModal} onHide={handleCloseEditModal} className="edit-category-modal">
+      <Modal
+        show={showEditModal}
+        onHide={handleCloseEditModal}
+        className="edit-category-modal"
+      >
         <Modal.Header closeButton className="edit-category-modal-header">
           <Modal.Title>Edit Category</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={(e) => handleEditCategory(e)} className="edit-category-form">
+          <Form
+            onSubmit={(e) => handleEditCategory(e)}
+            className="edit-category-form"
+          >
             <Form.Group>
               <Form.Label htmlFor="name">Name:</Form.Label>
-              <Form.Control type="text" id="name" name="name" defaultValue={editingCategory?.name} />
+              <Form.Control
+                type="text"
+                id="name"
+                name="name"
+                defaultValue={editingCategory?.name}
+              />
             </Form.Group>
             <button type="submit" className="edit-category-modal-button">
               <FontAwesomeIcon icon={faPenNib} /> Edit Category

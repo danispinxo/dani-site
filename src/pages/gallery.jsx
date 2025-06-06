@@ -1,5 +1,5 @@
-import ImageGallery from '../components/ImageGallery';
-import TopNavbar from '../components/Navbar';
+import ImageGallery from "../components/ImageGallery";
+import TopNavbar from "../components/Navbar";
 
 export default function Homepage() {
   return (

@@ -1,5 +1,5 @@
-import Image from 'react-bootstrap/Image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from "react-bootstrap/Image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faLink,
@@ -9,39 +9,56 @@ import {
   faLinkSlash,
   faStar,
   faHashtag,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 const determineIcon = (type) => {
   switch (type) {
-    case 'shop':
+    case "shop":
       return faCartShopping;
-    case 'link':
+    case "link":
       return faLink;
-    case 'read':
+    case "read":
       return faBook;
-    case 'talk':
+    case "talk":
       return faComment;
-    case 'no-talk':
+    case "no-talk":
       return faCommentSlash;
-    case 'no-link':
+    case "no-link":
       return faLinkSlash;
-    case 'social':
+    case "social":
       return faHashtag;
     default:
       return faStar;
   }
 };
 
-const Publication = ({ title, publication, press, date, notes, linkType, link }) => {
-  const pressLine = press ? `, ${press}` : '';
+const Publication = ({
+  title,
+  publication,
+  press,
+  date,
+  notes,
+  linkType,
+  link,
+}) => {
+  const pressLine = press ? `, ${press}` : "";
   return (
     <div className="publication-component">
       {link ? (
-        <a className="icon" href={link} target="_blank" rel="noreferrer noopener">
+        <a
+          className="icon"
+          href={link}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <FontAwesomeIcon icon={determineIcon(linkType)} title={title} />
         </a>
       ) : (
-        <FontAwesomeIcon className="icon" icon={determineIcon(linkType)} title={title} />
+        <FontAwesomeIcon
+          className="icon"
+          icon={determineIcon(linkType)}
+          title={title}
+        />
       )}
 
       <div className="publication-info">

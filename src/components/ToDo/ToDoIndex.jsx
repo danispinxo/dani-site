@@ -1,27 +1,34 @@
-'useclient';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglass, faSquareCheck, faTableList, faPlus } from '@fortawesome/free-solid-svg-icons';
-import supabase from '../../lib/supabaseClient';
-import Modal from 'react-bootstrap/Modal';
-import ToDoList from './ToDoList';
-import CompleteList from './CompleteList';
-import IncompleteList from './IncompleteList';
-import SuccessMessage from './SuccessMessage';
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHourglass,
+  faSquareCheck,
+  faTableList,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import supabase from "../../lib/supabaseClient";
+import Modal from "react-bootstrap/Modal";
+import ToDoList from "./ToDoList";
+import CompleteList from "./CompleteList";
+import IncompleteList from "./IncompleteList";
+import SuccessMessage from "./SuccessMessage";
 
 const ToDoIndex = (user) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
   const [toDoList, setToDoList] = useState(null);
   const [showModal, setShowModal] = useState(false);
   let params = new URLSearchParams(document.location.search);
-  let id = params.get('id');
+  let id = params.get("id");
 
   const userMetadata = user.user.user_metadata;
   const fullName = userMetadata.full_name;
   const userId = user.user.id;
-  const title = fullName ? `To-Do List for ${fullName}` : 'To-Do List';
-  const listName = toDoList?.name || `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
+  const title = fullName ? `To-Do List for ${fullName}` : "To-Do List";
+  const listName =
+    toDoList?.name ||
+    `List created on ${new Date(toDoList?.created_at).toLocaleDateString()}`;
 
   useEffect(() => {
     if (id && allToDoLists.length > 0) {
@@ -37,18 +44,18 @@ const ToDoIndex = (user) => {
   const fetchAllToDoLists = async () => {
     try {
       const { data: lists, error } = await supabase
-        .from('todo_list')
-        .select('*, todo_list_item(count)')
-        .eq('user', userId)
-        .order('created_at', { ascending: false })
+        .from("todo_list")
+        .select("*, todo_list_item(count)")
+        .eq("user", userId)
+        .order("created_at", { ascending: false })
         .limit(10);
       if (error) {
-        console.error('Error fetching all to-do lists:', error);
+        console.error("Error fetching all to-do lists:", error);
       } else {
         setAllToDoLists(lists);
       }
     } catch (error) {
-      console.error('Error fetching all to-do lists:', error);
+      console.error("Error fetching all to-do lists:", error);
     }
   };
 
@@ -61,19 +68,19 @@ const ToDoIndex = (user) => {
   const fetchMostRecentList = async () => {
     try {
       const { data: list, error } = await supabase
-        .from('todo_list')
+        .from("todo_list")
         .select()
-        .eq('user', userId)
-        .order('created_at', { ascending: false })
+        .eq("user", userId)
+        .order("created_at", { ascending: false })
         .limit(1)
         .single();
       if (error) {
-        console.error('Error fetching to-do list:', error);
+        console.error("Error fetching to-do list:", error);
       } else {
         setToDoList(list);
       }
     } catch (error) {
-      console.error('Error fetching to-do list:', error);
+      console.error("Error fetching to-do list:", error);
     }
   };
 
@@ -81,20 +88,24 @@ const ToDoIndex = (user) => {
     if (event && event.preventDefault) event.preventDefault();
 
     try {
-      const { data: list, error } = await supabase.from('todo_list').insert({ user: userId }).select().single();
+      const { data: list, error } = await supabase
+        .from("todo_list")
+        .insert({ user: userId })
+        .select()
+        .single();
 
       if (itemIds) {
         const { data: items, error: itemError } = await supabase
-          .from('todo_list_item')
+          .from("todo_list_item")
           .update({ todo_list: list.id })
-          .in('id', itemIds)
+          .in("id", itemIds)
           .select();
       }
 
       setToDoList(list);
       return list;
     } catch (error) {
-      console.error('Error creating to-do list:', error);
+      console.error("Error creating to-do list:", error);
       return error;
     }
   };
@@ -112,27 +123,42 @@ const ToDoIndex = (user) => {
     if (maxRerolls) params.max_rerolls = maxRerolls;
 
     try {
-      const { error } = await supabase.from('todo_list').update(params).eq('id', toDoList.id);
+      const { error } = await supabase
+        .from("todo_list")
+        .update(params)
+        .eq("id", toDoList.id);
       if (error) {
-        console.error('Error updating list name:', error);
+        console.error("Error updating list name:", error);
       } else {
         setToDoList({ ...toDoList, name: newName, max_rerolls: maxRerolls });
-        setAllToDoLists(allToDoLists.map((list) => (list.id === toDoList.id ? { ...list, name: newName } : list)));
+        setAllToDoLists(
+          allToDoLists.map((list) =>
+            list.id === toDoList.id ? { ...list, name: newName } : list
+          )
+        );
         handleCloseModal();
       }
     } catch (error) {
-      console.error('Error updating list name:', error);
+      console.error("Error updating list name:", error);
     }
   };
 
   const handleClearList = () => {
-    if (!window.confirm('Are you sure you want to clear this list? You can find this list in the list drop down after clearing.')) {
+    if (
+      !window.confirm(
+        "Are you sure you want to clear this list? You can find this list in the list drop down after clearing."
+      )
+    ) {
       return;
     }
     setToDoList(null);
     const params = new URLSearchParams(window.location.search);
-    params.delete('id');
-    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    params.delete("id");
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}?${params.toString()}`
+    );
   };
 
   return (
@@ -143,15 +169,24 @@ const ToDoIndex = (user) => {
           <h4>
             {listName}
             <button className="edit-list-button" onClick={handleShowModal}>
-              <FontAwesomeIcon icon={faTableList} />{' '}
+              <FontAwesomeIcon icon={faTableList} />{" "}
             </button>
           </h4>
         </div>
       )}
-      {toDoList && <ToDoList toDoList={toDoList} user={user} createNewList={handleCreateToDoList} />}
+      {toDoList && (
+        <ToDoList
+          toDoList={toDoList}
+          user={user}
+          createNewList={handleCreateToDoList}
+        />
+      )}
 
       {toDoList && (
-        <button className="bottom-button close-button" onClick={handleClearList}>
+        <button
+          className="bottom-button close-button"
+          onClick={handleClearList}
+        >
           Clear List
         </button>
       )}
@@ -164,27 +199,39 @@ const ToDoIndex = (user) => {
           const listId = event.target.value;
           if (listId) {
             const params = new URLSearchParams(window.location.search);
-            params.set('id', listId);
-            window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+            params.set("id", listId);
+            window.history.replaceState(
+              {},
+              "",
+              `${window.location.pathname}?${params.toString()}`
+            );
           }
         }}
-        value={toDoList?.id?.toString() || ''}
+        value={toDoList?.id?.toString() || ""}
       >
         <option value="" disabled>
           Select an existing list
         </option>
         {allToDoLists.map((list) => (
           <option key={list.id} value={list.id.toString()}>
-            {list.name || `List created on ${new Date(list.created_at).toLocaleDateString()}`}
+            {list.name ||
+              `List created on ${new Date(list.created_at).toLocaleDateString()}`}
           </option>
         ))}
       </select>
-      <button className="bottom-button new-list-button" onClick={(e) => handleCreateToDoList(e)}>
+      <button
+        className="bottom-button new-list-button"
+        onClick={(e) => handleCreateToDoList(e)}
+      >
         <FontAwesomeIcon icon={faPlus} /> New List
       </button>
 
       {/* Modal for editing the list */}
-      <Modal show={showModal} onHide={handleCloseModal} className="edit-list-modal">
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        className="edit-list-modal"
+      >
         <Modal.Header closeButton className="edit-list-modal-header">
           <Modal.Title>Change the name of your list</Modal.Title>
         </Modal.Header>
@@ -192,9 +239,22 @@ const ToDoIndex = (user) => {
           <form onSubmit={(e) => handleEditList(e)} className="edit-list-form">
             <div className="form-group">
               <label htmlFor="listName">List Name</label>
-              <input type="text" id="listName" name="listName" className="form-control" defaultValue={toDoList?.name || ''} required />
+              <input
+                type="text"
+                id="listName"
+                name="listName"
+                className="form-control"
+                defaultValue={toDoList?.name || ""}
+                required
+              />
               <label htmlFor="rerolls">Max Rerolls</label>
-              <input type="number" id="rerolls" name="maxRerolls" className="form-control" defaultValue={toDoList?.max_rerolls || ''} />
+              <input
+                type="number"
+                id="rerolls"
+                name="maxRerolls"
+                className="form-control"
+                defaultValue={toDoList?.max_rerolls || ""}
+              />
             </div>
             <button type="submit" className="edit-list-modal-button">
               Save Changes

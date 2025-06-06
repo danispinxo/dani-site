@@ -1,13 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChampagneGlasses } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChampagneGlasses } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 
 const SuccessMessage = () => {
   const [cat, setCat] = useState(null);
 
   const getCongratsCat = async () => {
     try {
-      const response = await fetch('https://api.thecatapi.com/v1/images/search');
+      const response = await fetch(
+        "https://api.thecatapi.com/v1/images/search"
+      );
       const data = await response.json();
 
       if (data && data[0] && data[0].url) {
@@ -31,7 +33,9 @@ const SuccessMessage = () => {
         <FontAwesomeIcon icon={faChampagneGlasses} className="fa" />
       </h2>
       <p>You have completed all your tasks for the day. Here's a kitty.</p>
-      {cat && <img src={cat} alt="Congratulations Cat" className="congrats-cat" />}
+      {cat && (
+        <img src={cat} alt="Congratulations Cat" className="congrats-cat" />
+      )}
     </div>
   );
 };

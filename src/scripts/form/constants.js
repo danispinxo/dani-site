@@ -27,14 +27,14 @@ interlacing so like, I must imagine, the way our parents, and we ourselves, pull
 ];
 
 export const fonts = [
-  'Arial',
-  'Verdana',
-  'Helvetica',
-  'Tahoma',
-  'Trebuchet MS',
-  'Times New Roman',
-  'Georgia',
-  'Garamond',
-  'Courier New',
-  'Brush Script',
+  "Arial",
+  "Verdana",
+  "Helvetica",
+  "Tahoma",
+  "Trebuchet MS",
+  "Times New Roman",
+  "Georgia",
+  "Garamond",
+  "Courier New",
+  "Brush Script",
 ];

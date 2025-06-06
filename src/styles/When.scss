@@ -1,4 +1,4 @@
-@use 'variables.scss';
+@use "variables.scss";
 
 .page-content {
   margin: 2rem;
@@ -21,7 +21,7 @@
   .when-form {
     text-align: justify;
 
-    input[type='text'] {
+    input[type="text"] {
       margin: 0.5rem;
       padding: 0.1rem;
       padding-left: 0.3rem;

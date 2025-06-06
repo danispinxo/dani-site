@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDice,
   faDiceOne,
@@ -8,8 +8,13 @@ import {
   faDiceFive,
   faDiceSix,
   faSquareCheck,
-} from '@fortawesome/free-solid-svg-icons';
-const RandomTask = ({ rerolls, handleReroll, handleDoneFromRandom, randomTask }) => {
+} from "@fortawesome/free-solid-svg-icons";
+const RandomTask = ({
+  rerolls,
+  handleReroll,
+  handleDoneFromRandom,
+  randomTask,
+}) => {
   const getDiceIcon = (rerolls) => {
     if (rerolls > 6) {
       return faDice;
@@ -33,7 +38,10 @@ const RandomTask = ({ rerolls, handleReroll, handleDoneFromRandom, randomTask })
       <h2>Currently Working On...</h2>
       <p className="current-task">
         {rerolls > 0 ? (
-          <button className="save-button" onClick={() => handleReroll(randomTask)}>
+          <button
+            className="save-button"
+            onClick={() => handleReroll(randomTask)}
+          >
             <FontAwesomeIcon icon={getDiceIcon(rerolls)} />
           </button>
         ) : (
@@ -41,7 +49,10 @@ const RandomTask = ({ rerolls, handleReroll, handleDoneFromRandom, randomTask })
             <FontAwesomeIcon icon={faDiceOne} />
           </button>
         )}
-        <button className="done-button" onClick={() => handleDoneFromRandom(randomTask)}>
+        <button
+          className="done-button"
+          onClick={() => handleDoneFromRandom(randomTask)}
+        >
           <FontAwesomeIcon icon={faSquareCheck} />
         </button>
         {randomTask.text}

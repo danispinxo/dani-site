@@ -1,4 +1,4 @@
-import { Nav, Container, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Container, Navbar, NavDropdown } from "react-bootstrap";
 
 const TopNavbar = () => {
   return (
@@ -19,28 +19,52 @@ const TopNavbar = () => {
             <Nav.Link className="navbar-link" href="/teaching">
               Teaching
             </Nav.Link>
-            <NavDropdown className="navbar-link" title="Writing" id="collasible-nav-dropdown">
+            <NavDropdown
+              className="navbar-link"
+              title="Writing"
+              id="collasible-nav-dropdown"
+            >
               <NavDropdown.Item className="navbar-link" href="/public-writing">
                 Public Writing
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-link" href="/creative-writing">
+              <NavDropdown.Item
+                className="navbar-link"
+                href="/creative-writing"
+              >
                 Creative Writing
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-link" href="/digital-projects">
+              <NavDropdown.Item
+                className="navbar-link"
+                href="/digital-projects"
+              >
                 Digital Projects
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown className="navbar-link" title="Dev" id="collasible-nav-dropdown">
+            <NavDropdown
+              className="navbar-link"
+              title="Dev"
+              id="collasible-nav-dropdown"
+            >
               <NavDropdown.Item className="navbar-link" href="/dev-portfolio">
                 Portfolio
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-link" href="/todo">
                 To Do List App
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-link" href="https://github.com/danispinxo" target="_blank" rel="noopener noreferrer">
+              <NavDropdown.Item
+                className="navbar-link"
+                href="https://github.com/danispinxo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Personal Github
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-link" href="https://github.com/dani-hatch" target="_blank" rel="noopener noreferrer">
+              <NavDropdown.Item
+                className="navbar-link"
+                href="https://github.com/dani-hatch"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Hatch Coding Github
               </NavDropdown.Item>
             </NavDropdown>

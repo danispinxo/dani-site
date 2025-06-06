@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import { fonts, lines } from '../scripts/form/constants';
-import TopNavbar from '../components/Navbar';
+import { useState } from "react";
+import Button from "@mui/material/Button";
+import { fonts, lines } from "../scripts/form/constants";
+import TopNavbar from "../components/Navbar";
 
 const Form = () => {
-  const [buttonText, setButtonText] = useState('Add another line!');
+  const [buttonText, setButtonText] = useState("Add another line!");
   const [poemLines, setPoemLines] = useState([]);
 
   const lineSelector = () => lines[Math.floor(Math.random() * lines.length)];
@@ -12,8 +12,8 @@ const Form = () => {
   const sizeSelector = () => Math.floor(Math.random() * 38);
 
   const buttonClickHandler = () => {
-    setButtonText('Added!');
-    setTimeout(() => setButtonText('Add another line!'), 1500);
+    setButtonText("Added!");
+    setTimeout(() => setButtonText("Add another line!"), 1500);
     writePoem();
   };
 
@@ -37,7 +37,9 @@ const Form = () => {
       <main className="page-content">
         <div className="text">
           <h1 className="title">Form</h1>
-          <p className="subtitle">Poem by Andy Weaver, Programming by Dani Spinosa</p>
+          <p className="subtitle">
+            Poem by Andy Weaver, Programming by Dani Spinosa
+          </p>
           <Button variant="outlined" onClick={buttonClickHandler}>
             {buttonText}
           </Button>

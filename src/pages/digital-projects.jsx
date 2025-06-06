@@ -1,4 +1,4 @@
-import TopNavbar from '../components/Navbar';
+import TopNavbar from "../components/Navbar";
 
 const DigitalProjects = () => {
   return (

@@ -1,5 +1,5 @@
-@use 'sass:color';
-@use 'variables.scss';
+@use "sass:color";
+@use "variables.scss";
 
 .page-content {
   margin: 2rem;
@@ -52,6 +52,6 @@
 }
 
 .bullet-list {
-  list-style: '⌲ ';
+  list-style: "⌲ ";
   font-weight: 400;
 }

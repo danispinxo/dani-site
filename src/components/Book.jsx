@@ -1,16 +1,21 @@
-import { Image } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faBookOpenReader, faHeadphones, faLink } from '@fortawesome/free-solid-svg-icons';
+import { Image } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faBookOpenReader,
+  faHeadphones,
+  faLink,
+} from "@fortawesome/free-solid-svg-icons";
 
 const determineIcon = (type) => {
   switch (type) {
-    case 'sale':
+    case "sale":
       return faCartShopping;
-    case 'visit':
+    case "visit":
       return faBookOpenReader;
-    case 'listen':
+    case "listen":
       return faHeadphones;
-    case 'devLink':
+    case "devLink":
       return faLink;
   }
 };
@@ -24,7 +29,12 @@ const Book = ({ cover, title, press, date, notes, linkType, link }) => {
       <div className="book-info">
         <h5 className="book-title">{title}</h5>
         {link && (
-          <a className="icon" href={link} target="_blank" rel="noreferrer noopener">
+          <a
+            className="icon"
+            href={link}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             <FontAwesomeIcon icon={determineIcon(linkType)} />
           </a>
         )}

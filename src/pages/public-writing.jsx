@@ -1,6 +1,6 @@
-import Book from '../components/Book';
-import Publication from '../components/Publication';
-import TopNavbar from '../components/Navbar';
+import Book from "../components/Book";
+import Publication from "../components/Publication";
+import TopNavbar from "../components/Navbar";
 
 export default function PublicWriting() {
   return (
@@ -52,8 +52,20 @@ export default function PublicWriting() {
           linkType="link"
           link="http://talkingaboutstrawberries.blogspot.com/2022/10/the-art-of-writing-77-dani-spinosa.html"
         />
-        <Publication title="Wanted on the Journey" publication="Quill & Quire" press="pages 17-8" date="November 2021" linkType="no-link" />
-        <Publication title="Beyond Words" publication="Quill & Quire" press="page 34" date="April 2021" linkType="no-link" />
+        <Publication
+          title="Wanted on the Journey"
+          publication="Quill & Quire"
+          press="pages 17-8"
+          date="November 2021"
+          linkType="no-link"
+        />
+        <Publication
+          title="Beyond Words"
+          publication="Quill & Quire"
+          press="page 34"
+          date="April 2021"
+          linkType="no-link"
+        />
         <Publication
           title="Some Rough Notes in Defense of the Limited Run"
           publication="Periodicities: a journal of poetry and poetics"

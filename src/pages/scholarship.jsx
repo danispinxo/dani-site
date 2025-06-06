@@ -1,7 +1,7 @@
-import TopNavbar from '../components/Navbar';
-import Book from '../components/Book';
-import Publication from '../components/Publication';
-import Footer from '../components/Footer';
+import TopNavbar from "../components/Navbar";
+import Book from "../components/Book";
+import Publication from "../components/Publication";
+import Footer from "../components/Footer";
 
 const Scholarship = () => {
   return (
@@ -209,14 +209,22 @@ const Scholarship = () => {
             date="2023"
             link="https://canlit.ca/article/a-sense-of-place/"
           />
-          <Publication title="A Sense of Place: Rev. of Zane Koss and Natasha Ramoutar" publication="Canadian Literature" date="2022" />
+          <Publication
+            title="A Sense of Place: Rev. of Zane Koss and Natasha Ramoutar"
+            publication="Canadian Literature"
+            date="2022"
+          />
           <Publication
             title="A Dual Longing: Rev. of alfabet by Sadiqa de Meijer"
             publication="Canadian Literature"
             date="2022"
             link="https://canlit.ca/article/a-dual-longing/"
           />
-          <Publication title="Rev. of Anne-Marie Turza's Fugue with Bedbugs" publication="Quill & Quire" date="2022" />
+          <Publication
+            title="Rev. of Anne-Marie Turza's Fugue with Bedbugs"
+            publication="Quill & Quire"
+            date="2022"
+          />
           <Publication
             title="Checking Out: Rev. of Sarah Tolmie and Evan J"
             publication="Canadian Literature"
@@ -294,8 +302,16 @@ const Scholarship = () => {
             date="2016"
             link="https://canlit.ca/article/tired-time-travelling/"
           />
-          <Publication title="Group Review: It's Complicated by dana boyd" publication="HASTAC" date="2015" />
-          <Publication title="Review: The Democracy Project by David Graeber" publication="Political Media Review" date="2013" />
+          <Publication
+            title="Group Review: It's Complicated by dana boyd"
+            publication="HASTAC"
+            date="2015"
+          />
+          <Publication
+            title="Review: The Democracy Project by David Graeber"
+            publication="Political Media Review"
+            date="2013"
+          />
           <Publication
             title="Review: Revolt!: The Next Great Transformation from Kleptocracy Capitalism to Libertarian Socialism through Counter Ideology, Societal Education, & Direct Action by John Askmikopolous"
             publication="Political Media Review"
