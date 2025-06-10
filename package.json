@@ -19,15 +19,15 @@
     "populate-when": "node src/scripts/when/populateDatabase.js"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@formspree/react": "^3.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@mui/material": "^6.4.7",
+    "@mui/material": "^7.1.1",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/supabase-js": "^2.49.4",
+    "@supabase/supabase-js": "^2.50.0",
     "bootstrap": "^5.3.6",
     "dotenv": "^16.5.0",
     "next": "^15.3.3",
@@ -44,9 +44,9 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.3",
-    "eslint": "^8.56.0",
+    "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
-    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0"
   }
 }
