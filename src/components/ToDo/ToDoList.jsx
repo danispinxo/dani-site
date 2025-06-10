@@ -64,7 +64,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         const { data: categories, error } = await supabase
           .from("todo_category")
           .select()
-          .eq("user", user.user.id)
+          .eq("user", user.id)
           .order("created_at", { ascending: false });
         if (error) {
           setErrorMessage("Error fetching categories: " + error.message);
