@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import supabase from "../lib/supabaseClient";
+import Link from "next/link";
 import Image from "react-bootstrap/Image";
 import dotenv from "dotenv";
 dotenv.config();
@@ -58,9 +59,9 @@ const ToDoPage = () => {
                 />
               )}
 
-              <a href="/full-list-history">
+              <Link href="/full-list-history">
                 {session.user.user_metadata.user_name || session.user.email}
-              </a>
+              </Link>
             </div>
             <button
               onClick={async () => await supabase.auth.signOut()}
