@@ -1,7 +1,9 @@
+// eslint.config.js
+import { defineConfig } from "eslint/config";
 import reactPlugin from "eslint-plugin-react";
 import nextPlugin from "@next/eslint-plugin-next";
 
-export default [
+export default defineConfig([
   {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
@@ -9,13 +11,13 @@ export default [
       sourceType: "module",
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
-        }
-      }
+          jsx: true,
+        },
+      },
     },
     plugins: {
       react: reactPlugin,
-      "@next/next": nextPlugin
+      "@next/next": nextPlugin,
     },
     rules: {
       indent: [
@@ -24,21 +26,22 @@ export default [
         {
           SwitchCase: 1,
           FunctionDeclaration: {
-            parameters: "first"
+            parameters: "first",
           },
           FunctionExpression: {
-            parameters: "first"
+            parameters: "first",
           },
           CallExpression: {
-            arguments: "first"
+            arguments: "first",
           },
           ArrayExpression: "first",
-          ObjectExpression: "first"
-        }
+          ObjectExpression: "first",
+        },
       ],
       "linebreak-style": ["error", "unix"],
       quotes: ["warn", "double", { avoidEscape: true }],
       semi: ["error", "always"],
+      "prefer-const": "error",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "no-unused-vars": "warn",
@@ -59,12 +62,12 @@ export default [
       "react/no-string-refs": "error",
       "react/no-unknown-property": "error",
       "react/require-render-return": "error",
-      "react/self-closing-comp": "error"
+      "react/self-closing-comp": "error",
     },
     settings: {
       react: {
-        version: "detect"
-      }
-    }
-  }
-];
+        version: "detect",
+      },
+    },
+  },
+]);
