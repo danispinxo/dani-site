@@ -13,6 +13,7 @@ import {
   faPlus,
   faPenNib,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const ListHistory = () => {
   const [session, setSession] = useState(null);
@@ -258,7 +259,7 @@ const ListHistory = () => {
       <div className="list-history-container">
         <h1>My Lists</h1>
 
-        <a href="/todo">Back to the list</a>
+        <Link href="/todo">Back to the list</Link>
 
         {showCategoryForm && (
           <form onSubmit={handleAddCategory} className="add-category-form">

@@ -1,4 +1,5 @@
 import TopNavbar from "../components/Navbar";
+import Link from "next/link";
 
 const DigitalProjects = () => {
   return (
@@ -8,16 +9,16 @@ const DigitalProjects = () => {
         <h1 className="title">Digital Writing</h1>
         <ul className="bullet-list">
           <li className="list-item">
-            <a href="/when">When</a>
+            <Link href="/when">When</Link>
           </li>
           <li className="list-item">
-            <a href="/form">Form</a>
+            <Link href="/form">Form</Link>
           </li>
           <li className="list-item">
-            <a href="/all-you-hold">All You Hold</a>
+            <Link href="/all-you-hold">All You Hold</Link>
           </li>
           <li className="list-item">
-            <a href="/swift-sonnets">The Swift Sonnets</a>
+            <Link href="/swift-sonnets">The Swift Sonnets</Link>
           </li>
         </ul>
       </main>
