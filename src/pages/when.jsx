@@ -4,7 +4,6 @@ import TopNavbar from "../components/Navbar";
 import supabase from "../lib/supabaseClient";
 
 const When = () => {
-  const [lines, setLines] = useState([]);
   const [contributors, setContributors] = useState([]);
   const [lights, setLights] = useState([]);
   const [wordOut, setWordOut] = useState([]);

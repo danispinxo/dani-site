@@ -1,4 +1,3 @@
-import * as React from "react";
 import Book from "../components/Book";
 import TopNavbar from "../components/Navbar";
 
