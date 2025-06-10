@@ -7,16 +7,16 @@ import supabase from "../../lib/supabaseClient";
 import Modal from "react-bootstrap/Modal";
 import ToDoList from "./ToDoList";
 
-const ToDoIndex = (user) => {
+const ToDoIndex = ({ user }) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
   const [toDoList, setToDoList] = useState(null);
   const [showModal, setShowModal] = useState(false);
   let params = new URLSearchParams(document.location.search);
   let id = params.get("id");
 
-  const userMetadata = user.user.user_metadata;
+  const userMetadata = user.user_metadata;
   const fullName = userMetadata.full_name;
-  const userId = user.user.id;
+  const userId = user.id;
   const title = fullName ? `To-Do List for ${fullName}` : "To-Do List";
   const listName =
     toDoList?.name ||
