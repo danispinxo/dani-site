@@ -145,7 +145,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       const lowPriorityTasks = allIncompleteTasks.filter(
         (t) => t.priority === "low"
       );
-      let pickFrom =
+      const pickFrom =
         highPriorityTasks.length > 0
           ? highPriorityTasks
           : mediumPriorityTasks.length > 0

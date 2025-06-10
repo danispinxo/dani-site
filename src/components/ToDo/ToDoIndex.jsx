@@ -11,8 +11,8 @@ const ToDoIndex = ({ user }) => {
   const [allToDoLists, setAllToDoLists] = useState([]);
   const [toDoList, setToDoList] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  let params = new URLSearchParams(document.location.search);
-  let id = params.get("id");
+  const params = new URLSearchParams(document.location.search);
+  const id = params.get("id");
 
   const userMetadata = user.user_metadata;
   const fullName = userMetadata.full_name;
