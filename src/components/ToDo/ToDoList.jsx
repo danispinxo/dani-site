@@ -15,6 +15,7 @@ import SuccessMessage from "./SuccessMessage";
 import EditTaskModal from "./EditTaskModal";
 import RandomTask from "./RandomTask";
 import debounce from "lodash/debounce";
+import Link from "next/link";
 
 const ToDoList = ({ toDoList, user, createNewList }) => {
   const [tasks, setTasks] = useState([]);
@@ -283,7 +284,8 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                   </select>
                   <p>
                     <small>
-                      Add/edit categories <a href="/full-list-history">here</a>.
+                      Add/edit categories{" "}
+                      <Link href="/full-list-history">here</Link>.
                     </small>
                   </p>
                 </div>
