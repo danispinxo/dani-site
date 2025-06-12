@@ -23,7 +23,7 @@ const OurBudgetPage = () => {
   const user = session?.user;
   const email = user?.email;
   const hasBudgetAccess =
-    email === "jessepajuaar@gmail.com" || email === "genericpronoun@gmail.com";
+    email === "jpajuaar@gmail.com" || email === "genericpronoun@gmail.com";
 
   return (
     <>
