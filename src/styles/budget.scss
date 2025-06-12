@@ -1,0 +1,606 @@
+@use "sass:color";
+
+// Variables
+$teal: #008080;
+$teal-light: #40e0d0;
+$teal-dark: #006666;
+$teal-accent: #e0ffff;
+$white: #ffffff;
+$off-white: #f9f9f9;
+$gray: #4a4a4a;
+$light-gray: #e5e5e5;
+
+// Layout styles
+.budget {
+  min-height: 100vh;
+  background-color: $off-white;
+  padding: 2rem 0;
+
+  &-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  &-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+    &-card {
+      background-color: $white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-list {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+    &-card {
+      background-color: $white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+  }
+
+  &-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+    background-color: $off-white;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &-main {
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  &-nav {
+    background-color: $white;
+    border-right: 1px solid $teal-accent;
+    padding: 1.5rem 0;
+
+    @media (max-width: 768px) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid $teal-accent;
+      border-right: none;
+      padding: 0.5rem 0;
+      z-index: 100;
+    }
+
+    &-header {
+      padding: 0 1.5rem;
+      margin-bottom: 2rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &-title {
+      color: $teal;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      color: $gray;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 0.5rem;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: $teal-accent;
+        color: $teal;
+      }
+
+      &.active {
+        background-color: $teal;
+        color: $white;
+
+        &:hover {
+          background-color: $teal-dark;
+        }
+      }
+    }
+
+    &-icon {
+      margin-right: 0.75rem;
+      font-size: 1.25rem;
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    &-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Auth styles
+.budget {
+  &-authenticated-user {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+
+  &-logout-button {
+    background-color: $teal;
+    color: $white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $teal-dark;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+    }
+  }
+
+  &-supabase-auth {
+    max-width: 24rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid $teal-accent;
+
+    h2 {
+      color: $teal;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+}
+
+// Form styles
+.budget {
+  &-input {
+    &-group {
+      margin-bottom: 1.5rem;
+    }
+
+    &-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $teal;
+      margin-bottom: 0.5rem;
+    }
+
+    &-field {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid $teal-accent;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      background-color: $white;
+
+      &:focus {
+        outline: none;
+        border-color: $teal-light;
+        box-shadow: 0 0 0 2px rgba(64, 224, 208, 0.1);
+      }
+
+      &::placeholder {
+        color: $light-gray;
+      }
+    }
+
+    &-amount {
+      position: relative;
+
+      &::before {
+        content: "$";
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $teal;
+      }
+
+      input {
+        padding-left: 1.75rem;
+      }
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: $off-white;
+    border-radius: 0.5rem;
+    border: 1px solid $teal-accent;
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid $teal;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+
+      &:checked {
+        background-color: $teal;
+        border-color: $teal;
+
+        &::after {
+          content: "✓";
+          position: absolute;
+          color: $white;
+          font-size: 0.875rem;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+      }
+    }
+
+    label {
+      color: $gray;
+      font-size: 0.875rem;
+    }
+  }
+
+  &-button {
+    width: 100%;
+    background-color: $teal;
+    color: $white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $teal-dark;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+    }
+
+    &:disabled {
+      background-color: color.adjust($teal, $lightness: 20%);
+      cursor: not-allowed;
+    }
+
+    &-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23008080'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+  }
+}
+
+// Expense List styles
+.budget {
+  &-expense-list {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: $white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $teal-accent;
+  }
+
+  &-sort {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: $white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $teal-accent;
+
+    &-button {
+      background-color: $white;
+      color: $teal;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: 1px solid $teal-accent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $teal-accent;
+      }
+
+      &.active {
+        background-color: $teal;
+        color: $white;
+        border-color: $teal;
+      }
+    }
+  }
+
+  &-expense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  &-expense-card {
+    background-color: $white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid $teal-accent;
+    overflow: hidden;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &-expense-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $teal-accent;
+  }
+
+  &-expense-amount {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $teal;
+  }
+
+  &-expense-type {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    &.shared {
+      background-color: $teal;
+      color: $white;
+    }
+
+    &.personal {
+      background-color: $white;
+      color: $teal;
+      border: 1px solid $teal;
+    }
+  }
+
+  &-expense-details {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: $gray;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $gray;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-empty-state {
+    text-align: center;
+    padding: 3rem;
+    background-color: $white;
+    border-radius: 0.5rem;
+    border: 1px solid $teal-accent;
+    color: $gray;
+  }
+
+  &-loading {
+    text-align: center;
+    padding: 2rem;
+    color: $teal;
+  }
+
+  &-error {
+    text-align: center;
+    padding: 2rem;
+    color: #dc2626;
+    background-color: #fee2e2;
+    border-radius: 0.5rem;
+    border: 1px solid #fca5a5;
+  }
+}
+
+// Summary styles
+.budget {
+  &-summary {
+    &-container {
+      margin-top: 2rem;
+      overflow-x: auto;
+    }
+
+    &-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1rem 0;
+      table-layout: fixed;
+
+      th:first-child,
+      td:first-child {
+        width: 40%;
+      }
+
+      th:not(:first-child),
+      td:not(:first-child) {
+        width: 30%;
+      }
+    }
+
+    &-header {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: $gray;
+      border-bottom: 2px solid $light-gray;
+
+      &:not(:first-child) {
+        text-align: right;
+      }
+    }
+
+    &-category-row {
+      td.budget-summary-category-group {
+        padding: 1rem;
+        font-weight: 600;
+        color: $white;
+        background-color: $teal;
+        border-top: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+
+    &-row {
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: $teal-accent;
+      }
+    }
+
+    &-category {
+      padding: 0.75rem 1rem;
+      color: $gray;
+    }
+
+    &-amount {
+      padding: 0.75rem 1rem;
+      text-align: right;
+      font-family: monospace;
+      color: $gray;
+      min-width: 120px;
+    }
+
+    &-divider {
+      height: 1px;
+      background-color: $light-gray;
+    }
+
+    &-total {
+      background-color: $off-white;
+
+      .budget-summary-category,
+      .budget-summary-amount {
+        padding: 1rem;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  &-month-selector {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .budget-input-label {
+      font-weight: 500;
+      color: $gray;
+    }
+  }
+}
