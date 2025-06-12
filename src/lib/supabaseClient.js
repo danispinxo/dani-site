@@ -19,9 +19,4 @@ const supabase = createClient(supabaseUrl, key, {
   },
 });
 
-// Set max listeners to prevent the warning
-if (supabase.realtime) {
-  supabase.realtime.setMaxListeners(20);
-}
-
 export default supabase;
