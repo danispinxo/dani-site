@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDice,
@@ -9,6 +10,7 @@ import {
   faDiceSix,
   faSquareCheck,
 } from "@fortawesome/free-solid-svg-icons";
+
 const RandomTask = ({
   rerolls,
   handleReroll,
@@ -31,7 +33,10 @@ const RandomTask = ({
     } else if (rerolls === 1) {
       return faDiceOne;
     }
+    return faDiceOne; // Default fallback
   };
+
+  if (!randomTask) return null;
 
   return (
     <div className="random-task">
@@ -41,17 +46,19 @@ const RandomTask = ({
           <button
             className="save-button"
             onClick={() => handleReroll(randomTask)}
+            type="button"
           >
             <FontAwesomeIcon icon={getDiceIcon(rerolls)} />
           </button>
         ) : (
-          <button className="save-button" disabled>
+          <button className="save-button" disabled type="button">
             <FontAwesomeIcon icon={faDiceOne} />
           </button>
         )}
         <button
           className="done-button"
           onClick={() => handleDoneFromRandom(randomTask)}
+          type="button"
         >
           <FontAwesomeIcon icon={faSquareCheck} />
         </button>
@@ -61,4 +68,5 @@ const RandomTask = ({
   );
 };
 
-export default RandomTask;
+// Export as a dynamic component with no SSR
+export default dynamic(() => Promise.resolve(RandomTask), { ssr: false });
