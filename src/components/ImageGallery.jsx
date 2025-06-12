@@ -70,6 +70,10 @@ const images = [
     alt: "Keynote at Where From Here",
   },
   {
+    src: "/images/litlive.jpg",
+    alt: "Flyer for Lit Live Reading",
+  },
+  {
     src: "/images/gary-reading.png",
     alt: "milkmag Flyer",
   },
@@ -92,6 +96,10 @@ const images = [
   {
     src: "/images/woman-e-lit.jpg",
     alt: "Women in E-literature",
+  },
+  {
+    src: "/images/carpal-tunnel-stace.jpg",
+    alt: "Carpal Tunnel concept by me, image by Stace Schmidt McLean",
   },
   {
     src: "/images/to-whom-cover.jpeg",
@@ -126,6 +134,10 @@ const images = [
     alt: "Poetry sent to Dene Grigar",
   },
   {
+    src: "/images/no.jpg",
+    alt: "No, poem for Sam Bernstein published in I'll Get Right On It",
+  },
+  {
     src: "/images/minor-seeds.jpg",
     alt: "Seed paper card from Abby Minor's chapbook",
   },
@@ -140,6 +152,10 @@ const images = [
   {
     src: "/images/keynote-2.jpg",
     alt: "Keynote address at Where From Here Conference (Guelph, ON)",
+  },
+  {
+    src: "/images/palm.jpg",
+    alt: "Palm Introduction to our Issue of Guest",
   },
   {
     src: "/images/english-dept-art.jpg",
@@ -158,12 +174,20 @@ const images = [
     alt: "2024 Meet the Presses Indie Literary Market with Karen Schindler of Baseline Press (Photo Credit Kirby)",
   },
   {
+    src: "/images/swatch.png",
+    alt: "Selection from Swatch published in ADDA",
+  },
+  {
     src: "/images/andy-flyer.png",
     alt: "Flyer for Launch of Andy Weaver's The Loom",
   },
   {
     src: "/images/dal-flyer.jpg",
     alt: "Flyer for Talk with Kate Siklosi at Dalhousie University",
+  },
+  {
+    src: "/images/dear-x.jpg",
+    alt: "Poem Dear X for derek beaulieu",
   },
 ];
 
