@@ -56,7 +56,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         setErrorMessage("Error fetching tasks: " + error.message);
       }
     }, 300),
-    [toDoList]
+    [toDoList.id]
   );
 
   const debouncedFetchCategories = useCallback(
@@ -78,18 +78,31 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
         setErrorMessage("Error fetching categories: " + error.message);
       }
     }, 300),
-    [user]
+    [user.id]
   );
+
+  useEffect(() => {
+    return () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+      }
+    };
+  }, [timerInterval]);
 
   useEffect(() => {
     if (toDoList) {
       debouncedFetchCategories();
       debouncedFetchTasks();
+    }
+  }, [toDoList.id, debouncedFetchCategories, debouncedFetchTasks]);
+
+  useEffect(() => {
+    if (randomTask && !tasks.some((t) => t.id === randomTask.id)) {
       setRandomTask(null);
       setTimer(0);
       if (timerInterval) clearInterval(timerInterval);
     }
-  }, [toDoList, debouncedFetchCategories, debouncedFetchTasks]);
+  }, [tasks, randomTask, timerInterval]);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -135,7 +148,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
     e.target.elements.text.value = "";
   };
 
-  const handlePickRandomTask = () => {
+  const handlePickRandomTask = useCallback(() => {
     if (allIncompleteTasks.length > 0) {
       const highPriorityTasks = allIncompleteTasks.filter(
         (t) => t.priority === "high"
@@ -165,7 +178,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
       setTimer(0);
       if (timerInterval) clearInterval(timerInterval);
     }
-  };
+  }, [allIncompleteTasks, timerInterval]);
 
   const handleReroll = () => {
     setRerolls(rerolls - 1);
