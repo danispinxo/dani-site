@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import supabase from "../../lib/supabaseClient";
 import { Snackbar, Alert } from "@mui/material";
 
-const ExpenseReport = ({ user }) => {
+const ExpenseReport = () => {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategoryGroup, setSelectedCategoryGroup] = useState("");

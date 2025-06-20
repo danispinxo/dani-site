@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import supabase from "../../lib/supabaseClient";
 import React from "react";
+import { Modal, Box } from "@mui/material";
 
 const JESSE_ID = "5ddbfcf2-6e9f-4f5b-913e-d3c98d5d8b53";
 const DANI_ID = "957b467c-39d5-4aea-aafa-39cdfb173685";
@@ -34,6 +35,8 @@ const JointAccountSummary = () => {
   );
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -95,6 +98,23 @@ const JointAccountSummary = () => {
   // For totals
   let totalJesse = 0;
   let totalDani = 0;
+
+  // Handle clicking on a category row
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setModalOpen(true);
+  };
+
+  // Get expenses for the selected category
+  const getCategoryExpenses = (category) => {
+    return expenses.filter((exp) => exp.category === category && exp.is_shared);
+  };
+
+  // Close modal
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedCategory(null);
+  };
 
   return (
     <div className="budget-summary">
@@ -163,7 +183,13 @@ const JointAccountSummary = () => {
                         totalJesse += jesseAmt;
                         totalDani += daniAmt;
                         return (
-                          <tr key={cat} className="budget-summary-row">
+                          <tr
+                            key={cat}
+                            className="budget-summary-row budget-summary-clickable"
+                            onClick={() => handleCategoryClick(cat)}
+                            style={{ cursor: "pointer" }}
+                            title="Click to see individual expenses"
+                          >
                             <td className="budget-summary-category">{cat}</td>
                             <td className="budget-summary-amount">
                               ${jesseAmt.toFixed(2)}
@@ -232,6 +258,104 @@ const JointAccountSummary = () => {
           </div>
         )}
       </div>
+
+      {/* Expense Details Modal */}
+      <Modal
+        open={modalOpen}
+        onClose={handleCloseModal}
+        aria-labelledby="expense-details-modal"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "90%",
+            maxWidth: "800px",
+            maxHeight: "80vh",
+            overflow: "auto",
+            bgcolor: "background.paper",
+            borderRadius: "8px",
+            boxShadow: 24,
+            p: 3,
+          }}
+        >
+          {selectedCategory && (
+            <>
+              <h2 style={{ color: "#008080", marginBottom: "1rem" }}>
+                {selectedCategory} Expenses -{" "}
+                {new Date(`${month}-01T00:00:00`).toLocaleDateString(
+                  "default",
+                  { month: "long", year: "numeric" }
+                )}
+              </h2>
+
+              <div className="budget-expense-grid">
+                {getCategoryExpenses(selectedCategory).map((expense) => (
+                  <div key={expense.id} className="budget-expense-card">
+                    <div className="budget-expense-header">
+                      <span className="budget-expense-amount">
+                        ${expense.amount.toFixed(2)}
+                      </span>
+                      <span className="budget-expense-type shared">
+                        Shared (50% each = ${(expense.amount / 2).toFixed(2)})
+                      </span>
+                    </div>
+                    <div className="budget-expense-details">
+                      <h3 className="budget-expense-description">
+                        {expense.description}
+                      </h3>
+                      <p className="budget-expense-date">
+                        Date:{" "}
+                        {new Date(
+                          expense.date + "T00:00:00"
+                        ).toLocaleDateString()}
+                      </p>
+                      <p className="budget-expense-payment">
+                        Paid with: {expense.payment_type}
+                      </p>
+                      <p className="budget-expense-user">
+                        Added by:{" "}
+                        {expense.user_id === JESSE_ID ? "Jesse" : "Dani"}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {getCategoryExpenses(selectedCategory).length === 0 && (
+                <p
+                  style={{
+                    textAlign: "center",
+                    color: "#666",
+                    fontStyle: "italic",
+                  }}
+                >
+                  No shared expenses found for {selectedCategory} this month.
+                </p>
+              )}
+
+              <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+                <button
+                  onClick={handleCloseModal}
+                  className="budget-button budget-button-secondary"
+                  style={{
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "#008080",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            </>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };

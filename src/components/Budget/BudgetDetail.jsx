@@ -31,7 +31,7 @@ const BudgetDetail = ({ user }) => {
       case "joint-summary":
         return <JointAccountSummary />;
       case "reports":
-        return <ExpenseReport user={user} />;
+        return <ExpenseReport />;
       default:
         return null;
     }
