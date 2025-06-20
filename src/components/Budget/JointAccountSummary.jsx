@@ -11,7 +11,7 @@ const CATEGORY_GROUPS = [
   { label: "Food & Dining", categories: ["Groceries", "Dining"] },
   { label: "Transportation", categories: ["Transportation"] },
   { label: "Animals", categories: ["Animals"] },
-  { label: "Entertainment", categories: ["Streaming", "Music"] },
+  { label: "Entertainment", categories: ["Streaming", "Rogers"] },
   { label: "Other", categories: ["Other"] },
 ];
 
@@ -57,16 +57,14 @@ const JointAccountSummary = () => {
     fetchExpenses();
   }, [month]);
 
-  // Helper to calculate what each person owes for joint account expenses
+  // Helper to calculate what each person owes for shared expenses (all payment types)
   const sumBySplit = (userId, cats) => {
-    // Joint account expenses (split 50/50 regardless of who entered them)
-    const jointAccountExpenses = expenses
-      .filter(
-        (e) => e.payment_type === "Joint Account" && cats.includes(e.category)
-      )
+    // All shared expenses (split 50/50 regardless of payment type)
+    const sharedExpenses = expenses
+      .filter((e) => e.is_shared && cats.includes(e.category))
       .reduce((sum, e) => sum + Number(e.amount || 0) / 2, 0);
 
-    return jointAccountExpenses;
+    return sharedExpenses;
   };
 
   // Joint account expenses (to be split 50/50)
@@ -141,9 +139,7 @@ const JointAccountSummary = () => {
                   });
 
                   // Skip this entire group if no categories have amounts
-                  if (!hasNonZeroCategories) {
-                    return null;
-                  }
+                  if (!hasNonZeroCategories) return null;
 
                   return (
                     <React.Fragment key={group.label}>
@@ -184,9 +180,12 @@ const JointAccountSummary = () => {
                 <tr className="budget-summary-divider">
                   <td colSpan={3} />
                 </tr>
+                <tr className="budget-summary-divider">
+                  <td colSpan={3} />
+                </tr>
                 <tr className="budget-summary-row budget-summary-joint-total">
                   <td className="budget-summary-category">
-                    <b>Total Joint Account Expenses</b>
+                    <b>Joint Account Expenses Only</b>
                   </td>
                   <td colSpan={2} className="budget-summary-amount">
                     ${jointAccountTotal.toFixed(2)}
@@ -204,7 +203,9 @@ const JointAccountSummary = () => {
                   </td>
                 </tr>
                 <tr className="budget-summary-row">
-                  <td className="budget-summary-category">Shared Expenses</td>
+                  <td className="budget-summary-category">
+                    Personal Shared Expenses
+                  </td>
                   <td className="budget-summary-amount">
                     ${jessePersonalExpenses.toFixed(2)}
                   </td>
