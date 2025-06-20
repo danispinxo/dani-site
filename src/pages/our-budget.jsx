@@ -24,13 +24,14 @@ const OurBudgetPage = () => {
   const email = user?.email;
   const hasBudgetAccess =
     email === "jpajuaar@gmail.com" || email === "genericpronoun@gmail.com";
+  const name = email === "jpajuaar@gmail.com" ? "Jesse" : "Dani";
 
   return (
     <>
       {session ? (
         <>
           <div className="budget-authenticated-user d-flex justify-content-between">
-            <h1 className="budget-form-title">Welcome, {user.email}!</h1>
+            <h1 className="budget-form-title">Welcome, {name}!</h1>
 
             <button
               onClick={async () => await supabase.auth.signOut()}
