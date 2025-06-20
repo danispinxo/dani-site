@@ -10,7 +10,8 @@ const CATEGORY_GROUPS = [
   { label: "Utilities", categories: ["Utilities"] },
   { label: "Food & Dining", categories: ["Groceries", "Dining"] },
   { label: "Transportation", categories: ["Transportation"] },
-  { label: "Entertainment", categories: ["Entertainment"] },
+  { label: "Animals", categories: ["Animals"] },
+  { label: "Entertainment", categories: ["Streaming", "Music"] },
   { label: "Other", categories: ["Other"] },
 ];
 
@@ -56,36 +57,42 @@ const JointAccountSummary = () => {
     fetchExpenses();
   }, [month]);
 
-  // Helper to sum by user and category, splitting shared expenses
+  // Helper to calculate what each person owes for joint account expenses
   const sumBySplit = (userId, cats) => {
-    // Non-shared expenses for this user
-    const personal = expenses
+    // Joint account expenses (split 50/50 regardless of who entered them)
+    const jointAccountExpenses = expenses
       .filter(
-        (e) => e.user_id === userId && cats.includes(e.category) && !e.is_shared
+        (e) => e.payment_type === "Joint Account" && cats.includes(e.category)
       )
-      .reduce((sum, e) => sum + Number(e.amount || 0), 0);
-    // Shared expenses (split)
-    const shared = expenses
-      .filter((e) => e.is_shared && cats.includes(e.category))
       .reduce((sum, e) => sum + Number(e.amount || 0) / 2, 0);
-    return personal + shared;
+
+    return jointAccountExpenses;
   };
 
-  // Shared expenses (is_shared: true)
-  const sharedExpenses = expenses.filter((e) => e.is_shared);
-  const sharedTotal = sharedExpenses.reduce(
+  // Joint account expenses (to be split 50/50)
+  const jointAccountExpenses = expenses.filter(
+    (e) => e.payment_type === "Joint Account"
+  );
+
+  const jointAccountTotal = jointAccountExpenses.reduce(
     (sum, e) => sum + Number(e.amount || 0),
     0
   );
-  const sharedSplit = sharedTotal / 2;
 
-  // Lump sum owing (not shared)
-  const lumpSumJesse = expenses
-    .filter((e) => e.user_id === JESSE_ID && !e.is_shared)
+  const jointAccountSplit = jointAccountTotal / 2;
+
+  // Personal expenses that need to be balanced (shared expenses paid from personal accounts)
+  const jessePersonalExpenses = expenses
+    .filter((e) => e.payment_type.startsWith("Jesse") && e.is_shared)
     .reduce((sum, e) => sum + Number(e.amount || 0), 0);
-  const lumpSumDani = expenses
-    .filter((e) => e.user_id === DANI_ID && !e.is_shared)
+
+  const daniPersonalExpenses = expenses
+    .filter((e) => e.payment_type.startsWith("Dani") && e.is_shared)
     .reduce((sum, e) => sum + Number(e.amount || 0), 0);
+
+  // Calculate balance adjustments
+  const jesseAdjustment = daniPersonalExpenses - jessePersonalExpenses;
+  const daniAdjustment = jessePersonalExpenses - daniPersonalExpenses;
 
   // For totals
   let totalJesse = 0;
@@ -125,52 +132,84 @@ const JointAccountSummary = () => {
                 </tr>
               </thead>
               <tbody>
-                {CATEGORY_GROUPS.map((group) => (
-                  <React.Fragment key={group.label}>
-                    <tr className="budget-summary-category-row">
-                      <td colSpan={3} className="budget-summary-category-group">
-                        {group.label}
-                      </td>
-                    </tr>
-                    {group.categories.map((cat) => {
-                      const jesseAmt = sumBySplit(JESSE_ID, [cat]);
-                      const daniAmt = sumBySplit(DANI_ID, [cat]);
-                      totalJesse += jesseAmt;
-                      totalDani += daniAmt;
-                      return (
-                        <tr key={cat} className="budget-summary-row">
-                          <td className="budget-summary-category">{cat}</td>
-                          <td className="budget-summary-amount">
-                            ${jesseAmt.toFixed(2)}
-                          </td>
-                          <td className="budget-summary-amount">
-                            ${daniAmt.toFixed(2)}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </React.Fragment>
-                ))}
+                {CATEGORY_GROUPS.map((group) => {
+                  // Check if any category in this group has non-zero amounts
+                  const hasNonZeroCategories = group.categories.some((cat) => {
+                    const jesseAmt = sumBySplit(JESSE_ID, [cat]);
+                    const daniAmt = sumBySplit(DANI_ID, [cat]);
+                    return jesseAmt !== 0 || daniAmt !== 0;
+                  });
+
+                  // Skip this entire group if no categories have amounts
+                  if (!hasNonZeroCategories) {
+                    return null;
+                  }
+
+                  return (
+                    <React.Fragment key={group.label}>
+                      <tr className="budget-summary-category-row">
+                        <td
+                          colSpan={3}
+                          className="budget-summary-category-group"
+                        >
+                          {group.label}
+                        </td>
+                      </tr>
+                      {group.categories.map((cat) => {
+                        const jesseAmt = sumBySplit(JESSE_ID, [cat]);
+                        const daniAmt = sumBySplit(DANI_ID, [cat]);
+
+                        // Skip this category if both amounts are 0
+                        if (jesseAmt === 0 && daniAmt === 0) {
+                          return null;
+                        }
+
+                        totalJesse += jesseAmt;
+                        totalDani += daniAmt;
+                        return (
+                          <tr key={cat} className="budget-summary-row">
+                            <td className="budget-summary-category">{cat}</td>
+                            <td className="budget-summary-amount">
+                              ${jesseAmt.toFixed(2)}
+                            </td>
+                            <td className="budget-summary-amount">
+                              ${daniAmt.toFixed(2)}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </React.Fragment>
+                  );
+                })}
                 <tr className="budget-summary-divider">
                   <td colSpan={3} />
                 </tr>
-                <tr className="budget-summary-row">
+                <tr className="budget-summary-row budget-summary-joint-total">
                   <td className="budget-summary-category">
-                    <b>Shared expenditures (split)</b>
+                    <b>Total Joint Account Expenses</b>
                   </td>
                   <td colSpan={2} className="budget-summary-amount">
-                    ${sharedSplit.toFixed(2)} each
+                    ${jointAccountTotal.toFixed(2)}
                   </td>
                 </tr>
                 <tr className="budget-summary-row">
                   <td className="budget-summary-category">
-                    Lump sum owing (not split)
+                    Split 50/50 each person owes
                   </td>
                   <td className="budget-summary-amount">
-                    ${lumpSumJesse.toFixed(2)}
+                    ${jointAccountSplit.toFixed(2)}
                   </td>
                   <td className="budget-summary-amount">
-                    ${lumpSumDani.toFixed(2)}
+                    ${jointAccountSplit.toFixed(2)}
+                  </td>
+                </tr>
+                <tr className="budget-summary-row">
+                  <td className="budget-summary-category">Shared Expenses</td>
+                  <td className="budget-summary-amount">
+                    ${jessePersonalExpenses.toFixed(2)}
+                  </td>
+                  <td className="budget-summary-amount">
+                    ${daniPersonalExpenses.toFixed(2)}
                   </td>
                 </tr>
                 <tr className="budget-summary-divider">
@@ -178,15 +217,13 @@ const JointAccountSummary = () => {
                 </tr>
                 <tr className="budget-summary-row budget-summary-total">
                   <td className="budget-summary-category">
-                    <b>Totals to be in account</b>
+                    <b>Total amount each person needs to contribute</b>
                   </td>
                   <td className="budget-summary-amount">
-                    <b>
-                      ${(totalJesse + lumpSumJesse + sharedSplit).toFixed(2)}
-                    </b>
+                    <b>${(totalJesse + jesseAdjustment).toFixed(2)}</b>
                   </td>
                   <td className="budget-summary-amount">
-                    <b>${(totalDani + lumpSumDani + sharedSplit).toFixed(2)}</b>
+                    <b>${(totalDani + daniAdjustment).toFixed(2)}</b>
                   </td>
                 </tr>
               </tbody>
