@@ -119,9 +119,11 @@ const ExpenseForm = ({ user }) => {
                 <option value="Mortgage">Mortgage</option>
                 <option value="Groceries">Groceries</option>
                 <option value="Dining">Dining</option>
-                <option value="Transport">Transport</option>
+                <option value="Transportation">Transportation</option>
                 <option value="Utilities">Utilities</option>
-                <option value="Entertainment">Entertainment</option>
+                <option value="Animals">Animals</option>
+                <option value="Streaming">Streaming</option>
+                <option value="Music">Music</option>
                 <option value="Other">Other</option>
               </select>
             </div>
