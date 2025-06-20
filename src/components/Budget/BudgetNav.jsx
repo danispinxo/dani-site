@@ -2,8 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
   faList,
-  faChartLine,
-  faGear,
   faFileInvoiceDollar,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,13 +9,11 @@ const BudgetNav = ({ activeView, onViewChange }) => {
   const navItems = [
     { id: "new-expense", label: "New Expense", icon: faPlus },
     { id: "expenses", label: "Expenses", icon: faList },
-    { id: "summary", label: "Summary", icon: faChartLine },
     {
       id: "joint-summary",
       label: "Joint Account Summary",
       icon: faFileInvoiceDollar,
     },
-    { id: "settings", label: "Settings", icon: faGear },
   ];
 
   return (
