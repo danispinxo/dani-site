@@ -64,7 +64,7 @@ $light-gray: #e5e5e5;
   }
 
   &-main {
-    padding: 2rem;
+    padding: 0.5rem 2rem 2rem 2rem;
     overflow-y: auto;
   }
 
@@ -588,6 +588,15 @@ $light-gray: #e5e5e5;
       .budget-summary-amount {
         padding: 1rem;
         font-size: 1.1em;
+      }
+    }
+
+    &-joint-total {
+      background-color: $light-gray;
+
+      .budget-summary-amount {
+        text-align: center !important;
+        font-weight: 600;
       }
     }
   }
