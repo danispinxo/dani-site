@@ -98,13 +98,15 @@ const ExpenseList = ({ user }) => {
           className="budget-input-field"
         >
           <option value="">All Categories</option>
-          <option value="groceries">Groceries</option>
-          <option value="mortgage">Mortgage</option>
-          <option value="dining">Dining</option>
-          <option value="utilities">Utilities</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="transportation">Transportation</option>
-          <option value="other">Other</option>
+          <option value="Mortgage">Mortgage</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Dining">Dining</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Animals">Animals</option>
+          <option value="Streaming">Streaming</option>
+          <option value="Music">Music</option>
+          <option value="Other">Other</option>
         </select>
 
         <select
@@ -128,10 +130,12 @@ const ExpenseList = ({ user }) => {
           className="budget-input-field"
         >
           <option value="">All Payment Types</option>
-          <option value="credit">Credit Card</option>
-          <option value="debit">Debit Card</option>
-          <option value="cash">Cash</option>
-          <option value="transfer">Transfer</option>
+          <option value="Joint Account">Joint Account</option>
+          <option value="Dani Visa">Dani Visa</option>
+          <option value="Jesse Visa">Jesse Visa</option>
+          <option value="Dani Chequing">Dani Chequing</option>
+          <option value="Jesse Chequing">Jesse Chequing</option>
+          <option value="Other">Other</option>
         </select>
 
         <select
