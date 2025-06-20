@@ -3,16 +3,22 @@ import {
   faPlus,
   faList,
   faFileInvoiceDollar,
+  faCommentsDollar,
 } from "@fortawesome/free-solid-svg-icons";
 
 const BudgetNav = ({ activeView, onViewChange }) => {
   const navItems = [
     { id: "new-expense", label: "New Expense", icon: faPlus },
-    { id: "expenses", label: "Expenses", icon: faList },
+    { id: "expenses", label: "All Expenses", icon: faList },
     {
       id: "joint-summary",
       label: "Joint Account Summary",
       icon: faFileInvoiceDollar,
+    },
+    {
+      id: "reports",
+      label: "Expense Reports",
+      icon: faCommentsDollar,
     },
   ];
 

@@ -5,6 +5,7 @@ import ExpenseForm from "./ExpenseForm";
 import ExpenseList from "./ExpenseList";
 import BudgetNav from "./BudgetNav";
 import JointAccountSummary from "./JointAccountSummary";
+import ExpenseReport from "./ExpenseReport";
 
 const BudgetDetail = ({ user }) => {
   const [activeView, setActiveView] = useState("new-expense");
@@ -29,6 +30,8 @@ const BudgetDetail = ({ user }) => {
         );
       case "joint-summary":
         return <JointAccountSummary />;
+      case "reports":
+        return <ExpenseReport user={user} />;
       default:
         return null;
     }
