@@ -27,26 +27,8 @@ const BudgetDetail = ({ user }) => {
             </div>
           </div>
         );
-      case "summary":
-        return (
-          <div className="budget-summary">
-            <div className="budget-form-card">
-              <h1 className="budget-form-title">Monthly Summary</h1>
-              <p className="budget-form-subtitle">Coming soon...</p>
-            </div>
-          </div>
-        );
       case "joint-summary":
         return <JointAccountSummary />;
-      case "settings":
-        return (
-          <div className="budget-settings">
-            <div className="budget-form-card">
-              <h1 className="budget-form-title">Settings</h1>
-              <p className="budget-form-subtitle">Coming soon...</p>
-            </div>
-          </div>
-        );
       default:
         return null;
     }
