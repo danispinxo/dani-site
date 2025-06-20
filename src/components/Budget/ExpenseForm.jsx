@@ -108,6 +108,54 @@ const ExpenseForm = ({ user }) => {
         }
       }
 
+      if (preset.label === "+ Reliance") {
+        const { data: existingExpenses, error: checkError } = await supabase
+          .from("expenses")
+          .select("*")
+          .eq("category", "Utilities")
+          .eq("description", "Reliance")
+          .gte("date", `${year}-${month}-01`)
+          .lt(
+            "date",
+            `${year}-${String(parseInt(month) + 1).padStart(2, "0")}-01`
+          );
+
+        if (checkError) throw checkError;
+
+        if (existingExpenses && existingExpenses.length > 0) {
+          showToast(
+            `Reliance bill already exists for ${new Date(`${year}-${month}-01T00:00:00`).toLocaleDateString("default", { month: "long", year: "numeric" })}`,
+            "warning"
+          );
+          setLoading(false);
+          return;
+        }
+      }
+
+      if (preset.label === "+ Netflix") {
+        const { data: existingExpenses, error: checkError } = await supabase
+          .from("expenses")
+          .select("*")
+          .eq("category", "Streaming")
+          .eq("description", "Netflix")
+          .gte("date", `${year}-${month}-01`)
+          .lt(
+            "date",
+            `${year}-${String(parseInt(month) + 1).padStart(2, "0")}-01`
+          );
+
+        if (checkError) throw checkError;
+
+        if (existingExpenses && existingExpenses.length > 0) {
+          showToast(
+            `Netflix subscription already exists for ${new Date(`${year}-${month}-01T00:00:00`).toLocaleDateString("default", { month: "long", year: "numeric" })}`,
+            "warning"
+          );
+          setLoading(false);
+          return;
+        }
+      }
+
       const { error } = await supabase.from("expenses").insert([
         {
           amount: preset.amount,
@@ -190,6 +238,24 @@ const ExpenseForm = ({ user }) => {
       description: "Phone/Internet Bill",
       category: "Rogers",
       day: 13,
+      is_shared: true,
+      payment_type: "Jesse Visa",
+    },
+    {
+      label: "+ Reliance",
+      amount: 43.16,
+      description: "Reliance",
+      category: "Utilities",
+      day: 1,
+      is_shared: true,
+      payment_type: "Jesse Visa",
+    },
+    {
+      label: "+ Netflix",
+      amount: 9.03,
+      description: "Netflix",
+      category: "Streaming",
+      day: 25,
       is_shared: true,
       payment_type: "Jesse Visa",
     },
