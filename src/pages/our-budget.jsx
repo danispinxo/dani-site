@@ -28,6 +28,7 @@ const OurBudgetPage = () => {
 
   return (
     <>
+      <title>J&D Budget App</title>
       {session ? (
         <>
           <div className="budget-authenticated-user d-flex justify-content-between">
