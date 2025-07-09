@@ -3,8 +3,8 @@ import supabase from "../../lib/supabaseClient";
 import React from "react";
 import { Modal, Box } from "@mui/material";
 
-const JESSE_ID = "5ddbfcf2-6e9f-4f5b-913e-d3c98d5d8b53";
-const DANI_ID = "957b467c-39d5-4aea-aafa-39cdfb173685";
+const JESSE_ID = process.env.NEXT_PUBLIC_JESSE_ID;
+const DANI_ID = process.env.NEXT_PUBLIC_DANI_ID;
 
 const CATEGORY_GROUPS = [
   { label: "Housing", categories: ["Mortgage"] },
@@ -37,6 +37,23 @@ const JointAccountSummary = () => {
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  // Add state to track which category groups are expanded
+  const [expandedGroups, setExpandedGroups] = useState(() => {
+    // Initialize with all groups expanded
+    const initialState = {};
+    CATEGORY_GROUPS.forEach((group) => {
+      initialState[group.label] = true;
+    });
+    return initialState;
+  });
+
+  // Toggle function for expanding/collapsing groups
+  const toggleGroup = (groupLabel) => {
+    setExpandedGroups((prev) => ({
+      ...prev,
+      [groupLabel]: !prev[groupLabel],
+    }));
+  };
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -161,45 +178,79 @@ const JointAccountSummary = () => {
                   // Skip this entire group if no categories have amounts
                   if (!hasNonZeroCategories) return null;
 
+                  const isExpanded = expandedGroups[group.label];
+
+                  // Calculate subtotals for this group
+                  const groupJesseTotal = group.categories.reduce(
+                    (sum, cat) => {
+                      return sum + sumBySplit(JESSE_ID, [cat]);
+                    },
+                    0
+                  );
+                  const groupDaniTotal = group.categories.reduce((sum, cat) => {
+                    return sum + sumBySplit(DANI_ID, [cat]);
+                  }, 0);
+                  const groupTotal = groupJesseTotal + groupDaniTotal;
+
                   return (
                     <React.Fragment key={group.label}>
-                      <tr className="budget-summary-category-row">
+                      <tr
+                        className="budget-summary-category-row"
+                        onClick={() => toggleGroup(group.label)}
+                        title="Click to expand/collapse"
+                      >
                         <td
                           colSpan={3}
                           className="budget-summary-category-group"
                         >
-                          {group.label}
+                          <span>{group.label}</span>
+                          <span className="budget-summary-collapse-arrow">
+                            {isExpanded ? "▼" : "▶"}
+                          </span>
                         </td>
                       </tr>
-                      {group.categories.map((cat) => {
-                        const jesseAmt = sumBySplit(JESSE_ID, [cat]);
-                        const daniAmt = sumBySplit(DANI_ID, [cat]);
+                      {!isExpanded && groupTotal > 0 && (
+                        <tr className="budget-summary-row budget-summary-subtotal-row">
+                          <td className="budget-summary-category">
+                            {group.label} Total
+                          </td>
+                          <td className="budget-summary-amount">
+                            ${groupJesseTotal.toFixed(2)}
+                          </td>
+                          <td className="budget-summary-amount">
+                            ${groupDaniTotal.toFixed(2)}
+                          </td>
+                        </tr>
+                      )}
+                      {isExpanded &&
+                        group.categories.map((cat) => {
+                          const jesseAmt = sumBySplit(JESSE_ID, [cat]);
+                          const daniAmt = sumBySplit(DANI_ID, [cat]);
 
-                        // Skip this category if both amounts are 0
-                        if (jesseAmt === 0 && daniAmt === 0) {
-                          return null;
-                        }
+                          // Skip this category if both amounts are 0
+                          if (jesseAmt === 0 && daniAmt === 0) {
+                            return null;
+                          }
 
-                        totalJesse += jesseAmt;
-                        totalDani += daniAmt;
-                        return (
-                          <tr
-                            key={cat}
-                            className="budget-summary-row budget-summary-clickable"
-                            onClick={() => handleCategoryClick(cat)}
-                            style={{ cursor: "pointer" }}
-                            title="Click to see individual expenses"
-                          >
-                            <td className="budget-summary-category">{cat}</td>
-                            <td className="budget-summary-amount">
-                              ${jesseAmt.toFixed(2)}
-                            </td>
-                            <td className="budget-summary-amount">
-                              ${daniAmt.toFixed(2)}
-                            </td>
-                          </tr>
-                        );
-                      })}
+                          totalJesse += jesseAmt;
+                          totalDani += daniAmt;
+                          return (
+                            <tr
+                              key={cat}
+                              className="budget-summary-row budget-summary-clickable"
+                              onClick={() => handleCategoryClick(cat)}
+                              title="Click to see individual expenses"
+                            >
+                              <td className="budget-summary-category">{cat}</td>
+                              <td className="budget-summary-amount">
+                                ${jesseAmt.toFixed(2)}
+                              </td>
+                              <td className="budget-summary-amount">
+                                ${daniAmt.toFixed(2)}
+                              </td>
+                            </tr>
+                          );
+                        })}
                     </React.Fragment>
                   );
                 })}
@@ -283,7 +334,7 @@ const JointAccountSummary = () => {
         >
           {selectedCategory && (
             <>
-              <h2 style={{ color: "#008080", marginBottom: "1rem" }}>
+              <h2 className="budget-modal-title">
                 {selectedCategory} Expenses -{" "}
                 {new Date(`${month}-01T00:00:00`).toLocaleDateString(
                   "default",
@@ -325,29 +376,15 @@ const JointAccountSummary = () => {
               </div>
 
               {getCategoryExpenses(selectedCategory).length === 0 && (
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "#666",
-                    fontStyle: "italic",
-                  }}
-                >
+                <p className="budget-modal-empty-text">
                   No shared expenses found for {selectedCategory} this month.
                 </p>
               )}
 
-              <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+              <div className="budget-modal-actions">
                 <button
                   onClick={handleCloseModal}
-                  className="budget-button budget-button-secondary"
-                  style={{
-                    padding: "0.5rem 1rem",
-                    backgroundColor: "#008080",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                  }}
+                  className="budget-modal-close-button"
                 >
                   Close
                 </button>
