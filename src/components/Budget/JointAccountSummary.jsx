@@ -124,13 +124,7 @@ const JointAccountSummary = () => {
                         <td className="budget-summary-category">
                           <div>
                             <strong>{expense.description}</strong>
-                            <div
-                              style={{
-                                fontSize: "0.875rem",
-                                color: "#666",
-                                marginTop: "0.25rem",
-                              }}
-                            >
+                            <div className="budget-summary-expense-meta">
                               {expense.category} •{" "}
                               {new Date(
                                 expense.date + "T00:00:00"
