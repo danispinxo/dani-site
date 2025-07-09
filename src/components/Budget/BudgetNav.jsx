@@ -4,6 +4,7 @@ import {
   faList,
   faFileInvoiceDollar,
   faCommentsDollar,
+  faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 const BudgetNav = ({ activeView, onViewChange }) => {
@@ -19,6 +20,11 @@ const BudgetNav = ({ activeView, onViewChange }) => {
       id: "reports",
       label: "Expense Reports",
       icon: faCommentsDollar,
+    },
+    {
+      id: "year-overview",
+      label: "Year at a Glance",
+      icon: faCalendarAlt,
     },
   ];
 

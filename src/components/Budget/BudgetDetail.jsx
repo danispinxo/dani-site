@@ -1,14 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseList from "./ExpenseList";
 import BudgetNav from "./BudgetNav";
 import JointAccountSummary from "./JointAccountSummary";
 import ExpenseReport from "./ExpenseReport";
+import YearAtAGlance from "./YearAtAGlance";
 
 const BudgetDetail = ({ user }) => {
+  const router = useRouter();
   const [activeView, setActiveView] = useState("new-expense");
+
+  // Read initial view from URL params on mount
+  useEffect(() => {
+    const { tab } = router.query;
+    if (
+      tab &&
+      [
+        "new-expense",
+        "expenses",
+        "joint-summary",
+        "reports",
+        "year-overview",
+      ].includes(tab)
+    ) {
+      setActiveView(tab);
+    }
+  }, [router.query]);
+
+  // Function to handle view changes and update URL
+  const handleViewChange = (newView) => {
+    setActiveView(newView);
+
+    // Update URL with new tab parameter
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, tab: newView },
+      },
+      undefined,
+      { shallow: true } // Don't trigger a full page reload
+    );
+  };
 
   const renderContent = () => {
     switch (activeView) {
@@ -32,6 +67,8 @@ const BudgetDetail = ({ user }) => {
         return <JointAccountSummary />;
       case "reports":
         return <ExpenseReport />;
+      case "year-overview":
+        return <YearAtAGlance />;
       default:
         return null;
     }
@@ -41,7 +78,7 @@ const BudgetDetail = ({ user }) => {
     <div className="budget">
       <div className="budget-container">
         <div className="budget-layout">
-          <BudgetNav activeView={activeView} onViewChange={setActiveView} />
+          <BudgetNav activeView={activeView} onViewChange={handleViewChange} />
           <main className="budget-main">{renderContent()}</main>
         </div>
       </div>
