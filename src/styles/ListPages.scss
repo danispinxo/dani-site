@@ -2,56 +2,293 @@
 @use "variables.scss";
 
 .page-content {
-  margin: 2rem;
+  min-height: calc(100vh - 80px);
+  padding: variables.$space-xl;
 
-  .title {
-    font-family: variables.$typewriter-font;
-  }
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
 
-  .text {
-    margin: 1rem;
-    width: 80%;
-  }
+    @include variables.sm {
+      padding: 0 variables.$space-md;
+    }
 
-  a {
-    font-family: variables.$round-font;
-    color: darkred;
-    text-decoration: none;
-
-    &:hover {
-      color: color.adjust(darkred, $lightness: 6%);
-      text-decoration: none;
+    @include variables.xs {
+      padding: 0 variables.$space-sm;
     }
   }
 
-  .subtitle {
+  .page-title {
     font-family: variables.$typewriter-font;
-    font-size: larger;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: variables.$space-xxl;
+    background: variables.$gradient-accent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include variables.glow-text(variables.$accent-primary);
+
+    @include variables.md {
+      font-size: 2.8rem;
+    }
+
+    @include variables.sm {
+      font-size: 2.2rem;
+    }
   }
 
-  .heading {
-    font-family: variables.$round-font;
-    font-weight: 900;
-    font-size: large;
-  }
+  .writing-section {
+    margin-bottom: variables.$space-xxl;
 
-  p {
-    font-family: variables.$round-font;
-  }
+    .section-title {
+      font-family: variables.$typewriter-font;
+      font-size: 2rem;
+      font-weight: 600;
+      color: variables.$text-primary;
+      margin-bottom: variables.$space-xl;
+      position: relative;
 
-  .when-line {
-    padding-left: 40px;
-    text-indent: -40px;
-  }
+      @include variables.glow-text(variables.$accent-primary);
 
-  .hold-line {
-    padding-left: 1.5rem;
-    font-size: x-large;
-    font-family: variables.$serif-font;
+      &::before {
+        content: "> ";
+        color: variables.$accent-primary;
+        opacity: 0.8;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: variables.$gradient-accent;
+        border-radius: 1px;
+      }
+
+      @include variables.md {
+        font-size: 1.8rem;
+      }
+
+      @include variables.sm {
+        font-size: 1.5rem;
+      }
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: variables.$space-lg;
+      margin-top: variables.$space-xl;
+
+      @include variables.md {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variables.$space-md;
+      }
+
+      @include variables.sm {
+        grid-template-columns: 1fr;
+        gap: variables.$space-md;
+      }
+
+      @include variables.xs {
+        grid-template-columns: 1fr;
+        gap: variables.$space-sm;
+      }
+    }
+
+    .book-praise {
+      margin-top: variables.$space-xxl;
+      padding: variables.$space-xl;
+      background: rgba(variables.$bg-elevated, 0.3);
+      border-radius: variables.$radius-lg;
+      border: 1px solid variables.$border-subtle;
+      backdrop-filter: blur(10px);
+
+      .praise-heading {
+        font-family: variables.$typewriter-font;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: variables.$text-primary;
+        margin-bottom: variables.$space-lg;
+        text-align: center;
+
+        @include variables.glow-text(variables.$accent-primary);
+
+        @include variables.sm {
+          font-size: 1.5rem;
+        }
+      }
+
+      .praise-quote {
+        margin-bottom: variables.$space-lg;
+        padding: variables.$space-lg;
+        background: rgba(variables.$bg-secondary, 0.3);
+        border-radius: variables.$radius-md;
+        border-left: 3px solid variables.$accent-primary;
+        position: relative;
+
+        &::before {
+          content: '"';
+          position: absolute;
+          top: -10px;
+          left: variables.$space-md;
+          font-size: 3rem;
+          color: variables.$accent-primary;
+          opacity: 0.3;
+          font-family: variables.$serif-font;
+        }
+
+        p {
+          font-family: variables.$serif-font;
+          font-size: 1rem;
+          line-height: 1.7;
+          color: variables.$text-primary;
+          margin-bottom: variables.$space-md;
+          font-style: italic;
+
+          @include variables.sm {
+            font-size: 0.9rem;
+          }
+        }
+
+        cite {
+          font-family: variables.$typewriter-font;
+          font-size: 0.9rem;
+          color: variables.$accent-primary;
+          font-style: normal;
+          font-weight: 600;
+
+          &::before {
+            content: "— ";
+          }
+
+          @include variables.sm {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .reviews-heading {
+        font-family: variables.$typewriter-font;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: variables.$text-primary;
+        margin: variables.$space-xl 0 variables.$space-lg 0;
+        text-align: center;
+
+        @include variables.sm {
+          font-size: 1.2rem;
+        }
+      }
+
+      .reviews-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: variables.$space-md;
+          padding: variables.$space-md;
+          background: rgba(variables.$bg-primary, 0.2);
+          border-radius: variables.$radius-sm;
+          border-left: 2px solid variables.$accent-primary;
+          font-family: variables.$round-font;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          color: variables.$text-primary;
+
+          &::before {
+            content: "▶ ";
+            color: variables.$accent-primary;
+            margin-right: variables.$space-xs;
+          }
+
+          a {
+            color: variables.$accent-primary;
+            text-decoration: none;
+            transition: all variables.$transition-normal;
+
+            &:hover {
+              color: variables.$accent-primary;
+              @include variables.glow-text(variables.$accent-primary);
+            }
+          }
+
+          @include variables.sm {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .publications-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: variables.$space-md;
+        padding: variables.$space-md;
+        background: rgba(variables.$bg-secondary, 0.3);
+        border-radius: variables.$radius-sm;
+        border-left: 3px solid variables.$accent-primary;
+        font-family: variables.$round-font;
+        color: variables.$text-primary;
+        line-height: 1.6;
+        font-size: 0.95rem;
+
+        &::before {
+          content: "▶ ";
+          color: variables.$accent-primary;
+          margin-right: variables.$space-xs;
+          font-weight: 600;
+        }
+
+        a {
+          color: variables.$accent-primary !important;
+          text-decoration: none;
+          transition: all variables.$transition-normal;
+
+          &:hover {
+            color: variables.$accent-primary !important;
+            @include variables.glow-text(variables.$accent-primary);
+          }
+        }
+
+        em,
+        i {
+          font-style: italic;
+          color: variables.$text-secondary;
+        }
+
+        @include variables.sm {
+          font-size: 0.85rem;
+          padding: variables.$space-sm;
+        }
+
+        @include variables.xs {
+          font-size: 0.8rem;
+        }
+      }
+    }
   }
 }
 
-.bullet-list {
-  list-style: "⌲ ";
-  font-weight: 400;
+// Global link styling to override default blue links
+a {
+  color: variables.$accent-primary !important;
+  text-decoration: none;
+  transition: all variables.$transition-normal;
+
+  &:hover {
+    color: variables.$accent-primary !important;
+    @include variables.glow-text(variables.$accent-primary);
+  }
+
+  &:visited {
+    color: variables.$accent-primary !important;
+  }
 }
