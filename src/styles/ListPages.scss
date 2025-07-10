@@ -331,6 +331,13 @@
         }
       }
     }
+
+    .publications-grid {
+      display: flex;
+      flex-direction: column;
+      gap: variables.$space-md;
+      margin-top: variables.$space-xl;
+    }
   }
 }
 

@@ -125,7 +125,6 @@
 
       &:hover {
         color: variables.$accent-primary;
-        transform: scale(1.2);
         @include variables.glow-text(variables.$accent-primary);
       }
     }
