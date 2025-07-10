@@ -30,7 +30,7 @@ const Talks = () => {
                 <Publication
                   title="Electronic Literature Collection, Volume 5"
                   publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
-                  date="10-13 July 2025"
+                  date="12 July 2025"
                   notes="Co-authored with Zach Whalen and Daniel Cox with Élika Ortega and Kwabena Opoku-Agyemang"
                   linkType="talk"
                   link="https://eliterature.org/2024/11/cfp-elo25-25-toronto-july-11-13-due-jan-5-2025/"
@@ -38,7 +38,7 @@ const Talks = () => {
                 <Publication
                   title="Cyberfeminism Revisited: Glitch Feminism and the Digital Poetics of Lillian-Yvonne Bertram"
                   publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
-                  date="10-13 July 2025"
+                  date="11 July 2025"
                   linkType="talk"
                   link="https://eliterature.org/2024/11/cfp-elo25-25-toronto-july-11-13-due-jan-5-2025/"
                 />
@@ -257,6 +257,12 @@ const Talks = () => {
             <section className="writing-section">
               <h2 className="section-title">Panels Moderated</h2>
               <div className="publications-grid">
+                <Publication
+                  title="Structure, Being, Posthumanism"
+                  publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
+                  date="11 July 2025"
+                  linkType="no-talk"
+                />
                 <Publication
                   title="Trans/forming the Machine: Feminist Interventions in Digital Poetics"
                   publication="ACCUTE Congress, Toronto"
