@@ -1,50 +1,179 @@
 @use "variables.scss";
 
+// Modern Publication Component - Typewriter Goth Aesthetic
 .publication-component {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  text-align: end;
-  width: 80%;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border: dashed;
+  align-items: center;
+  gap: variables.$space-lg;
+  width: 100%;
+  max-width: 800px;
+  margin: variables.$space-md auto;
+  padding: variables.$space-lg;
+  background: rgba(variables.$bg-elevated, 0.4);
+  border-radius: variables.$radius-md;
+  border: 1px solid variables.$border-subtle;
+  backdrop-filter: blur(10px);
+  transition: all variables.$transition-normal;
+  position: relative;
 
-  @include variables.xs {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 90%;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: variables.$gradient-accent;
+    opacity: 0.1;
+    border-radius: variables.$radius-md variables.$radius-md 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadow-subtle;
+    border-color: variables.$border-prominent;
+    background: rgba(variables.$bg-elevated, 0.6);
+
+    .icon {
+      transform: scale(1.1);
+      @include variables.glow-text(variables.$accent-primary);
+    }
+  }
+
+  @include variables.md {
+    flex-direction: row;
+    text-align: left;
+    max-width: 600px;
+    gap: variables.$space-md;
   }
 
   @include variables.sm {
     flex-direction: column;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 90%;
+    text-align: center;
+    max-width: 500px;
+    padding: variables.$space-md;
+    gap: variables.$space-sm;
+  }
+
+  @include variables.xs {
+    max-width: 100%;
+    margin: variables.$space-sm 0;
+    padding: variables.$space-sm;
+    gap: variables.$space-xs;
   }
 
   .icon {
-    font-size: xx-large;
-    margin: 1rem;
+    font-size: 2rem;
+    color: variables.$accent-primary;
+    transition: all variables.$transition-normal;
+    flex-shrink: 0;
+    opacity: 0.8;
+
+    @include variables.sm {
+      font-size: 1.5rem;
+    }
+
+    @include variables.xs {
+      font-size: 1.3rem;
+    }
   }
 
   .publication-info {
-    font-family: variables.$round-font;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @include variables.sm {
+      align-items: center;
+      text-align: center;
+    }
 
     .publication-title {
-      font-size: medium;
+      font-family: variables.$typewriter-font;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: variables.$text-primary;
+      margin-bottom: variables.$space-xs;
+      line-height: 1.4;
+
+      @include variables.sm {
+        font-size: 1rem;
+      }
+
+      @include variables.xs {
+        font-size: 0.9rem;
+      }
     }
 
     .publication-press {
-      font-size: small;
+      font-family: variables.$serif-font;
+      font-size: 0.9rem;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$space-xs;
+      font-style: italic;
+      line-height: 1.3;
+
+      @include variables.sm {
+        font-size: 0.8rem;
+      }
+
+      @include variables.xs {
+        font-size: 0.75rem;
+      }
     }
 
     .publication-notes {
-      font-size: smaller;
+      font-family: variables.$round-font;
+      font-size: 0.8rem;
+      color: variables.$text-secondary;
+      line-height: 1.4;
+      margin-bottom: variables.$space-xs;
+
+      @include variables.sm {
+        font-size: 0.75rem;
+      }
+
+      @include variables.xs {
+        font-size: 0.7rem;
+      }
     }
+
     .publication-date {
-      font-size: x-small;
+      font-family: variables.$mono-font;
+      font-size: 0.7rem;
+      color: variables.$text-muted;
+      margin-top: auto;
+
+      &::before {
+        content: "> ";
+        color: variables.$accent-primary;
+        opacity: 0.6;
+      }
+
+      @include variables.sm {
+        font-size: 0.65rem;
+      }
+
+      @include variables.xs {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  // Tech decorative element
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: variables.$space-md;
+    width: 30px;
+    height: 1px;
+    background: variables.$gradient-accent;
+    opacity: 0.2;
+
+    @include variables.sm {
+      display: none;
     }
   }
 }
