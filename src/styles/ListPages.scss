@@ -274,6 +274,63 @@
         }
       }
     }
+
+    .certificates-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: variables.$space-lg;
+      margin-top: variables.$space-xl;
+
+      @include variables.md {
+        grid-template-columns: repeat(3, 1fr);
+        gap: variables.$space-md;
+      }
+
+      @include variables.sm {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variables.$space-md;
+      }
+
+      @include variables.xs {
+        grid-template-columns: 1fr;
+        gap: variables.$space-sm;
+      }
+
+      .certificate-link {
+        display: block;
+        border-radius: variables.$radius-md;
+        overflow: hidden;
+        transition: all variables.$transition-normal;
+        background: rgba(variables.$bg-elevated, 0.3);
+        border: 1px solid variables.$border-subtle;
+        backdrop-filter: blur(10px);
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: variables.$shadow-moderate;
+          border-color: variables.$accent-primary;
+
+          .certificate-image {
+            transform: scale(1.05);
+          }
+        }
+
+        .certificate-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          transition: all variables.$transition-slow;
+
+          @include variables.sm {
+            height: 180px;
+          }
+
+          @include variables.xs {
+            height: 160px;
+          }
+        }
+      }
+    }
   }
 }
 
