@@ -470,6 +470,126 @@
         margin-top: variables.$space-md;
       }
     }
+
+    .digital-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: variables.$space-lg;
+      margin-top: variables.$space-xl;
+
+      @include variables.md {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variables.$space-md;
+      }
+
+      @include variables.sm {
+        grid-template-columns: 1fr;
+        gap: variables.$space-md;
+      }
+
+      .project-card {
+        height: 100%;
+
+        .project-link {
+          display: block;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+          transition: all variables.$transition-normal;
+
+          &:hover {
+            transform: translateY(-4px);
+
+            .project-content {
+              border-color: variables.$accent-primary;
+              background: rgba(variables.$bg-elevated, 0.5);
+
+              .project-title {
+                @include variables.glow-text(variables.$accent-primary);
+              }
+            }
+          }
+
+          .project-content {
+            height: 100%;
+            padding: variables.$space-xl;
+            background: rgba(variables.$bg-elevated, 0.3);
+            border-radius: variables.$radius-lg;
+            border: 1px solid variables.$border-subtle;
+            backdrop-filter: blur(10px);
+            transition: all variables.$transition-normal;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .project-title {
+              font-family: variables.$typewriter-font;
+              font-size: 1.8rem;
+              font-weight: 700;
+              color: variables.$text-primary;
+              margin-bottom: variables.$space-md;
+              position: relative;
+              transition: all variables.$transition-normal;
+
+              &::before {
+                content: "> ";
+                color: variables.$accent-primary;
+                opacity: 0.8;
+              }
+
+              @include variables.md {
+                font-size: 1.6rem;
+              }
+
+              @include variables.sm {
+                font-size: 1.4rem;
+              }
+            }
+
+            .project-description {
+              font-family: variables.$round-font;
+              font-size: 1rem;
+              line-height: 1.6;
+              color: variables.$text-secondary;
+              margin-bottom: variables.$space-lg;
+              flex-grow: 1;
+
+              @include variables.sm {
+                font-size: 0.9rem;
+              }
+            }
+
+            .project-tech {
+              margin-top: auto;
+
+              .tech-indicator {
+                display: inline-block;
+                font-family: variables.$mono-font;
+                font-size: 0.85rem;
+                color: variables.$accent-primary;
+                background: rgba(variables.$accent-primary, 0.1);
+                padding: variables.$space-xs variables.$space-sm;
+                border-radius: variables.$radius-sm;
+                border: 1px solid rgba(variables.$accent-primary, 0.3);
+                font-weight: 600;
+
+                @include variables.sm {
+                  font-size: 0.75rem;
+                }
+              }
+            }
+
+            @include variables.sm {
+              padding: variables.$space-lg;
+            }
+
+            @include variables.xs {
+              padding: variables.$space-md;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
