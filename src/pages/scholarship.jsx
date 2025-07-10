@@ -87,7 +87,7 @@ const Scholarship = () => {
                   link="https://press.uottawa.ca/en/9780776640068/future-horizons/"
                 />
                 <Publication
-                  title="Learning Management Platforms: Notes on Teaching Taroko Gorge in a Pandemic"
+                  title="Learning Management Platforms: Notes on Teaching 'Taroko Gorge' in a Pandemic"
                   publication="Platform [Post?] Pandemic"
                   press="Electronic book review"
                   date="March 2022"
