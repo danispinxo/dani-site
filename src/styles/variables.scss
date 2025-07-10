@@ -1,9 +1,65 @@
-// fonts
 $round-font: "Varela Round", sans-serif;
 $typewriter-font: "Special Elite", serif;
 $serif-font: "Cormorant", serif;
+$mono-font: "JetBrains Mono", "Fira Code", "Consolas", monospace;
 
-// media queries -- aliases and breakpoints
+$bg-primary: #0a0a0a;
+$bg-secondary: #1a1a1a;
+$bg-tertiary: #2a2a2a;
+$bg-card: #1e1e1e;
+$bg-elevated: #252525;
+
+$text-primary: #e8e8e8;
+$text-secondary: #b8b8b8;
+$text-muted: #888888;
+$text-inverse: #0a0a0a;
+
+$accent-primary: #ff6b6b;
+$accent-secondary: #d82558;
+$accent-glow: #ff9f43;
+$accent-dark: #c44569;
+
+$border-subtle: #333333;
+$border-prominent: #444444;
+$border-accent: #555555;
+
+$success: #20bf6b;
+$warning: #f39801;
+$error: #eb4d4b;
+
+$gradient-primary: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 100%);
+$gradient-accent: linear-gradient(
+  135deg,
+  $accent-primary 0%,
+  $accent-dark 100%
+);
+$gradient-glow: linear-gradient(
+  135deg,
+  $accent-glow 0%,
+  $accent-secondary 100%
+);
+
+$shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.3);
+$shadow-moderate: 0 4px 12px rgba(0, 0, 0, 0.4);
+$shadow-prominent: 0 8px 24px rgba(0, 0, 0, 0.5);
+$shadow-glow: 0 0 20px rgba(255, 107, 107, 0.3);
+
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-xxl: 3rem;
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+
+$transition-fast: 0.15s ease-out;
+$transition-normal: 0.25s ease-out;
+$transition-slow: 0.4s ease-out;
+
 $screen-sm-min: 600px;
 $screen-md-min: 960px;
 $screen-lg-min: 1280px;
@@ -15,7 +71,6 @@ $screen-md-max: 1279px;
 $screen-lg-max: 1919px;
 $screen-xl-max: 5000px;
 
-// media devices
 @mixin xs {
   @media screen and (max-width: #{$screen-xs-max}) {
     @content;
@@ -43,5 +98,37 @@ $screen-xl-max: 5000px;
 @mixin xl {
   @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
     @content;
+  }
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@mixin glow-text($color: $accent-primary) {
+  text-shadow: 0 0 10px rgba($color, 0.5);
+}
+
+@mixin tech-border {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-accent;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity $transition-normal;
+  }
+
+  &:hover::before {
+    opacity: 0.1;
   }
 }

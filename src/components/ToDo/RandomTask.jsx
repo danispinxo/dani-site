@@ -33,7 +33,7 @@ const RandomTask = ({
     } else if (rerolls === 1) {
       return faDiceOne;
     }
-    return faDiceOne; // Default fallback
+    return faDiceOne;
   };
 
   if (!randomTask) return null;
@@ -68,5 +68,4 @@ const RandomTask = ({
   );
 };
 
-// Export as a dynamic component with no SSR
 export default dynamic(() => Promise.resolve(RandomTask), { ssr: false });

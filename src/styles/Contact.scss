@@ -1,56 +1,191 @@
 @use "variables.scss";
 
-.page-content {
-  margin-left: 5%;
-  width: 100%;
+.contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: variables.$space-xl;
 
-  .contact-title {
-    font-size: x-large;
-    font-family: variables.$typewriter-font;
-  }
+  .contact-container {
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    padding: variables.$space-xxl;
+    background: rgba(variables.$bg-elevated, 0.7);
+    border-radius: variables.$radius-xl;
+    border: 1px solid variables.$border-subtle;
+    backdrop-filter: blur(20px);
 
-  .contact-body {
-    margin-left: 2.5rem;
-    width: 50%;
-
-    .contact-message {
-      font-family: variables.$round-font;
-      font-weight: 900;
-      font-size: large;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: variables.$gradient-accent;
+      opacity: 0.4;
+      border-radius: variables.$radius-xl variables.$radius-xl 0 0;
     }
 
-    .input {
-      margin: 1rem;
-    }
+    .contact-title {
+      font-family: variables.$typewriter-font;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: variables.$space-xxl;
+      text-align: center;
+      background: variables.$gradient-accent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 
-    .contact-form {
-      @include variables.xs {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        width: 100%;
+      @include variables.glow-text(variables.$accent-primary);
+
+      @include variables.md {
+        font-size: 2.5rem;
       }
 
       @include variables.sm {
-        flex-direction: column;
-        align-items: flex-start;
-        flex-direction: column;
-        width: 100%;
+        font-size: 2rem;
       }
     }
-    .form-submit-btn {
-      font-family: variables.$typewriter-font;
-      background-color: #4c4c4c;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: #4c4c4c 0.3s;
 
-      &:hover {
-        background-color: #666;
+    .contact-form {
+      .form-field {
+        margin-bottom: variables.$space-lg;
+
+        .contact-input {
+          .MuiOutlinedInput-root {
+            font-family: variables.$round-font;
+            color: variables.$text-primary;
+            background: rgba(variables.$bg-secondary, 0.3);
+            border-radius: variables.$radius-md;
+
+            fieldset {
+              border-color: variables.$border-subtle;
+              transition: border-color variables.$transition-normal;
+            }
+
+            &:hover fieldset {
+              border-color: variables.$border-prominent;
+            }
+
+            &.Mui-focused fieldset {
+              border-color: variables.$accent-primary;
+              border-width: 2px;
+            }
+          }
+
+          .MuiInputLabel-root {
+            font-family: variables.$typewriter-font;
+            color: variables.$text-secondary;
+
+            &.Mui-focused {
+              color: variables.$accent-primary;
+            }
+          }
+        }
+
+        .field-error {
+          color: variables.$error;
+          font-family: variables.$mono-font;
+          font-size: 0.8rem;
+          margin-top: variables.$space-xs;
+          display: block;
+        }
+      }
+
+      .contact-submit-btn {
+        width: 100%;
+        font-family: variables.$typewriter-font;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: variables.$text-primary;
+        background: rgba(variables.$accent-primary, 0.1);
+        border: 2px solid variables.$accent-primary;
+        border-radius: variables.$radius-md;
+        padding: variables.$space-md variables.$space-xl;
+        cursor: pointer;
+        transition: all variables.$transition-normal;
+        position: relative;
+        margin-top: variables.$space-lg;
+
+        &:hover:not(:disabled) {
+          color: variables.$text-inverse;
+          background: variables.$accent-primary;
+          transform: translateY(-2px);
+          box-shadow: variables.$shadow-glow;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        &::before {
+          content: "> ";
+          opacity: 0;
+          transition: all variables.$transition-fast;
+        }
+
+        &:hover:not(:disabled)::before {
+          opacity: 1;
+        }
+      }
+
+      .form-error {
+        color: variables.$error;
+        font-family: variables.$mono-font;
+        font-size: 0.9rem;
+        margin-top: variables.$space-md;
+        text-align: center;
+        display: block;
+      }
+    }
+
+    .success-container {
+      text-align: center;
+      padding: variables.$space-xl;
+
+      .success-message {
+        font-family: variables.$serif-font;
+        font-size: 1.3rem;
+        color: variables.$success;
+        font-style: italic;
+        line-height: 1.6;
+        margin: 0;
+
+        @include variables.glow-text(variables.$success);
+
+        @include variables.sm {
+          font-size: 1.1rem;
+        }
       }
     }
   }
+}
+
+@include variables.sm {
+  .contact-page {
+    padding: variables.$space-md;
+
+    .contact-container {
+      padding: variables.$space-lg;
+    }
+  }
+}
+
+@include variables.xs {
+  .contact-page {
+    padding: variables.$space-sm;
+
+    .contact-container {
+      padding: variables.$space-md;
+    }
+  }
+}
+
+.footer {
+  margin-top: variables.$space-xl;
 }

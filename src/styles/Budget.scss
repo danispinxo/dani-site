@@ -1,6 +1,5 @@
 @use "sass:color";
 
-// Variables
 $teal: #008080;
 $teal-light: #40e0d0;
 $teal-dark: #006666;
@@ -10,7 +9,6 @@ $off-white: #f9f9f9;
 $gray: #4a4a4a;
 $light-gray: #e5e5e5;
 
-// Layout styles
 .budget {
   min-height: 100vh;
   background-color: $off-white;
@@ -158,7 +156,6 @@ $light-gray: #e5e5e5;
       font-weight: 500;
     }
 
-    // Reminders section styles
     &-reminders {
       margin-top: 2rem !important;
       padding: 1.5rem !important;
@@ -314,7 +311,6 @@ $light-gray: #e5e5e5;
   }
 }
 
-// Auth styles
 .budget {
   &-authenticated-user {
     display: flex;
@@ -361,7 +357,6 @@ $light-gray: #e5e5e5;
   }
 }
 
-// Form styles
 .budget {
   &-input {
     &-group {
@@ -514,7 +509,6 @@ $light-gray: #e5e5e5;
   }
 }
 
-// Expense List styles
 .budget {
   &-expense-list {
     max-width: 100%;
@@ -660,7 +654,6 @@ $light-gray: #e5e5e5;
   }
 }
 
-// Summary styles
 .budget {
   &-summary {
     &-container {
@@ -829,7 +822,6 @@ $light-gray: #e5e5e5;
     }
   }
 
-  // Year at a Glance styles
   &-year-overview {
     width: 100%;
     max-width: 100%;

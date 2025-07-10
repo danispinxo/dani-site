@@ -27,16 +27,18 @@ const JointAccountSummary = () => {
   useEffect(() => {
     const fetchExpenses = async () => {
       setLoading(true);
+
       const { data, error } = await supabase
         .from("expenses")
         .select("*")
         .in("user_id", [JESSE_ID, DANI_ID]);
+
       if (error) {
         setExpenses([]);
         setLoading(false);
         return;
       }
-      // Filter by selected month
+
       const filtered = data.filter(
         (exp) => exp.date && exp.date.startsWith(month)
       );
@@ -46,7 +48,6 @@ const JointAccountSummary = () => {
     fetchExpenses();
   }, [month]);
 
-  // Joint account expenses (to be split 50/50)
   const jointAccountExpenses = expenses.filter(
     (e) => e.payment_type === "Joint Account"
   );
@@ -67,11 +68,9 @@ const JointAccountSummary = () => {
     .filter((e) => e.payment_type.startsWith("Dani") && e.is_shared)
     .reduce((sum, e) => sum + Number(e.amount || 0), 0);
 
-  // Calculate balance adjustments
   const jesseAdjustment = daniPersonalExpenses - jessePersonalExpenses;
   const daniAdjustment = jessePersonalExpenses - daniPersonalExpenses;
 
-  // For totals
   let totalJesse = 0;
   let totalDani = 0;
 

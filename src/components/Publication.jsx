@@ -54,7 +54,7 @@ const Publication = ({
         </a>
       ) : (
         <FontAwesomeIcon
-          className="icon"
+          className={`icon ${linkType === "no-link" ? "no-link" : ""}`}
           icon={determineIcon(linkType)}
           title={title}
         />

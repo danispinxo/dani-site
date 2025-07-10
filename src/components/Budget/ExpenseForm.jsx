@@ -40,7 +40,7 @@ const ExpenseForm = ({ user }) => {
   const getMonthYearOptions = () => {
     const options = [];
     const now = new Date();
-    // Show current month plus next 11 months
+
     for (let i = 0; i < 12; i++) {
       const date = new Date(now.getFullYear(), now.getMonth() + i, 1);
       const value = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
@@ -59,7 +59,6 @@ const ExpenseForm = ({ user }) => {
       const [year, month] = selectedMonthYear.split("-");
       const date = `${year}-${month}-${String(preset.day).padStart(2, "0")}`;
 
-      // Check if this preset expense already exists for this month
       if (preset.label === "+ Mortgage") {
         const { data: existingExpenses, error: checkError } = await supabase
           .from("expenses")
@@ -195,7 +194,6 @@ const ExpenseForm = ({ user }) => {
 
       if (error) throw error;
 
-      // Reset form
       setFormData({
         amount: "",
         description: "",

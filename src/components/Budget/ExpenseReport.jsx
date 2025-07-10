@@ -94,7 +94,6 @@ const ExpenseReport = () => {
           categoryBreakdown: {},
         };
 
-        // Initialize category breakdown for this group
         selectedGroup?.categories.forEach((cat) => {
           monthlyGroups[monthKey].categoryBreakdown[cat] = 0;
         });
@@ -103,7 +102,6 @@ const ExpenseReport = () => {
       monthlyGroups[monthKey].expenses.push(expense);
       monthlyGroups[monthKey].total += Number(expense.amount);
 
-      // Add to category breakdown
       if (
         monthlyGroups[monthKey].categoryBreakdown[expense.category] !==
         undefined
@@ -126,7 +124,6 @@ const ExpenseReport = () => {
       }
     });
 
-    // Convert to array and sort by month (newest first)
     const sortedData = Object.values(monthlyGroups).sort((a, b) =>
       b.monthKey.localeCompare(a.monthKey)
     );

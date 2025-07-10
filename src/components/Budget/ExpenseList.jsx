@@ -117,7 +117,7 @@ const ExpenseList = ({ user }) => {
 
       showToast("Expense updated successfully!", "success");
       handleCloseModal();
-      fetchExpenses(); // Refresh the list
+      fetchExpenses();
     } catch (error) {
       showToast("Error updating expense: " + error.message, "error");
     } finally {
@@ -146,7 +146,7 @@ const ExpenseList = ({ user }) => {
 
       showToast("Expense deleted successfully!", "success");
       handleCloseModal();
-      fetchExpenses(); // Refresh the list
+      fetchExpenses();
     } catch (error) {
       showToast("Error deleting expense: " + error.message, "error");
     } finally {
@@ -177,7 +177,6 @@ const ExpenseList = ({ user }) => {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
 
-    // Get last 12 months
     for (let i = 0; i < 12; i++) {
       const date = new Date(currentYear, currentMonth - i, 1);
       const monthStr = date.toISOString().slice(0, 7); // Format: YYYY-MM
@@ -198,8 +197,8 @@ const ExpenseList = ({ user }) => {
     if (filters.paymentType && expense.payment_type !== filters.paymentType)
       return false;
 
-    // Filter by month
-    const expenseMonth = expense.date.slice(0, 7); // Get YYYY-MM from date
+    const expenseMonth = expense.date.slice(0, 7);
+
     if (filters.month && expenseMonth !== filters.month) return false;
 
     return true;

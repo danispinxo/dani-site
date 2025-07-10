@@ -50,7 +50,6 @@ const YearAtAGlance = () => {
     fetchExpenses();
   }, [selectedYear]);
 
-  // Generate month labels
   const monthLabels = [
     "Jan",
     "Feb",
@@ -66,7 +65,6 @@ const YearAtAGlance = () => {
     "Dec",
   ];
 
-  // Process data by month
   const processMonthlyData = () => {
     const monthlyData = Array(12)
       .fill(0)
@@ -99,7 +97,6 @@ const YearAtAGlance = () => {
 
   const monthlyData = processMonthlyData();
 
-  // Chart configurations
   const totalExpensesChart = {
     labels: monthLabels,
     datasets: [
@@ -155,13 +152,11 @@ const YearAtAGlance = () => {
     },
   };
 
-  // Year options (current year and 2 years back)
   const getYearOptions = () => {
     const currentYear = new Date().getFullYear();
     return [currentYear, currentYear - 1, currentYear - 2];
   };
 
-  // Calculate totals
   const yearTotal = monthlyData.reduce((sum, month) => sum + month.total, 0);
   const yearShared = monthlyData.reduce((sum, month) => sum + month.shared, 0);
   const yearPersonal = monthlyData.reduce(

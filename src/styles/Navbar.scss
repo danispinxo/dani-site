@@ -1,9 +1,213 @@
 @use "variables.scss";
 
-.navbar-brand {
-  font-family: variables.$typewriter-font;
+.navbar {
+  background: variables.$gradient-primary !important;
+  border-bottom: 1px solid variables.$border-prominent;
+  box-shadow: variables.$shadow-moderate;
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: variables.$gradient-accent;
+    opacity: 0.3;
+  }
 }
 
-.navbar-link {
+.navbar-brand {
   font-family: variables.$typewriter-font;
+  font-size: 1.8rem !important;
+  font-weight: 700;
+  color: variables.$text-primary !important;
+  text-decoration: none !important;
+  transition: all variables.$transition-normal;
+  position: relative;
+  padding: variables.$space-sm variables.$space-md;
+  border-radius: variables.$radius-md;
+
+  @include variables.glow-text(variables.$accent-primary);
+
+  &:hover {
+    color: variables.$accent-primary !important;
+    @include variables.glow-text(variables.$accent-primary);
+  }
+}
+
+.navbar-toggler {
+  border: 1px solid variables.$border-accent !important;
+  border-radius: variables.$radius-sm;
+  padding: variables.$space-xs variables.$space-sm;
+  transition: all variables.$transition-normal;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(variables.$accent-primary, 0.3) !important;
+  }
+
+  &:hover {
+    border-color: variables.$accent-primary !important;
+    background: rgba(variables.$accent-primary, 0.1);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28232, 232, 232, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    font-family: variables.$typewriter-font;
+    font-size: 1rem;
+    color: variables.$text-secondary !important;
+    text-decoration: none !important;
+    padding: variables.$space-sm variables.$space-md !important;
+    margin: 0 variables.$space-xs;
+    border-radius: variables.$radius-sm;
+    transition: all variables.$transition-normal;
+    position: relative;
+
+    &:hover {
+      color: variables.$accent-primary !important;
+      background: rgba(variables.$accent-primary, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &::before {
+      content: ">";
+      position: absolute;
+      left: variables.$space-xs;
+      opacity: 0;
+      transition: all variables.$transition-fast;
+      color: variables.$accent-primary;
+    }
+
+    &:hover::before {
+      opacity: 1;
+      left: variables.$space-sm;
+    }
+  }
+}
+
+.dropdown-menu {
+  background: variables.$bg-elevated !important;
+  border: 1px solid variables.$border-prominent !important;
+  border-radius: variables.$radius-md !important;
+  box-shadow: variables.$shadow-prominent;
+  backdrop-filter: blur(20px);
+  margin-top: variables.$space-sm !important;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: variables.$gradient-accent;
+    opacity: 0.5;
+  }
+
+  .dropdown-item {
+    font-family: variables.$typewriter-font;
+    color: variables.$text-secondary !important;
+    padding: variables.$space-sm variables.$space-md !important;
+    transition: all variables.$transition-fast;
+    position: relative;
+    border: none;
+    background: transparent !important;
+
+    &:hover {
+      background: rgba(variables.$accent-primary, 0.1) !important;
+      color: variables.$accent-primary !important;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid variables.$border-subtle;
+    }
+  }
+}
+
+.dropdown-toggle {
+  &::after {
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform variables.$transition-fast;
+  }
+
+  &[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@include variables.xs {
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: variables.$space-md variables.$space-lg !important;
+    border-bottom: 1px solid variables.$border-subtle;
+    border-radius: 0;
+
+    &:hover {
+      background: rgba(variables.$accent-primary, 0.1);
+      transform: none;
+    }
+  }
+
+  .dropdown-menu {
+    background: variables.$bg-secondary !important;
+    border: none !important;
+    box-shadow: none;
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+
+    .dropdown-item {
+      padding-left: variables.$space-xl !important;
+      border-bottom: 1px solid variables.$border-subtle;
+
+      &:hover {
+        background: rgba(variables.$accent-primary, 0.1) !important;
+      }
+    }
+  }
+}
+
+.navbar-collapse {
+  &.show {
+    background: rgba(variables.$bg-secondary, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: variables.$radius-md;
+    margin-top: variables.$space-sm;
+    padding: variables.$space-md;
+    border: 1px solid variables.$border-subtle;
+
+    @include variables.xs {
+      background: variables.$bg-secondary;
+      border-radius: 0;
+      margin-top: 0;
+      padding: 0;
+      border: none;
+    }
+  }
 }

@@ -25,54 +25,66 @@ export default function Portfolio() {
   return (
     <>
       <TopNavbar />
+      <div className="tech-grid" />
       <main>
         <div className="page-content">
-          <h1 className="title">Dev Portfolio</h1>
-          <p className="subtitle">Projects</p>
-          <Book
-            cover="/images/personal-site.png"
-            title="www.danispinosa.dev"
-            notes="Personal Website"
-            link="https://github.com/danispinxo/dani-site"
-            linkType="devLink"
-          />
-          <Book
-            cover="/images/jesse-site.png"
-            title="www.jptherapystudios.com"
-            notes="Jesse Pajuäär Therapy Studios Website"
-            link="https://github.com/danispinxo/jesse-site"
-            linkType="devLink"
-          />
-          <Book
-            cover="/images/artify.png"
-            title="Artify"
-            notes="Lighthouse Labs Final Project"
-            link="https://github.com/danispinxo/artify"
-            linkType="devLink"
-          />
-          <Book
-            cover="/images/quizzes-mobile.png"
-            title="FAAQ U. Quizzes"
-            notes="Lighthouse Labs Midterm Project"
-            link="https://github.com/danispinxo/faaq-u-quizzes"
-            linkType="devLink"
-          />
-          <p className="subtitle">Course Certificates</p>
-          <div className="gallery">
-            {images.map((item) => (
-              <a
-                key={item.src}
-                href={item.src}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <img
-                  className="cover-gallery-image"
-                  alt={item.alt}
-                  src={item.src}
+          <div className="page-container">
+            <h1 className="page-title">Dev Portfolio</h1>
+
+            <section className="writing-section">
+              <h2 className="section-title">Projects</h2>
+              <div className="books-grid">
+                <Book
+                  cover="/images/dani-site.png"
+                  title="www.danispinosa.dev"
+                  notes="Personal Website"
+                  link="https://github.com/danispinxo/dani-site"
+                  linkType="devLink"
                 />
-              </a>
-            ))}
+                <Book
+                  cover="/images/jesse-site.png"
+                  title="www.jptherapystudios.com"
+                  notes="Jesse Pajuäär Therapy Studios Website"
+                  link="https://github.com/danispinxo/jesse-site"
+                  linkType="devLink"
+                />
+                <Book
+                  cover="/images/artify.png"
+                  title="Artify"
+                  notes="Lighthouse Labs Final Project"
+                  link="https://github.com/danispinxo/artify"
+                  linkType="devLink"
+                />
+                <Book
+                  cover="/images/quizzes-mobile.png"
+                  title="FAAQ U. Quizzes"
+                  notes="Lighthouse Labs Midterm Project"
+                  link="https://github.com/danispinxo/faaq-u-quizzes"
+                  linkType="devLink"
+                />
+              </div>
+            </section>
+
+            <section className="writing-section">
+              <h2 className="section-title">Course Certificates</h2>
+              <div className="certificates-gallery">
+                {images.map((item) => (
+                  <a
+                    key={item.src}
+                    href={item.src}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="certificate-link"
+                  >
+                    <img
+                      className="certificate-image"
+                      alt={item.alt}
+                      src={item.src}
+                    />
+                  </a>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </main>
