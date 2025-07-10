@@ -112,6 +112,65 @@
   }
 }
 
+// Form page - minimal styling to keep focus on the poem
+.poem-attribution {
+  font-family: variables.$round-font;
+  font-size: 1rem;
+  color: variables.$text-secondary;
+  text-align: center;
+  margin-bottom: variables.$space-xl;
+  font-style: italic;
+}
+
+.poem-interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: variables.$space-xl;
+
+  .poem-button {
+    font-family: variables.$typewriter-font !important;
+    font-weight: 600 !important;
+    color: variables.$accent-primary !important;
+    border-color: variables.$accent-primary !important;
+    padding: variables.$space-sm variables.$space-lg !important;
+    transition: all variables.$transition-normal !important;
+
+    &:hover {
+      background-color: rgba(variables.$accent-primary, 0.1) !important;
+      border-color: variables.$accent-primary !important;
+      @include variables.glow-text(variables.$accent-primary);
+    }
+  }
+
+  .poem-display {
+    width: 100%;
+    max-width: 800px;
+    min-height: 400px;
+    text-align: center;
+
+    // Let the poem's own styling be the star - minimal container
+    p {
+      margin: variables.$space-sm 0;
+      color: variables.$text-primary;
+      transition: opacity 0.3s ease;
+
+      &:first-child {
+        opacity: 1;
+      }
+
+      &:not(:first-child) {
+        opacity: 0.8;
+      }
+    }
+
+    @include variables.sm {
+      max-width: 100%;
+      padding: 0 variables.$space-sm;
+    }
+  }
+}
+
 // Emoji glow animation
 @keyframes emoji-glow {
   0% {

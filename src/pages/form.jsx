@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import { fonts, lines } from "../scripts/form/constants";
 import TopNavbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Form = () => {
   const [buttonText, setButtonText] = useState("Add another line!");
@@ -34,17 +35,31 @@ const Form = () => {
   return (
     <>
       <TopNavbar />
-      <main className="page-content">
-        <div className="text">
-          <h1 className="title">Form</h1>
-          <p className="subtitle">
-            Poem by Andy Weaver, Programming by Dani Spinosa
-          </p>
-          <Button variant="outlined" onClick={buttonClickHandler}>
-            {buttonText}
-          </Button>
-          <div id="poem-placeholder">{poemLines}</div>
+      <div className="tech-grid" />
+      <main>
+        <div className="page-content">
+          <div className="page-container">
+            <h1 className="page-title">Form</h1>
+            <p className="poem-attribution">
+              Poem by Andy Weaver, Programming by Dani Spinosa
+            </p>
+
+            <div className="poem-interface">
+              <Button
+                variant="outlined"
+                onClick={buttonClickHandler}
+                className="poem-button"
+              >
+                {buttonText}
+              </Button>
+
+              <div className="poem-display" id="poem-placeholder">
+                {poemLines}
+              </div>
+            </div>
+          </div>
         </div>
+        <Footer />
       </main>
     </>
   );
