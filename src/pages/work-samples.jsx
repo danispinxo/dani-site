@@ -105,7 +105,6 @@ export default function WorkSamples() {
 
           <iframe
             src="https://docs.google.com/presentation/d/1-OYIzQ4xGELDGLEokgPkaYH02CpQuz_eRij_Or13xYk/embed?start=false&loop=false&delayms=3000"
-            frameBorder="0"
             width="1280"
             height="749"
             allowfullscreen="true"
@@ -115,7 +114,6 @@ export default function WorkSamples() {
 
           <iframe
             src="https://docs.google.com/presentation/d/1TWV2AoIA4YFg8Pmzsjn7Z4JeWVyqYWftp0tr76ZeQPk/embed?start=false&loop=false&delayms=3000"
-            frameBorder="0"
             width="960"
             height="569"
             allowfullscreen="true"
