@@ -421,6 +421,55 @@
         }
       }
     }
+
+    .teaching-institution {
+      margin-bottom: variables.$space-xl;
+
+      .institution-name {
+        font-family: variables.$typewriter-font;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: variables.$text-primary;
+        margin-bottom: variables.$space-md;
+        position: relative;
+        padding-left: variables.$space-lg;
+
+        @include variables.glow-text(variables.$accent-primary);
+
+        &::before {
+          content: ">> ";
+          color: variables.$accent-primary;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.8;
+          font-weight: 700;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: variables.$space-lg;
+          width: 40px;
+          height: 1px;
+          background: variables.$gradient-accent;
+          border-radius: 1px;
+        }
+
+        @include variables.md {
+          font-size: 1.3rem;
+        }
+
+        @include variables.sm {
+          font-size: 1.2rem;
+        }
+      }
+
+      .reading-list {
+        margin-top: variables.$space-md;
+      }
+    }
   }
 }
 
