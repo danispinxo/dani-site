@@ -5,22 +5,16 @@ export default function Homepage() {
   return (
     <>
       <TopNavbar />
+      <div className="tech-grid" />
       <main>
         <div className="index-bio">
-          <Image
-            className="author-photo"
-            alt="Dani Spinosa Portrait"
-            src={"/images/author-photo.jpg"}
-            width={400}
-            height={400}
-          />
           <div className="bio-container">
-            <h2 className="bio-heading">About</h2>
+            <h1 className="bio-heading">About</h1>
             <p>
               Dani Spinosa is a poet, scholar, educator, writer, and a trained
               full-stack developer. She is an adjunct professor, a software
-              developer, a digital and creative project manager, a co-founding
-              editor of{" "}
+              developer at Hatch Coding, a digital and creative project manager,
+              a co-founding editor of{" "}
               <a
                 href="https://www.gapriotpress.com/"
                 target="_blank"
@@ -47,6 +41,14 @@ export default function Homepage() {
               Wasaga Beach, Ontario.
             </p>
           </div>
+          <Image
+            className="author-photo"
+            alt="Dani Spinosa Portrait"
+            src={"/images/author-photo.jpg"}
+            width={400}
+            height={400}
+            priority
+          />
         </div>
       </main>
     </>
