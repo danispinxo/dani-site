@@ -12,11 +12,7 @@ const Footer = () => {
 
         <div className="footer-section">
           <div className="footer-links">
-            <a
-              href="mailto:dani@danispinosa.dev"
-              className="footer-link"
-              aria-label="Email"
-            >
+            <a href="/contact" className="footer-link">
               contact
             </a>
             <span className="footer-separator">•</span>
@@ -31,7 +27,7 @@ const Footer = () => {
             </a>
             <span className="footer-separator">•</span>
             <a
-              href="https://www.linkedin.com/in/dani-spinosa/"
+              href="https://www.linkedin.com/in/dani-spinosa-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link"

@@ -51,12 +51,15 @@ body {
   min-height: 100vh;
 }
 
+// Modern typewriter goth homepage
 main {
   min-height: 100vh;
   background: variables.$gradient-primary;
   position: relative;
   margin: 0 !important;
   padding: 0 !important;
+  display: flex;
+  flex-direction: column;
 
   &::before {
     content: "";
@@ -88,28 +91,34 @@ main {
 .index-bio {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: variables.$space-xxl;
+  gap: variables.$space-xl;
   max-width: 1200px;
   margin: 0 auto;
-  padding: variables.$space-xxl variables.$space-xl;
+  padding: variables.$space-lg variables.$space-xl;
   align-items: center;
-  min-height: calc(100vh - 80px);
+  flex: 1;
+  min-height: calc(
+    100vh - 140px
+  ); // Account for navbar (~60px) and footer (~80px)
 
   @include variables.md {
     grid-template-columns: 1fr;
-    gap: variables.$space-xl;
+    gap: variables.$space-lg;
     text-align: center;
-    padding: variables.$space-xl variables.$space-lg;
+    padding: variables.$space-md variables.$space-lg;
+    min-height: calc(100vh - 120px);
   }
 
   @include variables.sm {
-    gap: variables.$space-lg;
-    padding: variables.$space-lg variables.$space-md;
+    gap: variables.$space-md;
+    padding: variables.$space-md;
+    min-height: calc(100vh - 100px);
   }
 
   @include variables.xs {
-    gap: variables.$space-md;
-    padding: variables.$space-md variables.$space-sm;
+    gap: variables.$space-sm;
+    padding: variables.$space-sm variables.$space-md;
+    min-height: calc(100vh - 100px);
   }
 
   .bio-container {
@@ -123,7 +132,7 @@ main {
       font-family: variables.$typewriter-font;
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: variables.$space-lg;
+      margin-bottom: variables.$space-md;
       background: variables.$gradient-accent;
       background-clip: text;
       -webkit-background-clip: text;
@@ -150,10 +159,10 @@ main {
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
+      font-size: 1rem;
+      line-height: 1.6;
       color: variables.$text-secondary;
-      margin-bottom: variables.$space-lg;
+      margin-bottom: variables.$space-md;
       position: relative;
       padding: variables.$space-lg;
       background: rgba(variables.$bg-elevated, 0.5);
@@ -162,8 +171,15 @@ main {
       backdrop-filter: blur(10px);
 
       @include variables.sm {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: variables.$space-md;
+        line-height: 1.5;
+      }
+
+      @include variables.xs {
+        font-size: 0.9rem;
+        padding: variables.$space-sm;
+        line-height: 1.4;
       }
 
       &::before {
@@ -207,14 +223,15 @@ main {
       }
     }
 
+    // Tech-inspired decorative elements
     &::before {
       content: "> ";
       position: absolute;
-      top: -40px;
+      top: -30px;
       left: 0;
       font-family: variables.$mono-font;
       color: variables.$accent-primary;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       opacity: 0.6;
 
       @include variables.md {
@@ -225,9 +242,9 @@ main {
     &::after {
       content: "";
       position: absolute;
-      bottom: -20px;
+      bottom: -15px;
       left: 0;
-      width: 60px;
+      width: 50px;
       height: 2px;
       background: variables.$gradient-accent;
       border-radius: 1px;
@@ -240,8 +257,8 @@ main {
 
   .author-photo {
     grid-order: 2;
-    width: 400px !important;
-    height: 400px !important;
+    width: 350px !important;
+    height: 350px !important;
     border-radius: variables.$radius-xl;
     object-fit: cover;
     object-position: center;
@@ -251,14 +268,14 @@ main {
 
     @include variables.md {
       grid-order: 1;
-      width: 350px !important;
-      height: 350px !important;
+      width: 300px !important;
+      height: 300px !important;
       margin: 0 auto;
     }
 
     @include variables.sm {
-      width: 300px !important;
-      height: 300px !important;
+      width: 280px !important;
+      height: 280px !important;
     }
 
     @include variables.xs {
@@ -281,15 +298,15 @@ main {
     }
 
     &:hover {
-      transform: translateY(-8px) rotate(2deg);
+      transform: translateY(-4px) rotate(1deg);
       box-shadow: variables.$shadow-glow;
 
       &::before {
         opacity: 0.6;
-        top: -8px;
-        left: -8px;
-        right: -8px;
-        bottom: -8px;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
       }
     }
   }
@@ -352,22 +369,24 @@ main {
   color: variables.$text-primary;
 }
 
+// Footer styles
 .footer {
   background: rgba(variables.$bg-secondary, 0.9);
   border-top: 1px solid variables.$border-prominent;
   backdrop-filter: blur(10px);
-  margin-top: variables.$space-xxl;
+  padding: variables.$space-xl 0;
   position: relative;
   z-index: 10;
+  width: 100%;
 
   .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: variables.$space-xl variables.$space-lg;
+    padding: 0 variables.$space-lg;
     text-align: center;
 
     @include variables.xs {
-      padding: variables.$space-lg variables.$space-md;
+      padding: 0 variables.$space-md;
     }
   }
 

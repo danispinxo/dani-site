@@ -1,4 +1,5 @@
 import TopNavbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Image from "next/image";
 
 export default function Homepage() {
@@ -50,6 +51,7 @@ export default function Homepage() {
             priority
           />
         </div>
+        <Footer />
       </main>
     </>
   );
