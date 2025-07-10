@@ -1,36 +1,130 @@
 @use "variables.scss";
 
+// Modern layout with tech styling
+.page-content {
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: variables.$space-xl variables.$space-lg;
+  background: rgba(variables.$bg-secondary, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid variables.$border-prominent;
+  border-radius: variables.$radius-lg;
+  margin-top: variables.$space-xl;
+  margin-bottom: variables.$space-xl;
+
+  @include variables.xs {
+    padding: variables.$space-lg variables.$space-md;
+    margin: variables.$space-md;
+  }
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: variables.$text-primary;
+  text-align: center;
+  margin-bottom: variables.$space-md;
+  @include variables.glow-text(variables.$accent-primary);
+
+  @include variables.xs {
+    font-size: 2rem;
+  }
+}
+
+.poem-attribution {
+  color: variables.$text-secondary;
+  text-align: center;
+  margin-bottom: variables.$space-lg;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.swift-poem-container {
+  background: rgba(variables.$bg-elevated, 0.7);
+  border: 1px solid variables.$border-prominent;
+  border-radius: variables.$radius-md;
+  padding: variables.$space-lg;
+  margin-bottom: variables.$space-lg;
+  @include variables.tech-border;
+
+  @include variables.xs {
+    padding: variables.$space-md;
+  }
+}
+
+// Preserve existing fonts for poem content
 .c {
   margin-top: 0.75rem;
-  font-family: variables.$typewriter-font;
+  font-family: variables.$typewriter-font; // Preserve original font
   padding-left: 1rem;
   width: 80%;
+  color: variables.$text-primary; // Ensure text is visible
 
   .swift-line {
+    color: variables.$text-primary; // Ensure poem lines are visible
     @include variables.xs {
       font-size: 0.75rem;
     }
   }
 }
 
+.swift-poem-title {
+  color: variables.$accent-primary;
+  margin-bottom: variables.$space-md;
+  font-family: variables.$typewriter-font; // Preserve original font
+}
+
 .swift-button-holder {
   margin: 1rem;
+  text-align: center;
 }
 
 .swift-button {
   margin-left: 1rem;
-  padding: 0.3rem;
-  font-family: variables.$typewriter-font;
-  background-color: darkred;
-  color: white;
+  padding: variables.$space-sm variables.$space-md;
+  font-family: variables.$typewriter-font; // Preserve original font
+  background: variables.$gradient-accent;
+  color: variables.$text-primary;
+  border: none;
+  border-radius: variables.$radius-sm;
+  cursor: pointer;
+  transition: all variables.$transition-normal;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadow-prominent;
+    @include variables.glow-text(variables.$accent-primary);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .taper-note {
   width: 80%;
   margin-top: 3rem;
-  font-family: variables.$serif-font;
+  font-family: variables.$serif-font; // Preserve original font
+  color: variables.$text-secondary;
+  font-size: 0.9rem;
+  line-height: 1.6;
 
   a {
-    color: darkred;
+    color: variables.$accent-primary;
+    text-decoration: none;
+    transition: color variables.$transition-normal;
+
+    &:hover {
+      color: variables.$accent-secondary;
+      @include variables.glow-text(variables.$accent-primary);
+    }
   }
 }
