@@ -128,20 +128,6 @@
       color: variables.$accent-primary !important;
     }
 
-    &::before {
-      content: "▶";
-      position: absolute;
-      left: variables.$space-sm;
-      opacity: 0;
-      transition: all variables.$transition-fast;
-      color: variables.$accent-primary;
-      font-size: 0.8rem;
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-
     &:not(:last-child) {
       border-bottom: 1px solid variables.$border-subtle;
     }
@@ -198,6 +184,7 @@
 
     .dropdown-item {
       padding-left: variables.$space-xl !important;
+      border-bottom: 1px solid variables.$border-subtle;
 
       &:hover {
         background: rgba(variables.$accent-primary, 0.1) !important;

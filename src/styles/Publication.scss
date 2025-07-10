@@ -68,6 +68,9 @@
     flex-shrink: 0;
     opacity: 0.8;
 
+    &.no-link {
+      opacity: 0.05;
+    }
     @include variables.sm {
       font-size: 1.5rem;
     }
