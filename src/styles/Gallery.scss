@@ -1,50 +1,136 @@
 @use "variables.scss";
 
-main {
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.gallery-subtitle {
+  font-family: variables.$round-font;
+  font-size: 1.1rem;
+  color: variables.$text-secondary;
+  text-align: center;
+  margin-bottom: variables.$space-xxl;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @include variables.xs {
-    flex-direction: column;
-    width: 400px;
+  @include variables.sm {
+    font-size: 1rem;
+    margin-bottom: variables.$space-xl;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: variables.$space-lg;
+  margin-bottom: variables.$space-xxl;
+
+  @include variables.md {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: variables.$space-md;
   }
 
   @include variables.sm {
-    flex-direction: column;
-    width: 600px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: variables.$space-sm;
   }
 
-  .title {
-    font-family: variables.$typewriter-font;
+  @include variables.xs {
+    grid-template-columns: 1fr 1fr;
+    gap: variables.$space-xs;
   }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 2rem;
+  a {
+    display: block;
+    position: relative;
+    border-radius: variables.$radius-lg;
+    overflow: hidden;
+    transition: all variables.$transition-normal;
+    background: rgba(variables.$bg-elevated, 0.3);
+    border: 1px solid variables.$border-subtle;
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: variables.$shadow-moderate;
+      border-color: variables.$accent-primary;
+
+      .gallery-image {
+        transform: scale(1.1);
+        filter: brightness(1.1) contrast(1.1);
+      }
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    // Overlay for hover effect
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(variables.$accent-primary, 0.1) 0%,
+        rgba(variables.$accent-primary, 0.05) 100%
+      );
+      opacity: 0;
+      transition: all variables.$transition-normal;
+      z-index: 2;
+      border-radius: variables.$radius-lg;
+    }
+
+    // Tech indicator on hover
+    &::after {
+      content: "▶ VIEW";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      font-family: variables.$mono-font;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: variables.$accent-primary;
+      background: rgba(variables.$bg-primary, 0.9);
+      padding: variables.$space-xs variables.$space-sm;
+      border-radius: variables.$radius-sm;
+      border: 1px solid variables.$accent-primary;
+      opacity: 0;
+      transition: all variables.$transition-slow;
+      z-index: 3;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+
+      @include variables.glow-text(variables.$accent-primary);
+    }
   }
+
   .gallery-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    object-fit: cover;
-  }
-
-  .cover-gallery-image {
+    width: 100%;
     height: 250px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     object-fit: cover;
+    transition: all variables.$transition-slow;
+    display: block;
+
+    @include variables.md {
+      height: 220px;
+    }
+
+    @include variables.sm {
+      height: 200px;
+    }
+
+    @include variables.xs {
+      height: 150px;
+    }
   }
 }
