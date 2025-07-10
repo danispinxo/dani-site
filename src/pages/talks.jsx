@@ -11,7 +11,7 @@ const Talks = () => {
         <div className="page-content">
           <div className="page-container">
             <h1 className="page-title">Talks</h1>
-            
+
             <section className="writing-section">
               <h2 className="section-title">Keynote Addresses</h2>
               <div className="publications-grid">
@@ -31,7 +31,7 @@ const Talks = () => {
                   title="Electronic Literature Collection, Volume 5"
                   publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
                   date="10-13 July 2025"
-                  notes="Co-authored with Zach Whalen and Daniel Cox"
+                  notes="Co-authored with Zach Whalen and Daniel Cox with Élika Ortega and Kwabena Opoku-Agyemang"
                   linkType="talk"
                   link="https://eliterature.org/2024/11/cfp-elo25-25-toronto-july-11-13-due-jan-5-2025/"
                 />
@@ -291,36 +291,44 @@ const Talks = () => {
                     >
                       Launch
                     </a>{" "}
-                    of <i>The Dalhousie Review</i>, Cafe Lara, Halifax, NS. 21 March
-                    2025
+                    of <i>The Dalhousie Review</i>, Cafe Lara, Halifax, NS. 21
+                    March 2025
                   </li>
                   <li>
-                    Launch of Andy Weaver's <i>The Loom</i>, Type Books, Toronto. 28
-                    November 2024
+                    Launch of Andy Weaver's <i>The Loom</i>, Type Books,
+                    Toronto. 28 November 2024
                   </li>
                   <li>
-                    milk mag reading series, with Gary Barwin, Type Books, Toronto, ON.
-                    27 April 2023
+                    milk mag reading series, with Gary Barwin, Type Books,
+                    Toronto, ON. 27 April 2023
                   </li>
                   <li>
-                    Launch of Kate Siklosi's Selvage, Type Books, Toronto, ON. 20 April
-                    2023
+                    Launch of Kate Siklosi's Selvage, Type Books, Toronto, ON.
+                    20 April 2023
                   </li>
-                  <li>HAL, Art Gallery of Hamilton, Hamilton, ON, 10 November 2022</li>
                   <li>
-                    Reading from Underneath, The Printed Word, Dundas, ON. 27 August
+                    HAL, Art Gallery of Hamilton, Hamilton, ON, 10 November 2022
+                  </li>
+                  <li>
+                    Reading from Underneath, The Printed Word, Dundas, ON. 27
+                    August 2022
+                  </li>
+                  <li>
+                    Lost Launches @ the Art Bar, Clinton's, Toronto, ON. 28 June
                     2022
-                  </li>
-                  <li>
-                    Lost Launches @ the Art Bar, Clinton's, Toronto, ON. 28 June 2022
                   </li>
                   <li>ACCUTE Conference, Montreal, ON, 15 February 2022</li>
                   <li>Lit Live, Hamilton, ON (Remote), 7 February 2021</li>
-                  <li>Poets 5 a 7, with Cornelia Hoogland (Remote), 23 January 2021</li>
-                  <li>Windsor BookFest, Windsor, ON (Remote), 18 October 2020</li>
                   <li>
-                    Word on the Street Literary Festival, Toronto (Remote), 26 September
-                    2020
+                    Poets 5 a 7, with Cornelia Hoogland (Remote), 23 January
+                    2021
+                  </li>
+                  <li>
+                    Windsor BookFest, Windsor, ON (Remote), 18 October 2020
+                  </li>
+                  <li>
+                    Word on the Street Literary Festival, Toronto (Remote), 26
+                    September 2020
                   </li>
                   <li>
                     Launch of Gary Barwin's{" "}
@@ -328,22 +336,24 @@ const Talks = () => {
                     knife|fork|book 2020
                   </li>
                   <li>
-                    Poetry Reading, Launch of Shaun Braune's <em>Dendrite Balconies</em>
-                    , 27 September 2019
+                    Poetry Reading, Launch of Shaun Braune's{" "}
+                    <em>Dendrite Balconies</em>, 27 September 2019
                   </li>
                   <li>
                     Poetry Reading, On the Line: A Special Night of Readings in
                     Solidarity, Wisebar, Toronto, 14 June 2018
                   </li>
                   <li>
-                    Poetry Reading, Invisible Launch, The Brandscape, Toronto, 10 May
-                    2018
+                    Poetry Reading, Invisible Launch, The Brandscape, Toronto,
+                    10 May 2018
                   </li>
                   <li>Poetry Reading, Koncrete Kanada, Ottawa, 6 May 2018</li>
-                  <li>EGSA Spring Reading, Voodoo Child, Toronto, 20 April 2017</li>
                   <li>
-                    Launch of Sean Braune's <em>The Vitamins of an Alphabet</em>, Grey
-                    Tiger, Toronto, 11 April 2016
+                    EGSA Spring Reading, Voodoo Child, Toronto, 20 April 2017
+                  </li>
+                  <li>
+                    Launch of Sean Braune's <em>The Vitamins of an Alphabet</em>
+                    , Grey Tiger, Toronto, 11 April 2016
                   </li>
                 </ul>
               </div>
