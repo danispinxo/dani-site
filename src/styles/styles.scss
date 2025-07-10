@@ -1,69 +1,500 @@
 @use "variables.scss";
 
-.index-bio {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-left: 10%;
-  margin-right: 10%;
-  font-family: variables.$round-font;
+// CSS Custom Properties for improved browser support
+:root {
+  --bg-primary: #{variables.$bg-primary};
+  --bg-secondary: #{variables.$bg-secondary};
+  --text-primary: #{variables.$text-primary};
+  --text-secondary: #{variables.$text-secondary};
+  --accent-primary: #{variables.$accent-primary};
+  --accent-secondary: #{variables.$accent-secondary};
+  --accent-glow: #{variables.$accent-glow};
+  --transition-normal: #{variables.$transition-normal};
+  --radius-lg: #{variables.$radius-lg};
+  --space-lg: #{variables.$space-lg};
+}
 
-  @include variables.xs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 0;
-    width: 100%;
+// Global styles and base setup
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: variables.$bg-primary;
+  color: variables.$text-primary;
+  font-family: variables.$round-font;
+  line-height: 1.6;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+// Override Bootstrap container margins
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--bs-gutter-x, 0.75rem) !important;
+  padding-right: var(--bs-gutter-x, 0.75rem) !important;
+}
+
+// Ensure full-width coverage
+#__next {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+// Modern typewriter goth homepage
+main {
+  min-height: 100vh;
+  background: variables.$gradient-primary;
+  position: relative;
+  margin: 0 !important;
+  padding: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(
+        circle at 20% 30%,
+        rgba(255, 107, 107, 0.03) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(78, 205, 196, 0.03) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(255, 159, 67, 0.02) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+}
+
+.index-bio {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: variables.$space-xxl;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: variables.$space-xxl variables.$space-xl;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+
+  @include variables.md {
+    grid-template-columns: 1fr;
+    gap: variables.$space-xl;
     text-align: center;
+    padding: variables.$space-xl variables.$space-lg;
   }
 
   @include variables.sm {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5%;
-    width: 100%;
-    text-align: center;
+    gap: variables.$space-lg;
+    padding: variables.$space-lg variables.$space-md;
   }
 
-  @include variables.md {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .author-photo {
-    margin: 3rem;
-    border-radius: 16px;
-    object-fit: cover;
-    object-position: center;
-
-    @include variables.xs {
-      width: 80%;
-      height: 80%;
-    }
-
-    @include variables.sm {
-      width: 80%;
-      height: 80%;
-    }
-
-    @include variables.md {
-      width: 400px;
-    }
+  @include variables.xs {
+    gap: variables.$space-md;
+    padding: variables.$space-md variables.$space-sm;
   }
 
   .bio-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: relative;
+
+    @include variables.md {
+      grid-order: 2;
+    }
 
     .bio-heading {
       font-family: variables.$typewriter-font;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: variables.$space-lg;
+      background: variables.$gradient-accent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+
+      @include variables.glow-text(variables.$accent-primary);
+
+      @include variables.md {
+        font-size: 2.5rem;
+      }
+
+      @include variables.sm {
+        font-size: 2rem;
+      }
+
+      &::after {
+        content: "█";
+        animation: cursor-blink 1.5s infinite;
+        color: variables.$accent-primary;
+        margin-left: variables.$space-xs;
+        -webkit-text-fill-color: variables.$accent-primary;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$space-lg;
+      position: relative;
+      padding: variables.$space-lg;
+      background: rgba(variables.$bg-elevated, 0.5);
+      border-radius: variables.$radius-lg;
+      border: 1px solid variables.$border-subtle;
+      backdrop-filter: blur(10px);
+
+      @include variables.sm {
+        font-size: 1rem;
+        padding: variables.$space-md;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: variables.$gradient-accent;
+        opacity: 0.3;
+        border-radius: variables.$radius-lg variables.$radius-lg 0 0;
+      }
     }
 
     a {
-      color: darkred;
+      color: variables.$accent-primary;
+      text-decoration: none;
+      position: relative;
+      transition: all variables.$transition-normal;
+      font-weight: 500;
+
+      &:hover {
+        color: variables.$accent-primary;
+        @include variables.glow-text(variables.$accent-primary);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: variables.$gradient-accent;
+        transition: width variables.$transition-normal;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    // Tech-inspired decorative elements
+    &::before {
+      content: "> ";
+      position: absolute;
+      top: -40px;
+      left: 0;
+      font-family: variables.$mono-font;
+      color: variables.$accent-primary;
+      font-size: 1.2rem;
+      opacity: 0.6;
+
+      @include variables.md {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: variables.$gradient-accent;
+      border-radius: 1px;
+
+      @include variables.md {
+        display: none;
+      }
     }
   }
+
+  .author-photo {
+    grid-order: 2;
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: variables.$radius-xl;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    box-shadow: variables.$shadow-prominent;
+    transition: all variables.$transition-slow;
+
+    @include variables.md {
+      grid-order: 1;
+      width: 350px !important;
+      height: 350px !important;
+      margin: 0 auto;
+    }
+
+    @include variables.sm {
+      width: 300px !important;
+      height: 300px !important;
+    }
+
+    @include variables.xs {
+      width: 250px !important;
+      height: 250px !important;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: variables.$gradient-accent;
+      border-radius: variables.$radius-xl;
+      z-index: -1;
+      opacity: 0.3;
+      transition: all variables.$transition-slow;
+    }
+
+    &:hover {
+      transform: translateY(-8px) rotate(2deg);
+      box-shadow: variables.$shadow-glow;
+
+      &::before {
+        opacity: 0.6;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+      }
+    }
+  }
+}
+
+// 404 Error Page
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: variables.$space-xl;
+
+  .error-container {
+    text-align: center;
+    max-width: 600px;
+    position: relative;
+    padding: variables.$space-xxl;
+    background: rgba(variables.$bg-elevated, 0.5);
+    border-radius: variables.$radius-xl;
+    border: 1px solid variables.$border-subtle;
+    backdrop-filter: blur(10px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: variables.$gradient-accent;
+      opacity: 0.3;
+      border-radius: variables.$radius-xl variables.$radius-xl 0 0;
+    }
+
+    .error-code {
+      font-family: variables.$typewriter-font;
+      font-size: 8rem;
+      font-weight: 700;
+      margin-bottom: variables.$space-md;
+      background: variables.$gradient-accent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @include variables.glow-text(variables.$accent-primary);
+
+      @include variables.md {
+        font-size: 6rem;
+      }
+
+      @include variables.sm {
+        font-size: 4rem;
+      }
+
+      &::after {
+        content: "█";
+        animation: cursor-blink 1.5s infinite;
+        color: variables.$accent-primary;
+        margin-left: variables.$space-sm;
+        -webkit-text-fill-color: variables.$accent-primary;
+        font-size: 0.5em;
+      }
+    }
+
+    .error-title {
+      font-family: variables.$typewriter-font;
+      font-size: 2.5rem;
+      color: variables.$text-primary;
+      margin-bottom: variables.$space-lg;
+
+      @include variables.md {
+        font-size: 2rem;
+      }
+
+      @include variables.sm {
+        font-size: 1.5rem;
+      }
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$space-xl;
+
+      @include variables.sm {
+        font-size: 1rem;
+      }
+    }
+
+    .error-home-link {
+      display: inline-block;
+      font-family: variables.$typewriter-font;
+      font-size: 1.2rem;
+      color: variables.$text-primary;
+      background: rgba(variables.$accent-primary, 0.1);
+      padding: variables.$space-md variables.$space-xl;
+      border: 2px solid variables.$accent-primary;
+      border-radius: variables.$radius-md;
+      text-decoration: none;
+      transition: all variables.$transition-normal;
+      position: relative;
+
+      &:hover {
+        color: variables.$text-inverse;
+        background: variables.$accent-primary;
+        transform: translateY(-2px);
+        box-shadow: variables.$shadow-glow;
+      }
+
+      &::before {
+        content: "> ";
+        opacity: 0;
+        transition: all variables.$transition-fast;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+
+    // Tech decorative elements
+    &::after {
+      content: "ERROR_404_NOT_FOUND";
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: variables.$mono-font;
+      font-size: 0.8rem;
+      color: variables.$accent-primary;
+      opacity: 0.4;
+      letter-spacing: 2px;
+
+      @include variables.sm {
+        display: none;
+      }
+    }
+  }
+}
+
+// Tech-inspired background elements
+.tech-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(variables.$border-subtle, 0.1) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgba(variables.$border-subtle, 0.1) 1px,
+      transparent 1px
+    );
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+// Cursor blink animation
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: variables.$bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: variables.$accent-primary;
+  border-radius: 4px;
+
+  &:hover {
+    background: variables.$accent-primary;
+  }
+}
+
+// Selection styling
+::selection {
+  background: rgba(variables.$accent-primary, 0.3);
+  color: variables.$text-primary;
+}
+
+::-moz-selection {
+  background: rgba(variables.$accent-primary, 0.3);
+  color: variables.$text-primary;
 }

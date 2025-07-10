@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: variables.$gradient-glow;
+    background: variables.$gradient-accent;
     opacity: 0.3;
   }
 }
@@ -37,7 +37,7 @@
 
   &:hover {
     color: variables.$accent-primary !important;
-    @include variables.glow-text(variables.$accent-glow);
+    @include variables.glow-text(variables.$accent-primary);
   }
 }
 
@@ -74,8 +74,8 @@
     position: relative;
 
     &:hover {
-      color: variables.$accent-secondary !important;
-      background: rgba(variables.$accent-secondary, 0.1);
+      color: variables.$accent-primary !important;
+      background: rgba(variables.$accent-primary, 0.1);
       transform: translateY(-1px);
     }
 
@@ -127,9 +127,6 @@
     &:hover {
       background: rgba(variables.$accent-primary, 0.1) !important;
       color: variables.$accent-primary !important;
-      padding-left: calc(
-        #{variables.$space-md} + #{variables.$space-sm}
-      ) !important;
     }
 
     &::before {
@@ -206,9 +203,7 @@
       padding-left: variables.$space-xl !important;
 
       &:hover {
-        padding-left: calc(
-          #{variables.$space-xl} + #{variables.$space-sm}
-        ) !important;
+        background: rgba(variables.$accent-primary, 0.1) !important;
       }
     }
   }
