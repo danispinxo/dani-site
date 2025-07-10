@@ -9,64 +9,78 @@ const Contact = () => {
   return (
     <>
       <TopNavbar />
+      <div className="tech-grid" />
+      <main>
+        <div className="contact-page">
+          <div className="contact-container">
+            <h1 className="contact-title">Get In Touch</h1>
 
-      <main className="page-content">
-        <div className="contact-title-holder">
-          <p className="contact-title">Get In Touch</p>
-        </div>
-        <div className="contact-body">
-          {state.succeeded ? (
-            <p className="contact-message">Thanks for getting in touch!</p>
-          ) : (
-            <div className="contact-form">
-              <form onSubmit={handleSubmit} style={{ display: "block" }}>
-                <TextField
-                  className="input"
-                  id="standard-basic"
-                  name="name"
-                  label="Name"
-                  variant="standard"
-                  required
-                  fullWidth
-                />
-                <TextField
-                  className="input"
-                  id="standard-basic"
-                  name="email"
-                  label="Email"
-                  variant="standard"
-                  required
-                  fullWidth
-                />
-                <ValidationError
-                  className="error"
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                />
-                <TextField
-                  className="input"
-                  id="outlined-multiline-static"
-                  name="message"
-                  label="Message"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
-                <br />
-                <button
-                  className="form-submit-btn"
-                  type="submit"
-                  disabled={state.submitting}
-                >
-                  Send
-                </button>
-                <ValidationError className="error" errors={state.errors} />
-              </form>
-            </div>
-          )}
-        </div>
+            {state.succeeded ? (
+              <div className="success-container">
+                <p className="success-message">
+                  Thanks for getting in touch! I'll get back to you soon.
+                </p>
+              </div>
+            ) : (
+              <div className="contact-form">
+                <form onSubmit={handleSubmit}>
+                  <div className="form-field">
+                    <TextField
+                      name="name"
+                      label="Name"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      className="contact-input"
+                    />
+                  </div>
 
+                  <div className="form-field">
+                    <TextField
+                      name="email"
+                      label="Email"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      className="contact-input"
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="field-error"
+                    />
+                  </div>
+
+                  <div className="form-field">
+                    <TextField
+                      name="message"
+                      label="Message"
+                      multiline
+                      rows={6}
+                      variant="outlined"
+                      fullWidth
+                      className="contact-input"
+                    />
+                  </div>
+
+                  <button
+                    className="contact-submit-btn"
+                    type="submit"
+                    disabled={state.submitting}
+                  >
+                    {state.submitting ? "Sending..." : "Send Message"}
+                  </button>
+
+                  <ValidationError
+                    errors={state.errors}
+                    className="form-error"
+                  />
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
         <Footer />
       </main>
     </>
