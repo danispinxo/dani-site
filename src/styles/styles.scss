@@ -301,143 +301,6 @@ main {
   }
 }
 
-.error-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 80px);
-  padding: variables.$space-xl;
-
-  .error-container {
-    text-align: center;
-    max-width: 600px;
-    position: relative;
-    padding: variables.$space-xxl;
-    background: rgba(variables.$bg-elevated, 0.5);
-    border-radius: variables.$radius-xl;
-    border: 1px solid variables.$border-subtle;
-    backdrop-filter: blur(10px);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: variables.$gradient-accent;
-      opacity: 0.3;
-      border-radius: variables.$radius-xl variables.$radius-xl 0 0;
-    }
-
-    .error-code {
-      font-family: variables.$typewriter-font;
-      font-size: 8rem;
-      font-weight: 700;
-      margin-bottom: variables.$space-md;
-      background: variables.$gradient-accent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      @include variables.glow-text(variables.$accent-primary);
-
-      @include variables.md {
-        font-size: 6rem;
-      }
-
-      @include variables.sm {
-        font-size: 4rem;
-      }
-
-      &::after {
-        content: "█";
-        animation: cursor-blink 1.5s infinite;
-        color: variables.$accent-primary;
-        margin-left: variables.$space-sm;
-        -webkit-text-fill-color: variables.$accent-primary;
-        font-size: 0.5em;
-      }
-    }
-
-    .error-title {
-      font-family: variables.$typewriter-font;
-      font-size: 2.5rem;
-      color: variables.$text-primary;
-      margin-bottom: variables.$space-lg;
-
-      @include variables.md {
-        font-size: 2rem;
-      }
-
-      @include variables.sm {
-        font-size: 1.5rem;
-      }
-    }
-
-    .error-message {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: variables.$text-secondary;
-      margin-bottom: variables.$space-xl;
-
-      @include variables.sm {
-        font-size: 1rem;
-      }
-    }
-
-    .error-home-link {
-      display: inline-block;
-      font-family: variables.$typewriter-font;
-      font-size: 1.2rem;
-      color: variables.$text-primary;
-      background: rgba(variables.$accent-primary, 0.1);
-      padding: variables.$space-md variables.$space-xl;
-      border: 2px solid variables.$accent-primary;
-      border-radius: variables.$radius-md;
-      text-decoration: none;
-      transition: all variables.$transition-normal;
-      position: relative;
-
-      &:hover {
-        color: variables.$text-inverse;
-        background: variables.$accent-primary;
-        transform: translateY(-2px);
-        box-shadow: variables.$shadow-glow;
-      }
-
-      &::before {
-        content: "> ";
-        opacity: 0;
-        transition: all variables.$transition-fast;
-      }
-
-      &:hover::before {
-        opacity: 1;
-      }
-    }
-
-    // Tech decorative elements
-    &::after {
-      content: "ERROR_404_NOT_FOUND";
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: variables.$mono-font;
-      font-size: 0.8rem;
-      color: variables.$accent-primary;
-      opacity: 0.4;
-      letter-spacing: 2px;
-
-      @include variables.sm {
-        display: none;
-      }
-    }
-  }
-}
-
-// Tech-inspired background elements
 .tech-grid {
   position: fixed;
   top: 0;
@@ -457,7 +320,6 @@ main {
   opacity: 0.3;
 }
 
-// Cursor blink animation
 @keyframes cursor-blink {
   0%,
   50% {
@@ -469,7 +331,6 @@ main {
   }
 }
 
-// Scrollbar styling
 ::-webkit-scrollbar {
   width: 8px;
 }
