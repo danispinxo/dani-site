@@ -1,0 +1,123 @@
+@use "variables.scss";
+
+// All You Hold - Interactive Poem Page
+.poem-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: variables.$space-xl;
+
+  .poem-container {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    padding: variables.$space-xxl variables.$space-xl;
+    background: rgba(variables.$bg-elevated, 0.7);
+    border-radius: variables.$radius-xl;
+    border: 1px solid variables.$border-subtle;
+    backdrop-filter: blur(20px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: variables.$gradient-accent;
+      opacity: 0.4;
+      border-radius: variables.$radius-xl variables.$radius-xl 0 0;
+    }
+
+    .poem-title {
+      font-family: variables.$typewriter-font;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: variables.$space-xxl;
+      background: variables.$gradient-accent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+
+      @include variables.glow-text(variables.$accent-primary);
+
+      @include variables.md {
+        font-size: 2.8rem;
+      }
+
+      @include variables.sm {
+        font-size: 2.2rem;
+      }
+    }
+
+    .poem-content {
+      margin-bottom: variables.$space-xl;
+      position: relative;
+
+      .poem-line {
+        font-family: variables.$serif-font;
+        font-size: 1.5rem;
+        line-height: 1.6;
+        color: variables.$text-primary;
+        margin: 0;
+        font-weight: 500;
+
+        @include variables.md {
+          font-size: 1.1rem;
+        }
+
+        @include variables.sm {
+          font-size: 0.9rem;
+        }
+
+        .emoji-slot {
+          display: inline-block;
+          font-size: 1.8em;
+          line-height: 1;
+          margin: 0 variables.$space-xs;
+          position: relative;
+
+          @include variables.md {
+            font-size: 1.3em;
+          }
+
+          @include variables.sm {
+            font-size: 1em;
+          }
+
+          &:hover {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(variables.$accent-primary, 0.6));
+          }
+        }
+      }
+    }
+
+    .poem-meta {
+      .poem-status {
+        font-family: variables.$mono-font;
+        font-size: 0.9rem;
+        color: variables.$text-muted;
+        opacity: 0.7;
+        letter-spacing: 1px;
+
+        &::before {
+          content: "> ";
+          color: variables.$accent-primary;
+        }
+      }
+    }
+  }
+}
+
+// Emoji glow animation
+@keyframes emoji-glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(variables.$accent-primary, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(variables.$accent-primary, 0.7));
+  }
+}

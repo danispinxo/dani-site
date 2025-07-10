@@ -27,12 +27,29 @@ const PoemGenerator = () => {
   return (
     <>
       <TopNavbar />
-      <main className="page-content">
-        <h1 className="title">All You Hold</h1>
-        <p className="hold-line">
-          When all you hold is a {firstBlank}, everything looks like a{" "}
-          {secondBlank}.
-        </p>
+      <div className="tech-grid" />
+      <main>
+        <div className="poem-page">
+          <div className="poem-container">
+            <h1 className="poem-title">All You Hold</h1>
+            <div className="poem-content">
+              <p className="poem-line">
+                When all you hold is a{" "}
+                <span className="emoji-slot" key={`first-${firstBlank}`}>
+                  {firstBlank}
+                </span>
+                , everything looks like a{" "}
+                <span className="emoji-slot" key={`second-${secondBlank}`}>
+                  {secondBlank}
+                </span>
+                .
+              </p>
+            </div>
+            <div className="poem-meta">
+              <span className="poem-status">Updating every 4 seconds</span>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );
