@@ -35,7 +35,7 @@ export default function Portfolio() {
               <h2 className="section-title">Projects</h2>
               <div className="books-grid">
                 <Book
-                  cover="/images/personal-site.png"
+                  cover="/images/dani-site.png"
                   title="www.danispinosa.dev"
                   notes="Personal Website"
                   link="https://github.com/danispinxo/dani-site"
