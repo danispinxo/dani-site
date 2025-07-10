@@ -19,8 +19,8 @@ export default function Homepage() {
             <p>
               Dani Spinosa is a poet, scholar, educator, writer, and a trained
               full-stack developer. She is an adjunct professor, a software
-              developer at Hatch Coding, a digital and creative project manager,
-              a co-founding editor of{" "}
+              developer, a digital and creative project manager, a co-founding
+              editor of{" "}
               <a
                 href="https://www.gapriotpress.com/"
                 target="_blank"
