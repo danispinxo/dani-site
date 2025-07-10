@@ -10,15 +10,21 @@ const TopNavbar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="navbar-link" id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="navbar-link" href="/scholarship">
-              Scholarship
-            </Nav.Link>
-            <Nav.Link className="navbar-link" href="/talks">
-              Talks
-            </Nav.Link>
-            <Nav.Link className="navbar-link" href="/teaching">
-              Teaching
-            </Nav.Link>
+            <NavDropdown
+              className="navbar-link"
+              title="Research"
+              id="collasible-nav-dropdown"
+            >
+              <NavDropdown.Item className="navbar-link" href="/scholarship">
+                Scholarship
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-link" href="/talks">
+                Talks
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-link" href="/teaching">
+                Teaching
+              </NavDropdown.Item>
+            </NavDropdown>
             <NavDropdown
               className="navbar-link"
               title="Writing"
