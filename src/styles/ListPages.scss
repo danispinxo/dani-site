@@ -333,10 +333,25 @@
     }
 
     .publications-grid {
-      display: flex;
-      flex-direction: column;
-      gap: variables.$space-md;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: variables.$space-lg;
       margin-top: variables.$space-xl;
+
+      @include variables.md {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variables.$space-md;
+      }
+
+      @include variables.sm {
+        grid-template-columns: 1fr;
+        gap: variables.$space-md;
+      }
+
+      @include variables.xs {
+        grid-template-columns: 1fr;
+        gap: variables.$space-sm;
+      }
     }
   }
 }
