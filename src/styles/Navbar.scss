@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// Modern typewriter goth navbar
 .navbar {
   background: variables.$gradient-primary !important;
   border-bottom: 1px solid variables.$border-prominent;
@@ -163,7 +162,6 @@
   }
 }
 
-// Cursor blink animation
 @keyframes cursor-blink {
   0%,
   50% {
@@ -175,7 +173,6 @@
   }
 }
 
-// Mobile responsiveness
 @include variables.xs {
   .navbar-brand {
     font-size: 1.5rem !important;
@@ -209,7 +206,6 @@
   }
 }
 
-// Additional tech-inspired effects
 .navbar-collapse {
   &.show {
     background: rgba(variables.$bg-secondary, 0.95);

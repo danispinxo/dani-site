@@ -30,7 +30,6 @@ const BudgetNav = ({ activeView, onViewChange }) => {
     },
   ];
 
-  // Sample reminders - in a real app, these would come from a database
   const upcomingReminders = [
     {
       id: 1,

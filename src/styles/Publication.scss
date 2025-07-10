@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// Modern Publication Component - Typewriter Goth Aesthetic
 .publication-component {
   display: flex;
   flex-direction: row;
@@ -160,7 +159,6 @@
     }
   }
 
-  // Tech decorative element
   &::after {
     content: "";
     position: absolute;

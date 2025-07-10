@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Modal, Box, Button } from "@mui/material";
 
-// Custom Confirmation Modal Component
 const ConfirmationModal = ({
   open,
   onClose,
@@ -73,7 +72,6 @@ const ConfirmationModal = ({
   );
 };
 
-// Custom hook for confirmation dialogs
 const useConfirmation = () => {
   const [confirmationState, setConfirmationState] = useState({
     open: false,

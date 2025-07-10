@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// CSS Custom Properties for improved browser support
 :root {
   --bg-primary: #{variables.$bg-primary};
   --bg-secondary: #{variables.$bg-secondary};
@@ -14,7 +13,6 @@
   --space-lg: #{variables.$space-lg};
 }
 
-// Global styles and base setup
 * {
   box-sizing: border-box;
 }
@@ -39,7 +37,6 @@ body {
   min-height: 100vh;
 }
 
-// Override Bootstrap container margins
 .container {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -47,7 +44,6 @@ body {
   padding-right: var(--bs-gutter-x, 0.75rem) !important;
 }
 
-// Ensure full-width coverage
 #__next {
   margin: 0;
   padding: 0;
@@ -55,7 +51,6 @@ body {
   min-height: 100vh;
 }
 
-// Modern typewriter goth homepage
 main {
   min-height: 100vh;
   background: variables.$gradient-primary;
@@ -212,7 +207,6 @@ main {
       }
     }
 
-    // Tech-inspired decorative elements
     &::before {
       content: "> ";
       position: absolute;
@@ -348,7 +342,6 @@ main {
   }
 }
 
-// Selection styling
 ::selection {
   background: rgba(variables.$accent-primary, 0.3);
   color: variables.$text-primary;
@@ -357,4 +350,101 @@ main {
 ::-moz-selection {
   background: rgba(variables.$accent-primary, 0.3);
   color: variables.$text-primary;
+}
+
+.footer {
+  background: rgba(variables.$bg-secondary, 0.9);
+  border-top: 1px solid variables.$border-prominent;
+  backdrop-filter: blur(10px);
+  margin-top: variables.$space-xxl;
+  position: relative;
+  z-index: 10;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: variables.$space-xl variables.$space-lg;
+    text-align: center;
+
+    @include variables.xs {
+      padding: variables.$space-lg variables.$space-md;
+    }
+  }
+
+  .footer-section {
+    margin-bottom: variables.$space-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-tagline {
+    font-family: variables.$typewriter-font;
+    font-size: 1.1rem;
+    color: variables.$accent-primary;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    @include variables.glow-text(variables.$accent-primary);
+
+    @include variables.xs {
+      font-size: 1rem;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: variables.$space-sm;
+    flex-wrap: wrap;
+
+    @include variables.xs {
+      gap: variables.$space-xs;
+    }
+  }
+
+  .footer-link {
+    color: variables.$text-secondary;
+    text-decoration: none;
+    font-family: variables.$typewriter-font;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all variables.$transition-normal;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      color: variables.$accent-primary;
+      @include variables.glow-text(variables.$accent-primary);
+      transform: translateY(-1px);
+    }
+
+    @include variables.xs {
+      font-size: 0.85rem;
+    }
+  }
+
+  .footer-separator {
+    color: variables.$text-muted;
+    font-size: 0.8rem;
+    margin: 0 variables.$space-xs;
+
+    @include variables.xs {
+      margin: 0 2px;
+    }
+  }
+
+  .footer-copyright {
+    font-family: variables.$round-font;
+    font-size: 0.85rem;
+    color: variables.$text-muted;
+    margin: 0;
+    font-style: italic;
+
+    @include variables.xs {
+      font-size: 0.8rem;
+    }
+  }
 }

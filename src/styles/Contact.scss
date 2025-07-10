@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// Contact Page - Modern Typewriter Goth Styling
 .contact-page {
   display: flex;
   align-items: center;
@@ -167,7 +166,6 @@
   }
 }
 
-// Responsive adjustments
 @include variables.sm {
   .contact-page {
     padding: variables.$space-md;
@@ -188,7 +186,6 @@
   }
 }
 
-// Footer spacing
 .footer {
   margin-top: variables.$space-xl;
 }

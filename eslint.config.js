@@ -1,4 +1,3 @@
-// eslint.config.js
 import { defineConfig } from "eslint/config";
 import reactPlugin from "eslint-plugin-react";
 import nextPlugin from "@next/eslint-plugin-next";

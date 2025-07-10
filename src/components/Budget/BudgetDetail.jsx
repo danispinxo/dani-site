@@ -13,7 +13,6 @@ const BudgetDetail = ({ user }) => {
   const router = useRouter();
   const [activeView, setActiveView] = useState("new-expense");
 
-  // Read initial view from URL params on mount
   useEffect(() => {
     const { tab } = router.query;
     if (
@@ -30,18 +29,16 @@ const BudgetDetail = ({ user }) => {
     }
   }, [router.query]);
 
-  // Function to handle view changes and update URL
   const handleViewChange = (newView) => {
     setActiveView(newView);
 
-    // Update URL with new tab parameter
     router.push(
       {
         pathname: router.pathname,
         query: { ...router.query, tab: newView },
       },
       undefined,
-      { shallow: true } // Don't trigger a full page reload
+      { shallow: true }
     );
   };
 

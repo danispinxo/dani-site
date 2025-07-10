@@ -70,7 +70,6 @@
       }
     }
 
-    // Overlay for hover effect
     &::before {
       content: "";
       position: absolute;
@@ -89,7 +88,6 @@
       border-radius: variables.$radius-lg;
     }
 
-    // Tech indicator on hover
     &::after {
       content: "▶ VIEW";
       position: absolute;

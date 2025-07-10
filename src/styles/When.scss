@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// Modern layout with tech styling
 .page-content {
   min-height: 100vh;
   position: relative;
@@ -130,19 +129,19 @@
 
   input[type="text"] {
     display: inline;
-    margin: 0 2px; // Minimal margin to not interfere with sizing
-    padding: 2px 4px; // Minimal padding for the auto-sizing to work
+    margin: 0 2px;
+    padding: 2px 4px;
     background: transparent;
     border: none;
     border-bottom: 2px dotted variables.$accent-primary;
     color: variables.$accent-secondary;
-    font-family: variables.$typewriter-font; // Match parent font
-    font-size: inherit; // Inherit exact font size
-    font-weight: inherit; // Inherit font weight
-    letter-spacing: inherit; // Inherit letter spacing
+    font-family: variables.$typewriter-font;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
     transition: all variables.$transition-normal;
     min-width: 60px;
-    box-sizing: border-box; // Important for accurate width calculations
+    box-sizing: border-box;
 
     &:focus {
       outline: none;
@@ -207,7 +206,6 @@
   }
 }
 
-// Poem-specific styles
 .poem-header {
   text-align: center;
   margin-bottom: variables.$space-xl;
@@ -311,7 +309,6 @@
       }
     }
 
-    // Randomly selected words styling
     span {
       color: variables.$accent-secondary;
       font-weight: 600;
