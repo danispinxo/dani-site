@@ -206,3 +206,144 @@
     }
   }
 }
+
+// Poem-specific styles
+.poem-header {
+  text-align: center;
+  margin-bottom: variables.$space-xl;
+  padding-bottom: variables.$space-lg;
+  border-bottom: 1px solid variables.$border-subtle;
+
+  .poem-title {
+    font-family: variables.$typewriter-font;
+    font-size: 3rem;
+    font-weight: bold;
+    color: variables.$text-primary;
+    margin-bottom: variables.$space-md;
+    @include variables.glow-text(variables.$accent-primary);
+
+    @include variables.md {
+      font-size: 2.5rem;
+    }
+
+    @include variables.sm {
+      font-size: 2rem;
+    }
+
+    @include variables.xs {
+      font-size: 1.8rem;
+    }
+  }
+
+  .poem-subtitle {
+    color: variables.$text-secondary;
+    font-size: 1rem;
+    margin-bottom: variables.$space-lg;
+    font-style: italic;
+    line-height: 1.6;
+
+    @include variables.xs {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.contributors-marquee {
+  background: rgba(variables.$bg-primary, 0.3);
+  border-radius: variables.$radius-md;
+  border: 1px solid variables.$border-subtle;
+  padding: variables.$space-sm 0;
+  overflow: hidden;
+
+  .contributors-text {
+    color: variables.$text-secondary;
+    font-family: variables.$typewriter-font;
+    font-size: 0.9rem;
+    margin: 0;
+    white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    @include variables.xs {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.poem-container {
+  background: rgba(variables.$bg-elevated, 0.7);
+  border: 1px solid variables.$border-prominent;
+  border-radius: variables.$radius-md;
+  padding: variables.$space-xl;
+  @include variables.tech-border;
+
+  @include variables.xs {
+    padding: variables.$space-lg;
+  }
+}
+
+.poem-text {
+  font-family: variables.$typewriter-font;
+
+  .when-line {
+    color: variables.$text-primary;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: variables.$space-md;
+    padding-left: variables.$space-md;
+    transition: all variables.$transition-normal;
+    position: relative;
+
+    &:hover {
+      color: variables.$accent-secondary;
+      padding-left: variables.$space-lg;
+      @include variables.glow-text(variables.$accent-primary);
+    }
+
+    &:first-child {
+      font-weight: bold;
+      color: variables.$accent-primary;
+      font-size: 1.3rem;
+      margin-bottom: variables.$space-lg;
+
+      &:hover {
+        color: variables.$accent-primary;
+      }
+    }
+
+    // Randomly selected words styling
+    span {
+      color: variables.$accent-secondary;
+      font-weight: 600;
+      transition: color variables.$transition-fast;
+
+      &:hover {
+        color: variables.$accent-primary;
+      }
+    }
+
+    @include variables.md {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    @include variables.sm {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding-left: variables.$space-sm;
+
+      &:hover {
+        padding-left: variables.$space-md;
+      }
+    }
+
+    @include variables.xs {
+      font-size: 0.9rem;
+      line-height: 1.5;
+
+      &:first-child {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
