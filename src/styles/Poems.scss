@@ -1,6 +1,5 @@
 @use "variables.scss";
 
-// All You Hold - Interactive Poem Page
 .poem-page {
   display: flex;
   align-items: center;
@@ -112,7 +111,6 @@
   }
 }
 
-// Form page - minimal styling to keep focus on the poem
 .poem-attribution {
   font-family: variables.$round-font;
   font-size: 1rem;
@@ -149,7 +147,6 @@
     min-height: 400px;
     text-align: center;
 
-    // Let the poem's own styling be the star - minimal container
     p {
       margin: variables.$space-sm 0;
       color: variables.$text-primary;
@@ -171,7 +168,6 @@
   }
 }
 
-// Emoji glow animation
 @keyframes emoji-glow {
   0% {
     filter: drop-shadow(0 0 5px rgba(variables.$accent-primary, 0.3));
