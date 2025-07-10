@@ -1,58 +1,208 @@
 @use "variables.scss";
 
+// Modern layout with tech styling
 .page-content {
-  .note {
-    margin-left: 1rem;
-    font-size: small;
-    font-style: italic;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
 
-    a {
-      color: darkred;
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: variables.$space-xl variables.$space-lg;
+  background: rgba(variables.$bg-secondary, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid variables.$border-prominent;
+  border-radius: variables.$radius-lg;
+  margin-top: variables.$space-xl;
+  margin-bottom: variables.$space-xl;
+
+  @include variables.xs {
+    padding: variables.$space-lg variables.$space-md;
+    margin: variables.$space-md;
+  }
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: variables.$text-primary;
+  text-align: center;
+  margin-bottom: variables.$space-md;
+  font-family: variables.$typewriter-font;
+  @include variables.glow-text(variables.$accent-primary);
+
+  @include variables.xs {
+    font-size: 2rem;
+  }
+}
+
+.lexicon-note {
+  color: variables.$text-secondary;
+  margin-bottom: variables.$space-lg;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  padding: variables.$space-md;
+  background: rgba(variables.$bg-elevated, 0.3);
+  border-radius: variables.$radius-md;
+  border: 1px solid variables.$border-subtle;
+
+  a {
+    color: variables.$accent-primary;
+    text-decoration: none;
+    transition: color variables.$transition-normal;
+
+    &:hover {
+      color: variables.$accent-secondary;
+      @include variables.glow-text(variables.$accent-primary);
     }
   }
+}
 
-  .title {
+.form-container {
+  background: rgba(variables.$bg-elevated, 0.7);
+  border: 1px solid variables.$border-prominent;
+  border-radius: variables.$radius-md;
+  padding: variables.$space-lg;
+  @include variables.tech-border;
+
+  @include variables.xs {
+    padding: variables.$space-md;
+  }
+}
+
+.contributor-section {
+  margin-bottom: variables.$space-lg;
+  padding: variables.$space-md;
+  background: rgba(variables.$bg-primary, 0.3);
+  border-radius: variables.$radius-sm;
+  border: 1px solid variables.$border-subtle;
+
+  label {
+    display: block;
+    color: variables.$accent-primary;
     font-family: variables.$typewriter-font;
+    font-weight: bold;
+    margin-bottom: variables.$space-sm;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
-  .when-form {
-    text-align: justify;
+  input {
+    width: 100%;
+    padding: variables.$space-sm;
+    background: rgba(variables.$bg-secondary, 0.8);
+    border: 1px solid variables.$border-subtle;
+    border-radius: variables.$radius-sm;
+    color: variables.$text-primary;
+    font-family: variables.$round-font;
+    font-size: 0.9rem;
+    transition: all variables.$transition-normal;
 
-    input[type="text"] {
-      margin: 0.5rem;
-      padding: 0.1rem;
-      padding-left: 0.3rem;
-      width: auto;
-      border-style: dotted;
-      border-top: none;
-      border-left: none;
-      border-right: none;
+    &:focus {
+      outline: none;
+      border-color: variables.$accent-primary;
+      @include variables.glow-text(variables.$accent-primary);
+      background: rgba(variables.$bg-secondary, 1);
     }
 
-    input::placeholder {
+    &::placeholder {
+      color: variables.$text-muted;
+      font-style: italic;
+    }
+  }
+}
+
+.when-form {
+  font-family: variables.$typewriter-font;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: variables.$text-primary;
+  text-align: justify;
+  padding: variables.$space-lg;
+  background: rgba(variables.$bg-primary, 0.2);
+  border-radius: variables.$radius-md;
+  border: 1px solid variables.$border-subtle;
+  margin-bottom: variables.$space-lg;
+
+  input[type="text"] {
+    display: inline;
+    margin: 0 2px; // Minimal margin to not interfere with sizing
+    padding: 2px 4px; // Minimal padding for the auto-sizing to work
+    background: transparent;
+    border: none;
+    border-bottom: 2px dotted variables.$accent-primary;
+    color: variables.$accent-secondary;
+    font-family: variables.$typewriter-font; // Match parent font
+    font-size: inherit; // Inherit exact font size
+    font-weight: inherit; // Inherit font weight
+    letter-spacing: inherit; // Inherit letter spacing
+    transition: all variables.$transition-normal;
+    min-width: 60px;
+    box-sizing: border-box; // Important for accurate width calculations
+
+    &:focus {
+      outline: none;
+      border-bottom-color: variables.$accent-secondary;
+      background: rgba(variables.$accent-primary, 0.1);
+      @include variables.glow-text(variables.$accent-primary);
+    }
+
+    &:valid {
+      border-bottom-color: variables.$success;
+      color: variables.$success;
+    }
+
+    &::placeholder {
+      color: variables.$text-muted;
       opacity: 0.7;
+      font-style: italic;
+      font-weight: normal;
     }
   }
 
-  .contributor-holder {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+  @include variables.xs {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: variables.$space-md;
   }
-  .button-holder {
-    display: flex;
-    justify-content: flex-end;
-    align-content: flex-end;
+}
 
-    button {
-      padding: 0.5rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      width: auto;
-      font-family: variables.$typewriter-font;
-      background-color: darkred;
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
+.button-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: variables.$space-lg;
+
+  button {
+    padding: variables.$space-md variables.$space-xl;
+    font-family: variables.$typewriter-font;
+    font-size: 1rem;
+    font-weight: bold;
+    background: variables.$gradient-accent;
+    color: variables.$text-primary;
+    border: none;
+    border-radius: variables.$radius-sm;
+    cursor: pointer;
+    transition: all variables.$transition-normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: variables.$shadow-prominent;
+      @include variables.glow-text(variables.$accent-primary);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: 2px solid variables.$accent-primary;
+      outline-offset: 2px;
     }
   }
 }
