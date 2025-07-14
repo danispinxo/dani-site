@@ -71,6 +71,11 @@ $screen-md-max: 1279px;
 $screen-lg-max: 1919px;
 $screen-xl-max: 5000px;
 
+$screen-mobile-small: 320px;
+$screen-mobile-medium: 375px;
+$screen-mobile-large: 425px;
+$screen-tablet-small: 768px;
+
 @mixin xs {
   @media screen and (max-width: #{$screen-xs-max}) {
     @content;
@@ -97,6 +102,54 @@ $screen-xl-max: 5000px;
 
 @mixin xl {
   @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+@mixin mobile-small {
+  @media screen and (max-width: #{$screen-mobile-small}) {
+    @content;
+  }
+}
+
+@mixin mobile-medium {
+  @media screen and (min-width: #{$screen-mobile-small + 1px}) and (max-width: #{$screen-mobile-medium}) {
+    @content;
+  }
+}
+
+@mixin mobile-large {
+  @media screen and (min-width: #{$screen-mobile-medium + 1px}) and (max-width: #{$screen-mobile-large}) {
+    @content;
+  }
+}
+
+@mixin tablet-small {
+  @media screen and (min-width: #{$screen-mobile-large + 1px}) and (max-width: #{$screen-tablet-small}) {
+    @content;
+  }
+}
+
+@mixin mobile-all {
+  @media screen and (max-width: #{$screen-mobile-large}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-below {
+  @media screen and (max-width: #{$screen-tablet-small}) {
+    @content;
+  }
+}
+
+@mixin touch-device {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin hover-device {
+  @media (hover: hover) and (pointer: fine) {
     @content;
   }
 }

@@ -23,6 +23,11 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 768px) {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
 }
 
 body {
@@ -35,6 +40,12 @@ body {
   overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
+
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .container {
@@ -51,7 +62,6 @@ body {
   min-height: 100vh;
 }
 
-// Modern typewriter goth homepage
 main {
   min-height: 100vh;
   background: variables.$gradient-primary;
@@ -97,11 +107,9 @@ main {
   padding: variables.$space-lg variables.$space-xl;
   align-items: center;
   flex: 1;
-  min-height: calc(
-    100vh - 140px
-  ); // Account for navbar (~60px) and footer (~80px)
+  min-height: calc(100vh - 140px);
 
-  @include variables.md {
+  @media screen and (max-width: 1279px) {
     grid-template-columns: 1fr;
     gap: variables.$space-lg;
     text-align: center;
@@ -112,13 +120,22 @@ main {
   @include variables.sm {
     gap: variables.$space-md;
     padding: variables.$space-md;
-    min-height: calc(100vh - 100px);
+    min-height: auto;
+    padding-top: variables.$space-lg;
+    padding-bottom: variables.$space-lg;
   }
 
   @include variables.xs {
     gap: variables.$space-sm;
     padding: variables.$space-sm variables.$space-md;
-    min-height: calc(100vh - 100px);
+    min-height: auto;
+    padding-top: variables.$space-md;
+    padding-bottom: variables.$space-md;
+  }
+
+  @media screen and (max-width: 320px) {
+    padding: variables.$space-xs variables.$space-sm;
+    gap: variables.$space-xs;
   }
 
   .bio-container {
@@ -143,10 +160,22 @@ main {
 
       @include variables.md {
         font-size: 2.5rem;
+        margin-bottom: variables.$space-sm;
       }
 
       @include variables.sm {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: variables.$space-sm;
+      }
+
+      @include variables.xs {
+        font-size: 1.8rem;
+        margin-bottom: variables.$space-xs;
+        line-height: 1.2;
+      }
+
+      @media screen and (max-width: 320px) {
+        font-size: 1.6rem;
       }
 
       &::after {
@@ -155,6 +184,10 @@ main {
         color: variables.$accent-primary;
         margin-left: variables.$space-xs;
         -webkit-text-fill-color: variables.$accent-primary;
+
+        @include variables.xs {
+          margin-left: 2px;
+        }
       }
     }
 
@@ -170,16 +203,31 @@ main {
       border: 1px solid variables.$border-subtle;
       backdrop-filter: blur(10px);
 
+      @include variables.md {
+        font-size: 1rem;
+        line-height: 1.65;
+        padding: variables.$space-md variables.$space-lg;
+      }
+
       @include variables.sm {
         font-size: 0.95rem;
         padding: variables.$space-md;
-        line-height: 1.5;
+        line-height: 1.6;
+        margin-bottom: variables.$space-sm;
       }
 
       @include variables.xs {
         font-size: 0.9rem;
-        padding: variables.$space-sm;
-        line-height: 1.4;
+        padding: variables.$space-sm variables.$space-md;
+        line-height: 1.55;
+        margin-bottom: variables.$space-sm;
+        border-radius: variables.$radius-md;
+      }
+
+      @media screen and (max-width: 320px) {
+        font-size: 0.85rem;
+        padding: variables.$space-xs variables.$space-sm;
+        line-height: 1.5;
       }
 
       &::before {
@@ -192,6 +240,10 @@ main {
         background: variables.$gradient-accent;
         opacity: 0.3;
         border-radius: variables.$radius-lg variables.$radius-lg 0 0;
+
+        @include variables.xs {
+          border-radius: variables.$radius-md variables.$radius-md 0 0;
+        }
       }
     }
 
@@ -201,6 +253,11 @@ main {
       position: relative;
       transition: all variables.$transition-normal;
       font-weight: 500;
+
+      @include variables.xs {
+        padding: 2px 0;
+        display: inline-block;
+      }
 
       &:hover {
         color: variables.$accent-primary;
@@ -216,6 +273,11 @@ main {
         height: 2px;
         background: variables.$gradient-accent;
         transition: width variables.$transition-normal;
+
+        @include variables.xs {
+          height: 2px;
+          bottom: -1px;
+        }
       }
 
       &:hover::after {
@@ -223,7 +285,6 @@ main {
       }
     }
 
-    // Tech-inspired decorative elements
     &::before {
       content: "> ";
       position: absolute;
@@ -256,7 +317,6 @@ main {
   }
 
   .author-photo {
-    grid-order: 2;
     width: 350px !important;
     height: 350px !important;
     border-radius: variables.$radius-xl;
@@ -266,21 +326,35 @@ main {
     box-shadow: variables.$shadow-prominent;
     transition: all variables.$transition-slow;
 
+    @media screen and (max-width: 1279px) {
+      margin: 0 auto;
+      display: block;
+    }
+
     @include variables.md {
-      grid-order: 1;
       width: 300px !important;
       height: 300px !important;
-      margin: 0 auto;
     }
 
     @include variables.sm {
-      width: 280px !important;
-      height: 280px !important;
+      width: 260px !important;
+      height: 260px !important;
     }
 
     @include variables.xs {
-      width: 250px !important;
-      height: 250px !important;
+      width: 220px !important;
+      height: 220px !important;
+      border-radius: variables.$radius-lg;
+    }
+
+    @media screen and (max-width: 360px) {
+      width: 200px !important;
+      height: 200px !important;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 180px !important;
+      height: 180px !important;
     }
 
     &::before {
@@ -295,18 +369,34 @@ main {
       z-index: -1;
       opacity: 0.3;
       transition: all variables.$transition-slow;
+
+      @include variables.xs {
+        border-radius: variables.$radius-lg;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+      }
     }
 
-    &:hover {
-      transform: translateY(-4px) rotate(1deg);
-      box-shadow: variables.$shadow-glow;
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-4px) rotate(1deg);
+        box-shadow: variables.$shadow-glow;
 
-      &::before {
-        opacity: 0.6;
-        top: -6px;
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
+        &::before {
+          opacity: 0.6;
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        transform: scale(0.98);
       }
     }
   }
@@ -329,6 +419,16 @@ main {
   pointer-events: none;
   z-index: -1;
   opacity: 0.3;
+
+  @media screen and (max-width: 768px) {
+    background-size: 30px 30px;
+    opacity: 0.15;
+  }
+
+  @media screen and (max-width: 480px) {
+    background-size: 25px 25px;
+    opacity: 0.1;
+  }
 }
 
 @keyframes cursor-blink {
@@ -369,7 +469,6 @@ main {
   color: variables.$text-primary;
 }
 
-// Footer styles
 .footer {
   background: rgba(variables.$bg-secondary, 0.9);
   border-top: 1px solid variables.$border-prominent;
