@@ -5,6 +5,14 @@
   min-height: calc(100vh - 80px);
   padding: variables.$space-xl;
 
+  @include variables.sm {
+    padding: variables.$space-lg;
+  }
+
+  @include variables.xs {
+    padding: variables.$space-md;
+  }
+
   .page-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -114,12 +122,16 @@
 
       @include variables.sm {
         grid-template-columns: 1fr;
-        gap: variables.$space-md;
+        gap: variables.$space-lg;
       }
 
       @include variables.xs {
         grid-template-columns: 1fr;
-        gap: variables.$space-sm;
+        gap: variables.$space-lg;
+      }
+
+      @media screen and (max-width: 360px) {
+        gap: variables.$space-md;
       }
     }
 
