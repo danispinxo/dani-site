@@ -520,7 +520,12 @@
 
       @include variables.sm {
         grid-template-columns: 1fr;
-        gap: variables.$space-md;
+        gap: variables.$space-lg;
+      }
+
+      @include variables.xs {
+        grid-template-columns: 1fr;
+        gap: variables.$space-lg;
       }
 
       .project-card {
