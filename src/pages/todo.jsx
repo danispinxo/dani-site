@@ -6,8 +6,6 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import supabase from "../lib/supabaseClient";
 import Link from "next/link";
 import Image from "react-bootstrap/Image";
-import dotenv from "dotenv";
-dotenv.config();
 
 const ToDoPage = () => {
   const [session, setSession] = useState(null);
