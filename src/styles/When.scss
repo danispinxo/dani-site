@@ -214,22 +214,30 @@
 
   .poem-title {
     font-family: variables.$typewriter-font;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 3.5rem;
+    font-weight: 700;
     color: variables.$text-primary;
     margin-bottom: variables.$space-md;
+    background: variables.$gradient-accent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     @include variables.glow-text(variables.$accent-primary);
 
     @include variables.md {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
 
     @include variables.sm {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
 
     @include variables.xs {
       font-size: 1.8rem;
+    }
+
+    @media screen and (max-width: 360px) {
+      font-size: 1.6rem;
     }
   }
 

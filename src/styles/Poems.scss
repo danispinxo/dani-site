@@ -48,6 +48,17 @@
 
       @include variables.sm {
         font-size: 2.2rem;
+        margin-bottom: variables.$space-xl;
+      }
+
+      @include variables.xs {
+        font-size: 1.8rem;
+        margin-bottom: variables.$space-lg;
+      }
+
+      @media screen and (max-width: 360px) {
+        font-size: 1.6rem;
+        margin-bottom: variables.$space-md;
       }
     }
 
