@@ -50,13 +50,13 @@ const Publication = ({
           target="_blank"
           rel="noreferrer noopener"
         >
-          <FontAwesomeIcon icon={determineIcon(linkType)} title={title} />
+          <FontAwesomeIcon icon={determineIcon(linkType)} aria-label={title} />
         </a>
       ) : (
         <FontAwesomeIcon
           className={`icon ${linkType === "no-link" ? "no-link" : ""}`}
           icon={determineIcon(linkType)}
-          title={title}
+          aria-label={title}
         />
       )}
 
