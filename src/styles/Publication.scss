@@ -105,6 +105,10 @@
       @include variables.xs {
         font-size: 0.9rem;
       }
+
+      @media screen and (max-width: 360px) {
+        font-size: 0.8rem;
+      }
     }
 
     .publication-press {

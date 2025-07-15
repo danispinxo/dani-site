@@ -37,6 +37,17 @@
 
     @include variables.sm {
       font-size: 2.2rem;
+      margin-bottom: variables.$space-xl;
+    }
+
+    @include variables.xs {
+      font-size: 1.8rem;
+      margin-bottom: variables.$space-lg;
+    }
+
+    @media screen and (max-width: 360px) {
+      font-size: 1.6rem;
+      margin-bottom: variables.$space-md;
     }
   }
 
@@ -76,6 +87,17 @@
 
       @include variables.sm {
         font-size: 1.5rem;
+        margin-bottom: variables.$space-lg;
+      }
+
+      @include variables.xs {
+        font-size: 1.2rem;
+        margin-bottom: variables.$space-md;
+      }
+
+      @media screen and (max-width: 360px) {
+        font-size: 1.1rem;
+        margin-bottom: variables.$space-md;
       }
     }
 
