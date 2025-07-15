@@ -299,10 +299,12 @@
     padding-left: variables.$space-md;
     transition: all variables.$transition-normal;
     position: relative;
+    text-indent: -1.5rem;
+    padding-left: calc(variables.$space-md + 1.5rem);
 
     &:hover {
       color: variables.$accent-secondary;
-      padding-left: variables.$space-lg;
+      padding-left: calc(variables.$space-lg + 1.5rem);
       @include variables.glow-text(variables.$accent-primary);
     }
 
@@ -335,19 +337,26 @@
     @include variables.sm {
       font-size: 0.95rem;
       line-height: 1.6;
-      padding-left: variables.$space-sm;
+      text-indent: -1rem;
+      padding-left: calc(variables.$space-sm + 1rem);
 
       &:hover {
-        padding-left: variables.$space-md;
+        padding-left: calc(variables.$space-md + 1rem);
       }
     }
 
     @include variables.xs {
       font-size: 0.9rem;
       line-height: 1.5;
+      text-indent: -0.8rem;
+      padding-left: calc(variables.$space-sm + 0.8rem);
 
       &:first-child {
         font-size: 1.1rem;
+      }
+
+      &:hover {
+        padding-left: calc(variables.$space-sm + 1.2rem);
       }
     }
   }
