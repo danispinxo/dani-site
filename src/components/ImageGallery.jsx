@@ -1,210 +1,119 @@
-const images = [
-  {
-    src: "/images/gap-riot-table.jpg",
-    alt: "Gap Riot Table",
-  },
-  {
-    src: "/images/gap-riot-books.png",
-    alt: "Gap Riot Books",
-  },
-  {
-    src: "/images/fertile-fest-claren.jpg",
-    alt: "Fertile Fest with Claren",
-  },
-  {
-    src: "/images/guest-cover.jpg",
-    alt: "Guest Cover",
-  },
-  {
-    src: "/images/glosas-1.jpg",
-    alt: "Glosas v.1 Cover",
-  },
-  {
-    src: "/images/reading-b-and-w.jpg",
-    alt: "Reading Black and White",
-    author: "Photo credit Jesse Pajuäär",
-  },
-  {
-    src: "/images/gap-riot-logo.jpg",
-    alt: "Gap Riot Logo",
-    author: "Design credit Stace Schmidt McLean",
-  },
-  {
-    src: "/images/fertile-fest-isla.jpg",
-    alt: "Fertile Fest with Isla",
-  },
-  {
-    src: "/images/vispo-cover.jpg",
-    alt: "Cover of Visual Poetry for Women",
-  },
-  {
-    src: "/images/h-of-a-night.jpg",
-    alt: "H of a Night Reading",
-  },
-  {
-    src: "/images/talk-flyer.jpg",
-    alt: "Design Talk Flyer",
-  },
-  {
-    src: "/images/oo-cover.jpg",
-    alt: "OO Cover",
-  },
-  {
-    src: "/images/gap-riot-mic.jpg",
-    alt: "Gap Riot Introduction",
-  },
-  {
-    src: "/images/keynote-flyer.jpg",
-    alt: "Keynote flyer for Where From Here Conference (Guelph, ON)",
-  },
-  {
-    src: "/images/lost-launches.jpg",
-    alt: "Reading at Lost Launches Art Bar",
-  },
-  {
-    src: "/images/kate-launch.jpg",
-    alt: "Launch of Kate Siklosi's Selvage",
-  },
-  {
-    src: "/images/keynote-2.jpg",
-    alt: "Keynote at Where From Here",
-  },
-  {
-    src: "/images/litlive.jpg",
-    alt: "Flyer for Lit Live Reading",
-  },
-  {
-    src: "/images/gary-reading.png",
-    alt: "milkmag Flyer",
-  },
-  {
-    src: "/images/gap-riot-more-books.jpg",
-    alt: "Gap Riot Publications",
-  },
-  {
-    src: "/images/amanda-package.jpg",
-    alt: "Poems for Friends",
-  },
-  {
-    src: "/images/derek-article.jpg",
-    alt: "Article on Aperture in Quill and Quire",
-  },
-  {
-    src: "/images/vispo-middle.jpg",
-    alt: "Visual Poetry for Women",
-  },
-  {
-    src: "/images/woman-e-lit.jpg",
-    alt: "Women in E-literature",
-  },
-  {
-    src: "/images/carpal-tunnel-stace.jpg",
-    alt: "Carpal Tunnel concept by me, image by Stace Schmidt McLean",
-  },
-  {
-    src: "/images/to-whom-cover.jpeg",
-    alt: "Cover of To Whom Shall I Write (Noir:Z)",
-  },
-  {
-    src: "/images/schmaltz-interview.png",
-    alt: "Interview in The Angle Screenshot",
-  },
-  {
-    src: "/images/reading-flyer-1.jpg",
-    alt: "Reading Flyer from The Printed Word (Dundas, ON)",
-  },
-  {
-    src: "/images/q-and-q-artcle.jpg",
-    alt: "Quill & Quire Article on OO: Typewriter Poems",
-  },
-  {
-    src: "/images/keynote-1.jpg",
-    alt: "Keynote address at Where From Here Conference (Guelph, ON)",
-  },
-  {
-    src: "/images/poem.png",
-    alt: "Typewriter Poem from OO: Typewriter Poems",
-  },
-  {
-    src: "/images/lost-launches-flyer.jpg",
-    alt: "Flyer from Art Bar Lost Launches Event",
-  },
-  {
-    src: "/images/dene-package.jpg",
-    alt: "Poetry sent to Dene Grigar",
-  },
-  {
-    src: "/images/no.jpg",
-    alt: "No, poem for Sam Bernstein published in I'll Get Right On It",
-  },
-  {
-    src: "/images/minor-seeds.jpg",
-    alt: "Seed paper card from Abby Minor's chapbook",
-  },
-  {
-    src: "/images/glosa.jpg",
-    alt: "Image from Glosas for Tired Eyes Vol. 1 Cover",
-  },
-  {
-    src: "/images/karaoke.jpg",
-    alt: "Just sneaking a quick karaoke shot in there",
-  },
-  {
-    src: "/images/keynote-2.jpg",
-    alt: "Keynote address at Where From Here Conference (Guelph, ON)",
-  },
-  {
-    src: "/images/palm.jpg",
-    alt: "Palm Introduction to our Issue of Guest",
-  },
-  {
-    src: "/images/english-dept-art.jpg",
-    alt: "Collaborative Art Being Installed in the English Department at York University",
-  },
-  {
-    src: "/images/gap-riot.webp",
-    alt: "At Fertile Fest 2022 (Photo Credit Kirby)",
-  },
-  {
-    src: "/images/kate-launch-reading.jpg",
-    alt: "Launch of Kate Siklosi's Selvage (Photo Credit Kirby)",
-  },
-  {
-    src: "/images/mtp.jpeg",
-    alt: "2024 Meet the Presses Indie Literary Market with Karen Schindler of Baseline Press (Photo Credit Kirby)",
-  },
-  {
-    src: "/images/swatch.png",
-    alt: "Selection from Swatch published in ADDA",
-  },
-  {
-    src: "/images/andy-flyer.png",
-    alt: "Flyer for Launch of Andy Weaver's The Loom",
-  },
-  {
-    src: "/images/dal-flyer.jpg",
-    alt: "Flyer for Talk with Kate Siklosi at Dalhousie University",
-  },
-  {
-    src: "/images/dear-x.jpg",
-    alt: "Poem Dear X for derek beaulieu",
-  },
-];
+import { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
+import { images } from "../scripts/gallery/constants";
 
 const ImageGallery = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const openModal = (image, index) => {
+    setSelectedImage(image);
+    setSelectedIndex(index);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+  };
+
+  const nextImage = () => {
+    const nextIndex = (selectedIndex + 1) % images.length;
+    setSelectedIndex(nextIndex);
+    setSelectedImage(images[nextIndex]);
+  };
+
+  const prevImage = () => {
+    const prevIndex =
+      selectedIndex === 0 ? images.length - 1 : selectedIndex - 1;
+    setSelectedIndex(prevIndex);
+    setSelectedImage(images[prevIndex]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+  };
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (showModal) handleKeyDown(e);
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [showModal, selectedIndex]);
+
   return (
-    <div className="gallery">
-      {images.map((item, index) => (
-        <a
-          key={`${item.alt}-${index}`}
-          href={item.src}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <img className="gallery-image" alt={item.alt} src={item.src} />
-        </a>
-      ))}
-    </div>
+    <>
+      <div className="gallery">
+        {images.map((item, index) => (
+          <button
+            key={`${item.alt}-${index}`}
+            className="gallery-item"
+            onClick={() => openModal(item, index)}
+          >
+            <img className="gallery-image" alt={item.alt} src={item.src} />
+          </button>
+        ))}
+      </div>
+
+      <Modal
+        show={showModal}
+        onHide={closeModal}
+        centered
+        size="xl"
+        className="image-modal-bootstrap"
+        contentClassName="image-modal-content"
+      >
+        <Modal.Body className="p-0 position-relative">
+          <button
+            className="custom-close-btn position-absolute"
+            style={{ top: "15px", right: "15px", zIndex: 10 }}
+            onClick={closeModal}
+          >
+            ×
+          </button>
+
+          <button
+            className="custom-nav-btn custom-prev-btn position-absolute top-50 translate-middle-y"
+            onClick={prevImage}
+          >
+            ❮
+          </button>
+
+          <button
+            className="custom-nav-btn custom-next-btn position-absolute top-50 translate-middle-y"
+            onClick={nextImage}
+          >
+            ❯
+          </button>
+
+          <div className="text-center p-3">
+            {selectedImage && (
+              <>
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="img-fluid"
+                  style={{ maxHeight: "70vh", objectFit: "contain" }}
+                />
+                <div className="mt-3 text-white">
+                  <h5 className="mb-2">{selectedImage.alt}</h5>
+                  {selectedImage.author && (
+                    <p className="mb-1 text-muted">{selectedImage.author}</p>
+                  )}
+                  <small className="text-muted">
+                    {selectedIndex + 1} of {images.length}
+                  </small>
+                </div>
+              </>
+            )}
+          </div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 
