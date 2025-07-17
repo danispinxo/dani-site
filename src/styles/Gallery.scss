@@ -35,8 +35,8 @@
   }
 
   @include variables.xs {
-    grid-template-columns: 1fr 1fr;
-    gap: variables.$space-xs;
+    grid-template-columns: 1fr;
+    gap: variables.$space-sm;
   }
 
   a {
@@ -128,7 +128,7 @@
     }
 
     @include variables.xs {
-      height: 150px;
+      height: 200px;
     }
   }
 }
