@@ -194,9 +194,9 @@ const images = [
 const ImageGallery = () => {
   return (
     <div className="gallery">
-      {images.map((item) => (
+      {images.map((item, index) => (
         <a
-          key={item.alt}
+          key={`${item.alt}-${index}`}
           href={item.src}
           target="_blank"
           rel="noreferrer noopener"
