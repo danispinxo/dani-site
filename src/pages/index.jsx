@@ -46,8 +46,9 @@ export default function Homepage() {
             className="author-photo"
             alt="Dani Spinosa Portrait"
             src={"/images/author-photo.jpg"}
-            width={400}
-            height={400}
+            width={350}
+            height={350}
+            sizes="(max-width: 320px) 180px, (max-width: 360px) 200px, (max-width: 599px) 220px, (max-width: 959px) 260px, (max-width: 1279px) 300px, 350px"
             priority
           />
         </div>
