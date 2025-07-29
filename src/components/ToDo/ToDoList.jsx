@@ -276,11 +276,10 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                 />
               </div>
               <div className="d-flex justify-content-between align-items-center">
-                <textarea
-                  className="form-text-area"
+                <input
+                  className="text-input"
                   name="text"
                   placeholder="Enter a task"
-                  rows={3}
                 />
                 <div className="category-dropdown">
                   <label htmlFor="category-select">Category:</label>
