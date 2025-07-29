@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -12,9 +14,9 @@ const Footer = () => {
 
         <div className="footer-section">
           <div className="footer-links">
-            <a href="/contact" className="footer-link">
+            <Link href="/contact" className="footer-link">
               contact
-            </a>
+            </Link>
             <span className="footer-separator">•</span>
             <a
               href="https://github.com/danispinxo"
