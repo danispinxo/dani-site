@@ -15,6 +15,20 @@ export default function PublicWriting() {
               <h2 className="section-title">Articles, Essays & Interviews</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Dani Spinosa and Derek Beaulieu : Notes on Visual Poetries in Canada"
+                  publication="Periodicities"
+                  date="4 August 2025"
+                  linkType="link"
+                  link="https://periodicityjournal.blogspot.com/2025/08/dani-spinosa-and-derek-beaulieu-notes.html"
+                />
+                <Publication
+                  title="Michael Sikkema : Contemporary Vispo Conversations : Kate Siklosi, Dani Spinosa and Amanda Earl"
+                  publication="Periodicities"
+                  date="2 Augusr 2025"
+                  linkType="link"
+                  link="https://periodicityjournal.blogspot.com/2025/08/michael-sikkema-contemporary-vispo.html"
+                />
+                <Publication
                   title="CRWR3011 Creative Writing Poetry II: Where Does a Poem Begin?"
                   publication="Periodicities"
                   date="2 April 2025"
