@@ -83,9 +83,7 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
 
   useEffect(() => {
     return () => {
-      if (timerInterval) {
-        clearInterval(timerInterval);
-      }
+      if (timerInterval) clearInterval(timerInterval);
     };
   }, [timerInterval]);
 
@@ -322,15 +320,13 @@ const ToDoList = ({ toDoList, user, createNewList }) => {
                   icon={faUpRightAndDownLeftFromCenter}
                 />
               </button>
-              {allIncompleteTasks.length > 10 && (
-                <button className="minimized" onClick={handlePickRandomTask}>
-                  <span>Pick a Task </span>
-                  <FontAwesomeIcon
-                    className="task-form-open-close-btn"
-                    icon={faHandPointer}
-                  />
-                </button>
-              )}
+              <button className="minimized" onClick={handlePickRandomTask}>
+                <span>Pick a Task </span>
+                <FontAwesomeIcon
+                  className="task-form-open-close-btn"
+                  icon={faHandPointer}
+                />
+              </button>
             </div>
           )}
 

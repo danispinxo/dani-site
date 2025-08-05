@@ -78,7 +78,6 @@ const ToDoIndex = ({ user }) => {
       setToDoList(list);
       return list;
     } catch (error) {
-      console.error("Error creating to-do list:", error);
       return error;
     }
   };
@@ -199,7 +198,6 @@ const ToDoIndex = ({ user }) => {
         <FontAwesomeIcon icon={faPlus} /> New List
       </button>
 
-      {/* Modal for editing the list */}
       <Modal
         show={showModal}
         onHide={handleCloseModal}
