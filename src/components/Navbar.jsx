@@ -28,7 +28,7 @@ const TopNavbar = () => {
             </NavDropdown>
             <NavDropdown title="Dev" id="dev-nav-dropdown">
               <NavDropdown.Item href="/dev-portfolio">
-                Portfolio
+                Dev Portfolio
               </NavDropdown.Item>
               <NavDropdown.Item href="/todo">To Do List App</NavDropdown.Item>
               <NavDropdown.Item
@@ -36,14 +36,14 @@ const TopNavbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Personal Github
+                Github
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="https://github.com/dani-hatch"
+                href="https://www.linkedin.com/in/dani-spinosa-dev/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Hatch Coding Github
+                LinkedIn
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
