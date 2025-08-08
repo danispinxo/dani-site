@@ -9,6 +9,10 @@ export default function Portfolio() {
     },
     { src: "/images/pmi.jpg", alt: "Project Management Institute: CAPM" },
     {
+      src: "/images/js-guide.jpg",
+      alt: "Udemy: JavaScript - The Complete Guide 2025 (Beginner + Advanced)",
+    },
+    {
       src: "/images/python-fundamentals.jpg",
       alt: "Udemy: Python Fundamentals",
     },
