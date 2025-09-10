@@ -66,6 +66,18 @@ export default function Portfolio() {
                   notes="React Rails app for creating constraint-based poems from open-source and public domain texts."
                 />
                 <Book
+                  cover="/images/CS.png"
+                  title="Custom Studio by Hatch Coding"
+                  notes="Hatch Coding Custom AI Application Builder"
+                  date="2025"
+                />
+                <Book
+                  cover="/images/HC-SC.png"
+                  title="Science Studio/Science Corner by Hatch Coding"
+                  notes="Hatch Coding LMS"
+                  date="2024-2025"
+                />
+                <Book
                   cover="/images/compass.png"
                   title="Compass by Lighthouse Labs"
                   notes="Lighthouse Labs LMS"
