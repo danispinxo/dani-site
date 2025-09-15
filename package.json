@@ -29,7 +29,7 @@
     "@mui/material": "^7.3.1",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/supabase-js": "^2.57.2",
+    "@supabase/supabase-js": "^2.57.4",
     "bootstrap": "^5.3.7",
     "chart.js": "^4.5.0",
     "dotenv": "^17.2.1",
