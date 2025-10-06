@@ -97,6 +97,26 @@ export default function Portfolio() {
       src: "/images/python-django.jpg",
       alt: "Udemy: Python Django - The Practical Guide",
     },
+    {
+      src: "/images/ucss.jpg",
+      alt: "Udemy: CSS - The Complete Guide 2025 (incl. Flexbox, Grid & Sass)",
+    },
+    {
+      src: "/images/nvidia-tech.jpg",
+      alt: "NVIDIA Networking Technical Curriculum",
+    },
+    {
+      src: "/images/nvidia-desk.jpg",
+      alt: "NVIDIA Virtual Desktops Technical Curriculum",
+    },
+    {
+      src: "/images/nvidia-ai.jpg",
+      alt: "NVIDIA AI Technical Curriculum",
+    },
+    {
+      src: "/images/nvidia-compute.jpg",
+      alt: "NVIDIA Compute Technical Curriculum",
+    },
   ];
 
   const allImages = [
