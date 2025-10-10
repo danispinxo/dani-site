@@ -12,10 +12,9 @@ export default function Homepage() {
           <div className="bio-container">
             <h1 className="bio-heading">About</h1>
             <p>
-              Dani Spinosa is a poet, scholar, educator, writer, and a trained
-              full-stack developer. She is an adjunct professor, a software
-              developer at Hatch Coding, a digital and creative project manager,
-              a co-founding editor of{" "}
+              Dani Spinosa is a poet, scholar, educator, writer, and a computer
+              programmer. She is an adjunct professor, a software developer, a
+              digital and creative project manager, a co-founding editor of{" "}
               <a
                 href="https://www.gapriotpress.com/"
                 target="_blank"
@@ -23,7 +22,7 @@ export default function Homepage() {
               >
                 Gap Riot Press
               </a>
-              , President of the feminist literary journal,{" "}
+              , President of{" "}
               <i>
                 <a
                   href="https://www.canthius.com/"
