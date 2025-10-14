@@ -192,7 +192,15 @@ const Talks = () => {
               <h2 className="section-title">Lectures and Panelist Talks</h2>
               <div className="publications-grid">
                 <Publication
-                  title="Invited Speaker, Dalhousie English Department Speaker Series"
+                  title="Invited Speaker, An H of a Night"
+                  publication="Meet the Presses"
+                  date="15 October 2025"
+                  notes="with Kate Siklosi"
+                  linkType="talk"
+                  link="https://www.youtube.com/watch?v=KKltE7bo8Fw"
+                />
+                <Publication
+                  title="Invited Speaker, Dalhousie English Department Speaker Series and Feminist Speaker Series"
                   publication="Dalhousie University"
                   date="20 March 2025"
                   notes="with Kate Siklosi"
