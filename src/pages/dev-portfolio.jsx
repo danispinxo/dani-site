@@ -117,6 +117,10 @@ export default function Portfolio() {
       src: "/images/nvidia-compute.jpg",
       alt: "NVIDIA Compute Technical Curriculum",
     },
+    {
+      src: "/images/storyline-udemy.jpg",
+      alt: "Udemy: Learn Articulate Storyline from Scratch",
+    }
   ];
 
   const allImages = [
