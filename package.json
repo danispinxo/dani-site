@@ -44,7 +44,7 @@
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.4",
     "react-router-dom": "^7.9.5",
-    "rsuite": "^5.83.3",
+    "rsuite": "^5.83.4",
     "sass": "^1.94.0"
   },
   "devDependencies": {
