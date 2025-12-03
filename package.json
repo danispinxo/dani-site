@@ -33,7 +33,7 @@
     "bootstrap": "^5.3.8",
     "chart.js": "^4.5.1",
     "dotenv": "^17.2.3",
-    "next": "^16.0.3",
+    "next": "^16.0.7",
     "normalize.css": "^8.0.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^10.4.0",
