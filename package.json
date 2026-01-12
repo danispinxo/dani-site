@@ -45,7 +45,7 @@
     "react-fast-marquee": "^1.6.4",
     "react-router-dom": "^7.11.0",
     "rsuite": "^6.1.1",
-    "sass": "^1.97.1"
+    "sass": "^1.97.2"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
