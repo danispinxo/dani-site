@@ -56,3 +56,7 @@ const PoemGenerator = () => {
 };
 
 export default PoemGenerator;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

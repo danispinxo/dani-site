@@ -95,3 +95,7 @@ const ToDoPage = () => {
 };
 
 export default ToDoPage;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

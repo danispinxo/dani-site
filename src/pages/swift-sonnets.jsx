@@ -93,3 +93,7 @@ const SwiftSonnets = () => {
 };
 
 export default SwiftSonnets;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

@@ -253,3 +253,7 @@ const WhenForm = () => {
 };
 
 export default WhenForm;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

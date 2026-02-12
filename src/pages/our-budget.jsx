@@ -67,3 +67,8 @@ const OurBudgetPage = () => {
 };
 
 export default OurBudgetPage;
+
+// Force dynamic rendering so this page is not statically prerendered at build time.
+export async function getServerSideProps() {
+  return { props: {} };
+}

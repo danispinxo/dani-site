@@ -45,3 +45,7 @@ export default function DataPage() {
     </div>
   );
 }
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

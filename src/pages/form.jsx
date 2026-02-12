@@ -66,3 +66,7 @@ const Form = () => {
 };
 
 export default Form;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}
