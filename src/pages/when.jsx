@@ -414,3 +414,7 @@ const When = () => {
 };
 
 export default When;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

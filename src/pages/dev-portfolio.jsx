@@ -311,3 +311,7 @@ export default function Portfolio() {
     </>
   );
 }
+
+export async function getServerSideProps() {
+  return { props: {} };
+}

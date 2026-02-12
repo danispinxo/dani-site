@@ -509,3 +509,7 @@ const ListHistory = () => {
 };
 
 export default ListHistory;
+
+export async function getServerSideProps() {
+  return { props: {} };
+}
