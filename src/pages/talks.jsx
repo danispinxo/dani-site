@@ -192,6 +192,12 @@ const Talks = () => {
               <h2 className="section-title">Lectures and Panelist Talks</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Invited Speaker, Roundtable on Small Press"
+                  publication="Toronto International Festival of Authors (TIFA)"
+                  date="1 November 2025"
+                  notes="with Kate Siklosi, Leigh Nash, and Kirby"
+                />
+                <Publication
                   title="Invited Speaker, An H of a Night"
                   publication="Meet the Presses"
                   date="15 October 2025"
