@@ -12,17 +12,14 @@ const CreativeWriting = () => {
             <h1 className="page-title">Creative Writing</h1>
 
             <section className="writing-section">
-              <h2 className="section-title">Current Book Project</h2>
+              <h2 className="section-title">Books</h2>
               <Book
                 cover="/images/ariadne.jpeg"
                 title="Whispering Gallery"
-                date="In progress"
-                notes="Canada Council for the Arts Research and Creation Grant"
+                date="forthcoming 13 October 2026"
+                notes="with Assembly Press"
               />
-            </section>
 
-            <section className="writing-section">
-              <h2 className="section-title">Books</h2>
               <Book
                 cover="/images/oo-cover.jpg"
                 title="OO: Typewriter Poems"
@@ -381,6 +378,11 @@ const CreativeWriting = () => {
               </h2>
 
               <ul className="publications-list">
+                <li>
+                  "<a href="https://dusie.blogspot.com/2025/12/tuesday-poem-664-dani-spinosa-house.html">House</a>."{" "}
+                  <i>DUSIE</i>
+                  , Tuesday Poem #664, edited by rob mclennan. 23 December.
+                </li>
                 <li>
                   "No."{" "}
                   <a href="https://fernwoodpublishing.ca/book/ill-get-right-on-it">
