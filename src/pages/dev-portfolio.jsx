@@ -120,6 +120,10 @@ export default function Portfolio() {
     {
       src: "/images/storyline-udemy.jpg",
       alt: "Udemy: Learn Articulate Storyline from Scratch",
+    },
+    {
+      src: "/images/flash-udemy.jpg",
+      alt: "Udemy: REST APIs with Flask and Python 2025",
     }
   ];
 
