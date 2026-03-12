@@ -20,8 +20,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "@formspree/react": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
@@ -32,8 +30,6 @@
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^2.97.0",
     "bootstrap": "^5.3.8",
-    "chart.js": "^4.5.1",
-    "dotenv": "^17.3.1",
     "next": "^16.1.6",
     "normalize.css": "^8.0.1",
     "prettier": "^3.8.1",
@@ -43,10 +39,12 @@
     "react-dom": "^19.2.4",
     "react-fast-marquee": "^1.6.5",
     "react-router-dom": "^7.13.0",
-    "rsuite": "^6.1.2",
     "sass": "^1.97.3"
   },
   "devDependencies": {
     "eslint": "^10.0.2"
+  },
+  "overrides": {
+    "immutable": "5.1.5"
   }
 }
