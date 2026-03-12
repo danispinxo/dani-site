@@ -14,8 +14,15 @@ import IncompleteList from "./IncompleteList";
 import SuccessMessage from "./SuccessMessage";
 import EditTaskModal from "./EditTaskModal";
 import RandomTask from "./RandomTask";
-import debounce from "lodash/debounce";
 import Link from "next/link";
+
+function debounce(fn, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
 
 const ToDoList = ({ toDoList, user, createNewList }) => {
   const [tasks, setTasks] = useState([]);
