@@ -28,6 +28,13 @@ const Talks = () => {
               <h2 className="section-title">Academic Conference Papers</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Borderblur and Garden Centre Folds."
+                  publication={'"The Leafless Page": A Symposium on bpNichol.ca and the Digital Archive, Toronto Metropolitan University'}
+                  date="9 April 2026"
+                  linkType="talk"
+                  link="https://www.eventbrite.ca/e/the-leafless-page-a-symposium-on-bpnicholca-and-the-digital-archive-tickets-1985643280504"
+                />
+                <Publication
                   title="Electronic Literature Collection, Volume 5"
                   publication="ELO25 @ 25: Love Letters to the Past and Future Conference and Media Arts Festival"
                   date="12 July 2025"
