@@ -30,7 +30,6 @@ const TopNavbar = () => {
               <NavDropdown.Item href="/dev-portfolio">
                 Dev Portfolio
               </NavDropdown.Item>
-              <NavDropdown.Item href="/todo">To Do List App</NavDropdown.Item>
               <NavDropdown.Item
                 href="https://github.com/danispinxo"
                 target="_blank"
