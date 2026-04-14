@@ -13,7 +13,7 @@ export default function Portfolio() {
       title: "Personal Website",
       github: "https://github.com/danispinxo/dani-site",
       date: "2025",
-      notes: "This website showcases my portfolio, todo list app, and full CV.",
+      notes: "This website showcases my portfolio and full CV.",
     },
     {
       cover: "/images/jesse-site.png",
