@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import TopNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import supabase from "../lib/supabaseClient";
 
 const WhenForm = () => {
   useEffect(() => {
@@ -41,28 +40,28 @@ const WhenForm = () => {
     delete values.contributor;
 
     try {
-      const { error: contributorError } = await supabase
-        .from("when_contributors")
-        .insert({ name: contributor })
-        .select()
-        .single();
-
-      if (contributorError)
-        return console.error("Error adding contributor:", contributorError);
-
       const lexiconEntries = Object.entries(values).map(([key, value]) => ({
         blank: key,
         content: value,
       }));
+      const response = await fetch("/api/when/submission", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contributor,
+          entries: lexiconEntries,
+        }),
+      });
 
-      const { data: lexiconData, error: lexiconError } = await supabase
-        .from("when_lexicon")
-        .insert(lexiconEntries);
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        console.error("Error adding entries:", errorBody);
+        return alert("There was a problem with your submission.");
+      }
 
-      if (lexiconError)
-        return console.error("Error adding lexicon entries:", lexiconError);
-
-      if (lexiconData) alert("Submission successful! Thank you! ");
+      alert("Submission successful! Thank you! ");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("An error occurred. Please try again.");

@@ -1,31 +1,29 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_DATABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 
 export default function DataPage() {
-  const supabase = createClient(supabaseUrl, key);
   const [lexicon, setLexicon] = useState([]);
   const [contributors, setContributors] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data: lexiconData, error: lexiconError } = await supabase
-        .from("when_lexicon")
-        .select("content, blank");
+      try {
+        const [lexiconResponse, contributorsResponse] = await Promise.all([
+          fetch("/api/when/lexicon"),
+          fetch("/api/when/contributors"),
+        ]);
 
-      if (lexiconError) console.error("Error fetching lexicon:", lexiconError);
-      else setLexicon(lexiconData);
+        if (!lexiconResponse.ok || !contributorsResponse.ok) {
+          throw new Error("Failed to load database view");
+        }
 
-      const { data: contributorData, error: contributorError } = await supabase
-        .from("when_contributors")
-        .select("name");
+        const lexiconData = await lexiconResponse.json();
+        const contributorData = await contributorsResponse.json();
 
-      if (contributorError)
-        console.error("Error fetching contributors:", contributorError);
-      else
+        setLexicon(lexiconData);
         setContributors(contributorData.map((contributor) => contributor.name));
+      } catch (error) {
+        console.error("Error fetching database page data:", error);
+      }
     };
 
     fetchData();
