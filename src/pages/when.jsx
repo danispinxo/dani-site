@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import TopNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import supabase from "../lib/supabaseClient";
 
 const When = () => {
   const [contributors, setContributors] = useState([]);
@@ -31,20 +30,27 @@ const When = () => {
 
   useEffect(() => {
     const fetchContributors = async () => {
-      const { data, error } = await supabase
-        .from("when_contributors")
-        .select("name");
-      if (error) console.error("Error fetching contributors:", error);
-      else setContributors(data.map((contributor) => contributor.name));
+      try {
+        const response = await fetch("/api/when/contributors");
+        if (!response.ok) throw new Error("Failed to fetch contributors");
+        const data = await response.json();
+        setContributors(data.map((contributor) => contributor.name));
+      } catch (error) {
+        console.error("Error fetching contributors:", error);
+      }
     };
 
     const fetchContent = async (blank, setter) => {
-      const { data, error } = await supabase
-        .from("when_lexicon")
-        .select("content")
-        .eq("blank", blank);
-      if (error) console.error("Error fetching term:", error);
-      else setter(data.map((word) => word.content));
+      try {
+        const response = await fetch(
+          `/api/when/lexicon?blank=${encodeURIComponent(blank)}`,
+        );
+        if (!response.ok) throw new Error("Failed to fetch lexicon term");
+        const data = await response.json();
+        setter(data.map((word) => word.content));
+      } catch (error) {
+        console.error("Error fetching term:", error);
+      }
     };
 
     fetchContributors();

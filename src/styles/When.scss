@@ -297,16 +297,9 @@
     line-height: 1.8;
     margin-bottom: variables.$space-md;
     padding-left: variables.$space-md;
-    transition: all variables.$transition-normal;
     position: relative;
     text-indent: -1.5rem;
     padding-left: calc(variables.$space-md + 1.5rem);
-
-    &:hover {
-      color: variables.$accent-secondary;
-      padding-left: calc(variables.$space-lg + 1.5rem);
-      @include variables.glow-text(variables.$accent-primary);
-    }
 
     &:first-child {
       font-weight: bold;
@@ -340,9 +333,6 @@
       text-indent: -1rem;
       padding-left: calc(variables.$space-sm + 1rem);
 
-      &:hover {
-        padding-left: calc(variables.$space-md + 1rem);
-      }
     }
 
     @include variables.xs {
@@ -355,9 +345,6 @@
         font-size: 1.1rem;
       }
 
-      &:hover {
-        padding-left: calc(variables.$space-sm + 1.2rem);
-      }
     }
   }
 }
