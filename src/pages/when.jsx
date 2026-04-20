@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
 import TopNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const When = () => {
+  const selectedWordsCache = useRef(new Map());
+  let renderCallIndex = 0;
   const [contributors, setContributors] = useState([]);
   const [lights, setLights] = useState([]);
   const [wordOut, setWordOut] = useState([]);
@@ -79,8 +81,21 @@ const When = () => {
   }, []);
 
   const selectRandomString = (array) => {
-    const shuffledArray = [...array].sort(() => Math.random() - 0.5);
-    return shuffledArray[0];
+    const callId = renderCallIndex;
+    renderCallIndex += 1;
+
+    if (!Array.isArray(array) || array.length === 0) {
+      return "";
+    }
+
+    if (selectedWordsCache.current.has(callId)) {
+      return selectedWordsCache.current.get(callId);
+    }
+
+    const randomIndex = Math.floor(Math.random() * array.length);
+    const selectedWord = array[randomIndex];
+    selectedWordsCache.current.set(callId, selectedWord);
+    return selectedWord;
   };
 
   return (
