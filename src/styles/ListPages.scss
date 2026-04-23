@@ -134,6 +134,17 @@
       @media screen and (max-width: 360px) {
         gap: variables.$space-md;
       }
+
+      .book-detail-link,
+      .book-component {
+        min-width: 0;
+      }
+
+      .book-component {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+      }
     }
 
     .book-praise {
