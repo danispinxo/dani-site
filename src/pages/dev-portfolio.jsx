@@ -124,6 +124,10 @@ export default function Portfolio() {
     {
       src: "/images/flash-udemy.jpg",
       alt: "Udemy: REST APIs with Flask and Python 2025",
+    },
+    {
+      src: "/images/udemy-typescript.jpg",
+      alt: "Understanding Typescript",
     }
   ];
 
