@@ -32,9 +32,10 @@ export default function Homepage() {
                   Canthius
                 </a>
               </i>
-              , the Managing Editor of the Electronic Literature Directory, and
-              the author of two books of poetry:
-              <i>Whispering Gallery</i> (Assembly Press, 2026) and
+              , the Managing Editor of the <i>Electronic Literature Directory</i>, and a member of the
+              editorial collective for the <i>Electronic Literature Collection Volume 5</i>.
+              She is the author of two books of poetry:
+              <i> Whispering Gallery</i> (Assembly Press, 2026) and
               <i> OO: Typewriter Poems</i> (Invisible Publishing, 2020) and one scholarly book:
               <i>Anarchists in the Academy</i> (U of Alberta Press, 2018). She
               has published several chapbooks of poetry and several more
