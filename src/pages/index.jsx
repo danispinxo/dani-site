@@ -13,7 +13,7 @@ export default function Homepage() {
             <h1 className="bio-heading">About</h1>
             <p>
               Dani Spinosa is a poet, scholar, educator, writer, and a computer
-              programmer. She is an adjunct professor, a software developer, a
+              programmer. She is sometimes an adjunct professor, a software developer, a
               digital and creative project manager, a co-founding editor of{" "}
               <a
                 href="https://www.gapriotpress.com/"
@@ -33,12 +33,13 @@ export default function Homepage() {
                 </a>
               </i>
               , the Managing Editor of the Electronic Literature Directory, and
-              the author of two books:
-              <i> OO: Typewriter Poems</i> (Invisible Publishing, 2020) and{" "}
+              the author of two books of poetry:
+              <i>Whispering Gallery</i> (Assembly Press, 2026) and
+              <i> OO: Typewriter Poems</i> (Invisible Publishing, 2020) and one scholarly book:
               <i>Anarchists in the Academy</i> (U of Alberta Press, 2018). She
               has published several chapbooks of poetry and several more
-              peer-reviewed journal articles on poetry. She lives in beautiful
-              Wasaga Beach, Ontario.
+              peer-reviewed journal articles on poetry and technology. She lives in beautiful
+              Wasaga Beach, Ontario with one beautiful man, two lovely cats, and one very silly dog.
             </p>
           </div>
           <Image
