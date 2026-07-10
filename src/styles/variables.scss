@@ -1,48 +1,51 @@
-$round-font: "Varela Round", sans-serif;
-$typewriter-font: "Special Elite", serif;
-$serif-font: "Cormorant", serif;
-$mono-font: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+$display-font: var(--font-display), "Syne", sans-serif;
+$body-font: var(--font-body), "Source Serif 4", serif;
+$round-font: $body-font;
+$typewriter-font: $display-font;
+$serif-font: $body-font;
+$mono-font: $display-font;
 
-$bg-primary: #0a0a0a;
-$bg-secondary: #1a1a1a;
-$bg-tertiary: #2a2a2a;
-$bg-card: #1e1e1e;
-$bg-elevated: #252525;
+$magenta: #ef448a;
+$magenta-deep: #b01252;
+$magenta-ink: #2a0a18;
+$goldenrod: #e0a82e;
+$goldenrod-deep: #8a6508;
+$blush: #fff4f0;
+$blush-warm: #ffe8dc;
+$white: #ffffff;
 
-$text-primary: #e8e8e8;
-$text-secondary: #b8b8b8;
-$text-muted: #888888;
-$text-inverse: #0a0a0a;
+$bg-primary: $blush;
+$bg-secondary: $blush-warm;
+$bg-tertiary: #ffd9c8;
+$bg-card: $white;
+$bg-elevated: $white;
 
-$accent-primary: #ff6b6b;
-$accent-secondary: #d82558;
-$accent-glow: #ff9f43;
-$accent-dark: #c44569;
+$text-primary: $magenta-ink;
+$text-secondary: #5c3040;
+$text-muted: #7a5560;
+$text-inverse: $white;
 
-$border-subtle: #333333;
-$border-prominent: #444444;
-$border-accent: #555555;
+$accent-primary: $magenta;
+$accent-secondary: $magenta-deep;
+$accent-glow: $goldenrod;
+$accent-dark: $magenta-deep;
 
-$success: #20bf6b;
-$warning: #f39801;
-$error: #eb4d4b;
+$border-subtle: #f0c8d4;
+$border-prominent: #e8a0b8;
+$border-accent: $magenta-deep;
 
-$gradient-primary: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 100%);
-$gradient-accent: linear-gradient(
-  135deg,
-  $accent-primary 0%,
-  $accent-dark 100%
-);
-$gradient-glow: linear-gradient(
-  135deg,
-  $accent-glow 0%,
-  $accent-secondary 100%
-);
+$success: #1a7a4c;
+$warning: $goldenrod-deep;
+$error: #c62828;
 
-$shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.3);
-$shadow-moderate: 0 4px 12px rgba(0, 0, 0, 0.4);
-$shadow-prominent: 0 8px 24px rgba(0, 0, 0, 0.5);
-$shadow-glow: 0 0 20px rgba(255, 107, 107, 0.3);
+$gradient-primary: linear-gradient(180deg, $blush 0%, $blush-warm 100%);
+$gradient-accent: linear-gradient(135deg, $magenta 0%, $magenta-deep 100%);
+$gradient-glow: linear-gradient(135deg, $goldenrod 0%, $magenta 100%);
+
+$shadow-subtle: 0 2px 8px rgba(42, 10, 24, 0.08);
+$shadow-moderate: 0 4px 16px rgba(42, 10, 24, 0.1);
+$shadow-prominent: 0 8px 28px rgba(42, 10, 24, 0.14);
+$shadow-glow: 0 4px 20px rgba(239, 68, 138, 0.25);
 
 $space-xs: 0.25rem;
 $space-sm: 0.5rem;
@@ -51,10 +54,10 @@ $space-lg: 1.5rem;
 $space-xl: 2rem;
 $space-xxl: 3rem;
 
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 6px;
+$radius-xl: 8px;
 
 $transition-fast: 0.15s ease-out;
 $transition-normal: 0.25s ease-out;
@@ -154,34 +157,29 @@ $screen-tablet-small: 768px;
   }
 }
 
-@mixin glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin focus-ring($on-dark: false) {
+  @if $on-dark {
+    outline: 2px solid $goldenrod;
+    outline-offset: 3px;
+  } @else {
+    outline: 2px solid $magenta-deep;
+    outline-offset: 3px;
+  }
 }
 
 @mixin glow-text($color: $accent-primary) {
-  text-shadow: 0 0 10px rgba($color, 0.5);
+}
+
+@mixin glass-effect {
+  background: $white;
+  border: 1px solid $border-subtle;
 }
 
 @mixin tech-border {
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $gradient-accent;
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity $transition-normal;
-  }
-
-  &:hover::before {
-    opacity: 0.1;
-  }
 }

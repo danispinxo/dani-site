@@ -47,7 +47,7 @@
     transition: all variables.$transition-normal;
     background: rgba(variables.$bg-elevated, 0.3);
     border: 1px solid variables.$border-subtle;
-    backdrop-filter: blur(10px);
+    
     cursor: pointer;
     padding: 0;
     width: 100%;
@@ -91,26 +91,25 @@
     }
 
     &::after {
-      content: "▶ VIEW";
+      content: "View";
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.8);
-      font-family: variables.$mono-font;
+      font-family: variables.$display-font;
       font-size: 0.85rem;
       font-weight: 700;
-      color: variables.$accent-primary;
-      background: rgba(variables.$bg-primary, 0.9);
+      color: variables.$magenta-ink;
+      background: variables.$goldenrod;
       padding: variables.$space-xs variables.$space-sm;
       border-radius: variables.$radius-sm;
-      border: 1px solid variables.$accent-primary;
+      border: 2px solid variables.$goldenrod;
       opacity: 0;
       transition: all variables.$transition-slow;
       z-index: 3;
-      letter-spacing: 1px;
-      backdrop-filter: blur(10px);
-
-      @include variables.glow-text(variables.$accent-primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      
     }
   }
 
@@ -146,52 +145,46 @@
   }
 
   .modal-content {
-    background: rgba(variables.$bg-primary, 0.95);
-    border: 2px solid variables.$accent-primary;
+    background: variables.$blush;
+    border: 2px solid variables.$magenta;
     border-radius: variables.$radius-lg;
-    backdrop-filter: blur(20px);
   }
 
   .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(42, 10, 24, 0.75);
   }
 
   h5 {
-    font-family: variables.$typewriter-font;
-    color: variables.$accent-primary;
-    font-weight: 600;
-
-    @include variables.glow-text(variables.$accent-primary);
+    font-family: variables.$display-font;
+    color: variables.$magenta-deep;
+    font-weight: 700;
+    letter-spacing: 0.04em;
   }
 
   .custom-close-btn {
-    background: rgba(variables.$bg-primary, 0.9);
-    border: 2px solid variables.$accent-primary;
+    background: variables.$white;
+    border: 2px solid variables.$magenta;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: variables.$accent-primary;
+    color: variables.$magenta-deep;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: all variables.$transition-normal;
-    backdrop-filter: blur(10px);
-
-    @include variables.glow-text(variables.$accent-primary);
 
     &:hover {
-      background: rgba(variables.$accent-primary, 0.2);
-      transform: scale(1.1);
-      color: variables.$accent-primary;
-      @include variables.glow-text(variables.$accent-primary);
+      background: variables.$goldenrod;
+      border-color: variables.$goldenrod;
+      color: variables.$magenta-ink;
+      transform: scale(1.05);
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(variables.$accent-primary, 0.5);
+    &:focus-visible {
+      @include variables.focus-ring;
     }
 
     @include variables.xs {
@@ -202,34 +195,30 @@
   }
 
   .custom-nav-btn {
-    background: rgba(variables.$bg-primary, 0.9);
-    border: 2px solid variables.$accent-primary;
+    background: variables.$white;
+    border: 2px solid variables.$magenta;
     border-radius: variables.$radius-md;
     width: 50px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: variables.$accent-primary;
+    color: variables.$magenta-deep;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: all variables.$transition-normal;
-    backdrop-filter: blur(10px);
     z-index: 10;
 
-    @include variables.glow-text(variables.$accent-primary);
-
     &:hover {
-      background: rgba(variables.$accent-primary, 0.2);
-      transform: scale(1.1);
-      color: variables.$accent-primary;
-      @include variables.glow-text(variables.$accent-primary);
+      background: variables.$goldenrod;
+      border-color: variables.$goldenrod;
+      color: variables.$magenta-ink;
+      transform: scale(1.05);
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(variables.$accent-primary, 0.5);
+    &:focus-visible {
+      @include variables.focus-ring;
     }
 
     @include variables.md {

@@ -27,17 +27,14 @@
   }
 
   .page-title {
-    font-family: variables.$typewriter-font;
+    font-family: variables.$display-font;
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-align: center;
     margin-bottom: variables.$space-xxl;
-    background: variables.$gradient-accent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    @include variables.glow-text(variables.$accent-primary);
+    color: variables.$magenta;
 
     @include variables.md {
       font-size: 2.8rem;
@@ -63,20 +60,14 @@
     margin-bottom: variables.$space-xxl;
 
     .section-title {
-      font-family: variables.$typewriter-font;
+      font-family: variables.$display-font;
       font-size: 2rem;
-      font-weight: 600;
-      color: variables.$text-primary;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: variables.$magenta-deep;
       margin-bottom: variables.$space-xl;
       position: relative;
-
-      @include variables.glow-text(variables.$accent-primary);
-
-      &::before {
-        content: "> ";
-        color: variables.$accent-primary;
-        opacity: 0.8;
-      }
 
       &::after {
         content: "";
@@ -84,8 +75,8 @@
         bottom: -8px;
         left: 0;
         width: 60px;
-        height: 2px;
-        background: variables.$gradient-accent;
+        height: 3px;
+        background: variables.$goldenrod;
         border-radius: 1px;
       }
 
@@ -150,10 +141,10 @@
     .book-praise {
       margin-top: variables.$space-xxl;
       padding: variables.$space-xl;
-      background: rgba(variables.$bg-elevated, 0.3);
+      background: variables.$white;
       border-radius: variables.$radius-lg;
       border: 1px solid variables.$border-subtle;
-      backdrop-filter: blur(10px);
+      
 
       .praise-heading {
         font-family: variables.$typewriter-font;
@@ -163,8 +154,6 @@
         margin-bottom: variables.$space-lg;
         text-align: center;
 
-        @include variables.glow-text(variables.$accent-primary);
-
         @include variables.sm {
           font-size: 1.5rem;
         }
@@ -173,7 +162,7 @@
       .praise-quote {
         margin-bottom: variables.$space-lg;
         padding: variables.$space-lg;
-        background: rgba(variables.$bg-secondary, 0.3);
+        background: variables.$blush-warm;
         border-radius: variables.$radius-md;
         border-left: 3px solid variables.$accent-primary;
         position: relative;
@@ -184,7 +173,7 @@
           top: -10px;
           left: variables.$space-md;
           font-size: 3rem;
-          color: variables.$accent-primary;
+          color: variables.$magenta-deep;
           opacity: 0.3;
           font-family: variables.$serif-font;
         }
@@ -205,7 +194,7 @@
         cite {
           font-family: variables.$typewriter-font;
           font-size: 0.9rem;
-          color: variables.$accent-primary;
+          color: variables.$magenta-deep;
           font-style: normal;
           font-weight: 600;
 
@@ -249,18 +238,17 @@
 
           &::before {
             content: "▶ ";
-            color: variables.$accent-primary;
+            color: variables.$magenta-deep;
             margin-right: variables.$space-xs;
           }
 
           a {
-            color: variables.$accent-primary;
+            color: variables.$magenta-deep;
             text-decoration: none;
             transition: all variables.$transition-normal;
 
             &:hover {
-              color: variables.$accent-primary;
-              @include variables.glow-text(variables.$accent-primary);
+              color: variables.$magenta-deep;
             }
           }
 
@@ -278,7 +266,7 @@
       li {
         margin-bottom: variables.$space-md;
         padding: variables.$space-md;
-        background: rgba(variables.$bg-secondary, 0.3);
+        background: variables.$blush-warm;
         border-radius: variables.$radius-sm;
         border-left: 3px solid variables.$accent-primary;
         font-family: variables.$round-font;
@@ -288,19 +276,18 @@
 
         &::before {
           content: "▶ ";
-          color: variables.$accent-primary;
+          color: variables.$magenta-deep;
           margin-right: variables.$space-xs;
           font-weight: 600;
         }
 
         a {
-          color: variables.$accent-primary !important;
+          color: variables.$magenta-deep !important;
           text-decoration: none;
           transition: all variables.$transition-normal;
 
           &:hover {
-            color: variables.$accent-primary !important;
-            @include variables.glow-text(variables.$accent-primary);
+            color: variables.$magenta-deep !important;
           }
         }
 
@@ -347,9 +334,9 @@
         border-radius: variables.$radius-md;
         overflow: hidden;
         transition: all variables.$transition-normal;
-        background: rgba(variables.$bg-elevated, 0.3);
+        background: variables.$white;
         border: 1px solid variables.$border-subtle;
-        backdrop-filter: blur(10px);
+        
         cursor: pointer;
         padding: 0;
         width: 100%;
@@ -357,7 +344,7 @@
         &:hover {
           transform: translateY(-4px);
           box-shadow: variables.$shadow-moderate;
-          border-color: variables.$accent-primary;
+          border-color: variables.$magenta-deep;
 
           .certificate-image {
             transform: scale(1.05);
@@ -374,14 +361,12 @@
       max-width: 800px;
       margin: variables.$space-lg auto;
       padding: variables.$space-lg;
-      background: rgba(variables.$bg-elevated, 0.6);
+      background: variables.$white;
       border-radius: variables.$radius-lg;
       border: 1px solid variables.$border-subtle;
-      backdrop-filter: blur(15px);
+      
       transition: all variables.$transition-normal;
       position: relative;
-
-      @include variables.tech-border;
 
       &::before {
         content: "";
@@ -468,8 +453,6 @@
           font-style: italic;
           line-height: 1.3;
 
-          @include variables.glow-text(variables.$accent-primary);
-
           @include variables.sm {
             font-size: 1.2rem;
           }
@@ -486,13 +469,12 @@
         .icon {
           display: inline-block;
           margin-right: variables.$space-sm;
-          color: variables.$accent-primary;
+          color: variables.$magenta-deep;
           font-size: 1.2rem;
           transition: all variables.$transition-fast;
 
           &:hover {
-            color: variables.$accent-primary;
-            @include variables.glow-text(variables.$accent-primary);
+            color: variables.$magenta-deep;
           }
         }
 
@@ -523,8 +505,8 @@
           margin-top: auto;
 
           &::before {
-            content: "> ";
-            color: variables.$accent-primary;
+            content: none;
+            color: variables.$magenta-deep;
             opacity: 0.7;
           }
 
@@ -630,10 +612,10 @@
     }
 
     .reading-list {
-      background: rgba(variables.$bg-elevated, 0.3);
+      background: variables.$white;
       border-radius: variables.$radius-lg;
       border: 1px solid variables.$border-subtle;
-      backdrop-filter: blur(10px);
+      
       padding: variables.$space-xl;
       margin-top: variables.$space-xl;
 
@@ -645,7 +627,7 @@
         li {
           margin-bottom: variables.$space-md;
           padding: variables.$space-md;
-          background: rgba(variables.$bg-secondary, 0.4);
+          background: variables.$blush-warm;
           border-radius: variables.$radius-sm;
           border-left: 3px solid variables.$accent-primary;
           font-family: variables.$round-font;
@@ -655,26 +637,25 @@
           transition: all variables.$transition-normal;
 
           &:hover {
-            background: rgba(variables.$bg-secondary, 0.6);
+            background: variables.$blush-warm;
             transform: translateX(4px);
           }
 
           &::before {
             content: "▶ ";
-            color: variables.$accent-primary;
+            color: variables.$magenta-deep;
             margin-right: variables.$space-xs;
             font-weight: 600;
           }
 
           a {
-            color: variables.$accent-primary !important;
+            color: variables.$magenta-deep !important;
             text-decoration: none;
             font-weight: 600;
             transition: all variables.$transition-normal;
 
             &:hover {
-              color: variables.$accent-primary !important;
-              @include variables.glow-text(variables.$accent-primary);
+              color: variables.$magenta-deep !important;
             }
           }
 
@@ -709,11 +690,9 @@
         position: relative;
         padding-left: variables.$space-lg;
 
-        @include variables.glow-text(variables.$accent-primary);
-
         &::before {
-          content: ">> ";
-          color: variables.$accent-primary;
+          content: none;
+          color: variables.$magenta-deep;
           position: absolute;
           left: 0;
           top: 0;
@@ -781,11 +760,10 @@
             transform: translateY(-4px);
 
             .project-content {
-              border-color: variables.$accent-primary;
-              background: rgba(variables.$bg-elevated, 0.5);
+              border-color: variables.$magenta-deep;
+              background: variables.$white;
 
               .project-title {
-                @include variables.glow-text(variables.$accent-primary);
               }
             }
           }
@@ -793,10 +771,10 @@
           .project-content {
             height: 100%;
             padding: variables.$space-xl;
-            background: rgba(variables.$bg-elevated, 0.3);
+            background: variables.$white;
             border-radius: variables.$radius-lg;
             border: 1px solid variables.$border-subtle;
-            backdrop-filter: blur(10px);
+            
             transition: all variables.$transition-normal;
             display: flex;
             flex-direction: column;
@@ -812,8 +790,8 @@
               transition: all variables.$transition-normal;
 
               &::before {
-                content: "> ";
-                color: variables.$accent-primary;
+                content: none;
+                color: variables.$magenta-deep;
                 opacity: 0.8;
               }
 
@@ -846,7 +824,7 @@
                 display: inline-block;
                 font-family: variables.$mono-font;
                 font-size: 0.85rem;
-                color: variables.$accent-primary;
+                color: variables.$magenta-deep;
                 background: rgba(variables.$accent-primary, 0.1);
                 padding: variables.$space-xs variables.$space-sm;
                 border-radius: variables.$radius-sm;
@@ -874,16 +852,15 @@
 }
 
 a {
-  color: variables.$accent-primary !important;
+  color: variables.$magenta-deep !important;
   text-decoration: none;
   transition: all variables.$transition-normal;
 
   &:hover {
-    color: variables.$accent-primary !important;
-    @include variables.glow-text(variables.$accent-primary);
+    color: variables.$magenta-deep !important;
   }
 
   &:visited {
-    color: variables.$accent-primary !important;
+    color: variables.$magenta-deep !important;
   }
 }

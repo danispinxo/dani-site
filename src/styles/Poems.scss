@@ -12,35 +12,19 @@
     max-width: 800px;
     position: relative;
     padding: variables.$space-xxl variables.$space-xl;
-    background: rgba(variables.$bg-elevated, 0.7);
+    background: transparent;
     border-radius: variables.$radius-xl;
-    border: 1px solid variables.$border-subtle;
-    backdrop-filter: blur(20px);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: variables.$gradient-accent;
-      opacity: 0.4;
-      border-radius: variables.$radius-xl variables.$radius-xl 0 0;
-    }
+    border: none;
 
     .poem-title {
-      font-family: variables.$typewriter-font;
+      font-family: variables.$display-font;
       font-size: 3.5rem;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: variables.$space-xxl;
-      background: variables.$gradient-accent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: variables.$magenta;
       position: relative;
-
-      @include variables.glow-text(variables.$accent-primary);
 
       @include variables.md {
         font-size: 2.8rem;
@@ -113,10 +97,7 @@
         opacity: 0.7;
         letter-spacing: 1px;
 
-        &::before {
-          content: "> ";
-          color: variables.$accent-primary;
-        }
+
       }
     }
   }
@@ -148,7 +129,6 @@
     &:hover {
       background-color: rgba(variables.$accent-primary, 0.1) !important;
       border-color: variables.$accent-primary !important;
-      @include variables.glow-text(variables.$accent-primary);
     }
   }
 

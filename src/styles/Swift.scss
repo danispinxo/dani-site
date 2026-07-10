@@ -10,8 +10,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: variables.$space-xl variables.$space-lg;
-  background: rgba(variables.$bg-secondary, 0.8);
-  backdrop-filter: blur(10px);
+  background: variables.$blush-warm;
+  
   border: 1px solid variables.$border-prominent;
   border-radius: variables.$radius-lg;
   margin-top: variables.$space-xl;
@@ -25,11 +25,13 @@
 
 .page-title {
   font-size: 2.5rem;
-  font-weight: bold;
-  color: variables.$text-primary;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: variables.$magenta;
   text-align: center;
   margin-bottom: variables.$space-md;
-  @include variables.glow-text(variables.$accent-primary);
+  font-family: variables.$display-font;
 
   @include variables.xs {
     font-size: 2rem;
@@ -45,12 +47,11 @@
 }
 
 .swift-poem-container {
-  background: rgba(variables.$bg-elevated, 0.7);
+  background: variables.$white;
   border: 1px solid variables.$border-prominent;
   border-radius: variables.$radius-md;
   padding: variables.$space-lg;
   margin-bottom: variables.$space-lg;
-  @include variables.tech-border;
 
   @include variables.xs {
     padding: variables.$space-md;
@@ -92,8 +93,8 @@
   margin-left: 1rem;
   padding: variables.$space-sm variables.$space-md;
   font-family: variables.$typewriter-font;
-  background: variables.$gradient-accent;
-  color: variables.$text-primary;
+  background: variables.$magenta;
+  color: variables.$white;
   border: none;
   border-radius: variables.$radius-sm;
   cursor: pointer;
@@ -104,7 +105,6 @@
   &:hover {
     transform: translateY(-2px);
     box-shadow: variables.$shadow-prominent;
-    @include variables.glow-text(variables.$accent-primary);
   }
 
   &:active {
@@ -127,7 +127,6 @@
 
     &:hover {
       color: variables.$accent-secondary;
-      @include variables.glow-text(variables.$accent-primary);
     }
   }
 }

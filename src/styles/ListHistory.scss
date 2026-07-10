@@ -21,12 +21,12 @@
   }
 
   a {
-    color: darkred;
+    color: #b01252;
   }
 
   .delete-selected-button {
     margin: 0.5rem;
-    background-color: darkred;
+    background-color: #b01252;
     color: white;
     border-radius: 5px;
     border: none;
@@ -51,7 +51,7 @@
     button {
       font-size: 1.5rem;
       background-color: transparent;
-      color: darkred;
+      color: #b01252;
       border: none;
       cursor: pointer;
 
@@ -67,7 +67,7 @@
     }
 
     th {
-      background-color: darkred;
+      background-color: #b01252;
       color: white;
       font-size: 1.2rem;
     }
@@ -78,7 +78,7 @@
 
     tr:hover,
     tr.selected {
-      background-color: goldenrod;
+      background-color: #e0a82e;
       color: white;
     }
   }
@@ -88,7 +88,7 @@
     flex-direction: column;
     margin: 2rem;
     padding: 0 1rem 1rem;
-    border: 1px solid darkred;
+    border: 1px solid #b01252;
     border-radius: 8px;
     width: 50%;
 
@@ -103,14 +103,14 @@
     button {
       width: 25%;
       font-size: 1rem;
-      background-color: darkred;
+      background-color: #b01252;
       color: white;
       border-radius: 5px;
       border: none;
       cursor: pointer;
 
       &.cancel-button {
-        background-color: goldenrod;
+        background-color: #e0a82e;
       }
 
       &:hover {
@@ -120,7 +120,7 @@
   }
 
   .custom-checkbox {
-    accent-color: darkred;
+    accent-color: #b01252;
   }
 }
 
@@ -143,7 +143,7 @@
       margin-left: 1rem;
       padding: 0.3rem 0.8rem;
       font-family: variables.$round-font;
-      background-color: darkred;
+      background-color: #b01252;
       color: white;
       border-radius: 4px;
       border: none;
