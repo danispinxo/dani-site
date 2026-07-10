@@ -5,7 +5,6 @@ const WhisperingGallery = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="page-content">
           <div className="page-container">
@@ -13,7 +12,7 @@ const WhisperingGallery = () => {
 
             <section className="writing-section">
               <Book
-                cover="/images/ariadne.jpeg"
+                cover="/images/WhisperingGallery.jpg"
                 title="Whispering Gallery"
                 date="forthcoming 13 October 2026"
                 notes="with Assembly Press"
