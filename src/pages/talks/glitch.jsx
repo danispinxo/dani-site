@@ -5,7 +5,6 @@ const Glitch = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="page-content">
           <iframe
