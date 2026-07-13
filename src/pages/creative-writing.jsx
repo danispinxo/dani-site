@@ -5,7 +5,6 @@ const CreativeWriting = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="page-content">
           <div className="page-container">
@@ -23,7 +22,7 @@ const CreativeWriting = () => {
                 />
 
                 <Book
-                  cover="/images/oo-cover.jpg"
+                  cover="/images/oo-cover-real.png"
                   title="OO: Typewriter Poems"
                   date="1 April 2020"
                   linkType="sale"

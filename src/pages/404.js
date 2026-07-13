@@ -5,7 +5,6 @@ const NotFoundPage = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="error-page">
           <div className="error-container">

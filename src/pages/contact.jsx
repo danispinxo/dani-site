@@ -9,7 +9,6 @@ const Contact = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="contact-page">
           <div className="contact-container">

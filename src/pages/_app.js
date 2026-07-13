@@ -15,14 +15,19 @@ import "../styles/Poems.scss";
 import "../styles/Error.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Cormorant, Special_Elite, Varela_Round } from "next/font/google";
+import { Syne, Source_Serif_4 } from "next/font/google";
 
-const cormorant = Cormorant({
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
 });
-const specialElite = Special_Elite({ subsets: ["latin"], weight: ["400"] });
-const varelaRound = Varela_Round({ subsets: ["latin"], weight: ["400"] });
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+});
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -35,12 +40,14 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Dani Spinosa: Poet Dev && Dev Poet</title>
+        <title>Dani Spinosa</title>
       </Head>
-      <Component
-        {...pageProps}
-        fonts={{ cormorant, specialElite, varelaRound }}
-      />
+      <div className={`${syne.variable} ${sourceSerif.variable}`}>
+        <Component
+          {...pageProps}
+          fonts={{ display: syne, body: sourceSerif }}
+        />
+      </div>
     </StrictMode>
   );
 }

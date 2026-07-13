@@ -27,7 +27,6 @@ const PoemGenerator = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="poem-page">
           <div className="poem-container">

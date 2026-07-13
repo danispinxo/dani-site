@@ -5,6 +5,23 @@ a.book-detail-link {
   text-decoration: none;
   color: inherit;
   min-width: 0;
+  transition: transform variables.$transition-normal;
+
+  @include variables.hover-device {
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  @include variables.reduced-motion {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &:focus-visible {
+    @include variables.focus-ring;
+  }
 }
 
 .book-component {
@@ -14,26 +31,11 @@ a.book-detail-link {
   width: 100%;
   max-width: 800px;
   margin: variables.$space-lg auto;
-  padding: variables.$space-lg;
-  background: rgba(variables.$bg-elevated, 0.6);
-  border-radius: variables.$radius-lg;
-  border: 1px solid variables.$border-subtle;
-  backdrop-filter: blur(15px);
+  padding: variables.$space-lg 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid variables.$border-subtle;
   position: relative;
-
-  @include variables.tech-border;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: variables.$gradient-accent;
-    opacity: 0.2;
-    border-radius: variables.$radius-lg variables.$radius-lg 0 0;
-  }
 
   @include variables.md {
     flex-direction: column;
@@ -45,39 +47,44 @@ a.book-detail-link {
     flex-direction: column;
     text-align: center;
     max-width: 500px;
-    padding: variables.$space-md;
+    padding: variables.$space-md 0;
     gap: variables.$space-md;
   }
 
   @include variables.xs {
     max-width: 100%;
     margin: variables.$space-md 0;
-    padding: variables.$space-md;
+    padding: variables.$space-md 0;
     gap: variables.$space-md;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: variables.$space-sm;
-    gap: variables.$space-sm;
   }
 
   .book-cover {
     width: 148px;
     aspect-ratio: 2 / 3;
     height: auto;
-    border-radius: variables.$radius-md;
+    border-radius: 0;
     object-fit: contain;
     object-position: center;
-    background: rgba(variables.$bg-secondary, 0.5);
+    background: variables.$blush-warm;
     box-shadow: variables.$shadow-subtle;
     flex-shrink: 0;
+    transition: transform variables.$transition-normal;
 
     &--landscape {
       object-fit: cover;
     }
 
-    &:hover {
-      cursor: pointer;
+    @include variables.hover-device {
+      &:hover {
+        transform: translateY(-3px);
+        cursor: pointer;
+      }
+    }
+
+    @include variables.reduced-motion {
+      &:hover {
+        transform: none;
+      }
     }
 
     @include variables.md {
@@ -110,15 +117,14 @@ a.book-detail-link {
     }
 
     .book-title {
-      font-family: variables.$typewriter-font;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: variables.$text-primary;
+      font-family: variables.$display-font;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: variables.$magenta-ink;
       margin-bottom: variables.$space-sm;
-      font-style: italic;
+      font-style: normal;
       line-height: 1.3;
-
-      @include variables.glow-text(variables.$accent-primary);
 
       @include variables.sm {
         font-size: 1.2rem;
@@ -127,23 +133,18 @@ a.book-detail-link {
       @include variables.xs {
         font-size: 1rem;
       }
-
-      @media screen and (max-width: 360px) {
-        font-size: 0.9rem;
-      }
     }
 
     .icon {
       display: inline-block;
       align-self: flex-start;
       margin-right: variables.$space-sm;
-      color: variables.$accent-primary;
+      color: variables.$magenta-deep;
       font-size: 1.2rem;
-      transition: all variables.$transition-fast;
+      transition: color variables.$transition-fast;
 
       &:hover {
-        color: variables.$accent-primary;
-        @include variables.glow-text(variables.$accent-primary);
+        color: variables.$goldenrod-deep;
       }
     }
 
@@ -155,87 +156,36 @@ a.book-detail-link {
       padding: 0;
       cursor: pointer;
       line-height: 1;
+
+      &:focus-visible {
+        @include variables.focus-ring;
+      }
     }
 
     .book-press {
-      font-family: variables.$serif-font;
+      font-family: variables.$body-font;
       font-size: 1rem;
       color: variables.$text-secondary;
       margin-bottom: variables.$space-xs;
       font-style: italic;
-
-      @include variables.sm {
-        font-size: 0.9rem;
-      }
-
-      @include variables.xs {
-        font-size: 0.85rem;
-      }
-
-      @media screen and (max-width: 360px) {
-        font-size: 0.8rem;
-      }
     }
 
     .book-notes {
-      font-family: variables.$round-font;
-      font-size: 0.9rem;
+      font-family: variables.$body-font;
+      font-size: 0.95rem;
       color: variables.$text-secondary;
       line-height: 1.5;
       margin-bottom: variables.$space-xs;
-
-      @include variables.sm {
-        font-size: 0.8rem;
-      }
-
-      @include variables.xs {
-        font-size: 0.75rem;
-      }
-
-      @media screen and (max-width: 360px) {
-        font-size: 0.7rem;
-      }
     }
 
     .book-date {
-      font-family: variables.$mono-font;
+      font-family: variables.$display-font;
       font-size: 0.8rem;
-      color: variables.$text-muted;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: variables.$goldenrod-deep;
       margin-top: auto;
-
-      &::before {
-        content: "> ";
-        color: variables.$accent-primary;
-        opacity: 0.7;
-      }
-
-      @include variables.sm {
-        font-size: 0.7rem;
-      }
-
-      @include variables.xs {
-        font-size: 0.65rem;
-      }
-
-      @media screen and (max-width: 360px) {
-        font-size: 0.6rem;
-      }
-    }
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    right: variables.$space-md;
-    width: 40px;
-    height: 2px;
-    background: variables.$gradient-accent;
-    opacity: 0.3;
-    border-radius: 1px;
-
-    @include variables.sm {
-      display: none;
     }
   }
 }

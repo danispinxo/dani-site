@@ -101,7 +101,6 @@ const When = () => {
   return (
     <>
       <TopNavbar />
-      <div className="tech-grid" />
       <main>
         <div className="page-content">
           <div className="page-container">
