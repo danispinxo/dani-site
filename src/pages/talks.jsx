@@ -15,6 +15,14 @@ const Talks = () => {
               <h2 className="section-title">Keynote Addresses</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Plenary: Electronic Literature Collective 5"
+                  publication="ELO (un)supervised 2026"
+                  date="17 July 2026"
+                  notes="Co-authored with Daniel Cox, Zach Whalen, and Élika Ortega-Guzmán"
+                  linkType="talk"
+                  link="https://stars.library.ucf.edu/elo2026/combined_schedule/all/4/"
+                />
+                <Publication
                   title="Fast Code, Slow Poems: Digital Poetics and Small Press Analogues"
                   publication="Where from Here? University of Guelph"
                   date="16 September 2022"
