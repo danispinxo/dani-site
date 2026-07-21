@@ -16,7 +16,7 @@ export default function Portfolio() {
       notes: "This website showcases my portfolio and full CV.",
     },
     {
-      cover: "/images/jesse-site.png",
+      cover: "/images/jesse-site-new.png",
       link: "https://www.jptherapystudios.com",
       title: "Jesse Pajuäär Therapy Studios Website",
       github: "https://github.com/danispinxo/jesse-site",
