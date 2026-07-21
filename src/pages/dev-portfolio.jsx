@@ -12,7 +12,7 @@ export default function Portfolio() {
       link: "https://www.danispinosa.dev",
       title: "Personal Website",
       github: "https://github.com/danispinxo/dani-site",
-      date: "2025",
+      date: "2026",
       notes: "This website showcases my portfolio and full CV.",
     },
     {
@@ -20,7 +20,7 @@ export default function Portfolio() {
       link: "https://www.jptherapystudios.com",
       title: "Jesse Pajuäär Therapy Studios Website",
       github: "https://github.com/danispinxo/jesse-site",
-      date: "2025",
+      date: "2026",
       notes:
         "A personal website for a therapist, featuring info and contact form.",
     },
