@@ -10,11 +10,6 @@ export default function Gallery() {
         <div className="page-content">
           <div className="page-container">
             <h1 className="page-title">Gallery</h1>
-            <p className="gallery-subtitle">
-              A visual collection of readings, events, publications, and other
-              moments
-            </p>
-
             <ImageGallery />
           </div>
         </div>
