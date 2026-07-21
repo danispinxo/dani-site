@@ -8,7 +8,7 @@ import TopNavbar from "../components/Navbar";
 export default function Portfolio() {
   const projects = [
     {
-      cover: "/images/dani-site.png",
+      cover: "/images/dani-site-new.png",
       link: "https://www.danispinosa.dev",
       title: "Personal Website",
       github: "https://github.com/danispinxo/dani-site",
