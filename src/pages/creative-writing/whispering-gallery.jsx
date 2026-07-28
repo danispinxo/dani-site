@@ -29,7 +29,10 @@ const WhisperingGallery = () => {
 
                 <ul className="reviews-list">
                   <li>
-                    <i>Whisper Gallery</i> in the Publisher's Weekly <a href="https://www.publishersweekly.com/pw/by-topic/new-titles/adult-announcements/article/100723-fall-2026-fiction-nonfiction-preview-poetry.html" target="_blank" rel="noreferrer noopener">Fall 2026 Preview</a>
+                    <i>Whispering Gallery</i> in the Quill & Quire <a href="https://quillandquire.com/omni/2026-fall-preview-short-fiction-graphic-novels-and-poetry/" target="_blank" rel="noreferrer noopener">Fall 2026 Preview</a>
+                  </li>
+                  <li>
+                    <i>Whispering Gallery</i> in the Publisher's Weekly <a href="https://www.publishersweekly.com/pw/by-topic/new-titles/adult-announcements/article/100723-fall-2026-fiction-nonfiction-preview-poetry.html" target="_blank" rel="noreferrer noopener">Fall 2026 Preview</a>
                   </li>
                 </ul>
               </div>
