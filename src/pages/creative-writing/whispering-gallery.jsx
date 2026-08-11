@@ -34,6 +34,9 @@ const WhisperingGallery = () => {
                   <li>
                     <i>Whispering Gallery</i> in the Publisher's Weekly <a href="https://www.publishersweekly.com/pw/by-topic/new-titles/adult-announcements/article/100723-fall-2026-fiction-nonfiction-preview-poetry.html" target="_blank" rel="noreferrer noopener">Fall 2026 Preview</a>
                   </li>
+                  <li>
+                    <i>Whispering Gallery</i> in the 49th Shelf <a href="https://49thshelf.com/Blog/2026/08/06/Most-Anticipated-Our-2026-Fall-Poetry-Preview" target="_blank" rel="noreferrer noopener">Most Anticipated: Our 2026 Fall Poetry Preview</a>
+                  </li>
                 </ul>
               </div>
             </section>
