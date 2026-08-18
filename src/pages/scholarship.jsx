@@ -223,6 +223,14 @@ const Scholarship = () => {
               <h2 className="section-title">Book Reviews</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Poetics at Scale: Databases, Mediation, and the Infrastructure of Reading"
+                  publication="College Literature"
+                  date="Summer 2026"
+                  notes="Special issue on “Infrastructural Poetics,” Edited by Claire Farley, vol. 53, iss. 3"
+                  linkType="link"
+                  link="https://muse.jhu.edu/pub/1/article/998764/pdf"
+                />
+                <Publication
                   title="Now I am a number: Rev. of repeater by Drew McEwan"
                   publication="The Minute Review"
                   date="2024"
