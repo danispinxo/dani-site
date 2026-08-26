@@ -132,6 +132,9 @@ const CreativeWriting = () => {
 
               <ul className="publications-list">
                 <li>
+                  <a href="https://ex-puritan.ca/ariadne-refrain-and-glauke-turns">"Ariadne (Refrain)" and "Glauke Turns."</a> <i>The Ex-Puritan</i>, issue 74, Summer 2026.
+                </li>
+                <li>
                   "<a href="https://dusie.blogspot.com/2025/12/tuesday-poem-664-dani-spinosa-house.html">House</a>."{" "}
                   <i>DUSIE</i>
                   , Tuesday Poem #664, edited by rob mclennan. 23 December.
