@@ -1,5 +1,9 @@
 export const images = [
   {
+    src: "/images/atwh-toronto-launch.png",
+    alt: "Flyer for All the Waking Hours launch with Erin Wunker at Flying Books, Toronto",
+  },
+  {
     src: "/images/gap-riot-table.jpg",
     alt: "Gap Riot Table",
   },
