@@ -16,8 +16,10 @@ const CreativeWriting = () => {
                 <Book
                   cover="/images/WhisperingGallery.jpg"
                   title="Whispering Gallery"
-                  date="forthcoming 13 October 2026"
+                  date="13 October 2026"
                   notes="Assembly Press"
+                  linkType="sale"
+                  link="https://assemblypress.ca/shop/whispering-gallery"
                   detailHref="/creative-writing/whispering-gallery"
                 />
 
