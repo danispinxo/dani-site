@@ -58,20 +58,34 @@ a.book-detail-link {
     gap: variables.$space-md;
   }
 
+  > a {
+    flex-shrink: 0;
+    align-self: flex-start;
+    line-height: 0;
+
+    @include variables.md {
+      align-self: center;
+    }
+  }
+
   .book-cover {
-    width: 148px;
-    aspect-ratio: 2 / 3;
+    width: auto;
+    max-width: 148px;
+    max-height: 222px;
     height: auto;
     border-radius: 0;
     object-fit: contain;
-    object-position: center;
-    background: variables.$blush-warm;
+    object-position: top center;
+    background: transparent;
     box-shadow: variables.$shadow-subtle;
     flex-shrink: 0;
+    align-self: flex-start;
+    display: block;
     transition: transform variables.$transition-normal;
 
     &--landscape {
-      object-fit: cover;
+      max-width: 180px;
+      max-height: 140px;
     }
 
     @include variables.hover-device {
@@ -88,27 +102,51 @@ a.book-detail-link {
     }
 
     @include variables.md {
-      width: 168px;
+      max-width: 168px;
+      max-height: 252px;
       align-self: center;
+
+      &--landscape {
+        max-width: 200px;
+        max-height: 156px;
+      }
     }
 
     @include variables.sm {
-      width: 156px;
+      max-width: 156px;
+      max-height: 234px;
+
+      &--landscape {
+        max-width: 180px;
+        max-height: 140px;
+      }
     }
 
     @include variables.xs {
-      width: 132px;
+      max-width: 132px;
+      max-height: 198px;
+
+      &--landscape {
+        max-width: 156px;
+        max-height: 120px;
+      }
     }
 
     @media screen and (max-width: 360px) {
-      width: 112px;
+      max-width: 112px;
+      max-height: 168px;
+
+      &--landscape {
+        max-width: 132px;
+        max-height: 100px;
+      }
     }
   }
 
   .book-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1;
 
     @include variables.md {
