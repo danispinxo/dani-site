@@ -134,6 +134,21 @@ const CreativeWriting = () => {
 
               <ul className="publications-list">
                 <li>
+                  "
+                  <a href="https://periodicityjournal.blogspot.com/2026/09/folio-scrapbook-edited-by-manahil.html">
+                    Iphigenia
+                  </a>
+                  ." <i>periodicities</i>, folio: Scrapbook, edited by Manahil
+                  Bandukwala. 21 September 2026.
+                </li>
+                <li>
+                  "
+                  <a href="https://drive.google.com/file/d/1Ks-BT1LjqhMk3kkCvOImaoIhs_9GO_PI/view">
+                    Sit Calm
+                  </a>
+                  ." <i>The Minute Review</i>, vol. 3, no. 2-3.
+                </li>
+                <li>
                   <a href="https://ex-puritan.ca/ariadne-refrain-and-glauke-turns">"Ariadne (Refrain)" and "Glauke Turns."</a> <i>The Ex-Puritan</i>, issue 74, Summer 2026.
                 </li>
                 <li>
