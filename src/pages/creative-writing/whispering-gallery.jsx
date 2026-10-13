@@ -14,7 +14,7 @@ const WhisperingGallery = () => {
               <Book
                 cover="/images/WhisperingGallery.jpg"
                 title="Whispering Gallery"
-                date="forthcoming 13 October 2026"
+                date="13 October 2026"
                 notes="with Assembly Press"
                 linkType="sale"
                 link="https://assemblypress.ca/shop/whispering-gallery"
@@ -114,7 +114,7 @@ const WhisperingGallery = () => {
                     ." 11 September 2026.
                   </li>
                   <li>
-                    Cade, Colleen. "
+                    "
                     <a
                       href="https://alllitup.ca/two-poems-whispering-gallery/"
                       target="_blank"
