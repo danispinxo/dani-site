@@ -14,6 +14,14 @@ export default function PublicWriting() {
               <h2 className="section-title">Articles, Essays & Interviews</h2>
               <div className="publications-grid">
                 <Publication
+                  title="Canadian Poets Series #38: Dani Spinosa"
+                  publication="Peripety and/or Tronies"
+                  date="6 October 2026"
+                  notes="Profile by rob mclennan"
+                  linkType="link"
+                  link="https://peripetyandortronies.blogspot.com/2026/10/canadian-poets-series-38-dani-spinosa.html"
+                />
+                <Publication
                   title="Dani Spinosa and Derek Beaulieu : Notes on Visual Poetries in Canada"
                   publication="Periodicities"
                   date="4 August 2025"
