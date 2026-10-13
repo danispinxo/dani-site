@@ -92,6 +92,17 @@ const WhisperingGallery = () => {
 
                 <ul className="reviews-list">
                   <li>
+                    "
+                    <a
+                      href="https://umfm.com/programming/broadcast/turning-pages-october-7-2026"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Dani Spinosa on Whispering Gallery
+                    </a>
+                    ." <em>Turning Pages</em>, UMFM 101.5, 7 October 2026.
+                  </li>
+                  <li>
                     mclennan, rob. "
                     <a
                       href="https://robmclennan.blogspot.com/2026/09/dani-spinosa-whispering-gallery-poems.html"
