@@ -8,12 +8,11 @@ export default function Homepage() {
     <>
       <TopNavbar />
       <main>
-        <section className="home-hero" aria-label="Whispering Gallery preorder">
+        <section className="home-hero" aria-label="Whispering Gallery, out now">
           <div className="home-hero-copy">
             <h1 className="home-brand">Dani Spinosa</h1>
             <p className="home-tagline">
-              Preorder <i>Whispering Gallery</i> now from Assembly Press.
-              My new collection of poems out October 13, 2026.
+              <i>Whispering Gallery</i> is out now from Assembly Press!!!
             </p>
             <div className="home-ctas">
               <a
@@ -22,7 +21,7 @@ export default function Homepage() {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Preorder now
+                Order now
               </a>
               <Link
                 href="/creative-writing/whispering-gallery"
@@ -43,7 +42,7 @@ export default function Homepage() {
           </div>
         </section>
 
-        <section className="home-below" aria-label="About and upcoming book">
+        <section className="home-below" aria-label="About and Whispering Gallery">
           <div className="home-below-inner">
             <div className="home-bio">
               <h2>About</h2>
@@ -97,7 +96,7 @@ export default function Homepage() {
                   height={500}
                   sizes="(max-width: 959px) 80vw, 320px"
                 />
-                <p className="home-book-label">Preorder from Assembly Press</p>
+                <p className="home-book-label">Order from Assembly Press</p>
                 <p className="home-book-title">Whispering Gallery</p>
               </a>
             </div>
