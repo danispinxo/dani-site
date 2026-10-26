@@ -39,6 +39,14 @@ const CreativeWriting = () => {
               <h2 className="section-title">Chapbooks</h2>
               <div className="books-grid">
                 <Book
+                  cover="/images/garden-centre.jpg"
+                  title="Garden Centre"
+                  press="Communique Press"
+                  date="2026"
+                  linkType="sale"
+                  link="https://www.communiquebooks.ca/store/p/gardencentre"
+                />
+                <Book
                   cover="/images/mean-mean.jpg"
                   title="A Mean, Mean Thirst (poems for my friends and their books)"
                   press="above/ground press"
