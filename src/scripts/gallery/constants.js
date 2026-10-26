@@ -193,4 +193,8 @@ export const images = [
     src: "/images/dear-x.jpg",
     alt: "Poem Dear X for derek beaulieu",
   },
+  {
+    src: "/images/communique-launch.webp",
+    alt: "Launch of Garden Centre for Communique's First Season, Halifax, NS",
+  },
 ];
