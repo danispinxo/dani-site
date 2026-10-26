@@ -27,6 +27,15 @@ const WhisperingGallery = () => {
 
                 <div className="praise-quote">
                   <p>
+                    "Dani Spinosa's latest book ... pulses and thrums with barely suppressed rage."
+                  </p>
+                  <cite>
+                    Melanie Brannagan Frederiksen, <em>Winnipeg Free Press</em>
+                  </cite>
+                </div>
+
+                <div className="praise-quote">
+                  <p>
                     "This is Auntie Dani writing the world as it is and has
                     been, and as it could be, all for the sake of this new life,
                     an opening salvo of a mentorship, offered open-hearted,
@@ -91,6 +100,17 @@ const WhisperingGallery = () => {
                 </h4>
 
                 <ul className="reviews-list">
+                  <li>
+                    Frederiksen, Melanie Brannagan. "
+                    <a
+                      href="https://www.winnipegfreepress.com/arts-and-life/entertainment/books/2026/10/24/persistence-peril-bind-womens-voices"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Persistence, peril bind women&apos;s voices
+                    </a>
+                    ." <em>Winnipeg Free Press</em>, 24 October 2026.
+                  </li>
                   <li>
                     "
                     <a
