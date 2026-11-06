@@ -16,8 +16,8 @@ const CreativeWriting = () => {
                 <Book
                   cover="/images/WhisperingGallery.jpg"
                   title="Whispering Gallery"
+                  press="Assembly Press"
                   date="13 October 2026"
-                  notes="Assembly Press"
                   linkType="sale"
                   link="https://assemblypress.ca/shop/whispering-gallery"
                   detailHref="/creative-writing/whispering-gallery"
@@ -26,9 +26,9 @@ const CreativeWriting = () => {
                 <Book
                   cover="/images/oo-cover-real.png"
                   title="OO: Typewriter Poems"
+                  press="Invisible Publishing"
                   date="1 April 2020"
                   linkType="sale"
-                  notes="Invisible Publishing"
                   link="https://invisiblepublishing.com/product/oo-typewriter-poems/"
                   detailHref="/creative-writing/oo-typewriter-poems"
                 />

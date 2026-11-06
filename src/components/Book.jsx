@@ -1,4 +1,3 @@
-import { useState, useCallback } from "react";
 import Link from "next/link";
 import { Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,58 +42,55 @@ const Book = ({
         ? "Open audio link"
         : "Open external link";
 
-  const [coverIsLandscape, setCoverIsLandscape] = useState(false);
-
-  const handleCoverLoad = useCallback((e) => {
-    const { naturalWidth, naturalHeight } = e.currentTarget;
-    setCoverIsLandscape(naturalWidth > naturalHeight);
-  }, []);
-
-  const coverClassName =
-    "book-cover" + (coverIsLandscape ? " book-cover--landscape" : "");
-
   const coverImage = (
-    <Image
-      className={coverClassName}
-      src={cover}
-      alt={title}
-      title={title}
-      onLoad={handleCoverLoad}
-    />
+    <Image className="book-cover" src={cover} alt={title} title={title} />
   );
+
+  const linkControl = link ? (
+    detailHref ? (
+      <button
+        type="button"
+        className="icon book-external-icon"
+        aria-label={externalLabel}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open(link, "_blank", "noopener,noreferrer");
+        }}
+      >
+        {icon}
+      </button>
+    ) : (
+      <a
+        className="icon"
+        href={link}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {icon}
+      </a>
+    )
+  ) : null;
 
   return (
     <div className="book-component">
-      {detailHref ? coverImage : <a href={cover} target="_blank" rel="noreferrer noopener">{coverImage}</a>}
+      {detailHref ? (
+        coverImage
+      ) : (
+        <a href={cover} target="_blank" rel="noreferrer noopener">
+          {coverImage}
+        </a>
+      )}
       <div className="book-info">
         <h5 className="book-title">{title}</h5>
-        {link &&
-          (detailHref ? (
-            <button
-              type="button"
-              className="icon book-external-icon"
-              aria-label={externalLabel}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(link, "_blank", "noopener,noreferrer");
-              }}
-            >
-              {icon}
-            </button>
-          ) : (
-            <a
-              className="icon"
-              href={link}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {icon}
-            </a>
-          ))}
-        <i className="book-press">{press}</i>
-        <p className="book-notes">{notes}</p>
-        <p className="book-date">{date}</p>
+        {(linkControl || press) && (
+          <div className="book-meta">
+            {linkControl}
+            {press ? <i className="book-press">{press}</i> : null}
+          </div>
+        )}
+        {notes ? <p className="book-notes">{notes}</p> : null}
+        {date ? <p className="book-date">{date}</p> : null}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const WhisperingGallery = () => {
                 cover="/images/WhisperingGallery.jpg"
                 title="Whispering Gallery"
                 date="13 October 2026"
-                notes="with Assembly Press"
+                press="Assembly Press"
                 linkType="sale"
                 link="https://assemblypress.ca/shop/whispering-gallery"
               />
