@@ -138,6 +138,109 @@
       }
     }
 
+    .book-launch {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: variables.$space-xl;
+      align-items: center;
+      margin-top: variables.$space-xxl;
+      padding: variables.$space-xl;
+      background: variables.$magenta;
+      color: variables.$white;
+      border-radius: variables.$radius-lg;
+
+      @include variables.sm {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .book-launch-kicker {
+      font-family: variables.$display-font;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: variables.$goldenrod;
+      margin: 0 0 variables.$space-sm;
+    }
+
+    .book-launch-title {
+      font-family: variables.$display-font;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      color: variables.$white;
+      margin: 0 0 variables.$space-md;
+
+      i {
+        font-style: italic;
+      }
+    }
+
+    .book-launch-details {
+      font-family: variables.$body-font;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: variables.$white;
+      margin: 0 0 variables.$space-lg;
+    }
+
+    .book-launch-link {
+      font-family: variables.$display-font;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: variables.$magenta-ink;
+      background: variables.$goldenrod;
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.7rem 1.1rem;
+      transition:
+        background variables.$transition-normal,
+        color variables.$transition-normal,
+        transform variables.$transition-normal;
+
+      &:hover {
+        background: variables.$white;
+        color: variables.$magenta-ink;
+      }
+
+      @include variables.hover-device {
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      @include variables.reduced-motion {
+        &:hover {
+          transform: none;
+        }
+      }
+
+      &:focus-visible {
+        @include variables.focus-ring(true);
+      }
+    }
+
+    .book-launch-flyer {
+      justify-self: end;
+
+      @include variables.sm {
+        justify-self: center;
+        order: -1;
+      }
+
+      img {
+        width: min(100%, 280px);
+        height: auto;
+        display: block;
+        box-shadow: variables.$shadow-prominent;
+      }
+    }
+
     .book-praise {
       margin-top: variables.$space-xxl;
       padding: variables.$space-xl;
