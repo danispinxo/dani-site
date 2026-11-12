@@ -140,7 +140,7 @@ main {
   line-height: 1.5;
   color: variables.$white;
   max-width: 32ch;
-  margin: 0 0 variables.$space-xl;
+  margin: 0 0 variables.$space-md;
 
   i {
     font-style: italic;
@@ -148,6 +148,22 @@ main {
 
   @media screen and (max-width: 959px) {
     max-width: 40ch;
+  }
+}
+
+.home-launch {
+  font-family: variables.$display-font;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: variables.$goldenrod;
+  max-width: 36ch;
+  margin: 0 0 variables.$space-xl;
+
+  @media screen and (max-width: 959px) {
+    max-width: 42ch;
   }
 }
 
