@@ -1,5 +1,7 @@
 import Book from "../../components/Book";
 import TopNavbar from "../../components/Navbar";
+import Image from "next/image";
+import Link from "next/link";
 
 const WhisperingGallery = () => {
   return (
@@ -19,6 +21,34 @@ const WhisperingGallery = () => {
                 linkType="sale"
                 link="https://assemblypress.ca/shop/whispering-gallery"
               />
+
+              <aside className="book-launch" aria-label="Book launch details">
+                <div className="book-launch-copy">
+                  <p className="book-launch-kicker">Book launch party</p>
+                  <h2 className="book-launch-title">
+                    <i>Whispering Gallery</i> at the plumb
+                  </h2>
+                  <p className="book-launch-details">
+                    Saturday, 21 November · 6:00pm
+                    <br />
+                    the plumb · 1655 Dufferin St Basement
+                    <br />
+                    Presented by Assembly Press
+                  </p>
+                  <Link href="/gallery" className="book-launch-link">
+                    See the launch flyer
+                  </Link>
+                </div>
+                <div className="book-launch-flyer">
+                  <Image
+                    src="/images/launch-flyer.jpg"
+                    alt="Flyer for the Whispering Gallery book launch party at the plumb, Saturday 21 November at 6:00pm"
+                    width={480}
+                    height={600}
+                    sizes="(max-width: 700px) 80vw, 280px"
+                  />
+                </div>
+              </aside>
 
               <div className="book-praise">
                 <h3 className="praise-heading">
