@@ -1,5 +1,9 @@
 export const images = [
   {
+    src: "/images/launch-flyer.jpg",
+    alt: "Flyer for Whispering Gallery book launch party at the plumb, Toronto, 21 November 2026",
+  },
+  {
     src: "/images/atwh-toronto-launch.png",
     alt: "Flyer for All the Waking Hours launch with Erin Wunker at Flying Books, Toronto",
   },
