@@ -35,8 +35,8 @@ const WhisperingGallery = () => {
                     <br />
                     Presented by Assembly Press
                   </p>
-                  <Link href="/gallery" className="book-launch-link">
-                    See the launch flyer
+                  <Link href="https://www.instagram.com/the_plumb/" className="book-launch-link">
+                    Check out the plumb's Instagram for more details
                   </Link>
                 </div>
                 <div className="book-launch-flyer">
