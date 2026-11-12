@@ -14,6 +14,10 @@ export default function Homepage() {
             <p className="home-tagline">
               <i>Whispering Gallery</i> is out now from Assembly Press!!!
             </p>
+            <p className="home-launch">
+              Book launch · Sat 21 Nov · 6:00pm · the plumb, 1655 Dufferin St
+              Basement
+            </p>
             <div className="home-ctas">
               <a
                 href="https://assemblypress.ca/shop/whispering-gallery"
