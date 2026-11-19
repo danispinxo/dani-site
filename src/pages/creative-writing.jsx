@@ -143,6 +143,17 @@ const CreativeWriting = () => {
               <ul className="publications-list">
                 <li>
                   "
+                  <a href="https://abovegroundpress.bandcamp.com/track/dani-spinosa">
+                    we out here (for Kate Siklosi)
+                  </a>
+                  ." Track 39 on{" "}
+                  <a href="https://abovegroundpress.bandcamp.com/album/33-1-3-an-above-ground-press-anthology">
+                    <i>33 1/3: an above/ground press anthology</i>
+                  </a>
+                  , above/ground press. 11 October 2026.
+                </li>
+                <li>
+                  "
                   <a href="https://periodicityjournal.blogspot.com/2026/09/folio-scrapbook-edited-by-manahil.html">
                     Iphigenia
                   </a>
